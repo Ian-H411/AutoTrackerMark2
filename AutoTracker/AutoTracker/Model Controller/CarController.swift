@@ -43,8 +43,8 @@ class CarController{
     //MARK: -CRUD
     
     //Create a car
-    func addACar(name:String, make:String, model:String, year:String, vin:String, engine:String, ownerName:String){
-        let newCar = Car(name: name, make: make, model: model, year: year, vin: vin, engine: engine, ownerName: ownerName)
+    func addACar(name:String, make:String, model:String, year:String, vin:String, engine:String, ownerName:String,odometer:Double){
+        let newCar = Car(name: name, make: make, model: model, year: year, vin: vin, engine: engine, ownerName: ownerName, odometer: odometer )
         saveCarToPersistentStoreAndCloud(car: newCar)
     }
     
@@ -94,8 +94,11 @@ class CarController{
     }
     
     //add a maintenance reminder
-    func addMaintenanceReminder(car:Car, message:String, date: Date){
-        
+    func addMaintenanceReminder(car:Car, message:String, maintanence:String ,date: Date){
+        //TODO: - SET UP ABILITY TO ADD NOTIFICATION
+        let newMain = Maintanence(duedate: date, maintanenceRequiered: maintanence, details: message, car: car)
+        car.upcomingMaintanence?.adding(newMain)
+        saveChangesToPersistentStoreOnly()
     }
     
     

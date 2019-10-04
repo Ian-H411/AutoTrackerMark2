@@ -27,6 +27,8 @@ extension Car {
                      
                      ownerName:String,
                      
+                     odometer: Double,
+                     
                      context: NSManagedObjectContext = CoreDataStack.context){
         
         self.init(context:context)
@@ -54,6 +56,8 @@ extension Car {
         self.longitude = 0
         
         self.recordID = UUID().uuidString
+        
+        self.odometer = odometer
         
     }
     
