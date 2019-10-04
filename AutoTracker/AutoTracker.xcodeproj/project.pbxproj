@@ -62,10 +62,6 @@
 		256810822347A7A800629AEA = {
 			isa = PBXGroup;
 			children = (
-				423925252347B03D00EABF16 /* Record.storyboard */,
-				423925272347B04B00EABF16 /* Home.storyboard */,
-				4239252A2347B05700EABF16 /* Maintain.storyboard */,
-				4239252C2347B06400EABF16 /* MyGarage.storyboard */,
 				2568108D2347A7A800629AEA /* AutoTracker */,
 				2568108C2347A7A800629AEA /* Products */,
 				256810A82347A80800629AEA /* Frameworks */,
@@ -136,6 +132,10 @@
 				2568109C2347A7A900629AEA /* LaunchScreen.storyboard */,
 				256810942347A7A800629AEA /* Main.storyboard */,
 				423925222347B02F00EABF16 /* FindGas.storyboard */,
+				423925252347B03D00EABF16 /* Record.storyboard */,
+				423925272347B04B00EABF16 /* Home.storyboard */,
+				4239252A2347B05700EABF16 /* Maintain.storyboard */,
+				4239252C2347B06400EABF16 /* MyGarage.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
