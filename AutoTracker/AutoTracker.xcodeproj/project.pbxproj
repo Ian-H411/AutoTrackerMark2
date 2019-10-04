@@ -27,6 +27,8 @@
 
 		256810B92347AE0800629AEA /* CarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810B82347AE0800629AEA /* CarController.swift */; };
 
+		256810BB2347D77200629AEA /* CarJsonCompliance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810BA2347D77200629AEA /* CarJsonCompliance.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		4239252D2347B06400EABF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AutoTracker/StoryBoards/Base.lproj/MyGarage.storyboard; sourceTree = "<group>"; };
 
 		256810B82347AE0800629AEA /* CarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarController.swift; sourceTree = "<group>"; };
+
+		256810BA2347D77200629AEA /* CarJsonCompliance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarJsonCompliance.swift; sourceTree = "<group>"; };
 
 /* End PBXFileReference section */
 
@@ -115,6 +119,7 @@
 				256810B02347AA6300629AEA /* Receipt+Convenience.swift */,
 				256810B22347AAAE00629AEA /* Constants.swift */,
 				256810B42347AAE100629AEA /* Car+Convenience.swift */,
+				256810BA2347D77200629AEA /* CarJsonCompliance.swift */,
 			);
 			path = "Model+Convenience";
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 				256810B12347AA6300629AEA /* Receipt+Convenience.swift in Sources */,
 				256810992347A7A800629AEA /* AutoTracker.xcdatamodeld in Sources */,
 				2568108F2347A7A800629AEA /* AppDelegate.swift in Sources */,
+				256810BB2347D77200629AEA /* CarJsonCompliance.swift in Sources */,
 				256810912347A7A800629AEA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
