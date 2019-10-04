@@ -8,10 +8,18 @@
         <attribute name="make" optional="YES" attributeType="String"/>
         <attribute name="model" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="odometer" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="ownerName" optional="YES" attributeType="String"/>
         <attribute name="recordID" optional="YES" attributeType="String"/>
         <attribute name="vin" optional="YES" attributeType="String"/>
         <attribute name="year" optional="YES" attributeType="String"/>
+        <relationship name="upcomingMaintanence" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Maintanence" inverseName="car" inverseEntity="Maintanence"/>
+    </entity>
+    <entity name="Maintanence" representedClassName="Maintanence" syncable="YES" codeGenerationType="class">
+        <attribute name="details" optional="YES" attributeType="String"/>
+        <attribute name="dueOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="maintanenceRequired" optional="YES" attributeType="String"/>
+        <relationship name="car" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Car" inverseName="upcomingMaintanence" inverseEntity="Car"/>
     </entity>
     <entity name="Receipt" representedClassName="Receipt" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -22,9 +30,15 @@
     <configuration name="Cloud" usedWithCloudKit="YES">
         <memberEntity name="Car"/>
         <memberEntity name="Receipt"/>
+        <memberEntity name="Maintanence"/>
     </configuration>
     <elements>
-        <element name="Car" positionX="-63" positionY="-18" width="128" height="208"/>
-        <element name="Receipt" positionX="-54" positionY="63" width="128" height="103"/>
+
+
+
+        <element name="Car" positionX="-63" positionY="-18" width="128" height="238"/>
+        <element name="Receipt" positionX="-54" positionY="63" width="128" height="88"/>
+        <element name="Maintanence" positionX="-36" positionY="90" width="128" height="103"/>
+
     </elements>
 </model>
