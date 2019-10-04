@@ -21,17 +21,33 @@ extension Receipt {
         self.name = name
         self.timestamp = timestamp
         self.photoData = photoData
+        self.recordID = UUID().uuidString
+    }
+    
+    convenience init? (record: CKRecord, context: NSManagedObjectContext = CoreDataStack.context) {
         
+        self.init(context: context)
+        
+        guard let name = record[ReceiptConstants.nameKey] as? String,
+        
+            let timestamp = record[ReceiptConstants.timestampKey] as? Date,
+        
+            let photoData = record[ReceiptConstants.photoKey] as? Data
+            else { return nil }
+
+        self.name = name
+        self.timestamp = timestamp
+        self.photoData = photoData
     }
 }
 
 extension CKRecord {
     
     convenience init(receipt: Receipt) {
-        self.init(recordType: Constants.ReceiptTypeKey)
+        self.init(recordType: ReceiptConstants.ReceiptTypeKey)
         
-        self.setValue(receipt.name, forKey: Constants.nameKey)
-        self.setValue(receipt.timestamp, forKey: Constants.timestampKey)
-        self.setValue(receipt.photoData, forKey: Constants.photoKey)
+        self.setValue(receipt.name, forKey: ReceiptConstants.nameKey)
+        self.setValue(receipt.timestamp, forKey: ReceiptConstants.timestampKey)
+        self.setValue(receipt.photoData, forKey: ReceiptConstants.photoKey)
     }
 }
