@@ -18,6 +18,7 @@
 		256810B32347AAAE00629AEA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810B22347AAAE00629AEA /* Constants.swift */; };
 		256810B52347AAE100629AEA /* Car+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810B42347AAE100629AEA /* Car+Convenience.swift */; };
 		256810B72347AB0C00629AEA /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810B62347AB0C00629AEA /* CoreDataStack.swift */; };
+		256810B92347AE0800629AEA /* CarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810B82347AE0800629AEA /* CarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		256810B22347AAAE00629AEA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		256810B42347AAE100629AEA /* Car+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Car+Convenience.swift"; sourceTree = "<group>"; };
 		256810B62347AB0C00629AEA /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		256810B82347AE0800629AEA /* CarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 		256810AF2347A91E00629AEA /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
+				256810B82347AE0800629AEA /* CarController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				256810B92347AE0800629AEA /* CarController.swift in Sources */,
 				256810B72347AB0C00629AEA /* CoreDataStack.swift in Sources */,
 				256810B52347AAE100629AEA /* Car+Convenience.swift in Sources */,
 				256810B32347AAAE00629AEA /* Constants.swift in Sources */,

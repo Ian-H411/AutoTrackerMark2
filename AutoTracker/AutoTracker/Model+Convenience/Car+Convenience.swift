@@ -53,14 +53,74 @@ extension Car {
         
         self.longitude = 0
         
+        self.recordID = UUID().uuidString
+        
+    }
+    
+    convenience init? (record: CKRecord, context: NSManagedObjectContext = CoreDataStack.context){
+        
+        self.init(context: context)
+        
+        //peel away variables
+        
+        guard let name = record[CarConstants.nameKey] as? String,
+            
+            let make = record[CarConstants.makeKey] as? String,
+            
+            let model = record[CarConstants.modelKey] as? String,
+            
+            let year = record[CarConstants.yearKey] as? String,
+            
+            let vin = record[CarConstants.vinKey] as? String,
+            
+            let engine = record[CarConstants.engineKey] as? String,
+            
+            let ownerName = record[CarConstants.ownerNameKey] as? String,
+            
+            let altitude =  record[CarConstants.altitudeKey] as? Double,
+            
+            let lattitude = record[CarConstants.lattitudeKey] as? Double,
+            
+            let longitude = record[CarConstants.longitudeKey] as? Double
+            
+            else {return}
+        
+        //build from record
+        
+        self.name = name
+        
+        self.model = model
+        
+        self.make = make
+        
+        self.year = year
+        
+        self.vin = vin
+        
+        self.engine = engine
+        
+        self.ownerName = ownerName
+        
+        self.altitude = altitude
+        
+        self.lattitude = lattitude
+        
+        self.longitude = longitude
+        
+        self.recordID = record.recordID.recordName
+        
     }
 }
 
 extension CKRecord{
     
-    convenience init(car:Car){
+    convenience init?(car:Car){
         
-        self.init(recordType:CarConstants.CarTypeKey)
+        guard let recordid = car.recordID else {return nil}
+        
+        let recordIDinFormat = CKRecord.ID(recordName: recordid)
+        
+        self.init(recordType:CarConstants.CarTypeKey, recordID:recordIDinFormat)
         
         self.setValue(car.name, forKey: CarConstants.nameKey)
         
