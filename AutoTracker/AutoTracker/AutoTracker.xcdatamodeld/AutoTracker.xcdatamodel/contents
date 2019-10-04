@@ -24,7 +24,8 @@
     <entity name="Receipt" representedClassName="Receipt" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="photoData" optional="YES" attributeType="Binary"/>
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="recordID" optional="YES" attributeType="String"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" defaultDateTimeInterval="591907980" usesScalarValueType="NO"/>
     </entity>
     <configuration name="Cloud" usedWithCloudKit="YES">
         <memberEntity name="Car"/>
@@ -32,8 +33,12 @@
         <memberEntity name="Maintanence"/>
     </configuration>
     <elements>
+
+
+
         <element name="Car" positionX="-63" positionY="-18" width="128" height="238"/>
         <element name="Receipt" positionX="-54" positionY="63" width="128" height="88"/>
         <element name="Maintanence" positionX="-36" positionY="90" width="128" height="103"/>
+
     </elements>
 </model>
