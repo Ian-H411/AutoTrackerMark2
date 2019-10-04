@@ -24,9 +24,17 @@
 		423925292347B04B00EABF16 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423925272347B04B00EABF16 /* Home.storyboard */; };
 		4239252B2347B05700EABF16 /* Maintain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4239252A2347B05700EABF16 /* Maintain.storyboard */; };
 		4239252E2347B06400EABF16 /* MyGarage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4239252C2347B06400EABF16 /* MyGarage.storyboard */; };
+
 		423925322347D72500EABF16 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423925312347D72500EABF16 /* StyleGuide.swift */; };
 		423925342347D75D00EABF16 /* AutoTrackerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423925332347D75D00EABF16 /* AutoTrackerLabel.swift */; };
 		423925362347DBDF00EABF16 /* MyGarageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423925352347DBDF00EABF16 /* MyGarageTableViewCell.swift */; };
+
+
+		256810B92347AE0800629AEA /* CarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810B82347AE0800629AEA /* CarController.swift */; };
+
+		256810BB2347D77200629AEA /* CarJsonCompliance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810BA2347D77200629AEA /* CarJsonCompliance.swift */; };
+
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,9 +58,17 @@
 		423925282347B04B00EABF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AutoTracker/StoryBoards/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		4239252A2347B05700EABF16 /* Maintain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Maintain.storyboard; sourceTree = "<group>"; };
 		4239252D2347B06400EABF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AutoTracker/StoryBoards/Base.lproj/MyGarage.storyboard; sourceTree = "<group>"; };
+
 		423925312347D72500EABF16 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StyleGuide.swift; path = "AutoTracker/Core Data Stack/StyleGuide.swift"; sourceTree = SOURCE_ROOT; };
 		423925332347D75D00EABF16 /* AutoTrackerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoTrackerLabel.swift; path = "AutoTracker/Core Data Stack/AutoTrackerLabel.swift"; sourceTree = SOURCE_ROOT; };
 		423925352347DBDF00EABF16 /* MyGarageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyGarageTableViewCell.swift; path = "AutoTracker/Core Data Stack/MyGarageTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+
+
+		256810B82347AE0800629AEA /* CarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarController.swift; sourceTree = "<group>"; };
+
+		256810BA2347D77200629AEA /* CarJsonCompliance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarJsonCompliance.swift; sourceTree = "<group>"; };
+
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +131,7 @@
 				256810B02347AA6300629AEA /* Receipt+Convenience.swift */,
 				256810B22347AAAE00629AEA /* Constants.swift */,
 				256810B42347AAE100629AEA /* Car+Convenience.swift */,
+				256810BA2347D77200629AEA /* CarJsonCompliance.swift */,
 			);
 			path = "Model+Convenience";
 			sourceTree = "<group>";
@@ -260,7 +277,11 @@
 				256810B12347AA6300629AEA /* Receipt+Convenience.swift in Sources */,
 				256810992347A7A800629AEA /* AutoTracker.xcdatamodeld in Sources */,
 				2568108F2347A7A800629AEA /* AppDelegate.swift in Sources */,
+
 				423925362347DBDF00EABF16 /* MyGarageTableViewCell.swift in Sources */,
+
+				256810BB2347D77200629AEA /* CarJsonCompliance.swift in Sources */,
+
 				256810912347A7A800629AEA /* SceneDelegate.swift in Sources */,
 				423925322347D72500EABF16 /* StyleGuide.swift in Sources */,
 			);

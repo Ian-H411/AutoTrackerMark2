@@ -100,8 +100,35 @@ class CarController{
     
     
     //retrieve a car from the api
-    func retrieveCarDetailsWith(vin:String, completion: @escaping (Car, Error) -> Void){
-        
+    func retrieveCarDetailsWith(vin:String, year:String, completion: @escaping (CarJson?, Error?) -> Void){
+        var baseURL = URL(fileURLWithPath: "https://vpic.nhtsa.dot.gov/api/vehicles/decodevin/")
+        baseURL.appendPathComponent(vin)
+        guard var componenets = URLComponents(string: baseURL.absoluteString) else {completion(nil,nil);print("invalidUrl");return}
+        let queryItems = [URLQueryItem(name: "format", value: "json"), URLQueryItem(name: "modelyear", value: year)]
+        componenets.queryItems = queryItems
+        guard let finalURL = componenets.url else {completion(nil,nil);print("invalidUrl");return}
+        let request = URLRequest(url: finalURL)
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error{
+                print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
+                completion(nil,error)
+                return
+            }
+            guard let data = data else{completion(nil,nil);print("data was nil");return}
+            
+            do{
+                let decoder = JSONDecoder()
+                let results = try decoder.decode(CarResultsHead.self, from: data)
+                guard let carJson = results.Results.first else {return}
+                completion(carJson, nil)
+                return
+            } catch {
+                print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
+                completion(nil,nil)
+                return
+            }
+            
+        }.resume()
     }
     
     //retrievecarsfromcloud
