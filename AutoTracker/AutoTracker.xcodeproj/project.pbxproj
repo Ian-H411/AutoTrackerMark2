@@ -18,7 +18,15 @@
 		256810B32347AAAE00629AEA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810B22347AAAE00629AEA /* Constants.swift */; };
 		256810B52347AAE100629AEA /* Car+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810B42347AAE100629AEA /* Car+Convenience.swift */; };
 		256810B72347AB0C00629AEA /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810B62347AB0C00629AEA /* CoreDataStack.swift */; };
+
+		423925242347B02F00EABF16 /* FindGas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423925222347B02F00EABF16 /* FindGas.storyboard */; };
+		423925262347B03D00EABF16 /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423925252347B03D00EABF16 /* Record.storyboard */; };
+		423925292347B04B00EABF16 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423925272347B04B00EABF16 /* Home.storyboard */; };
+		4239252B2347B05700EABF16 /* Maintain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4239252A2347B05700EABF16 /* Maintain.storyboard */; };
+		4239252E2347B06400EABF16 /* MyGarage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4239252C2347B06400EABF16 /* MyGarage.storyboard */; };
+
 		256810B92347AE0800629AEA /* CarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810B82347AE0800629AEA /* CarController.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +44,15 @@
 		256810B22347AAAE00629AEA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		256810B42347AAE100629AEA /* Car+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Car+Convenience.swift"; sourceTree = "<group>"; };
 		256810B62347AB0C00629AEA /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+
+		423925232347B02F00EABF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AutoTracker/StoryBoards/Base.lproj/FindGas.storyboard; sourceTree = "<group>"; };
+		423925252347B03D00EABF16 /* Record.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Record.storyboard; sourceTree = "<group>"; };
+		423925282347B04B00EABF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AutoTracker/StoryBoards/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
+		4239252A2347B05700EABF16 /* Maintain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Maintain.storyboard; sourceTree = "<group>"; };
+		4239252D2347B06400EABF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AutoTracker/StoryBoards/Base.lproj/MyGarage.storyboard; sourceTree = "<group>"; };
+
 		256810B82347AE0800629AEA /* CarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarController.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +139,11 @@
 			children = (
 				2568109C2347A7A900629AEA /* LaunchScreen.storyboard */,
 				256810942347A7A800629AEA /* Main.storyboard */,
+				423925222347B02F00EABF16 /* FindGas.storyboard */,
+				423925252347B03D00EABF16 /* Record.storyboard */,
+				423925272347B04B00EABF16 /* Home.storyboard */,
+				4239252A2347B05700EABF16 /* Maintain.storyboard */,
+				4239252C2347B06400EABF16 /* MyGarage.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -211,8 +232,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2568109E2347A7A900629AEA /* LaunchScreen.storyboard in Resources */,
+				423925242347B02F00EABF16 /* FindGas.storyboard in Resources */,
 				2568109B2347A7A900629AEA /* Assets.xcassets in Resources */,
+				423925292347B04B00EABF16 /* Home.storyboard in Resources */,
+				4239252B2347B05700EABF16 /* Maintain.storyboard in Resources */,
 				256810962347A7A800629AEA /* Main.storyboard in Resources */,
+				423925262347B03D00EABF16 /* Record.storyboard in Resources */,
+				4239252E2347B06400EABF16 /* MyGarage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +277,30 @@
 				2568109D2347A7A900629AEA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		423925222347B02F00EABF16 /* FindGas.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				423925232347B02F00EABF16 /* Base */,
+			);
+			name = FindGas.storyboard;
+			sourceTree = "<group>";
+		};
+		423925272347B04B00EABF16 /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				423925282347B04B00EABF16 /* Base */,
+			);
+			name = Home.storyboard;
+			sourceTree = "<group>";
+		};
+		4239252C2347B06400EABF16 /* MyGarage.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4239252D2347B06400EABF16 /* Base */,
+			);
+			name = MyGarage.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
