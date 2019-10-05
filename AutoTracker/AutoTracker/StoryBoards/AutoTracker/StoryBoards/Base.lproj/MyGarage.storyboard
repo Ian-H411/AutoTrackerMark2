@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fai-Vz-aiS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8z8-Vr-9ma">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--My Garage-->
+        <!--Table View Controller-->
         <scene sceneID="6xJ-d2-TMX">
             <objects>
                 <tableViewController id="fai-Vz-aiS" sceneMemberID="viewController">
@@ -24,18 +24,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyp-sR-5Ji" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
-                                                    <rect key="frame" x="10.5" y="5.5" width="393" height="59.5"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irJ-3A-RJs">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <state key="normal" title="Car">
+                                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="gyp-sR-5Ji" firstAttribute="width" secondItem="lNk-NW-SBk" secondAttribute="width" multiplier="0.95" id="GYH-h7-LOc"/>
-                                                <constraint firstItem="gyp-sR-5Ji" firstAttribute="height" secondItem="lNk-NW-SBk" secondAttribute="height" multiplier="0.85" id="cca-1g-CoG"/>
-                                                <constraint firstItem="gyp-sR-5Ji" firstAttribute="centerX" secondItem="lNk-NW-SBk" secondAttribute="centerX" id="mrp-O7-F1x"/>
-                                                <constraint firstItem="gyp-sR-5Ji" firstAttribute="centerY" secondItem="lNk-NW-SBk" secondAttribute="centerY" id="p0R-dx-cw6"/>
+                                                <constraint firstItem="irJ-3A-RJs" firstAttribute="height" secondItem="lNk-NW-SBk" secondAttribute="height" id="5Ok-KI-gbP"/>
+                                                <constraint firstItem="irJ-3A-RJs" firstAttribute="width" secondItem="lNk-NW-SBk" secondAttribute="width" id="BNL-K5-VsO"/>
+                                                <constraint firstItem="irJ-3A-RJs" firstAttribute="centerY" secondItem="lNk-NW-SBk" secondAttribute="centerY" id="Q0B-Zy-l8L"/>
+                                                <constraint firstItem="irJ-3A-RJs" firstAttribute="centerX" secondItem="lNk-NW-SBk" secondAttribute="centerX" id="YZR-ie-xNL"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -179,11 +180,67 @@
                             <outlet property="delegate" destination="fai-Vz-aiS" id="Jk1-sS-Dr7"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="My Garage" id="rvG-cA-Zyq"/>
+                    <navigationItem key="navigationItem" id="3vs-dR-Tsm"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFb-wQ-nIy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-230" y="1407"/>
+            <point key="canvasLocation" x="679.71014492753625" y="1406.9196428571429"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="13A-Sv-hVj">
+            <objects>
+                <tableViewController storyboardIdentifier="Garage" modalPresentationStyle="fullScreen" id="79x-3Z-OPz" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Mud-Me-tYj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="0MN-L1-Gp4" rowHeight="70" style="IBUITableViewCellStyleDefault" id="zh9-4w-uoR">
+                                <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zh9-4w-uoR" id="XZR-6r-bzZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Car" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0MN-L1-Gp4">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="79x-3Z-OPz" id="bvs-Zh-rfB"/>
+                            <outlet property="delegate" destination="79x-3Z-OPz" id="qG5-Dw-3GE"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yiQ-m3-M1O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1481.1594202898552" y="1403.5714285714284"/>
+        </scene>
+        <!--My Garage-->
+        <scene sceneID="EFm-hD-sHC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8z8-Vr-9ma" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Garage" id="rvG-cA-Zyq"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Rbi-1q-Rlu">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fai-Vz-aiS" kind="relationship" relationship="rootViewController" id="zfw-ud-WyY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bqh-x9-i68" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-230.43478260869566" y="1406.9196428571429"/>
         </scene>
     </scenes>
 </document>
