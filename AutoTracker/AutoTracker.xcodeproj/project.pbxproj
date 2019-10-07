@@ -23,6 +23,8 @@
 		256810BD2347F1DA00629AEA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810BC2347F1DA00629AEA /* LocationManager.swift */; };
 		256810BF2347F40D00629AEA /* Maintanence+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810BE2347F40D00629AEA /* Maintanence+Convenience.swift */; };
 		256810C8234A35AE00629AEA /* MyGarageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810C7234A35AE00629AEA /* MyGarageViewController.swift */; };
+		256810CA234B9E3C00629AEA /* MockDataEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810C9234B9E3C00629AEA /* MockDataEntryViewController.swift */; };
+		256810CC234BB63C00629AEA /* AutoTrackerButtonAsLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810CB234BB63C00629AEA /* AutoTrackerButtonAsLabelStyle.swift */; };
 		423925242347B02F00EABF16 /* FindGas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423925222347B02F00EABF16 /* FindGas.storyboard */; };
 		423925262347B03D00EABF16 /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423925252347B03D00EABF16 /* Record.storyboard */; };
 		423925292347B04B00EABF16 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423925272347B04B00EABF16 /* Home.storyboard */; };
@@ -54,6 +56,8 @@
 		256810BC2347F1DA00629AEA /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		256810BE2347F40D00629AEA /* Maintanence+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Maintanence+Convenience.swift"; sourceTree = "<group>"; };
 		256810C7234A35AE00629AEA /* MyGarageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGarageViewController.swift; sourceTree = "<group>"; };
+		256810C9234B9E3C00629AEA /* MockDataEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataEntryViewController.swift; sourceTree = "<group>"; };
+		256810CB234BB63C00629AEA /* AutoTrackerButtonAsLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoTrackerButtonAsLabelStyle.swift; path = "AutoTracker/View Controllers/AutoTrackerButtonAsLabelStyle.swift"; sourceTree = SOURCE_ROOT; };
 		423925232347B02F00EABF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AutoTracker/StoryBoards/Base.lproj/FindGas.storyboard; sourceTree = "<group>"; };
 		423925252347B03D00EABF16 /* Record.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Record.storyboard; sourceTree = "<group>"; };
 		423925282347B04B00EABF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AutoTracker/StoryBoards/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 			children = (
 				423925312347D72500EABF16 /* StyleGuide.swift */,
 				423925332347D75D00EABF16 /* AutoTrackerLabel.swift */,
+				256810CB234BB63C00629AEA /* AutoTrackerButtonAsLabelStyle.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 			children = (
 				423925352347DBDF00EABF16 /* MyGarageTableViewCell.swift */,
 				256810C7234A35AE00629AEA /* MyGarageViewController.swift */,
+				256810C9234B9E3C00629AEA /* MockDataEntryViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -272,6 +278,7 @@
 				256810BD2347F1DA00629AEA /* LocationManager.swift in Sources */,
 				423925342347D75D00EABF16 /* AutoTrackerLabel.swift in Sources */,
 				256810B52347AAE100629AEA /* Car+Convenience.swift in Sources */,
+				256810CC234BB63C00629AEA /* AutoTrackerButtonAsLabelStyle.swift in Sources */,
 				256810B32347AAAE00629AEA /* Constants.swift in Sources */,
 				256810B12347AA6300629AEA /* Receipt+Convenience.swift in Sources */,
 				256810992347A7A800629AEA /* AutoTracker.xcdatamodeld in Sources */,
@@ -282,6 +289,7 @@
 				423925362347DBDF00EABF16 /* MyGarageTableViewCell.swift in Sources */,
 				256810C8234A35AE00629AEA /* MyGarageViewController.swift in Sources */,
 				256810BB2347D77200629AEA /* CarJsonCompliance.swift in Sources */,
+				256810CA234B9E3C00629AEA /* MockDataEntryViewController.swift in Sources */,
 				256810912347A7A800629AEA /* SceneDelegate.swift in Sources */,
 				423925322347D72500EABF16 /* StyleGuide.swift in Sources */,
 			);

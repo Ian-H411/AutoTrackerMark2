@@ -19,6 +19,7 @@ class MyGarageTableViewCell: UITableViewCell {
     
     var carInCell:Car?
     
+    var carIndex: IndexPath?
     
     var delegate:MyGarageTableViewCellDelegate?
     

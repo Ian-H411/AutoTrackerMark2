@@ -33,12 +33,8 @@
         <memberEntity name="Maintanence"/>
     </configuration>
     <elements>
-
-
-
         <element name="Car" positionX="-63" positionY="-18" width="128" height="238"/>
-        <element name="Receipt" positionX="-54" positionY="63" width="128" height="88"/>
         <element name="Maintanence" positionX="-36" positionY="90" width="128" height="103"/>
-
+        <element name="Receipt" positionX="-54" positionY="63" width="128" height="88"/>
     </elements>
 </model>
