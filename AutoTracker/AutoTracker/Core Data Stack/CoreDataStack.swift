@@ -11,7 +11,7 @@ import CoreData
 
 enum CoreDataStack {
     static let container: NSPersistentContainer = {
-        let container = NSPersistentCloudKitContainer(name: "AutoTracker1.1")
+        let container = NSPersistentCloudKitContainer(name: "AutoTracker")
         
         // Creates a store description for local store
         let localStoreLocation = getLocalCDDir()

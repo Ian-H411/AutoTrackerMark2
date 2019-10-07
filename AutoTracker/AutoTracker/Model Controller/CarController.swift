@@ -15,31 +15,27 @@ class CarController{
     
     
     //singleton
-    let shared = CarController()
+    static let shared = CarController()
+    
+
     
     // source of Truth
-    var garage: NSFetchedResultsController<Car>
+    var garage: [Car]?
     
     //database location
     let privateDB = CKContainer.default().privateCloudDatabase
     
     //initializer to fetch
-    init(){
+    init() {
         let fetchRequest:NSFetchRequest<Car> = Car.fetchRequest()
         
-        let alphaSort = NSSortDescriptor(key: "model", ascending: false)
+        let moc = CoreDataStack.context
         
-        fetchRequest.sortDescriptors = [alphaSort]
-        
-        let resultsController: NSFetchedResultsController<Car> = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.context, sectionNameKeyPath: nil, cacheName: nil)
-        garage = resultsController
-        
-        do {
-            try garage.performFetch()
-        } catch  {
-            print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
-        }
+        garage = (try? moc.fetch(fetchRequest)) ?? []
     }
+    
+    
+    
     //MARK: -CRUD
     
     //Create a car
@@ -184,5 +180,6 @@ class CarController{
             try? CoreDataStack.context.save()
         }
     }
+    
     
 }
