@@ -51,3 +51,15 @@ extension CKRecord {
         self.setValue(receipt.photoData, forKey: ReceiptConstants.photoKey)
     }
 }
+
+extension Receipt {
+    
+    var photo: UIImage? {
+        get {
+            guard let photoData = photoData else { return nil }
+            return UIImage(data: photoData)
+        } set {
+            photoData = newValue?.jpegData(compressionQuality: 0.5)
+        }
+    }
+}
