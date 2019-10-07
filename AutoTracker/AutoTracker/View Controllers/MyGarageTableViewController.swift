@@ -23,15 +23,4 @@ class MyGarageTableViewController: UITableViewController{
 
 
 }
-extension MyGarageTableViewController: UIViewControllerPreviewingDelegate{
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        <#code#>
-    }
-    
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-      
-    }
-    
-    
-    
-}
+
