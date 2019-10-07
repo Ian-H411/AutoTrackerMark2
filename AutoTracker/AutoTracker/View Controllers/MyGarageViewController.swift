@@ -42,7 +42,7 @@ class MyGarageViewController: UIViewController {
             let width = carSelectionTableView.frame.width
             var contentSize = 81
             if let garage = CarController.shared.garage {
-               contentSize = 81 * garage.count
+                contentSize = 81 * garage.count
             }
             let height = CGFloat( contentSize )
             return CGRect(x: x, y: y, width: width, height: height)
@@ -61,8 +61,11 @@ class MyGarageViewController: UIViewController {
         super.viewDidLoad()
         carSelectionTableView.delegate = self
         carSelectionTableView.dataSource = self
+        guard let car = CarController.shared.selectedCar else {return}
+        currentCarSelected = car
         updateTableViewFrame()
         setTextFields()
+     
     }
     
     //MARK: - HELPER FUNCTIONS
@@ -86,7 +89,7 @@ class MyGarageViewController: UIViewController {
         yearLabel.text = selectedCar.year
         engineTypeLabel.text = selectedCar.engine
         vinLabel.text = selectedCar.vin
-            
+        
     }
     
     
@@ -134,7 +137,7 @@ extension MyGarageViewController: MyGarageTableViewCellDelegate{
         guard let car = sender.carInCell else {return}
         guard let indexPath = sender.carIndex else {return}
         currentCarSelected = car
-    
+        CarController.shared.selectedCar = car
         self.carSelectionTableView.scrollToRow(at: indexPath, at: .top, animated: true)
         setTextFields()
         carSelectionTableView.reloadData()
