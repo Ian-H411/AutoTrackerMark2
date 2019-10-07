@@ -22,6 +22,9 @@ class CarController{
     // source of Truth
     var garage: [Car]?
     
+    //secondary source of truth
+    var selectedCar:Car?
+    
     //database location
     let privateDB = CKContainer.default().privateCloudDatabase
     
@@ -32,6 +35,10 @@ class CarController{
         let moc = CoreDataStack.context
         
         garage = (try? moc.fetch(fetchRequest)) ?? []
+        
+        guard let carFirst = garage?.first else {return}
+        
+        selectedCar = carFirst
     }
     
     

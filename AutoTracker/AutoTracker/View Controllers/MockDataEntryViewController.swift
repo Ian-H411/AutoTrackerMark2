@@ -44,7 +44,7 @@ class MockDataEntryViewController: UIViewController {
             let odometerText = odometerTextField.text
             else {print("something was nil");return}
         
-        CarController.shared.addACar(name: carNameText, make: makeText, model: modelText, year: yearText, vin: vinText, engine: engineText, ownerName: ownerNameText, odometer: Double(odometerText)!)
+        CarController.shared.addACar(name: carNameText, make: makeText, model: modelText, year: yearText, vin: vinText, engine: engineText, ownerName: ownerNameText, odometer: Double(odometerText)!, photoData: nil)
         
     }
     
