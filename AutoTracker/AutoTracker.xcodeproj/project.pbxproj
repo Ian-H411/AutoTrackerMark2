@@ -38,6 +38,10 @@
 		42A32333234B9E9900B130A0 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A32332234B9E9900B130A0 /* DateHelper.swift */; };
 		42A32335234BB05000B130A0 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A32334234BB05000B130A0 /* RecordViewController.swift */; };
 		42A32337234BB7FF00B130A0 /* OdometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A32336234BB7FF00B130A0 /* OdometerViewController.swift */; };
+		42A32339234BD4A400B130A0 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A32338234BD4A400B130A0 /* HistoryViewController.swift */; };
+		42A3233B234BE48200B130A0 /* AutoTrackerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A3233A234BE48200B130A0 /* AutoTrackerTextField.swift */; };
+		42A3233F234BEBF300B130A0 /* ReceiptHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A3233E234BEBF300B130A0 /* ReceiptHistoryViewController.swift */; };
+		42A32341234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A32340234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +79,10 @@
 		42A32332234B9E9900B130A0 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateHelper.swift; path = "AutoTracker/View Controllers/DateHelper.swift"; sourceTree = SOURCE_ROOT; };
 		42A32334234BB05000B130A0 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		42A32336234BB7FF00B130A0 /* OdometerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerViewController.swift; sourceTree = "<group>"; };
+		42A32338234BD4A400B130A0 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		42A3233A234BE48200B130A0 /* AutoTrackerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoTrackerTextField.swift; path = "AutoTracker/View Controllers/AutoTrackerTextField.swift"; sourceTree = SOURCE_ROOT; };
+		42A3233E234BEBF300B130A0 /* ReceiptHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptHistoryViewController.swift; sourceTree = "<group>"; };
+		42A32340234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,11 +164,9 @@
 			children = (
 				423925312347D72500EABF16 /* StyleGuide.swift */,
 				423925332347D75D00EABF16 /* AutoTrackerLabel.swift */,
-
 				256810CB234BB63C00629AEA /* AutoTrackerButtonAsLabelStyle.swift */,
-
 				42A32332234B9E9900B130A0 /* DateHelper.swift */,
-
+				42A3233A234BE48200B130A0 /* AutoTrackerTextField.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -183,16 +189,14 @@
 			isa = PBXGroup;
 			children = (
 				423925352347DBDF00EABF16 /* MyGarageTableViewCell.swift */,
-
 				256810C7234A35AE00629AEA /* MyGarageViewController.swift */,
 				256810C9234B9E3C00629AEA /* MockDataEntryViewController.swift */,
-
-				256810C523484FDA00629AEA /* MyGarageTableViewController.swift */,
 				42A32330234B965800B130A0 /* HomeViewController.swift */,
-
 				42A32334234BB05000B130A0 /* RecordViewController.swift */,
 				42A32336234BB7FF00B130A0 /* OdometerViewController.swift */,
-
+				42A32338234BD4A400B130A0 /* HistoryViewController.swift */,
+				42A3233E234BEBF300B130A0 /* ReceiptHistoryViewController.swift */,
+				42A32340234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -296,9 +300,10 @@
 				256810B92347AE0800629AEA /* CarController.swift in Sources */,
 				256810B72347AB0C00629AEA /* CoreDataStack.swift in Sources */,
 				256810BD2347F1DA00629AEA /* LocationManager.swift in Sources */,
+				42A3233B234BE48200B130A0 /* AutoTrackerTextField.swift in Sources */,
+				42A32341234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift in Sources */,
 				423925342347D75D00EABF16 /* AutoTrackerLabel.swift in Sources */,
 				256810B52347AAE100629AEA /* Car+Convenience.swift in Sources */,
-
 				256810CC234BB63C00629AEA /* AutoTrackerButtonAsLabelStyle.swift in Sources */,
 				256810B32347AAAE00629AEA /* Constants.swift in Sources */,
 				42A32335234BB05000B130A0 /* RecordViewController.swift in Sources */,
@@ -307,14 +312,15 @@
 				256810992347A7A800629AEA /* AutoTracker.xcdatamodeld in Sources */,
 				42A32331234B965800B130A0 /* HomeViewController.swift in Sources */,
 				42A32333234B9E9900B130A0 /* DateHelper.swift in Sources */,
-        
 				2568108F2347A7A800629AEA /* AppDelegate.swift in Sources */,
 				423925382347F0E000EABF16 /* ReceiptController.swift in Sources */,
+				42A32339234BD4A400B130A0 /* HistoryViewController.swift in Sources */,
 				423925362347DBDF00EABF16 /* MyGarageTableViewCell.swift in Sources */,
 				256810BF2347F40D00629AEA /* Maintanence+Convenience.swift in Sources */,
 				423925362347DBDF00EABF16 /* MyGarageTableViewCell.swift in Sources */,
 				256810C8234A35AE00629AEA /* MyGarageViewController.swift in Sources */,
 				256810BB2347D77200629AEA /* CarJsonCompliance.swift in Sources */,
+				42A3233F234BEBF300B130A0 /* ReceiptHistoryViewController.swift in Sources */,
 				256810CA234B9E3C00629AEA /* MockDataEntryViewController.swift in Sources */,
 				256810912347A7A800629AEA /* SceneDelegate.swift in Sources */,
 				423925322347D72500EABF16 /* StyleGuide.swift in Sources */,
