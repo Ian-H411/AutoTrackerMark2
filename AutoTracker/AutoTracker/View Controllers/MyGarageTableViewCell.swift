@@ -8,17 +8,29 @@
 
 import UIKit
 
+protocol MyGarageTableViewCellDelegate{
+    func carSelectionButtonTapped(_ sender: MyGarageTableViewCell)
+}
+
 class MyGarageTableViewCell: UITableViewCell {
+    
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var carButton: UIButton!
+    
+    var carInCell:Car?
+    
+    var carIndex: IndexPath?
+    
+    var delegate:MyGarageTableViewCellDelegate?
+    
+    
+    @IBAction func carButtonTapped(_ sender: Any) {
+         delegate?.carSelectionButtonTapped(self)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func updateCell(car:Car){
+        guard let carname = car.name else {return}
+        carButton.setTitle(carname, for:.normal )
+        carInCell = car
     }
-
 }
