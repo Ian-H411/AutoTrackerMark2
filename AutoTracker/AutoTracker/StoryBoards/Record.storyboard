@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gPO-je-hId">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -11,8 +12,26 @@
             <objects>
                 <viewController id="gPO-je-hId" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YBv-Jw-Oqh">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVQ-1F-G3Z">
+                                <rect key="frame" x="150" y="306" width="114" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Enter Gas Fill Up"/>
+                                <connections>
+                                    <segue destination="K9U-Av-9y1" kind="presentation" id="QyI-Co-ZVz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdC-xE-jRj">
+                                <rect key="frame" x="182" y="420" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="History"/>
+                                <connections>
+                                    <segue destination="wgj-IT-2zF" kind="presentation" id="bKk-fT-KZY"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="SRt-is-YzA"/>
                     </view>
@@ -21,6 +40,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6FG-ij-ZOd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-230" y="-532"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Oo1-Md-AVL">
+            <objects>
+                <viewController id="wgj-IT-2zF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cdj-89-8Bv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="aoY-5L-XlW"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bzj-EX-9AK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="612" y="-182"/>
+        </scene>
+        <!--Odometer View Controller-->
+        <scene sceneID="Cl4-ZI-NMh">
+            <objects>
+                <viewController id="K9U-Av-9y1" customClass="OdometerViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7gF-x8-HPE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miles Gone/ Current Odometer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85C-Na-pmo">
+                                <rect key="frame" x="89.5" y="350.5" width="235" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ex-wD-fqV">
+                                <rect key="frame" x="25" y="381.5" width="364" height="45"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="HaL-09-NCu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="85C-Na-pmo" firstAttribute="centerX" secondItem="5ex-wD-fqV" secondAttribute="centerX" id="62u-rv-saE"/>
+                            <constraint firstItem="5ex-wD-fqV" firstAttribute="centerY" secondItem="Vlz-Kl-wjK" secondAttribute="centerY" id="FEC-5b-m8O"/>
+                            <constraint firstItem="5ex-wD-fqV" firstAttribute="centerX" secondItem="Vlz-Kl-wjK" secondAttribute="centerX" id="eXP-Aw-w8l"/>
+                            <constraint firstItem="5ex-wD-fqV" firstAttribute="width" secondItem="Vlz-Kl-wjK" secondAttribute="width" multiplier="0.88" id="faa-7N-y9M"/>
+                            <constraint firstItem="5ex-wD-fqV" firstAttribute="top" secondItem="85C-Na-pmo" secondAttribute="bottom" constant="10" id="v6K-ZG-b3A"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Vlz-Kl-wjK"/>
+                    </view>
+                    <connections>
+                        <outlet property="odometerTextField" destination="5ex-wD-fqV" id="Wqt-9E-yne"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1D1-df-48E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="612" y="-835"/>
         </scene>
     </scenes>
 </document>

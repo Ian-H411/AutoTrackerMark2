@@ -34,6 +34,8 @@
 		423925382347F0E000EABF16 /* ReceiptController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423925372347F0E000EABF16 /* ReceiptController.swift */; };
 		42A32331234B965800B130A0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A32330234B965800B130A0 /* HomeViewController.swift */; };
 		42A32333234B9E9900B130A0 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A32332234B9E9900B130A0 /* DateHelper.swift */; };
+		42A32335234BB05000B130A0 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A32334234BB05000B130A0 /* RecordViewController.swift */; };
+		42A32337234BB7FF00B130A0 /* OdometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A32336234BB7FF00B130A0 /* OdometerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		423925372347F0E000EABF16 /* ReceiptController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptController.swift; sourceTree = "<group>"; };
 		42A32330234B965800B130A0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		42A32332234B9E9900B130A0 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateHelper.swift; path = "AutoTracker/View Controllers/DateHelper.swift"; sourceTree = SOURCE_ROOT; };
+		42A32334234BB05000B130A0 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		42A32336234BB7FF00B130A0 /* OdometerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +177,8 @@
 				423925352347DBDF00EABF16 /* MyGarageTableViewCell.swift */,
 				256810C523484FDA00629AEA /* MyGarageTableViewController.swift */,
 				42A32330234B965800B130A0 /* HomeViewController.swift */,
+				42A32334234BB05000B130A0 /* RecordViewController.swift */,
+				42A32336234BB7FF00B130A0 /* OdometerViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -280,7 +286,9 @@
 				256810B52347AAE100629AEA /* Car+Convenience.swift in Sources */,
 				42A32331234B965800B130A0 /* HomeViewController.swift in Sources */,
 				256810B32347AAAE00629AEA /* Constants.swift in Sources */,
+				42A32335234BB05000B130A0 /* RecordViewController.swift in Sources */,
 				256810B12347AA6300629AEA /* Receipt+Convenience.swift in Sources */,
+				42A32337234BB7FF00B130A0 /* OdometerViewController.swift in Sources */,
 				256810992347A7A800629AEA /* AutoTracker.xcdatamodeld in Sources */,
 				42A32333234B9E9900B130A0 /* DateHelper.swift in Sources */,
 				256810C623484FDA00629AEA /* MyGarageTableViewController.swift in Sources */,
