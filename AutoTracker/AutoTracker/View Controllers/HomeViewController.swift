@@ -9,7 +9,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     // MARK: - OUTLETS
     
     @IBOutlet weak var carImageView: UIImageView!
@@ -28,39 +28,29 @@ class HomeViewController: UIViewController {
         }
     }
     
-    var scheduledMaintenance: [Maintanence]? {
-        didSet {
-            
-        }
-    }
+    var scheduledMaintenance: [Maintanence]?
     
     var labels: [UILabel] = []
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         updateViews()
-        
     }
     
     // MARK: - ACTIONS
-
+   
     
     
     // MARK: - FUNCTIONS
-
+    
     func updateViews() {
         guard let myCar = myCar else { return }
-
+        
         updateMaintenanceLabels()
-//        carImageView.image = myCar.image
+        carImageView.image = myCar.photo
         carNameLabel.text = myCar.name ?? "Car Name"
         lifetimeMilesLabel.text = String(describing: myCar.odometer) 
-
-        
     }
-    
     
     func makeMaintenanceLabels() {
         guard let scheduledMaintenance = scheduledMaintenance else { return }
@@ -76,25 +66,23 @@ class HomeViewController: UIViewController {
         makeMaintenanceLabels()
         var j = 0
         if j <= 1 {
-        for i in labels {
-            i.text = scheduledMaintenance[j].details! + "|" + DateHelper.shared.stringForMaintenanceDate(date: scheduledMaintenance[j].dueOn!)
-            mutableMaintenanceStackView.addArrangedSubview(i)
-            j += 1
-        }
-        } else {
-            return
+            for i in labels {
+                i.text = scheduledMaintenance[j].details! + "|" + DateHelper.shared.stringForMaintenanceDate(date: scheduledMaintenance[j].dueOn!)
+                mutableMaintenanceStackView.addArrangedSubview(i)
+                j += 1
+            }
         }
     }
-
+    
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

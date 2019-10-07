@@ -44,4 +44,6 @@ struct CarConstants{
     static let lattitudeKey = "Lattitude"
     
     static let longitudeKey = "Longitude"
+    
+    static let photoKey = "Photo"
 }

@@ -29,6 +29,8 @@ extension Car {
                      
                      odometer: Double,
                      
+                     photoData: Data?,
+                     
                      context: NSManagedObjectContext = CoreDataStack.context){
         
         self.init(context:context)
@@ -59,6 +61,8 @@ extension Car {
         
         self.odometer = odometer
         
+        self.photoData = photoData
+        
     }
     
     convenience init? (record: CKRecord, context: NSManagedObjectContext = CoreDataStack.context){
@@ -85,7 +89,9 @@ extension Car {
             
             let lattitude = record[CarConstants.lattitudeKey] as? Double,
             
-            let longitude = record[CarConstants.longitudeKey] as? Double
+            let longitude = record[CarConstants.longitudeKey] as? Double,
+        
+            let photoData = record[CarConstants.photoKey] as? Data
             
             else {return}
         
@@ -112,6 +118,8 @@ extension Car {
         self.longitude = longitude
         
         self.recordID = record.recordID.recordName
+        
+        self.photoData = photoData
         
     }
 }
@@ -146,5 +154,19 @@ extension CKRecord{
         
         self.setValue(car.longitude, forKey: CarConstants.longitudeKey)
         
+        self.setValue(car.photoData, forKey: CarConstants.photoKey)
+        
+    }
+}
+
+extension Car {
+    
+    var photo: UIImage? {
+        get {
+            guard let photoData = photoData else { return nil }
+            return UIImage(data: photoData)
+        } set {
+            photoData = newValue?.jpegData(compressionQuality: 0.5)
+        }
     }
 }
