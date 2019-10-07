@@ -28,6 +28,8 @@ class MyGarageViewController: UIViewController {
     
     var isInCarSelectionMode:Bool = false
     
+    var currentCarSelected:Car?
+    
     // programatically creates a cgrect that we can set the tableView height to
     var tableViewSize:CGRect{
         if isInCarSelectionMode{
@@ -87,6 +89,15 @@ extension MyGarageViewController: UITableViewDelegate,UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "car", for: indexPath) as? MyGarageTableViewCell else {return UITableViewCell()}
         
         return cell
+    }
+    
+    
+}
+extension MyGarageViewController: MyGarageTableViewCellDelegate{
+    func carSelectionButtonTapped(_ sender: MyGarageTableViewCell) {
+        updateTableViewFrame()
+        guard let car = sender.carInCell else {return}
+        currentCarSelected = car
     }
     
     

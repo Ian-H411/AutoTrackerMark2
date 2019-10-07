@@ -34,7 +34,7 @@
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="carButtonTapped:" destination="l4e-Rc-cQg" eventType="touchUpInside" id="Alb-eq-B3v"/>
+                                                        <action selector="carButtonTapped:" destination="l4e-Rc-cQg" eventType="touchUpInside" id="SBr-Ce-UdB"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -47,7 +47,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="carButton" destination="t7e-Uc-ti3" id="Zed-0T-6D6"/>
+                                            <outlet property="carButton" destination="irJ-3A-RJs" id="Awy-R3-ZEm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

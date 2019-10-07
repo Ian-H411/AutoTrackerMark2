@@ -8,22 +8,28 @@
 
 import UIKit
 
-protocol MyGarageTableViewCellDelegate: UIView{
+protocol MyGarageTableViewCellDelegate{
     func carSelectionButtonTapped(_ sender: MyGarageTableViewCell)
 }
 
 class MyGarageTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var carButton: UIView!
+
+    @IBOutlet weak var carButton: UIButton!
+    
+    var carInCell:Car?
     
     
-    weak var delegate:MyGarageTableViewCellDelegate?
+    var delegate:MyGarageTableViewCellDelegate?
     
     
     @IBAction func carButtonTapped(_ sender: Any) {
+         delegate?.carSelectionButtonTapped(self)
     }
     
     func updateCell(car:Car){
-        
+        guard let carname = car.name else {return}
+        carButton.setTitle(carname, for:.normal )
+        carInCell = car
     }
 }
