@@ -32,7 +32,7 @@ class MaintenanceViewController: UIViewController {
         if let maintentance = maintenanceList.allObjects.first as? Maintanence {
             guard let date = maintentance.dueOn else {return}
             let dateAsString = DateHelper.shared.stringForMaintenanceDate(date: date)
-            upcomingMaintenance1.text = "\(maintentance.maintanenceRequired) | \(dateAsString)"
+            upcomingMaintenance1.text = "\(maintentance.maintanenceRequired ?? "") | \(dateAsString)"
         }
     }
 

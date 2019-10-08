@@ -135,11 +135,11 @@
             </objects>
             <point key="canvasLocation" x="1689.8550724637682" y="512.94642857142856"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Add Maintenance Table View Controller-->
         <scene sceneID="7cH-jF-anf">
             <objects>
-                <tableViewController id="5Cx-Is-yDk" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="11" sectionFooterHeight="28" id="dsS-BM-JKp">
+                <tableViewController id="5Cx-Is-yDk" customClass="AddMaintenanceTableViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="21" sectionFooterHeight="28" id="dsS-BM-JKp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -189,9 +189,12 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4iw-nN-k8l">
                                                     <rect key="frame" x="0.0" y="14" width="414" height="414"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                    <state key="normal" title="Tap to add a photo!">
+                                                    <state key="normal">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="addAPhotoButton:" destination="5Cx-Is-yDk" eventType="touchUpInside" id="V7J-8l-Qja"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -217,7 +220,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="ZCx-6X-9ra">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                                    <rect key="frame" x="0.0" y="10" width="414" height="180"/>
                                                     <date key="minimumDate" timeIntervalSinceReferenceDate="-347115600">
                                                         <!--1990-01-01 11:00:00 +0000-->
                                                     </date>
@@ -228,7 +231,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ZCx-6X-9ra" firstAttribute="centerX" secondItem="Up6-oc-bUQ" secondAttribute="centerX" id="D49-V2-kSB"/>
-                                                <constraint firstItem="ZCx-6X-9ra" firstAttribute="height" secondItem="Up6-oc-bUQ" secondAttribute="height" id="TOW-Zm-Du4"/>
+                                                <constraint firstItem="ZCx-6X-9ra" firstAttribute="height" secondItem="Up6-oc-bUQ" secondAttribute="height" multiplier="0.9" id="TOW-Zm-Du4"/>
                                                 <constraint firstItem="ZCx-6X-9ra" firstAttribute="width" secondItem="Up6-oc-bUQ" secondAttribute="width" id="dwb-p7-mcO"/>
                                                 <constraint firstItem="ZCx-6X-9ra" firstAttribute="centerY" secondItem="Up6-oc-bUQ" secondAttribute="centerY" id="zPS-ph-lxZ"/>
                                             </constraints>
@@ -268,8 +271,19 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="DnN-Nm-ny0">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="hWY-pE-pXS"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="hWY-pE-pXS">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="5Cx-Is-yDk" id="zO1-uW-sSw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addPhotoButton" destination="4iw-nN-k8l" id="ATd-lx-DIo"/>
+                        <outlet property="additionalDetailsTextField" destination="hSB-42-lrg" id="yh0-Xk-Jwy"/>
+                        <outlet property="dueDatePicker" destination="ZCx-6X-9ra" id="lCv-II-9UW"/>
+                        <outlet property="maintenanceReceiptPhoto" destination="PAm-Ew-an2" id="q5W-pw-0gs"/>
+                        <outlet property="maintenanceTextField" destination="U3e-es-aP8" id="5pA-Ob-lJK"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ctc-xO-OMq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
