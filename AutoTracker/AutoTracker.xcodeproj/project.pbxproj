@@ -199,6 +199,7 @@
 		256810AD2347A88800629AEA /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				25C056EA234CFBEC0000D848 /* Map */,
 				256810D8234C121000629AEA /* Maintenance */,
 				256810D7234C120200629AEA /* MyGarage */,
 				42A32330234B965800B130A0 /* HomeViewController.swift */,
@@ -250,6 +251,13 @@
 				256810D9234C12FC00629AEA /* MaintainenceDetailTableViewCell.swift */,
 			);
 			path = Maintenance;
+			sourceTree = "<group>";
+		};
+		25C056EA234CFBEC0000D848 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
