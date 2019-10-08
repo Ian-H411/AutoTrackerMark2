@@ -135,10 +135,10 @@
             </objects>
             <point key="canvasLocation" x="1689.8550724637682" y="512.94642857142856"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Add Maintenance Table View Controller-->
         <scene sceneID="7cH-jF-anf">
             <objects>
-                <tableViewController id="5Cx-Is-yDk" sceneMemberID="viewController">
+                <tableViewController id="5Cx-Is-yDk" customClass="AddMaintenanceTableViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="11" sectionFooterHeight="28" id="dsS-BM-JKp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
