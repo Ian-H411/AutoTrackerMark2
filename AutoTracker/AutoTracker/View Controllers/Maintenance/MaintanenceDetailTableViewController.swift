@@ -12,7 +12,9 @@ class MaintanenceDetailTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        tableView.reloadData()
     }
+
     
     var maintainenceList: [Maintanence]{
         return CarController.shared.organizeAndReturnMaintainenceList()

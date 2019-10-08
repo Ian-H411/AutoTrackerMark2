@@ -9,7 +9,7 @@
 import UIKit
 
 class AddMaintenanceTableViewController: UITableViewController {
-//MARK: -outlets
+    //MARK: -outlets
     
     @IBOutlet weak var maintenanceTextField: TextFieldStyle!
     
@@ -23,6 +23,13 @@ class AddMaintenanceTableViewController: UITableViewController {
     
     var maintenance: Maintanence?
     
+    var isInEditMode:Bool{
+        if let _ = maintenance {
+            return true
+        } else {
+            return false
+        }
+    }
     
     //MARK: - Variables
     
@@ -31,11 +38,22 @@ class AddMaintenanceTableViewController: UITableViewController {
         super.viewDidLoad()
         initialSetup()
     }
-
+    
     // MARK: - Helpers
     
     func initialSetup(){
-      
+        if isInEditMode{
+            guard let maintenance = maintenance else {return}
+            guard let date = maintenance.dueOn else {return}
+            maintenanceTextField.text = maintenance.maintanenceRequired
+            dueDatePicker.date = date
+            additionalDetailsTextField.text = maintenance.details
+            if let image = maintenance.photo{
+                maintenanceReceiptPhoto.image = image
+            }
+        } else {
+            addPhotoButton.setTitle("Tap to add a photo", for: .normal)
+        }
     }
     
     //brings up a camera that we can use to take a pic
@@ -77,17 +95,43 @@ class AddMaintenanceTableViewController: UITableViewController {
         self.present(actionSheet, animated: true, completion: nil)
     }
     
+    func presentInvalidFieldWarning(){
+        let alertController = UIAlertController(title: "Invalid field", message: "it looks like your maintenance title may be empty go add something then try again", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alertController, animated: true)
+    }
     
     
     
     //MARK: - ACTIONS
-  
+    
     @IBAction func addAPhotoButton(_ sender: Any) {
         presentActionSheet()
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        
+        if isInEditMode{
+            guard let maintenance = maintenance else {return}
+            guard let title = maintenanceTextField.text, !title.isEmpty
+                else {presentInvalidFieldWarning(); return}
+            let image = maintenanceReceiptPhoto.image
+            let details = additionalDetailsTextField.text
+            let date = dueDatePicker.date
+            CarController.shared.modifyMaintenanceRemainder(maintenance:maintenance , date: date, newTitle: title, details: details, image: image)
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            guard let title = maintenanceTextField.text, !title.isEmpty
+                else {presentInvalidFieldWarning(); return}
+            let image = maintenanceReceiptPhoto.image
+            guard let car = CarController.shared.selectedCar else {return}
+            let details = additionalDetailsTextField.text
+            let date = dueDatePicker.date
+            
+            CarController.shared.addMaintenanceReminder(car: car, message: details, maintanence: title, date: date, image: image)
+            self.navigationController?.popViewController(animated: true)
+            
+            
+        }
     }
     
 }
