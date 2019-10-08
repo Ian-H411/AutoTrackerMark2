@@ -60,6 +60,8 @@ extension Car {
         self.recordID = UUID().uuidString
         
         self.odometer = odometer
+                
+ 
         
         self.photoData = photoData
         
@@ -170,4 +172,3 @@ extension Car {
         }
     }
 }
-

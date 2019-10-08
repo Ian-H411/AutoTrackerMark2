@@ -6,9 +6,10 @@
 //  Copyright © 2019 Ian Hall. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreData
 import CloudKit
+
 extension Maintanence {
     
     convenience init(duedate: Date?, maintanenceRequiered:String, details: String, car:Car, context: NSManagedObjectContext = CoreDataStack.context){
@@ -26,3 +27,14 @@ extension Maintanence {
     
 }
 //TODO: - ADD CKRECORD FUNCTIONALITY IF IT DOESNT GET PUSHED TO THE CLOUD
+extension Maintanence {
+    
+    var photo: UIImage? {
+        get {
+            guard let photoData = photoData else { return nil }
+            return UIImage(data: photoData)
+        } set {
+            photoData = newValue?.jpegData(compressionQuality: 0.5)
+        }
+    }
+}
