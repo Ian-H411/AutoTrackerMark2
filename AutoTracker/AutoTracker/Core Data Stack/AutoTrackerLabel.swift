@@ -32,3 +32,11 @@ class AutoTrackerLabel: UILabel {
         self.layer.cornerRadius = frame.width / 32
     }
 }
+
+class AutoTrackerDetailLabel: UILabel {
+    
+    func chooseFont(to fontName: String) {
+        let size = 14
+        self.font = UIFont(name: fontName, size: CGFloat(size))
+    }
+}

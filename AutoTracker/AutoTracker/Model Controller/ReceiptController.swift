@@ -18,7 +18,7 @@ class ReceiptController {
     static let shared = Receipt()
     
     // source of Truth
-    var receipts: [Receipt] {
+    static var receipts: [Receipt] {
         
         let moc = CoreDataStack.context
         

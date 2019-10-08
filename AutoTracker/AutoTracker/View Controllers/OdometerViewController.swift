@@ -11,14 +11,17 @@ import UIKit
 class OdometerViewController: UIViewController {
 
     // MARK: - OUTLETS
-    @IBOutlet weak var odometerTextField: UITextField!
+    @IBOutlet weak var mileageTextField: UITextField!
+    
     
     // MARK: - PROPERTIES
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        
+        mileageTextField.layer.borderColor = UIColor.black.cgColor
+        mileageTextField.layer.borderWidth = 2
+        mileageTextField.delegate = self
     }
     
     
@@ -33,4 +36,15 @@ class OdometerViewController: UIViewController {
     }
     */
 
+}
+
+extension OdometerViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("tapped")
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return false
+    }
 }
