@@ -53,6 +53,7 @@
                         <viewLayoutGuide key="safeArea" id="SRt-is-YzA"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Record" id="mXH-Pt-Yyl"/>
+                    <navigationItem key="navigationItem" id="5Yo-Ke-uTA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6FG-ij-ZOd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,6 +140,9 @@
                                 <state key="normal" title="Return">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="returnButtonTapped:" destination="wgj-IT-2zF" eventType="touchUpInside" id="nmP-ZZ-f5B"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Df0-S8-9lS" customClass="AutoTrackerButtonGrayBG" customModule="AutoTracker" customModuleProvider="target">
                                 <rect key="frame" x="71" y="519.5" width="272" height="64"/>
@@ -169,6 +173,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aoY-5L-XlW"/>
                     </view>
+                    <navigationItem key="navigationItem" id="9J8-xH-nCe"/>
                     <connections>
                         <outlet property="averageMPGButton" destination="ZHG-ZI-6vV" id="mRV-mX-ck7"/>
                         <outlet property="bestMPGButton" destination="Tj5-wY-3vy" id="IOz-bY-exZ"/>
@@ -241,6 +246,11 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="160" height="214"/>
+                                        <connections>
+                                            <outlet property="pricePerGallonLabel" destination="tQd-3d-Cg9" id="zKZ-JM-UpI"/>
+                                            <outlet property="receiptImageView" destination="kso-kf-q6N" id="28v-H3-Pe8"/>
+                                            <outlet property="totalLabel" destination="Utg-Gf-ZNx" id="aSf-4q-yIP"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -261,6 +271,9 @@
                                 <state key="normal" title="Return">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="returnButtonTapped:" destination="8YQ-7t-Jey" eventType="touchUpInside" id="Q9E-Zw-MqR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
