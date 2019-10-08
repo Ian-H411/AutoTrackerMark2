@@ -20,6 +20,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>AutoTracker needs acsess to the camera to scan your vin and look up your vehicle</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>AutoTracker needs your location to find nearby gas stations</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

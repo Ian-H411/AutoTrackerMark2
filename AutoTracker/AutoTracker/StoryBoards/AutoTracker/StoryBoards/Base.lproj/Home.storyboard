@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="csq-6I-Yn9">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="pVx-lj-r3J">
+            <objects>
+                <viewController id="iU8-vQ-Uxl" customClass="HomeViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H3U-z9-LoV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Laj-G4-AnJ">
+                                <rect key="frame" x="66.5" y="88" width="281.5" height="774"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="Orw-vb-yma">
+                                        <rect key="frame" x="0.0" y="0.0" width="281.5" height="251.5"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="bYg-Qf-8c9">
+                                        <rect key="frame" x="0.0" y="261.5" width="281.5" height="251"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGR-I8-nWy">
+                                                <rect key="frame" x="0.0" y="0.0" width="281.5" height="69.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="N72-kJ-ZdV">
+                                                <rect key="frame" x="0.0" y="88.5" width="281.5" height="20"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average mpg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ew-Xg-JaP">
+                                                        <rect key="frame" x="0.0" y="0.0" width="87" height="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lifetime miles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P11-QO-Qit">
+                                                        <rect key="frame" x="97" y="0.0" width="87" height="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="this tank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0E-Xz-ifH">
+                                                        <rect key="frame" x="194" y="0.0" width="87.5" height="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="1UQ-bM-qDp"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="NdV-Nj-UTX">
+                                                <rect key="frame" x="0.0" y="127.5" width="281.5" height="35"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 MPG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFz-cu-Zvn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="72.5" height="35"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pRl-s0-KA4">
+                                                        <rect key="frame" x="104.5" y="0.0" width="72.5" height="35"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="321 Left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xYA-2L-bEf">
+                                                        <rect key="frame" x="209" y="0.0" width="72.5" height="35"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3T3-Pu-xrA">
+                                                <rect key="frame" x="0.0" y="181.5" width="281.5" height="69.5"/>
+                                                <state key="normal" title="Record Gas Fill Up"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="3T3-Pu-xrA" firstAttribute="height" secondItem="NGR-I8-nWy" secondAttribute="height" id="cGz-rC-MXn"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hhw-Qw-5mc">
+                                        <rect key="frame" x="0.0" y="522.5" width="281.5" height="251.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scheduled Maintenance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rpw-BT-P2h">
+                                                <rect key="frame" x="0.0" y="0.0" width="281.5" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="AtN-p5-vqB"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lhz-Kg-SeD">
+                                                <rect key="frame" x="0.0" y="20" width="281.5" height="231.5"/>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Laj-G4-AnJ" firstAttribute="centerX" secondItem="H3U-z9-LoV" secondAttribute="centerX" id="6VZ-eM-GuX"/>
+                            <constraint firstItem="Laj-G4-AnJ" firstAttribute="centerY" secondItem="Cty-iL-ccR" secondAttribute="centerY" id="O0H-1O-YMU"/>
+                            <constraint firstItem="Laj-G4-AnJ" firstAttribute="top" secondItem="Cty-iL-ccR" secondAttribute="top" id="OvG-yc-B21"/>
+                            <constraint firstItem="Cty-iL-ccR" firstAttribute="bottom" secondItem="Laj-G4-AnJ" secondAttribute="bottom" id="v2o-r6-lAh"/>
+                            <constraint firstItem="Laj-G4-AnJ" firstAttribute="height" secondItem="Cty-iL-ccR" secondAttribute="height" id="w82-pb-NV2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Cty-iL-ccR"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YJP-BU-qvE"/>
+                    <connections>
+                        <outlet property="averageMPGLabel" destination="SFz-cu-Zvn" id="1qK-Jg-8lc"/>
+                        <outlet property="carImageView" destination="Orw-vb-yma" id="XHs-mS-RBb"/>
+                        <outlet property="carNameLabel" destination="NGR-I8-nWy" id="VgE-yu-aAu"/>
+                        <outlet property="lifetimeMilesLabel" destination="pRl-s0-KA4" id="xVx-N9-oML"/>
+                        <outlet property="mutableMaintenanceStackView" destination="lhz-Kg-SeD" id="dh5-y4-pH3"/>
+                        <outlet property="thisTankLabel" destination="xYA-2L-bEf" id="YUu-kk-krN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pwi-tC-1zd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="679.71014492753625" y="116.51785714285714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ygL-l7-lph">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="csq-6I-Yn9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="house.fill" catalog="system" id="uwi-B7-3of"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dR0-VU-obw">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="iU8-vQ-Uxl" kind="relationship" relationship="rootViewController" id="4Dj-4i-ml2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VBC-Zq-NbT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-230.43478260869566" y="116.51785714285714"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="car" width="112.5" height="112.5"/>
+        <image name="house.fill" catalog="system" width="64" height="52"/>
+    </resources>
+</document>

@@ -9,12 +9,16 @@
 import Foundation
 
 
-struct Constants {
+struct ReceiptConstants {
+    
     static let ReceiptTypeKey = "Receipt"
-    static let nameKey = "name"
-    static let timestampKey = "timestamp"
-    static let photoKey = "photo"
-
+    
+    static let nameKey = "Name"
+    
+    static let timestampKey = "Timestamp"
+    
+    static let photoKey = "Photo"
+    
 }
 
 struct CarConstants{
@@ -40,4 +44,6 @@ struct CarConstants{
     static let lattitudeKey = "Lattitude"
     
     static let longitudeKey = "Longitude"
+    
+    static let photoKey = "Photo"
 }
