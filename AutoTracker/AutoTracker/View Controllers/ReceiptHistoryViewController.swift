@@ -8,15 +8,15 @@
 
 import UIKit
 
-class ReceiptHistoryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ReceiptHistoryViewController: UIViewController {
 
     // MARK: - OUTLETS
     
     @IBOutlet weak var receiptCollectionView: UICollectionView!
     
     // MARK: - PROPERTIES
-    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     
+    private var index = 0
     private let itemsPerRow: CGFloat = 4
     
     // MARK: - LIFECYCLE
@@ -24,30 +24,15 @@ class ReceiptHistoryViewController: UIViewController, UICollectionViewDelegate, 
         super.viewDidLoad()
         receiptCollectionView.delegate = self
         receiptCollectionView.dataSource = self
+        receiptCollectionView.isUserInteractionEnabled = false
         
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-            // the default direction is right
-            
-            let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-            leftSwipe.direction = .left
+        let left = UISwipeGestureRecognizer(target: self, action: #selector(leftSwipe))
+        left.direction = .left
+        view.addGestureRecognizer(left)
+        let right = UISwipeGestureRecognizer(target: self, action: #selector(rightSwipe))
+        right.direction = .right
+        view.addGestureRecognizer(right)
 
-            
-            view.addGestureRecognizer(rightSwipe)
-            view.addGestureRecognizer(leftSwipe)
-
-        }
-        
-        @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
-            if sender.state == .ended {
-                switch sender.direction {
-                case .right:
-                    view.backgroundColor = .red
-                case .left:
-                    view.backgroundColor = .blue
-                default:
-                    break
-                }
-            }
     }
     
     // MARK: - ACTIONS
@@ -56,7 +41,28 @@ class ReceiptHistoryViewController: UIViewController, UICollectionViewDelegate, 
         
     }
     
-
+    @IBAction func returnButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - FUNCTIONS
+    
+    @objc func leftSwipe() {
+           print("left")
+        if index + 4 < ReceiptController.shared.receipts.count {
+               index += 4
+               receiptCollectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .left, animated: true)
+           }
+       }
+       
+       @objc func rightSwipe() {
+           print("right")
+           if index - 4 >= 0 {
+               index -= 4
+               receiptCollectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .left, animated: true)
+           }
+       }
+    
     /*
     // MARK: - Navigation
 
@@ -69,14 +75,14 @@ class ReceiptHistoryViewController: UIViewController, UICollectionViewDelegate, 
 
 }
 
-extension ReceiptHistoryViewController {
+extension ReceiptHistoryViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
-    }
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        return 2
+//    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return ReceiptController.shared.receipts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -85,25 +91,24 @@ extension ReceiptHistoryViewController {
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 12
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
-        let availableWidth = view.frame.width - paddingSpace
-        let widthPerItem = availableWidth / itemsPerRow
 
-        return CGSize(width: widthPerItem, height: widthPerItem)
-
+        return CGSize(width: (collectionView.bounds.width / 2) - 5, height: (collectionView.bounds.height / 2) - 5)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return sectionInsets
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//    }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return sectionInsets.left
+        return 10
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
 }
