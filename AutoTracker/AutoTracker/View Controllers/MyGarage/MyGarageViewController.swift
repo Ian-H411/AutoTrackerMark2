@@ -76,8 +76,13 @@ class MyGarageViewController: UIViewController {
         }
         if isInCarSelectionMode{
             view.bringSubviewToFront(carSelectionTableView)
+            carSelectionTableView.layer.borderWidth = 3
+            carSelectionTableView.layer.backgroundColor = UIColor.red.cgColor
+            carSelectionTableView.layer.cornerRadius = 10
         } else {
             view.addSubview(carSelectionTableView)
+            carSelectionTableView.layer.backgroundColor = UIColor.clear.cgColor
+            carSelectionTableView.layer.borderWidth = 0
         }
     }
     

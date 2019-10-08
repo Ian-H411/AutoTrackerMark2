@@ -20,6 +20,7 @@
         <attribute name="details" optional="YES" attributeType="String"/>
         <attribute name="dueOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="maintanenceRequired" optional="YES" attributeType="String"/>
+        <attribute name="photoData" optional="YES" attributeType="Binary"/>
         <relationship name="car" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Car" inverseName="upcomingMaintanence" inverseEntity="Car"/>
     </entity>
     <entity name="Receipt" representedClassName="Receipt" syncable="YES" codeGenerationType="class">
@@ -34,10 +35,8 @@
         <memberEntity name="Maintanence"/>
     </configuration>
     <elements>
-
         <element name="Car" positionX="-63" positionY="-18" width="128" height="253"/>
-
-        <element name="Maintanence" positionX="-36" positionY="90" width="128" height="103"/>
+        <element name="Maintanence" positionX="-36" positionY="90" width="128" height="118"/>
         <element name="Receipt" positionX="-54" positionY="63" width="128" height="88"/>
     </elements>
 </model>

@@ -16,16 +16,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="bpK-ry-9mR">
-                                <rect key="frame" x="0.0" y="204" width="414" height="495"/>
+                                <rect key="frame" x="10.5" y="204" width="393" height="495"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner: Jeremy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJc-tS-UVZ" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLb-jn-l3n" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="85" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="85" width="393" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="YMs-NW-An0"/>
                                         </constraints>
@@ -34,25 +34,25 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Model" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUd-j4-qxd" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="170" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="170" width="393" height="70"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qm3-b6-2HG" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="255" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="255" width="393" height="70"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engine Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGf-9u-t9a" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="340" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="340" width="393" height="70"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIN#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dn2-W9-WcJ" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="425" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="425" width="393" height="70"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -84,7 +84,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irJ-3A-RJs" customClass="AutoTrackerButtonAsLabel" customModule="AutoTracker" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                                    <rect key="frame" x="10.5" y="0.0" width="393" height="70"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="70" id="cN7-tf-DWN"/>
@@ -102,7 +102,7 @@
                                             <constraints>
                                                 <constraint firstItem="irJ-3A-RJs" firstAttribute="centerY" secondItem="t7e-Uc-ti3" secondAttribute="centerY" id="BHz-5U-yOe"/>
                                                 <constraint firstItem="irJ-3A-RJs" firstAttribute="centerX" secondItem="t7e-Uc-ti3" secondAttribute="centerX" id="OzK-ia-Qq2"/>
-                                                <constraint firstItem="irJ-3A-RJs" firstAttribute="width" secondItem="t7e-Uc-ti3" secondAttribute="width" id="q1D-uR-J7N"/>
+                                                <constraint firstItem="irJ-3A-RJs" firstAttribute="width" secondItem="t7e-Uc-ti3" secondAttribute="width" multiplier="0.95" id="q1D-uR-J7N"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -117,7 +117,7 @@
                             <constraint firstItem="bpK-ry-9mR" firstAttribute="centerX" secondItem="Ibs-Ba-998" secondAttribute="centerX" id="ET7-KH-dYx"/>
                             <constraint firstItem="e7j-k4-lrV" firstAttribute="top" secondItem="bpK-ry-9mR" secondAttribute="bottom" constant="9" id="GFF-b9-6BO"/>
                             <constraint firstItem="Ibs-Ba-998" firstAttribute="trailing" secondItem="e7j-k4-lrV" secondAttribute="trailing" constant="9" id="IMD-sV-JRh"/>
-                            <constraint firstItem="bpK-ry-9mR" firstAttribute="width" secondItem="Ibs-Ba-998" secondAttribute="width" id="UBN-L4-Zcu"/>
+                            <constraint firstItem="bpK-ry-9mR" firstAttribute="width" secondItem="Ibs-Ba-998" secondAttribute="width" multiplier="0.95" id="UBN-L4-Zcu"/>
                             <constraint firstItem="bpK-ry-9mR" firstAttribute="centerY" secondItem="Ibs-Ba-998" secondAttribute="centerY" multiplier="0.95" id="Zsp-aK-r02"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ibs-Ba-998"/>

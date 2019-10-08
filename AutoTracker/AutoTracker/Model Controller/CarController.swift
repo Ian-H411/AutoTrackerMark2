@@ -79,6 +79,18 @@ class CarController{
         privateDB.add(operation)
         
     }
+    ///use this so we dont have to constantly find the cars maintenance
+    func organizeAndReturnMaintainenceList() -> [Maintanence] {
+        guard let car = selectedCar else {return[]}
+        let maintenance = car.upcomingMaintanence?.allObjects as? [Maintanence] ?? []
+        let sortedMaintenance = maintenance.sorted { (lhs, rhs) -> Bool in
+            guard let leftDate = lhs.dueOn,
+                let rhsDate = rhs.dueOn
+            else {return false}
+            return leftDate.compare(rhsDate) == .orderedAscending
+        }
+        return sortedMaintenance
+    }
     
     //delete a car
     func removeCarFromGarage(car:Car){
