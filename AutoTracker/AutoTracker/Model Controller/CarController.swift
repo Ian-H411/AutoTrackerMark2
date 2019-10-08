@@ -26,7 +26,7 @@ class CarController{
     var selectedCar:Car?
     
     //database location
-    let privateDB = CKContainer.default().privateCloudDatabase
+//    let privateDB = CKContainer.default().privateCloudDatabase
     
     //initializer to fetch
     init() {
@@ -47,9 +47,9 @@ class CarController{
     
     //Create a car
     func addACar(name:String, make:String, model:String, year:String, vin:String, engine:String, ownerName:String,odometer:Double, photoData: Data?){
-        let newCar = Car(name: name, make: make, model: model, year: year, vin: vin, engine: engine, ownerName: ownerName, odometer: odometer, photoData: photoData)
-        saveCarToPersistentStoreAndCloud(car: newCar)
-        
+        let _ = Car(name: name, make: make, model: model, year: year, vin: vin, engine: engine, ownerName: ownerName, odometer: odometer, photoData: photoData)
+//        saveCarToPersistentStoreAndCloud(car: newCar)
+        saveChangesToPersistentStoreOnly()
     }
     
     //update car
@@ -66,17 +66,17 @@ class CarController{
         
         //save changes
         saveChangesToPersistentStoreOnly()
-        
-        //create a record of the modified car
-        guard let modifiedCar = CKRecord(car: car) else {return}
-        
-        //create my operation
-        let operation = CKModifyRecordsOperation(recordsToSave: [modifiedCar], recordIDsToDelete: nil)
-        operation.savePolicy = .changedKeys
-        operation.qualityOfService = .userInitiated
+//
+//        //create a record of the modified car
+//        guard let modifiedCar = CKRecord(car: car) else {return}
+//
+//        //create my operation
+//        let operation = CKModifyRecordsOperation(recordsToSave: [modifiedCar], recordIDsToDelete: nil)
+//        operation.savePolicy = .changedKeys
+//        operation.qualityOfService = .userInitiated
         
         //perform my cloudpush
-        privateDB.add(operation)
+//        privateDB.add(operation)
         
     }
     ///use this so we dont have to constantly find the cars maintenance
@@ -99,12 +99,12 @@ class CarController{
             //delete locally first
             moc.delete(car)
             saveChangesToPersistentStoreOnly()
-            
-            //delete in cloud
-            guard let recordIDAsString = car.recordID else {return}
-            let recordIdToDelete = CKRecord.ID(recordName: recordIDAsString)
-            let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [recordIdToDelete])
-            privateDB.add(operation)
+//
+//            //delete in cloud
+//            guard let recordIDAsString = car.recordID else {return}
+//            let recordIdToDelete = CKRecord.ID(recordName: recordIDAsString)
+//            let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [recordIdToDelete])
+//            privateDB.add(operation)
         }
         
     }
@@ -160,47 +160,47 @@ class CarController{
     }
     
     //retrievecarsfromcloud
-    func retrieveOnlineGarageAndSave(completion: @escaping (Bool) -> Void){
-        
-        //retrieve all records from the users private
-        let predicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: CarConstants.CarTypeKey, predicate: predicate)
-        privateDB.perform(query, inZoneWith: nil) { (recordsOptional, error) in
-            if let error = error{
-                print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
-                completion(false)
-                return
-            }
-            guard let carRecords = recordsOptional else {completion(false);return}
-            for record in carRecords {
-                guard let _ = Car(record: record) else {completion(false);return}
-            }
-            
-            self.saveChangesToPersistentStoreOnly()
-            completion(true)
-            return
-        }
-    }
+//    func retrieveOnlineGarageAndSave(completion: @escaping (Bool) -> Void){
+//
+//        //retrieve all records from the users private
+//        let predicate = NSPredicate(value: true)
+//        let query = CKQuery(recordType: CarConstants.CarTypeKey, predicate: predicate)
+//        privateDB.perform(query, inZoneWith: nil) { (recordsOptional, error) in
+//            if let error = error{
+//                print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
+//                completion(false)
+//                return
+//            }
+//            guard let carRecords = recordsOptional else {completion(false);return}
+//            for record in carRecords {
+//                guard let _ = Car(record: record) else {completion(false);return}
+//            }
+//
+//            self.saveChangesToPersistentStoreOnly()
+//            completion(true)
+//            return
+//        }
+//    }
     
     //MARK: -SAVE
-    private func saveCarToPersistentStoreAndCloud(car: Car){
-        //save locally first
-        let moc = CoreDataStack.context
-        do {
-            try moc.save()
-        } catch  {
-            print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
-        }
-        //create record and push to cloud
-        guard let record = CKRecord(car: car) else {return}
-        privateDB.save(record) { (record, error) in
-            if let error = error{
-                print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
-                return
-            }
-            
-        }
-    }
+//    private func saveCarToPersistentStoreAndCloud(car: Car){
+//        //save locally first
+//        let moc = CoreDataStack.context
+//        do {
+//            try moc.save()
+//        } catch  {
+//            print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
+//        }
+//        //create record and push to cloud
+//        guard let record = CKRecord(car: car) else {return}
+//        privateDB.save(record) { (record, error) in
+//            if let error = error{
+//                print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
+//                return
+//            }
+//
+//        }
+//    }
     
     //save function that only performs locally
     private func saveChangesToPersistentStoreOnly(){

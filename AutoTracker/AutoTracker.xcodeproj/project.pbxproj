@@ -47,6 +47,7 @@
 		42A3233B234BE48200B130A0 /* AutoTrackerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A3233A234BE48200B130A0 /* AutoTrackerTextField.swift */; };
 		42A3233F234BEBF300B130A0 /* ReceiptHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A3233E234BEBF300B130A0 /* ReceiptHistoryViewController.swift */; };
 		42A32341234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A32340234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift */; };
+		42E0E982234D04EB00A2ADD5 /* AddReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0E981234D04EB00A2ADD5 /* AddReceiptTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		42A3233A234BE48200B130A0 /* AutoTrackerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoTrackerTextField.swift; path = "AutoTracker/View Controllers/AutoTrackerTextField.swift"; sourceTree = SOURCE_ROOT; };
 		42A3233E234BEBF300B130A0 /* ReceiptHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptHistoryViewController.swift; sourceTree = "<group>"; };
 		42A32340234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCollectionViewCell.swift; sourceTree = "<group>"; };
+		42E0E981234D04EB00A2ADD5 /* AddReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReceiptTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 				42A32338234BD4A400B130A0 /* HistoryViewController.swift */,
 				42A3233E234BEBF300B130A0 /* ReceiptHistoryViewController.swift */,
 				42A32340234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift */,
+				42E0E981234D04EB00A2ADD5 /* AddReceiptTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				256810BF2347F40D00629AEA /* Maintanence+Convenience.swift in Sources */,
 				423925362347DBDF00EABF16 /* MyGarageTableViewCell.swift in Sources */,
 				256810C8234A35AE00629AEA /* MyGarageViewController.swift in Sources */,
+				42E0E982234D04EB00A2ADD5 /* AddReceiptTableViewController.swift in Sources */,
 				256810BB2347D77200629AEA /* CarJsonCompliance.swift in Sources */,
 				256810CE234BDEF100629AEA /* MaintenanceViewController.swift in Sources */,
 				42A3233F234BEBF300B130A0 /* ReceiptHistoryViewController.swift in Sources */,
@@ -529,7 +533,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AutoTracker/AutoTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38AN8KZ7HW;
+				DEVELOPMENT_TEAM = UR48EZC8Y4;
 				INFOPLIST_FILE = AutoTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -548,7 +552,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AutoTracker/AutoTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38AN8KZ7HW;
+				DEVELOPMENT_TEAM = UR48EZC8Y4;
 				INFOPLIST_FILE = AutoTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
