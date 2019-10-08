@@ -10,6 +10,12 @@ import UIKit
 
 class MaintanenceDetailTableViewController: UITableViewController {
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
+    }
+
+    
     var maintainenceList: [Maintanence]{
         return CarController.shared.organizeAndReturnMaintainenceList()
     }
@@ -17,11 +23,22 @@ class MaintanenceDetailTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if maintainenceList.count == 0{
+            return 1
+        }
         return maintainenceList.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "detail", for: indexPath) as? MaintainenceDetailTableViewCell else {return UITableViewCell()}
+        if maintainenceList.count == 0{
+            cell.cellLabel.text = "No maintenance Items for this car"
+            return cell
+        }
         let maintenance = maintainenceList[indexPath.row]
         guard let date = maintenance.dueOn else {return UITableViewCell()}
         let dueDate = DateHelper.shared.stringForMaintenanceDate(date: date)
@@ -43,14 +60,18 @@ class MaintanenceDetailTableViewController: UITableViewController {
     }
 
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "edit"{
+            if let indexPath = tableView.indexPathForSelectedRow{
+                if let destinationVC = segue.destination as? AddMaintenanceTableViewController{
+                    let maintenance = maintainenceList[indexPath.row]
+                    destinationVC.maintenance = maintenance
+                }
+            }
+        }
     }
-    */
 
 }

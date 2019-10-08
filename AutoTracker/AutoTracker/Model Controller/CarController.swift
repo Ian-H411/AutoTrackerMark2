@@ -6,7 +6,7 @@
 //  Copyright © 2019 Ian Hall. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreData
 import CloudKit
 class CarController{
@@ -110,10 +110,19 @@ class CarController{
     }
     
     //add a maintenance reminder
-    func addMaintenanceReminder(car:Car, message:String, maintanence:String ,date: Date){
+    func addMaintenanceReminder(car:Car, message:String?, maintanence:String ,date: Date, image: UIImage?){
         //TODO: - SET UP ABILITY TO ADD NOTIFICATION
-        let newMain = Maintanence(duedate: date, maintanenceRequiered: maintanence, details: message, car: car)
+        let newMain = Maintanence(duedate: date, maintanenceRequiered: maintanence, details: message ?? "", car: car)
+        newMain.photo = image
         car.upcomingMaintanence?.adding(newMain)
+        saveChangesToPersistentStoreOnly()
+    }
+    
+    func modifyMaintenanceRemainder(maintenance:Maintanence, date:Date, newTitle:String, details:String?, image: UIImage?){
+        maintenance.dueOn = date
+        maintenance.maintanenceRequired = newTitle
+        maintenance.details = details
+        maintenance.photo = image
         saveChangesToPersistentStoreOnly()
     }
     

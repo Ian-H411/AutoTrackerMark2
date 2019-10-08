@@ -96,7 +96,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maintanence Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rev-II-5Ey" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maintanence Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rev-II-5Ey" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
                                             <rect key="frame" x="20.5" y="18" width="373" height="64"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="64" id="SWk-Yu-21u"/>
@@ -114,7 +114,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cellLabel" destination="Rev-II-5Ey" id="PZj-XW-Sp1"/>
-                                    <segue destination="5Cx-Is-yDk" kind="show" id="Gmm-8I-Ly6"/>
+                                    <segue destination="5Cx-Is-yDk" kind="show" identifier="edit" id="Gmm-8I-Ly6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -126,7 +126,7 @@
                     <navigationItem key="navigationItem" title="Title" id="h8N-aB-krl">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="R84-3L-9HD">
                             <connections>
-                                <segue destination="5Cx-Is-yDk" kind="show" id="Bd8-11-oi1"/>
+                                <segue destination="5Cx-Is-yDk" kind="show" identifier="save" id="Bd8-11-oi1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
