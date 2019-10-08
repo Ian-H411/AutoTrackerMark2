@@ -11,7 +11,8 @@ import UIKit
 class ReceiptCollectionViewCell: UICollectionViewCell {
     
     // MARK: - OUTLETS
-    @IBOutlet weak var receiptImageView: UIImageView!
+
+    @IBOutlet weak var receiptImageButton: UIButton!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var pricePerGallonLabel: UILabel!
     
@@ -28,8 +29,25 @@ class ReceiptCollectionViewCell: UICollectionViewCell {
     func updateViews() {
         guard let receipt = receipt else { return }
         
-        receiptImageView.image = receipt.photo
-        // Add total to model?
-        // Add price per gallon to model?
+        
+        
+        totalLabel.text = receipt.total
+        pricePerGallonLabel.text = receipt.ppg
+        if let photo = receipt.photo, let resized = resizeImage(photo) {
+            receiptImageButton.setBackgroundImage(resized, for: .normal)
+        } else {
+            receiptImageButton.setBackgroundImage(nil, for: .normal)
+        }
+    }
+    
+    func resizeImage(_ image: UIImage) -> UIImage? {
+        let newWidth = receiptImageButton.bounds.width
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
     }
 }

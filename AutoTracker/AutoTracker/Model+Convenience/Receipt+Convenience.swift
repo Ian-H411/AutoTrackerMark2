@@ -14,13 +14,15 @@ extension Receipt {
     
     convenience init(name: String,
                      timestamp: Date = Date(),
-                     photoData: Data?,
+                     total: String,
+                     ppg: String,
                      context: NSManagedObjectContext = CoreDataStack.context) {
         
         self.init(context: context)
         self.name = name
         self.timestamp = timestamp
-        self.photoData = photoData
+        self.total = total
+        self.ppg = ppg
         self.recordID = UUID().uuidString
     }
     

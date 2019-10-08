@@ -6,7 +6,7 @@
 //  Copyright © 2019 Ian Hall. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreData
 import CloudKit
 
@@ -28,15 +28,17 @@ class ReceiptController {
     }
     
     //database location
-    let privateDB = CKContainer.default().privateCloudDatabase
+//    let privateDB = CKContainer.default().privateCloudDatabase
     
     // MARK: - CRUD
     
     // CREATE
-    func addReceiptWith(name: String, timestamp: Date, photoData: Data) {
+    func addReceiptWith(name: String, timestamp: Date, photo: UIImage?, total: String, ppg: String) {
         let timestamp = Date()
-        let newReceipt = Receipt(name: name, timestamp: timestamp, photoData: photoData, context: CoreDataStack.context)
-        saveReceiptToPersistentStoreAndCloud(receipt: newReceipt)
+        let newReceipt = Receipt(name: name, timestamp: timestamp, total: total, ppg: ppg, context: CoreDataStack.context)
+        newReceipt.photo = photo
+        saveToPersistentStoreOnly()
+//        saveReceiptToPersistentStoreAndCloud(receipt: newReceipt)
     }
     
     // READ
@@ -45,23 +47,23 @@ class ReceiptController {
     // TODO: - Send to cloud if CD doesn't do this
     
     // UPDATE
-    private func saveReceiptToPersistentStoreAndCloud(receipt: Receipt) {
-        // save locally first
-        let moc = CoreDataStack.context
-        do {
-            try moc.save()
-        } catch {
-            print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
-        }
-        // create record and push to cloud
-        let record = CKRecord(receipt: receipt)
-        privateDB.save(record) { (receipt, error) in
-            if let error = error {
-                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-                return
-            }
-        }
-    }
+//    private func saveReceiptToPersistentStoreAndCloud(receipt: Receipt) {
+//        // save locally first
+//        let moc = CoreDataStack.context
+//        do {
+//            try moc.save()
+//        } catch {
+//            print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
+//        }
+//        // create record and push to cloud
+//        let record = CKRecord(receipt: receipt)
+//        privateDB.save(record) { (receipt, error) in
+//            if let error = error {
+//                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+//                return
+//            }
+//        }
+//    }
     
     private func saveToPersistentStoreOnly() {
         if CoreDataStack.context.hasChanges {
@@ -77,10 +79,11 @@ class ReceiptController {
         moc.delete(receipt)
         
         // delete in cloud
-        guard let recordIDAsString = receipt.recordID else { return }
-        let deletion = CKRecord.ID(recordName: recordIDAsString)
-        let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [deletion])
-        privateDB.add(operation)
-    }
+//        guard let recordIDAsString = receipt.recordID else { return }
+//        let deletion = CKRecord.ID(recordName: recordIDAsString)
+//        let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [deletion])
+//        privateDB.add(operation)
+//    }
+}
 }
 
