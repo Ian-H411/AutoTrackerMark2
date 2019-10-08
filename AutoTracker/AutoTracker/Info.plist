@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>AutoTracker needs acsess to the camera to scan your vin and look up your vehicle</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>AutoTracker needs your location to find nearby gas stations</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -24,6 +20,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>AutoTracker needs acsess to the camera to scan your vin and look up your vehicle</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>AutoTracker needs your location to find nearby gas stations</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

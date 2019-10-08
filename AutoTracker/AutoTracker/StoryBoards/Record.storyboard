@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gPO-je-hId">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gPO-je-hId">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -188,37 +188,73 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Y1y-hL-gXe">
-                                <rect key="frame" x="30" y="107" width="354" height="335"/>
+                                <rect key="frame" x="30" y="150" width="354" height="440"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="335" id="CqO-yX-zes"/>
+                                    <constraint firstAttribute="height" constant="440" id="CqO-yX-zes"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hip-Fj-v34">
-                                    <size key="itemSize" width="157" height="180"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hip-Fj-v34">
+                                    <size key="itemSize" width="157" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="receiptCell" id="BWP-vl-5ih" customClass="ReceiptCollectionViewCell" customModule="AutoTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="157" height="180"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="214"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iE0-S8-9Qa">
-                                            <rect key="frame" x="0.0" y="0.0" width="157" height="180"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iE0-S8-9Qa" customClass="ReceiptCollectionViewCell" customModule="AutoTracker" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="214"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="receipt" translatesAutoresizingMaskIntoConstraints="NO" id="kso-kf-q6N">
+                                                    <rect key="frame" x="12" y="12" width="136" height="136"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="kso-kf-q6N" secondAttribute="height" multiplier="1:1" id="VVV-Nn-5ES"/>
+                                                        <constraint firstAttribute="height" constant="120" id="v37-Bf-qWN"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(total)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Utg-Gf-ZNx">
+                                                    <rect key="frame" x="22" y="157" width="116" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(price per gal)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQd-3d-Cg9">
+                                                    <rect key="frame" x="22" y="184" width="116" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="kso-kf-q6N" firstAttribute="leading" secondItem="iE0-S8-9Qa" secondAttribute="leading" constant="12" id="DmE-c1-g4w"/>
+                                                <constraint firstAttribute="trailing" secondItem="kso-kf-q6N" secondAttribute="trailing" constant="12" id="DzV-Ac-oc1"/>
+                                                <constraint firstItem="Utg-Gf-ZNx" firstAttribute="leading" secondItem="iE0-S8-9Qa" secondAttribute="leading" constant="22" id="NOk-Ql-ETE"/>
+                                                <constraint firstItem="tQd-3d-Cg9" firstAttribute="leading" secondItem="iE0-S8-9Qa" secondAttribute="leading" constant="22" id="SPL-s5-ykc"/>
+                                                <constraint firstAttribute="trailing" secondItem="Utg-Gf-ZNx" secondAttribute="trailing" constant="22" id="Tpe-w4-P1p"/>
+                                                <constraint firstAttribute="trailing" secondItem="tQd-3d-Cg9" secondAttribute="trailing" constant="22" id="X7i-sY-ADi"/>
+                                                <constraint firstAttribute="bottom" secondItem="tQd-3d-Cg9" secondAttribute="bottom" constant="9" id="bU7-vN-biE"/>
+                                                <constraint firstItem="Utg-Gf-ZNx" firstAttribute="top" secondItem="kso-kf-q6N" secondAttribute="bottom" constant="9" id="uC2-wB-wke"/>
+                                                <constraint firstItem="kso-kf-q6N" firstAttribute="centerX" secondItem="iE0-S8-9Qa" secondAttribute="centerX" id="ugp-hz-Edw"/>
+                                                <constraint firstItem="kso-kf-q6N" firstAttribute="top" secondItem="iE0-S8-9Qa" secondAttribute="top" constant="12" id="zjX-Os-tJN"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="157" height="180"/>
+                                        <size key="customSize" width="160" height="214"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reciepts History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYR-XB-6Iq" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="144" y="61" width="126" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reciepts History" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYR-XB-6Iq">
+                                <rect key="frame" x="20" y="61" width="374" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="qjq-SI-jI1"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ojf-XI-L5O" customClass="AutoTrackerButtonGrayBG" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="70" y="522" width="274" height="64"/>
+                                <rect key="frame" x="70" y="670" width="274" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="Cgq-16-Oro"/>
                                 </constraints>
@@ -228,19 +264,25 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Ojf-XI-L5O" firstAttribute="centerX" secondItem="CjS-xt-wgK" secondAttribute="centerX" id="2S3-jv-rMB"/>
                             <constraint firstItem="Y1y-hL-gXe" firstAttribute="top" secondItem="dYR-XB-6Iq" secondAttribute="bottom" constant="25" id="5u2-xP-QWu"/>
                             <constraint firstItem="CjS-xt-wgK" firstAttribute="trailing" secondItem="Ojf-XI-L5O" secondAttribute="trailing" constant="70" id="BHq-Ms-lqy"/>
                             <constraint firstItem="Ojf-XI-L5O" firstAttribute="leading" secondItem="CjS-xt-wgK" secondAttribute="leading" constant="70" id="HfW-Nh-37l"/>
+                            <constraint firstItem="dYR-XB-6Iq" firstAttribute="leading" secondItem="CjS-xt-wgK" secondAttribute="leading" constant="20" id="Iul-Be-g1w"/>
                             <constraint firstItem="dYR-XB-6Iq" firstAttribute="centerX" secondItem="CjS-xt-wgK" secondAttribute="centerX" id="Moo-NV-D0N"/>
                             <constraint firstItem="Y1y-hL-gXe" firstAttribute="centerX" secondItem="CjS-xt-wgK" secondAttribute="centerX" id="RqY-g6-scG"/>
+                            <constraint firstItem="CjS-xt-wgK" firstAttribute="trailing" secondItem="dYR-XB-6Iq" secondAttribute="trailing" constant="20" id="TgB-Ws-so2"/>
                             <constraint firstItem="dYR-XB-6Iq" firstAttribute="top" secondItem="CjS-xt-wgK" secondAttribute="top" constant="61" id="XKV-ek-Ncq"/>
                             <constraint firstItem="Y1y-hL-gXe" firstAttribute="leading" secondItem="CjS-xt-wgK" secondAttribute="leading" constant="30" id="guH-Uy-QaO"/>
                             <constraint firstItem="CjS-xt-wgK" firstAttribute="trailing" secondItem="Y1y-hL-gXe" secondAttribute="trailing" constant="30" id="ovV-cH-I2N"/>
                             <constraint firstItem="Ojf-XI-L5O" firstAttribute="top" secondItem="Y1y-hL-gXe" secondAttribute="bottom" constant="80" id="yok-PM-MYF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CjS-xt-wgK"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Z1s-OX-nDE" appends="YES" id="2Ea-zD-Oag"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="bi3-go-s8n"/>
                     <connections>
@@ -248,6 +290,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pCb-1y-X9R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="Z1s-OX-nDE">
+                    <connections>
+                        <action selector="swipeToScroll:" destination="8YQ-7t-Jey" id="lJe-mj-Nm2"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1540.5797101449277" y="-182.14285714285714"/>
         </scene>
@@ -293,4 +340,7 @@
             <point key="canvasLocation" x="612" y="-835"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="receipt" width="250" height="250"/>
+    </resources>
 </document>

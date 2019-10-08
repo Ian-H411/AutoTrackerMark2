@@ -22,13 +22,19 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var mutableMaintenanceStackView: UIStackView!
     
     // MARK: - PROPERTIES
-    var myCar: Car? {
+    var myCar: Car? = CarController.shared.selectedCar {
         didSet {
             updateViews()
         }
     }
     
-    var scheduledMaintenance: [Maintanence]?
+    var scheduledMaintenance: [Maintanence]? {
+        if let maintenance = myCar?.upcomingMaintanence?.allObjects as? [Maintanence] {
+            return maintenance
+        } else {
+            return []
+        }
+    }
     
     var labels: [UILabel] = []
     

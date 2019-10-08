@@ -15,10 +15,10 @@ class ReceiptController {
     // MARK: - VARIABLES AND INITIALIZERS
     
     // singleton
-    static let shared = Receipt()
+    static let shared = ReceiptController()
     
     // source of Truth
-    static var receipts: [Receipt] {
+    var receipts: [Receipt] {
         
         let moc = CoreDataStack.context
         
