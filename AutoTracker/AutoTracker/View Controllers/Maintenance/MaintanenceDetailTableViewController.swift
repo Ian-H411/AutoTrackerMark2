@@ -11,9 +11,7 @@ import UIKit
 class MaintanenceDetailTableViewController: UITableViewController {
     
     var maintainenceList: [Maintanence]{
-        guard let car = CarController.shared.selectedCar else {return []}
-        guard let maintenance = car.upcomingMaintanence else {return[]}
-        return maintenance.allObjects as? [Maintanence] ?? []
+        return CarController.shared.organizeAndReturnMaintainenceList()
     }
     // MARK: - Table view data source
 
@@ -23,8 +21,12 @@ class MaintanenceDetailTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "detail", for: indexPath) as? main
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "detail", for: indexPath) as? MaintainenceDetailTableViewCell else {return UITableViewCell()}
+        let maintenance = maintainenceList[indexPath.row]
+        guard let date = maintenance.dueOn else {return UITableViewCell()}
+        let dueDate = DateHelper.shared.stringForMaintenanceDate(date: date)
+        
+        cell.cellLabel = "\()| \()"
         // Configure the cell...
 
         return cell
