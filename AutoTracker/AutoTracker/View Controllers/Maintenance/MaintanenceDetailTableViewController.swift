@@ -26,7 +26,7 @@ class MaintanenceDetailTableViewController: UITableViewController {
         guard let date = maintenance.dueOn else {return UITableViewCell()}
         let dueDate = DateHelper.shared.stringForMaintenanceDate(date: date)
         
-        cell.cellLabel = "\()| \()"
+        cell.cellLabel.text = "\(maintenance.maintanenceRequired ?? "")|\(dueDate)"
         // Configure the cell...
 
         return cell
