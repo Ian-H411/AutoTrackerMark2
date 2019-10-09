@@ -387,7 +387,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4PV-D3-yYE">
-                                                    <rect key="frame" x="21" y="-65" width="373" height="216"/>
+                                                    <rect key="frame" x="20.5" y="-65.5" width="373" height="216"/>
                                                 </pickerView>
                                             </subviews>
                                             <constraints>
@@ -465,6 +465,7 @@
                         <outlet property="makeTextField" destination="c0O-1s-BWo" id="GgB-FS-qEU"/>
                         <outlet property="modelTextField" destination="nbd-lp-flU" id="w6G-rc-7B9"/>
                         <outlet property="nameTextField" destination="ThY-cE-WRM" id="6Vh-qN-hNq"/>
+                        <outlet property="odometerPicker" destination="4PV-D3-yYE" id="AMf-RW-dlp"/>
                         <outlet property="ownerTextField" destination="DnG-6X-ZV9" id="Wtl-dU-rpT"/>
                         <outlet property="vinTextField" destination="SEf-Lz-CiJ" id="GN9-Oz-tRW"/>
                         <outlet property="yearTextField" destination="dDQ-zx-BuD" id="tZU-Bc-LWh"/>
