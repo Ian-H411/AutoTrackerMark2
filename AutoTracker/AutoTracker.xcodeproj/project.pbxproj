@@ -51,6 +51,7 @@
 		42A3233B234BE48200B130A0 /* AutoTrackerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A3233A234BE48200B130A0 /* AutoTrackerTextField.swift */; };
 		42A3233F234BEBF300B130A0 /* ReceiptHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A3233E234BEBF300B130A0 /* ReceiptHistoryViewController.swift */; };
 		42A32341234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A32340234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift */; };
+		42DFEDAC234E2D42004C40D7 /* AddCarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DFEDAB234E2D42004C40D7 /* AddCarTableViewController.swift */; };
 		42E0E982234D04EB00A2ADD5 /* AddReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0E981234D04EB00A2ADD5 /* AddReceiptTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		42A3233A234BE48200B130A0 /* AutoTrackerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoTrackerTextField.swift; path = "AutoTracker/View Controllers/AutoTrackerTextField.swift"; sourceTree = SOURCE_ROOT; };
 		42A3233E234BEBF300B130A0 /* ReceiptHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptHistoryViewController.swift; sourceTree = "<group>"; };
 		42A32340234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCollectionViewCell.swift; sourceTree = "<group>"; };
+		42DFEDAB234E2D42004C40D7 /* AddCarTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarTableViewController.swift; sourceTree = "<group>"; };
 		42E0E981234D04EB00A2ADD5 /* AddReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReceiptTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -248,6 +250,7 @@
 				423925352347DBDF00EABF16 /* MyGarageTableViewCell.swift */,
 				256810C9234B9E3C00629AEA /* MockDataEntryViewController.swift */,
 				256810C7234A35AE00629AEA /* MyGarageViewController.swift */,
+				42DFEDAB234E2D42004C40D7 /* AddCarTableViewController.swift */,
 			);
 			path = MyGarage;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				256810CC234BB63C00629AEA /* AutoTrackerButtonAsLabelStyle.swift in Sources */,
 				256810B32347AAAE00629AEA /* Constants.swift in Sources */,
 				25C056EE234D1C690000D848 /* Place.swift in Sources */,
+				42DFEDAC234E2D42004C40D7 /* AddCarTableViewController.swift in Sources */,
 				42A32335234BB05000B130A0 /* RecordViewController.swift in Sources */,
 				256810D6234BED2800629AEA /* AddMaintenanceTableViewController.swift in Sources */,
 				256810B12347AA6300629AEA /* Receipt+Convenience.swift in Sources */,
