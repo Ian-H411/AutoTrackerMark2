@@ -217,10 +217,7 @@
 				42A32330234B965800B130A0 /* HomeViewController.swift */,
 				42A32334234BB05000B130A0 /* RecordViewController.swift */,
 				42A32336234BB7FF00B130A0 /* OdometerViewController.swift */,
-				42A32338234BD4A400B130A0 /* HistoryViewController.swift */,
-				42A3233E234BEBF300B130A0 /* ReceiptHistoryViewController.swift */,
-				42A32340234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift */,
-				42E0E981234D04EB00A2ADD5 /* AddReceiptTableViewController.swift */,
+				42DFEDAA234DA121004C40D7 /* Record */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -273,6 +270,17 @@
 				25C056EF234D387C0000D848 /* MapDetailViewController.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		42DFEDAA234DA121004C40D7 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				42A32338234BD4A400B130A0 /* HistoryViewController.swift */,
+				42A3233E234BEBF300B130A0 /* ReceiptHistoryViewController.swift */,
+				42A32340234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift */,
+				42E0E981234D04EB00A2ADD5 /* AddReceiptTableViewController.swift */,
+			);
+			path = Record;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
