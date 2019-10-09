@@ -26,6 +26,8 @@ struct Place:Decodable{
     
     let reviewCount:Int
     
+    let url:String
+    
     private enum CodingKeys:String, CodingKey{
         case imageURL = "image_url"
         case name
@@ -33,6 +35,7 @@ struct Place:Decodable{
         case rating
         case address = "location"
         case reviewCount = "review_count"
+        case url
     }
 }
 struct Coordinates:Decodable{
@@ -49,7 +52,7 @@ struct Address:Decodable{
 
 class PlaceObject: NSObject, MKAnnotation{
     
-    let name:String
+    let title:String?
     
     let coordinate: CLLocationCoordinate2D
     
@@ -59,15 +62,30 @@ class PlaceObject: NSObject, MKAnnotation{
     let address: String
     let numberOfReviews:Int
     let imageURL: String?
+    let url:String
+    let ratingCount:Int
     
     init (place:Place, imageurl:String?, ratingImage:UIImage){
-        self.name = place.name
+        self.title = place.name
         self.coordinate = CLLocationCoordinate2D(latitude: place.coordinates.latitude, longitude: place.coordinates.longitude)
         self.ratingImage = ratingImage
         self.address = place.address.displayAddress.first ?? "Address not available"
+        
         self.rating = place.rating
+        
         self.numberOfReviews = place.reviewCount
+        
+        self.url = place.url
+        
+        self.ratingCount = place.reviewCount
+        
         self.imageURL = imageurl
+        
         self.image = nil
+        
+    }
+    
+    var subtitle: String?{
+        return address
     }
 }

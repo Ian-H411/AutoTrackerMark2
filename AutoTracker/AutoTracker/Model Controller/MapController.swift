@@ -53,7 +53,7 @@ class MapController{
         }.resume()
         
     }
-    private func retrieveImage(urlString:String, completion: @escaping (UIImage?) -> Void){
+    func retrieveImage(urlString:String, completion: @escaping (UIImage?) -> Void){
         guard let url = URL(string: urlString) else {completion(nil);print("error url was nil");return}
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {

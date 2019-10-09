@@ -55,23 +55,31 @@
                                     <constraint firstItem="xEC-gE-Ehp" firstAttribute="height" secondItem="1WN-aa-iHu" secondAttribute="height" id="i44-EC-FJj"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="V6k-Wh-XJ2">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="V6k-Wh-XJ2" firstAttribute="height" secondItem="zbZ-MF-8i7" secondAttribute="height" id="H5c-us-R6k"/>
                             <constraint firstItem="zbZ-MF-8i7" firstAttribute="centerX" secondItem="wUW-Ky-hIS" secondAttribute="centerX" id="Oni-6z-4l1"/>
                             <constraint firstItem="EiN-3c-PCp" firstAttribute="width" secondItem="zbZ-MF-8i7" secondAttribute="width" id="UvW-Nq-t3h"/>
                             <constraint firstItem="zbZ-MF-8i7" firstAttribute="centerY" secondItem="wUW-Ky-hIS" secondAttribute="centerY" id="aPv-IM-Otb"/>
                             <constraint firstItem="zbZ-MF-8i7" firstAttribute="width" secondItem="wUW-Ky-hIS" secondAttribute="width" id="fQi-pd-8XA"/>
+                            <constraint firstItem="V6k-Wh-XJ2" firstAttribute="centerY" secondItem="zbZ-MF-8i7" secondAttribute="centerY" id="klD-se-EIL"/>
                             <constraint firstItem="zbZ-MF-8i7" firstAttribute="height" secondItem="wUW-Ky-hIS" secondAttribute="height" id="l2z-D3-mzW"/>
+                            <constraint firstItem="V6k-Wh-XJ2" firstAttribute="centerX" secondItem="zbZ-MF-8i7" secondAttribute="centerX" id="ncH-7o-lMi"/>
                             <constraint firstItem="EiN-3c-PCp" firstAttribute="centerX" secondItem="wUW-Ky-hIS" secondAttribute="centerX" id="wi6-IX-xfA"/>
+                            <constraint firstItem="V6k-Wh-XJ2" firstAttribute="width" secondItem="zbZ-MF-8i7" secondAttribute="width" id="x2C-vB-hTH"/>
                             <constraint firstItem="EiN-3c-PCp" firstAttribute="centerY" secondItem="wUW-Ky-hIS" secondAttribute="centerY" multiplier="1.65" id="ybR-HI-QUC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wUW-Ky-hIS"/>
                     </view>
                     <navigationItem key="navigationItem" id="0eX-0b-JVx"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="V6k-Wh-XJ2" id="bFc-yn-TUE"/>
                         <outlet property="locationsMapView" destination="zbZ-MF-8i7" id="EkJ-Ze-nia"/>
-                        <segue destination="Yc6-HF-FhC" kind="show" identifier="toDetail" id="Oom-8z-4UE"/>
+                        <segue destination="Yc6-HF-FhC" kind="show" identifier="placeDetail" id="Oom-8z-4UE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="drx-M4-XE2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -104,6 +112,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hK-Sb-3KK" customClass="AutoTrackerButtonAsLabel" customModule="AutoTracker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="221" height="162"/>
                                                 <state key="normal" title="Address"/>
+                                                <connections>
+                                                    <action selector="addressButtonTapped:" destination="Yc6-HF-FhC" eventType="touchUpInside" id="DDC-ns-oV2"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UOi-WC-Un8">
                                                 <rect key="frame" x="252" y="0.0" width="162" height="162"/>
@@ -147,6 +158,9 @@
                                                     <constraint firstAttribute="width" secondItem="fHV-60-CFo" secondAttribute="height" multiplier="1:1" id="3ch-PN-hGn"/>
                                                 </constraints>
                                                 <state key="normal" image="yelp"/>
+                                                <connections>
+                                                    <action selector="yelpButtonTapped:" destination="Yc6-HF-FhC" eventType="touchUpInside" id="xDg-b2-DZ5"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -170,6 +184,13 @@
                         <viewLayoutGuide key="safeArea" id="qaL-G6-NpR"/>
                     </view>
                     <navigationItem key="navigationItem" id="dUu-ad-icQ"/>
+                    <connections>
+                        <outlet property="addressButton" destination="7hK-Sb-3KK" id="5VU-1g-LmY"/>
+                        <outlet property="imageOfPlace" destination="UOi-WC-Un8" id="lF5-LR-dIH"/>
+                        <outlet property="locationTitleLabel" destination="TrL-G0-vRc" id="HUt-E4-BuC"/>
+                        <outlet property="totalReviewsLabel" destination="9dO-gH-Hs3" id="Zal-F2-oRR"/>
+                        <outlet property="yelpStarsImage" destination="9Hi-0c-lAb" id="oqD-Pc-QFo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGV-Aw-qsC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

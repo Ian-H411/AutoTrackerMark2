@@ -7,24 +7,74 @@
 //
 
 import UIKit
+import MapKit
 
 class MapDetailViewController: UIViewController {
-
+    
+    
+    //MARK: - OUTLETS
+    
+    @IBOutlet weak var locationTitleLabel: UILabel!
+    
+    @IBOutlet weak var addressButton: AutoTrackerButtonAsLabel!
+    
+    @IBOutlet weak var imageOfPlace: UIImageView!
+    
+    @IBOutlet weak var yelpStarsImage: UIImageView!
+    
+    @IBOutlet weak var totalReviewsLabel: UILabel!
+    
+    var place:PlaceObject?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUpUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: - HELPERS
+    
+    
+    func setUpUI(){
+        guard let place = place else {return}
+        locationTitleLabel.text = place.title
+        addressButton.setTitle(place.address, for: .normal)
+        
+        yelpStarsImage.image = place.ratingImage
+        totalReviewsLabel.text = "Based on \(place.ratingCount) reviews"
+        if let imageurl = place.imageURL{
+            MapController.shared.retrieveImage(urlString: imageurl) { (image) in
+                guard let image = image else {return}
+                DispatchQueue.main.async {
+                    self.imageOfPlace.image = image
+                }
+                
+            }
+        }
+        
     }
-    */
-
+    
+    
+    
+    //MARK: - ACTIONS
+    
+    @IBAction func yelpButtonTapped(_ sender: UIButton) {
+        guard let place = place else {return}
+        guard let url = URL(string: place.url) else {return}
+        UIApplication.shared.open(url)
+        
+    }
+    
+    @IBAction func addressButtonTapped(_ sender: Any) {
+        guard let place = place else {return}
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving]
+        let placeMark = MKPlacemark(coordinate: place.coordinate)
+        let mapitem = MKMapItem(placemark: placeMark)
+        mapitem.name = "\(place.title ?? "")"
+        mapitem.openInMaps(launchOptions: launchOptions)
+        
+    }
+    
+    
+    
+    
 }
