@@ -68,6 +68,11 @@ class MyGarageViewController: UIViewController {
      
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        carSelectionTableView.reloadData()
+    }
+    
     //MARK: - HELPER FUNCTIONS
     
     func updateTableViewFrame(){
