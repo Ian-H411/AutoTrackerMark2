@@ -13,10 +13,22 @@ class RecordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if CarController.shared.selectedCar != nil {
+            enterCarAlert()
+        }
         // Do any additional setup after loading the view.
     }
     
 
+    // MARK: - FUNCTIONS
+    
+    func enterCarAlert() {
+        let alertController = UIAlertController(title: "Enter a car before updating it's miles", message: nil, preferredStyle:  .actionSheet)
+        let action = UIAlertAction(title: "Cool", style: .default)
+        alertController.addAction(action)
+        present(alertController, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
