@@ -17,6 +17,7 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var locationsMapView: MKMapView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     
@@ -29,11 +30,15 @@ class MapViewController: UIViewController {
     
     let locationManager = LocationManager.shared
     
+    var selectedPlace:PlaceObject?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        locationsMapView.delegate = self
+        activityIndicator.stopAnimating()
         
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,10 +50,16 @@ class MapViewController: UIViewController {
     //MARK: - ACTIONS
     
     @IBAction func searchAreaButtonTapped(_ sender: Any) {
+        locationsMapView.removeAnnotations(locationsMapView.annotations)
+        activityIndicator.startAnimating()
         let center = locationsMapView.centerCoordinate
         let radius = Int(locationsMapView.region.span.longitudeDelta)
         MapController.shared.grabNearbyGasStationsAndConvert(location: center, radius: radius) { (success) in
             if success{
+                DispatchQueue.main.async {
+                   self.activityIndicator.stopAnimating()
+                }
+                
                 self.results = MapController.shared.results
                 self.setUpMarkers()
             }
@@ -68,6 +79,17 @@ class MapViewController: UIViewController {
     }
     func setUpMarkers(){
         locationsMapView.addAnnotations(results)
+    }
+    
+    
+    //MARK: - NAVIGATION
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "placeDetail"{
+            if let vc = segue.destination as? MapDetailViewController {
+                vc.place = selectedPlace
+            }
+        }
     }
     
     
@@ -100,5 +122,11 @@ extension MapViewController: MKMapViewDelegate{
             view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         return view
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let place = view.annotation as! PlaceObject
+        selectedPlace = place
+        self.performSegue(withIdentifier: "placeDetail", sender: nil)
     }
 }
