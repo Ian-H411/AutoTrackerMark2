@@ -23,10 +23,11 @@ class AddCarTableViewController: UITableViewController {
     @IBOutlet weak var engineTextField: UITextField!
     @IBOutlet weak var yearTextField: UITextField!
     @IBOutlet weak var vinTextField: UITextField!
+    @IBOutlet weak var odometerPicker: UIPickerView!
     
 
     // MARK: - PROPERTIES
-    var odometer = [1,2,3,4,5,6,7,8,9]
+    var odometer = ["0","1","2","3","4","5","6","7","8","9"]
     
     // MARK: - LIFECYCLE
     
@@ -34,6 +35,8 @@ class AddCarTableViewController: UITableViewController {
         super.viewDidLoad()
         
         yearTextField.delegate = self
+        odometerPicker.delegate = self
+        odometerPicker.dataSource = self
     }
 
     // MARK: - ACTIONS
@@ -68,8 +71,9 @@ class AddCarTableViewController: UITableViewController {
             return
         }
         
+        let odometer = odometerResults()
         
-        CarController.shared.addACar(name: name, make: make, model: model, year: year, vin: cleanVIN, engine: engine, ownerName: owner, odometer: 0, photoData: nil)
+        CarController.shared.addACar(name: name, make: make, model: model, year: year, vin: cleanVIN, engine: engine, ownerName: owner, odometer: Double(odometer), photoData: nil)
         navigationController?.popViewController(animated: true)
     }
     
@@ -101,6 +105,16 @@ class AddCarTableViewController: UITableViewController {
         let clean = vin.components(separatedBy: " ").joined().uppercased()
         let cleaner = clean.components(separatedBy: CharacterSet.punctuationCharacters).joined()
         return cleaner
+    }
+    
+    func odometerResults() -> Int {
+        var placeholder: [Int] = []
+        for component in 0..<odometerPicker.numberOfComponents {
+            let number = odometerPicker.selectedRow(inComponent: component)
+            placeholder.append(number)
+        }
+        let odometer = placeholder.reduce(0, {$0*10 + $1})
+        return odometer
     }
     
     // MARK: - Table view data source
@@ -171,4 +185,24 @@ extension String {
     var isNumeric : Bool {
         return Double(self) != nil
     }
+}
+
+extension AddCarTableViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 7
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.odometer.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        return
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(row)
+    }
+    
 }
