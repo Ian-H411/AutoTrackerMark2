@@ -16,6 +16,7 @@ class RecordViewController: UIViewController {
         if CarController.shared.selectedCar != nil {
             enterCarAlert()
         }
+        
         // Do any additional setup after loading the view.
     }
     

@@ -485,24 +485,26 @@
         <!--Odometer View Controller-->
         <scene sceneID="Cl4-ZI-NMh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1D1-df-48E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="K9U-Av-9y1" customClass="OdometerViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7gF-x8-HPE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNQ-7n-DaP">
-                                <rect key="frame" x="41.5" y="296" width="331" height="216"/>
+                                <rect key="frame" x="41.5" y="366.5" width="331" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="8Kb-Yh-qHk"/>
+                                </constraints>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CO4-ia-R9y">
-                                <rect key="frame" x="181.5" y="522" width="51" height="30"/>
+                                <rect key="frame" x="181.5" y="451.5" width="51" height="30"/>
                                 <state key="normal" title="Update"/>
                                 <connections>
                                     <action selector="updateButtonTapped:" destination="K9U-Av-9y1" eventType="touchUpInside" id="0id-Ia-xRP"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miles Gone/ Current Odometer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85C-Na-pmo">
-                                <rect key="frame" x="89.5" y="265" width="235" height="21"/>
+                                <rect key="frame" x="89.5" y="335.5" width="235" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -524,6 +526,7 @@
                         <outlet property="odometerPicker" destination="CNQ-7n-DaP" id="hdV-yB-tfJ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1D1-df-48E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="612" y="-1347"/>
         </scene>
