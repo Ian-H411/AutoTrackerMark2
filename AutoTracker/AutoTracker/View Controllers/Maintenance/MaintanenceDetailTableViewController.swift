@@ -67,6 +67,9 @@ class MaintanenceDetailTableViewController: UITableViewController {
         if segue.identifier == "edit"{
             if let indexPath = tableView.indexPathForSelectedRow{
                 if let destinationVC = segue.destination as? AddMaintenanceTableViewController{
+                    if maintainenceList.count == 0{
+                        return
+                    }
                     let maintenance = maintainenceList[indexPath.row]
                     destinationVC.maintenance = maintenance
                 }
