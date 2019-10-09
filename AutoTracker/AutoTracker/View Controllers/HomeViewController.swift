@@ -56,8 +56,7 @@ class HomeViewController: UIViewController {
     
     func updateViews() {
         guard let myCar = myCar else { return }
-        
-//        updateMaintenanceLabels()
+
         carImageView.image = myCar.photo ?? UIImage(named: "car")
         carNameLabel.text = myCar.name ?? "Car Name"
         lifetimeMilesLabel.text = String(describing: myCar.odometer)
@@ -81,38 +80,4 @@ class HomeViewController: UIViewController {
             
         }
     }
-    
-//    func makeMaintenanceLabels() {
-//        guard let scheduledMaintenance = scheduledMaintenance else { return }
-//        self.labels.removeAll()
-//        for _ in scheduledMaintenance {
-//            labels.append(AutoTrackerLabel())
-//        }
-//    }
-//
-//    func updateMaintenanceLabels() {
-//        guard let scheduledMaintenance = scheduledMaintenance else { return }
-//
-//        makeMaintenanceLabels()
-//        var j = 0
-//        if j <= 1 {
-//            for i in labels {
-//                i.text = scheduledMaintenance[j].details! + "|" + DateHelper.shared.stringForMaintenanceDate(date: scheduledMaintenance[j].dueOn!)
-//                mutableMaintenanceStackView.addArrangedSubview(i)
-//                j += 1
-//            }
-//        }
-//    }
-
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
