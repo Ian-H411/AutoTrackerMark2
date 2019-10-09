@@ -26,6 +26,12 @@ class OdometerViewController: UIViewController {
         
         odometerPicker.delegate = self
         odometerPicker.dataSource = self
+        odometerPicker.layer.borderWidth = 5
+        odometerPicker.layer.cornerRadius = 12
+        odometerPicker.layer.borderColor = UIColor.black.cgColor
+        odometerPicker.layer.backgroundColor = UIColor.black.cgColor
+        odometerPicker.setValue(UIColor.white, forKey: "textColor")
+        
     }
     
     // MARK: - ACTIONS
@@ -87,6 +93,11 @@ extension OdometerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         return String(row)
     }
     
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 50
+    }
+    
+        
 }
 
 //extension OdometerViewController: UITextFieldDelegate {
