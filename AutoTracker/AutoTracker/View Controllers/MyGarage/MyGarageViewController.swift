@@ -31,7 +31,10 @@ class MyGarageViewController: UIViewController {
     
     var isInCarSelectionMode:Bool = false
     
+    
     var currentCarSelected: Car?
+    
+    var hackCarDeleteButton:Car?
     
     
     // programatically creates a cgrect that we can set the tableView height to
@@ -65,6 +68,7 @@ class MyGarageViewController: UIViewController {
         currentCarSelected = car
         updateTableViewFrame()
         setTextFields()
+        self.carSelectionTableView.tableFooterView = UIView()
      
     }
     
@@ -101,7 +105,28 @@ class MyGarageViewController: UIViewController {
         vinLabel.text = selectedCar.vin
         
     }
+   
+    func presentOptions(){
+        let alertController = UIAlertController(title: "Add a car", message: "How would you like to add your vehicle?", preferredStyle: .actionSheet)
+        let button1 = UIAlertAction(title: "Manual Key in", style: .default) { (_) in
+            self.performSegue(withIdentifier: "manual", sender: nil)
+        }
+        let button2 = UIAlertAction(title: "Look up by Vin", style: .default) { (_) in
+            self.performSegue(withIdentifier: "auto", sender: nil)
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
+        }
+        alertController.addAction(button1)
+        alertController.addAction(button2)
+        alertController.addAction(cancel)
+        self.present(alertController, animated: true)
+    }
     
+    //MARK: - ACTIONS
+    
+    @IBAction func AddACarButtonTapped(_ sender: Any) {
+        presentOptions()
+    }
     
     /*
      // MARK: - Navigation

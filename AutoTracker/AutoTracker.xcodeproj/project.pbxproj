@@ -23,7 +23,6 @@
 		256810BD2347F1DA00629AEA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810BC2347F1DA00629AEA /* LocationManager.swift */; };
 		256810BF2347F40D00629AEA /* Maintanence+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810BE2347F40D00629AEA /* Maintanence+Convenience.swift */; };
 		256810C8234A35AE00629AEA /* MyGarageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810C7234A35AE00629AEA /* MyGarageViewController.swift */; };
-		256810CA234B9E3C00629AEA /* MockDataEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810C9234B9E3C00629AEA /* MockDataEntryViewController.swift */; };
 		256810CC234BB63C00629AEA /* AutoTrackerButtonAsLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810CB234BB63C00629AEA /* AutoTrackerButtonAsLabelStyle.swift */; };
 		256810CE234BDEF100629AEA /* MaintenanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810CD234BDEF100629AEA /* MaintenanceViewController.swift */; };
 		256810D0234BDF0800629AEA /* MaintanenceDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810CF234BDF0800629AEA /* MaintanenceDetailTableViewController.swift */; };
@@ -75,7 +74,6 @@
 		256810BC2347F1DA00629AEA /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		256810BE2347F40D00629AEA /* Maintanence+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Maintanence+Convenience.swift"; sourceTree = "<group>"; };
 		256810C7234A35AE00629AEA /* MyGarageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyGarageViewController.swift; path = "AutoTracker/View Controllers/MyGarage/MyGarageViewController.swift"; sourceTree = SOURCE_ROOT; };
-		256810C9234B9E3C00629AEA /* MockDataEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataEntryViewController.swift; sourceTree = "<group>"; };
 		256810CB234BB63C00629AEA /* AutoTrackerButtonAsLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoTrackerButtonAsLabelStyle.swift; path = "AutoTracker/View Controllers/AutoTrackerButtonAsLabelStyle.swift"; sourceTree = SOURCE_ROOT; };
 		256810CD234BDEF100629AEA /* MaintenanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceViewController.swift; sourceTree = "<group>"; };
 		256810CF234BDF0800629AEA /* MaintanenceDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintanenceDetailTableViewController.swift; sourceTree = "<group>"; };
@@ -248,7 +246,6 @@
 			isa = PBXGroup;
 			children = (
 				423925352347DBDF00EABF16 /* MyGarageTableViewCell.swift */,
-				256810C9234B9E3C00629AEA /* MockDataEntryViewController.swift */,
 				256810C7234A35AE00629AEA /* MyGarageViewController.swift */,
 				42DFEDAB234E2D42004C40D7 /* AddCarTableViewController.swift */,
 			);
@@ -396,7 +393,6 @@
 				256810BB2347D77200629AEA /* CarJsonCompliance.swift in Sources */,
 				256810CE234BDEF100629AEA /* MaintenanceViewController.swift in Sources */,
 				42A3233F234BEBF300B130A0 /* ReceiptHistoryViewController.swift in Sources */,
-				256810CA234B9E3C00629AEA /* MockDataEntryViewController.swift in Sources */,
 				256810D4234BE77800629AEA /* TextFieldStyle.swift in Sources */,
 				256810912347A7A800629AEA /* SceneDelegate.swift in Sources */,
 				423925322347D72500EABF16 /* StyleGuide.swift in Sources */,

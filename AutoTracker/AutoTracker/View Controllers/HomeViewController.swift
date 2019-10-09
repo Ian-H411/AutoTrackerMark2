@@ -73,9 +73,11 @@ class HomeViewController: UIViewController {
             guard let maintenanceRequired = scheduledMaintenance.first?.maintanenceRequired, let dueOn = scheduledMaintenance.first?.dueOn else { return }
             mostRecentMaintenanceLabel.isHidden = false
             mostRecentMaintenanceLabel.text = maintenanceRequired + " | " + DateHelper.shared.stringForMaintenanceDate(date: dueOn)
+            if scheduledMaintenance.count > 1 {
             guard let secondMaintenanceRequired = scheduledMaintenance[1].maintanenceRequired, let secondDueOn = scheduledMaintenance[1].dueOn else { return }
             nextMostRecentMaintenanceLabel.isHidden = false
             nextMostRecentMaintenanceLabel.text = secondMaintenanceRequired + " | " + DateHelper.shared.stringForMaintenanceDate(date: secondDueOn)
+            }
         } else if scheduledMaintenance.count == 0 {
             
         }
