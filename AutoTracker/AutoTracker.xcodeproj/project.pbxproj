@@ -168,7 +168,6 @@
 				256810BA2347D77200629AEA /* CarJsonCompliance.swift */,
 				256810BE2347F40D00629AEA /* Maintanence+Convenience.swift */,
 				25C056ED234D1C690000D848 /* Place.swift */,
-				25C056F1234D38A40000D848 /* MapController.swift */,
 			);
 			path = "Model+Convenience";
 			sourceTree = "<group>";
@@ -238,6 +237,7 @@
 			children = (
 				256810B82347AE0800629AEA /* CarController.swift */,
 				423925372347F0E000EABF16 /* ReceiptController.swift */,
+				25C056F1234D38A40000D848 /* MapController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -565,7 +565,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AutoTracker/AutoTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UR48EZC8Y4;
+				DEVELOPMENT_TEAM = 38AN8KZ7HW;
 				INFOPLIST_FILE = AutoTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -584,7 +584,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AutoTracker/AutoTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UR48EZC8Y4;
+				DEVELOPMENT_TEAM = 38AN8KZ7HW;
 				INFOPLIST_FILE = AutoTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

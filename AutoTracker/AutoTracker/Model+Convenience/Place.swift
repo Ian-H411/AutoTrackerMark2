@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import MapKit
 struct Places:Decodable{
     let businesses:[Place]
 }
@@ -18,11 +18,13 @@ struct Place:Decodable{
     
     let coordinates:Coordinates
     
-    let imageURL:String
+    let imageURL:String?
     
     let rating: Double
     
     let address:Address
+    
+    let reviewCount:Int
     
     private enum CodingKeys:String, CodingKey{
         case imageURL = "image_url"
@@ -30,6 +32,7 @@ struct Place:Decodable{
         case coordinates
         case rating
         case address = "location"
+        case reviewCount = "review_count"
     }
 }
 struct Coordinates:Decodable{
@@ -41,5 +44,30 @@ struct Address:Decodable{
     
     private enum CodingKeys:String,CodingKey{
         case displayAddress = "display_address"
+    }
+}
+
+class PlaceObject: NSObject, MKAnnotation{
+    
+    let name:String
+    
+    let coordinate: CLLocationCoordinate2D
+    
+    let image: UIImage?
+    let rating: Double
+    let ratingImage: UIImage
+    let address: String
+    let numberOfReviews:Int
+    let imageURL: String?
+    
+    init (place:Place, imageurl:String?, ratingImage:UIImage){
+        self.name = place.name
+        self.coordinate = CLLocationCoordinate2D(latitude: place.coordinates.latitude, longitude: place.coordinates.longitude)
+        self.ratingImage = ratingImage
+        self.address = place.address.displayAddress.first ?? "Address not available"
+        self.rating = place.rating
+        self.numberOfReviews = place.reviewCount
+        self.imageURL = imageurl
+        self.image = nil
     }
 }
