@@ -79,6 +79,13 @@ class CarController{
 //        privateDB.add(operation)
         
     }
+    
+    func updateOdometer(car: Car, odometer: Double, completion: @escaping (Bool) -> Void) {
+        
+        car.odometer = odometer
+        completion(true)
+        saveChangesToPersistentStoreOnly()
+    }
     ///use this so we dont have to constantly find the cars maintenance
     func organizeAndReturnMaintainenceList() -> [Maintanence] {
         guard let car = selectedCar else {return[]}

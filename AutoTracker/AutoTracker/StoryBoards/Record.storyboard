@@ -485,21 +485,24 @@
         <!--Odometer View Controller-->
         <scene sceneID="Cl4-ZI-NMh">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1D1-df-48E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="K9U-Av-9y1" customClass="OdometerViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7gF-x8-HPE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4XM-SF-FzC">
-                                <rect key="frame" x="25" y="372" width="364" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="p9Y-l9-gkB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNQ-7n-DaP">
+                                <rect key="frame" x="41.5" y="296" width="331" height="216"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CO4-ia-R9y">
+                                <rect key="frame" x="181.5" y="522" width="51" height="30"/>
+                                <state key="normal" title="Update"/>
+                                <connections>
+                                    <action selector="updateButtonTapped:" destination="K9U-Av-9y1" eventType="touchUpInside" id="0id-Ia-xRP"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miles Gone/ Current Odometer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85C-Na-pmo">
-                                <rect key="frame" x="89.5" y="341" width="235" height="21"/>
+                                <rect key="frame" x="89.5" y="265" width="235" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -507,19 +510,20 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="4XM-SF-FzC" firstAttribute="width" secondItem="Vlz-Kl-wjK" secondAttribute="width" multiplier="0.88" id="B1h-Te-d0e"/>
+                            <constraint firstItem="CNQ-7n-DaP" firstAttribute="width" secondItem="Vlz-Kl-wjK" secondAttribute="width" multiplier="0.8" id="GDY-MH-YEd"/>
                             <constraint firstItem="85C-Na-pmo" firstAttribute="centerX" secondItem="Vlz-Kl-wjK" secondAttribute="centerX" id="JH9-Ve-lXU"/>
-                            <constraint firstItem="4XM-SF-FzC" firstAttribute="top" secondItem="85C-Na-pmo" secondAttribute="bottom" constant="10" id="Mhs-PV-KZ5"/>
-                            <constraint firstItem="4XM-SF-FzC" firstAttribute="centerY" secondItem="Vlz-Kl-wjK" secondAttribute="centerY" id="TiC-As-v8O"/>
-                            <constraint firstItem="4XM-SF-FzC" firstAttribute="centerX" secondItem="Vlz-Kl-wjK" secondAttribute="centerX" id="eky-FB-khd"/>
+                            <constraint firstItem="CNQ-7n-DaP" firstAttribute="top" secondItem="85C-Na-pmo" secondAttribute="bottom" constant="10" id="jsK-JC-S5c"/>
+                            <constraint firstItem="CO4-ia-R9y" firstAttribute="top" secondItem="CNQ-7n-DaP" secondAttribute="bottom" constant="10" id="kX2-OF-KI3"/>
+                            <constraint firstItem="CNQ-7n-DaP" firstAttribute="centerY" secondItem="Vlz-Kl-wjK" secondAttribute="centerY" id="oaj-xp-kF4"/>
+                            <constraint firstItem="CO4-ia-R9y" firstAttribute="centerX" secondItem="Vlz-Kl-wjK" secondAttribute="centerX" id="sFN-gh-NTg"/>
+                            <constraint firstItem="CNQ-7n-DaP" firstAttribute="centerX" secondItem="Vlz-Kl-wjK" secondAttribute="centerX" id="vnz-pV-pKc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vlz-Kl-wjK"/>
                     </view>
                     <connections>
-                        <outlet property="mileageTextField" destination="4XM-SF-FzC" id="6r8-9Z-G1P"/>
+                        <outlet property="odometerPicker" destination="CNQ-7n-DaP" id="hdV-yB-tfJ"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1D1-df-48E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="612" y="-1347"/>
         </scene>
