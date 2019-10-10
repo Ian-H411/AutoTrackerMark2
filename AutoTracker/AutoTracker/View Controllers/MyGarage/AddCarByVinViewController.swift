@@ -92,6 +92,10 @@ class AddCarByVinViewController: UIViewController {
         guard let vin = vinTextField.text?.uppercased(), !vin.isEmpty,
             let year = yearTextField.text, !year.isEmpty
             else {return}
+        if !Reachability.isConnectedToNetwork(){
+            presentNoInternetAlert()
+            return
+        }
         vinStore = vin
         CarController.shared.retrieveCarDetailsWith(vin: vin, year: year) { (carJson, error) in
             if let error = error{
@@ -132,6 +136,12 @@ class AddCarByVinViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    func presentNoInternetAlert(){
+        let alert = UIAlertController(title: "No Internet", message: "Sorry but this function requires an internet connection.  check your connection and try again", preferredStyle: .alert)
+        let okayButton = UIAlertAction(title: "okay", style: .default, handler: nil)
+        alert.addAction(okayButton)
+        self.present(alert, animated: true)
+    }
     
     func addDoneButtonOnKeyboard(textField: UITextField){
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))

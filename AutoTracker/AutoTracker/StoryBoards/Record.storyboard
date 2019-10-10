@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0pw-oB-O4G">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0pw-oB-O4G">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -542,7 +542,7 @@
         <scene sceneID="jti-I7-Idg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0pw-oB-O4G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Record" id="mXH-Pt-Yyl"/>
+                    <tabBarItem key="tabBarItem" title="Record" image="pencil.and.ellipsis.rectangle" catalog="system" id="mXH-Pt-Yyl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bf7-Mf-03d">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -558,4 +558,7 @@
             <point key="canvasLocation" x="-230.43478260869566" y="-532.36607142857144"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pencil.and.ellipsis.rectangle" catalog="system" width="64" height="40"/>
+    </resources>
 </document>

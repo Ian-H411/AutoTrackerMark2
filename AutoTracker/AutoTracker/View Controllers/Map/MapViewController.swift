@@ -40,6 +40,7 @@ class MapViewController: UIViewController {
         locationsMapView.delegate = self
         activityIndicator.stopAnimating()
         
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
@@ -50,6 +51,10 @@ class MapViewController: UIViewController {
     //MARK: - ACTIONS
     
     @IBAction func searchAreaButtonTapped(_ sender: Any) {
+        if !Reachability.isConnectedToNetwork(){
+            presentNoInternetAlert()
+            return
+        }
         locationsMapView.removeAnnotations(locationsMapView.annotations)
         activityIndicator.startAnimating()
         let center = locationsMapView.centerCoordinate
@@ -57,7 +62,7 @@ class MapViewController: UIViewController {
         MapController.shared.grabNearbyGasStationsAndConvert(location: center, radius: radius) { (success) in
             if success{
                 DispatchQueue.main.async {
-                   self.activityIndicator.stopAnimating()
+                    self.activityIndicator.stopAnimating()
                 }
                 
                 self.results = MapController.shared.results
@@ -81,7 +86,12 @@ class MapViewController: UIViewController {
         locationsMapView.addAnnotations(results)
     }
     
-    
+    func presentNoInternetAlert(){
+        let alert = UIAlertController(title: "No Internet", message: "Sorry but this function requires an internet connection.  check your connection and try again", preferredStyle: .alert)
+        let okayButton = UIAlertAction(title: "okay", style: .default, handler: nil)
+        alert.addAction(okayButton)
+        self.present(alert, animated: true)
+    }
     //MARK: - NAVIGATION
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

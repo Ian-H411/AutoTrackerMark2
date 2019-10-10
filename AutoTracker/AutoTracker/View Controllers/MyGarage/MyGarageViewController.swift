@@ -69,7 +69,7 @@ class MyGarageViewController: UIViewController {
         updateTableViewFrame()
         setTextFields()
         self.carSelectionTableView.tableFooterView = UIView()
-     
+  
     }
     
     override func viewWillAppear(_ animated: Bool) {
