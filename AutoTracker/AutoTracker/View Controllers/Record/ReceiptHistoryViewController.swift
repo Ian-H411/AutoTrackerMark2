@@ -17,7 +17,6 @@ class ReceiptHistoryViewController: UIViewController {
     // MARK: - PROPERTIES
     
     private var index = 0
-    private let itemsPerRow: CGFloat = 4
     
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
@@ -49,16 +48,16 @@ class ReceiptHistoryViewController: UIViewController {
     
     @objc func leftSwipe() {
            print("left")
-        if index + 4 < ReceiptController.shared.receipts.count {
-               index += 4
+        if index + 2 < ReceiptController.shared.receipts.count {
+               index += 2
                receiptCollectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .left, animated: true)
            }
        }
        
        @objc func rightSwipe() {
            print("right")
-           if index - 4 >= 0 {
-               index -= 4
+           if index - 2 >= 0 {
+               index -= 2
                receiptCollectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .left, animated: true)
            }
        }
@@ -95,8 +94,27 @@ extension ReceiptHistoryViewController: UICollectionViewDelegateFlowLayout, UICo
         return cell
     }
     
+
+    
+
+//        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//            let width = self.calculateWith()
+//            return CGSize(width: width, height: width)
+//        }
+//
+//        func calculateWith() -> CGFloat {
+//            let estimatedWidth = CGFloat(estimateWidth)
+//            let cellCount = floor(CGFloat(self.view.frame.size.width / estimatedWidth))
+//
+//            let margin = CGFloat(cellMarginSize * 2)
+//            let width = (self.view.frame.size.width - CGFloat(cellMarginSize) * (cellCount - 1) - margin) / cellCount
+//
+//            return width
+//        }
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = CGSize(width: (collectionView.bounds.width / 2) - 5, height: (collectionView.bounds.height / 2) - 5)
+        let size = CGSize(width: (collectionView.bounds.width / 2) - 25, height: (collectionView.bounds.height / 2) - 25)
         print(size)
         return size
     }

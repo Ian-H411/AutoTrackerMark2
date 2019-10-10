@@ -385,11 +385,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Y1y-hL-gXe">
-                                <rect key="frame" x="41.5" y="238" width="331" height="440"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="440" id="Waw-uU-d7d"/>
-                                </constraints>
+                                <rect key="frame" x="41.5" y="238" width="331" height="474"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hip-Fj-v34">
                                     <size key="itemSize" width="157" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -404,39 +401,45 @@
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="214"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="naF-bl-tjf">
+                                                <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="naF-bl-tjf">
                                                     <rect key="frame" x="8" y="8" width="144" height="198"/>
                                                     <subviews>
-                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBA-dT-hi2">
-                                                            <rect key="frame" x="0.0" y="0.0" width="144" height="147"/>
-                                                            <state key="normal" backgroundImage="receipt"/>
-                                                        </button>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="zmp-rD-Jc6">
+                                                            <rect key="frame" x="0.0" y="0.0" width="144" height="144"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="zmp-rD-Jc6" secondAttribute="height" multiplier="1:1" id="UPt-q4-pmV"/>
+                                                                <constraint firstAttribute="width" constant="144" id="b5e-QM-Qqo"/>
+                                                            </constraints>
+                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="(total)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Utg-Gf-ZNx">
-                                                            <rect key="frame" x="0.0" y="152" width="144" height="20.5"/>
+                                                            <rect key="frame" x="49" y="149" width="46.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="(price per gal)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQd-3d-Cg9">
-                                                            <rect key="frame" x="0.0" y="177.5" width="144" height="20.5"/>
+                                                            <rect key="frame" x="18" y="174.5" width="108" height="23.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="dLj-mh-pjz"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="naF-bl-tjf" secondAttribute="trailing" id="Fgz-ri-nSc"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="naF-bl-tjf" secondAttribute="bottom" id="bSa-YV-ED2"/>
-                                                <constraint firstItem="naF-bl-tjf" firstAttribute="leading" secondItem="iE0-S8-9Qa" secondAttribute="leadingMargin" id="ctJ-WB-kX2"/>
-                                                <constraint firstItem="naF-bl-tjf" firstAttribute="top" secondItem="iE0-S8-9Qa" secondAttribute="topMargin" id="j4e-HM-sen"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="naF-bl-tjf" secondAttribute="bottom" id="9u4-dZ-7OM"/>
+                                                <constraint firstItem="naF-bl-tjf" firstAttribute="leading" secondItem="iE0-S8-9Qa" secondAttribute="leadingMargin" id="PKL-2e-JWl"/>
+                                                <constraint firstItem="naF-bl-tjf" firstAttribute="top" secondItem="iE0-S8-9Qa" secondAttribute="topMargin" id="dK9-4I-zNT"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="naF-bl-tjf" secondAttribute="trailing" id="ddU-CP-lbY"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="160" height="214"/>
                                         <connections>
                                             <outlet property="pricePerGallonLabel" destination="tQd-3d-Cg9" id="zKZ-JM-UpI"/>
-                                            <outlet property="receiptImageButton" destination="JBA-dT-hi2" id="5Go-1Z-Raq"/>
+                                            <outlet property="receiptImageView" destination="zmp-rD-Jc6" id="WWl-3x-ATE"/>
                                             <outlet property="totalLabel" destination="Utg-Gf-ZNx" id="aSf-4q-yIP"/>
                                         </connections>
                                     </collectionViewCell>
@@ -458,10 +461,11 @@
                             <constraint firstItem="Y1y-hL-gXe" firstAttribute="top" secondItem="dYR-XB-6Iq" secondAttribute="bottom" constant="25" id="5u2-xP-QWu"/>
                             <constraint firstItem="dYR-XB-6Iq" firstAttribute="leading" secondItem="CjS-xt-wgK" secondAttribute="leading" constant="20" id="Iul-Be-g1w"/>
                             <constraint firstItem="dYR-XB-6Iq" firstAttribute="centerX" secondItem="CjS-xt-wgK" secondAttribute="centerX" id="Moo-NV-D0N"/>
-                            <constraint firstItem="Y1y-hL-gXe" firstAttribute="centerX" secondItem="CjS-xt-wgK" secondAttribute="centerX" id="RqY-g6-scG"/>
+                            <constraint firstItem="Y1y-hL-gXe" firstAttribute="centerY" secondItem="CjS-xt-wgK" secondAttribute="centerY" id="QqK-sV-GGn"/>
                             <constraint firstItem="CjS-xt-wgK" firstAttribute="trailing" secondItem="dYR-XB-6Iq" secondAttribute="trailing" constant="20" id="TgB-Ws-so2"/>
                             <constraint firstItem="dYR-XB-6Iq" firstAttribute="top" secondItem="CjS-xt-wgK" secondAttribute="top" constant="61" id="XKV-ek-Ncq"/>
-                            <constraint firstItem="Y1y-hL-gXe" firstAttribute="width" secondItem="CjS-xt-wgK" secondAttribute="width" multiplier="0.8" id="d7p-yA-Ed8"/>
+                            <constraint firstItem="Y1y-hL-gXe" firstAttribute="width" secondItem="CjS-xt-wgK" secondAttribute="width" multiplier="0.8" id="dIc-Ww-wjn"/>
+                            <constraint firstItem="Y1y-hL-gXe" firstAttribute="centerX" secondItem="CjS-xt-wgK" secondAttribute="centerX" id="on2-BH-Jlz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CjS-xt-wgK"/>
                         <connections>
@@ -550,7 +554,4 @@
             <point key="canvasLocation" x="-230.43478260869566" y="-532.36607142857144"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="receipt" width="250" height="250"/>
-    </resources>
 </document>
