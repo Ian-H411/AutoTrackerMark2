@@ -62,7 +62,7 @@ class AddReceiptTableViewController: UITableViewController {
     }
     
     func presentActionSheet(){
-        let actionSheet = UIAlertController(title: "Import Receipt Photo", message: nil, preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "Import Receipt Photo", message: nil, preferredStyle: .alert)
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             let cameraButton = UIAlertAction(title: "Import With Camera", style: .default) { (_) in
                 self.camera()
