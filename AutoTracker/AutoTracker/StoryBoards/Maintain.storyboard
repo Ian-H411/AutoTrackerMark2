@@ -293,7 +293,7 @@
         <scene sceneID="cZY-P0-cEa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PBd-tI-5CT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Maintain" id="Nbn-aS-ZuR"/>
+                    <tabBarItem key="tabBarItem" title="Maintain" image="wrench.fill" catalog="system" id="Nbn-aS-ZuR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6vj-h7-Akm">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -309,6 +309,9 @@
             <point key="canvasLocation" x="-230.43478260869566" y="756.69642857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="wrench.fill" catalog="system" width="64" height="62"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Bd8-11-oi1"/>
     </inferredMetricsTieBreakers>

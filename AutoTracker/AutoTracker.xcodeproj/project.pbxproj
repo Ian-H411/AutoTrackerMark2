@@ -31,6 +31,7 @@
 		256810DA234C12FC00629AEA /* MaintainenceDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810D9234C12FC00629AEA /* MaintainenceDetailTableViewCell.swift */; };
 		25BDF71D234EC8BB009DD2E2 /* AddCarByVinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BDF71C234EC8BB009DD2E2 /* AddCarByVinViewController.swift */; };
 		25BDF71F234FB9DB009DD2E2 /* FinalCheckForVinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BDF71E234FB9DB009DD2E2 /* FinalCheckForVinViewController.swift */; };
+		25BDF721234FCA01009DD2E2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BDF720234FCA01009DD2E2 /* Reachability.swift */; };
 		25C056EC234D16860000D848 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C056EB234D16860000D848 /* MapViewController.swift */; };
 		25C056EE234D1C690000D848 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C056ED234D1C690000D848 /* Place.swift */; };
 		25C056F0234D387C0000D848 /* MapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C056EF234D387C0000D848 /* MapDetailViewController.swift */; };
@@ -86,6 +87,7 @@
 		256810D9234C12FC00629AEA /* MaintainenceDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainenceDetailTableViewCell.swift; sourceTree = "<group>"; };
 		25BDF71C234EC8BB009DD2E2 /* AddCarByVinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarByVinViewController.swift; sourceTree = "<group>"; };
 		25BDF71E234FB9DB009DD2E2 /* FinalCheckForVinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalCheckForVinViewController.swift; sourceTree = "<group>"; };
+		25BDF720234FCA01009DD2E2 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		25C056EB234D16860000D848 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		25C056ED234D1C690000D848 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		25C056EF234D387C0000D848 /* MapDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				4202233F234FC48D006C60F6 /* Colors.xcassets */,
 				256810902347A7A800629AEA /* SceneDelegate.swift */,
 				256810BC2347F1DA00629AEA /* LocationManager.swift */,
+				25BDF720234FCA01009DD2E2 /* Reachability.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				256810BF2347F40D00629AEA /* Maintanence+Convenience.swift in Sources */,
 				25C056F0234D387C0000D848 /* MapDetailViewController.swift in Sources */,
 				423925362347DBDF00EABF16 /* MyGarageTableViewCell.swift in Sources */,
+				25BDF721234FCA01009DD2E2 /* Reachability.swift in Sources */,
 				256810C8234A35AE00629AEA /* MyGarageViewController.swift in Sources */,
 				42E0E982234D04EB00A2ADD5 /* AddReceiptTableViewController.swift in Sources */,
 				256810BB2347D77200629AEA /* CarJsonCompliance.swift in Sources */,

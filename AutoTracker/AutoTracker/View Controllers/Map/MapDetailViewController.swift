@@ -42,6 +42,9 @@ class MapDetailViewController: UIViewController {
         yelpStarsImage.image = place.ratingImage
         totalReviewsLabel.text = "Based on \(place.ratingCount) reviews"
         if let imageurl = place.imageURL{
+            if !Reachability.isConnectedToNetwork(){
+                return
+            }
             MapController.shared.retrieveImage(urlString: imageurl) { (image) in
                 guard let image = image else {return}
                 DispatchQueue.main.async {
@@ -52,12 +55,22 @@ class MapDetailViewController: UIViewController {
         }
         
     }
+    func presentNoInternetAlert(){
+        let alert = UIAlertController(title: "No Internet", message: "Sorry but this function requires an internet connection.  check your connection and try again", preferredStyle: .alert)
+        let okayButton = UIAlertAction(title: "okay", style: .default, handler: nil)
+        alert.addAction(okayButton)
+        self.present(alert, animated: true)
+    }
     
     
     
     //MARK: - ACTIONS
     
     @IBAction func yelpButtonTapped(_ sender: UIButton) {
+        if !Reachability.isConnectedToNetwork(){
+            presentNoInternetAlert()
+            return
+        }
         guard let place = place else {return}
         guard let url = URL(string: place.url) else {return}
         UIApplication.shared.open(url)
@@ -65,6 +78,10 @@ class MapDetailViewController: UIViewController {
     }
     
     @IBAction func addressButtonTapped(_ sender: Any) {
+        if !Reachability.isConnectedToNetwork(){
+            presentNoInternetAlert()
+            return
+        }
         guard let place = place else {return}
         let launchOptions = [MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving]
         let placeMark = MKPlacemark(coordinate: place.coordinate)
