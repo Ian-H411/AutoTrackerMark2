@@ -38,8 +38,7 @@ class OdometerViewController: UIViewController {
     @IBAction func updateButtonTapped(_ sender: Any) {
         
         let odometer = odometerResults()
-        if let car = CarController.shared.selectedCar {
-        }
+    
         guard let car = CarController.shared.selectedCar else { return }
         CarController.shared.updateOdometer(car: car, odometer: Double(odometer)) { (success) in
             if success {

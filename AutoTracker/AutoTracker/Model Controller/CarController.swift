@@ -46,11 +46,10 @@ class CarController{
     //MARK: -CRUD
     
     //Create a car
-    func addACar(name:String, make:String, model:String, year:String, vin:String, engine:String, ownerName:String,odometer:Double, photoData: Data?) -> Car {
+    func addACar(name:String, make:String, model:String, year:String, vin:String, engine:String, ownerName:String,odometer:Double, photoData: Data?) {
         let newCar = Car(name: name, make: make, model: model, year: year, vin: vin, engine: engine, ownerName: ownerName, odometer: odometer, photoData: photoData)
         garage?.append(newCar)
         saveChangesToPersistentStoreOnly()
-        return newCar
     }
     
     //update car
