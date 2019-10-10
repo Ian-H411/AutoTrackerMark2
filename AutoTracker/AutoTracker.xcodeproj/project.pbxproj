@@ -36,6 +36,7 @@
 		25C056F0234D387C0000D848 /* MapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C056EF234D387C0000D848 /* MapDetailViewController.swift */; };
 		25C056F2234D38A40000D848 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C056F1234D38A40000D848 /* MapController.swift */; };
 		4202233E234FAAC2006C60F6 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4202233D234FAAC2006C60F6 /* CustomTabBarController.swift */; };
+		42022340234FC48D006C60F6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4202233F234FC48D006C60F6 /* Colors.xcassets */; };
 		423925242347B02F00EABF16 /* FindGas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423925222347B02F00EABF16 /* FindGas.storyboard */; };
 		423925262347B03D00EABF16 /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423925252347B03D00EABF16 /* Record.storyboard */; };
 		423925292347B04B00EABF16 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423925272347B04B00EABF16 /* Home.storyboard */; };
@@ -90,6 +91,7 @@
 		25C056EF234D387C0000D848 /* MapDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailViewController.swift; sourceTree = "<group>"; };
 		25C056F1234D38A40000D848 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		4202233D234FAAC2006C60F6 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		4202233F234FC48D006C60F6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		423925232347B02F00EABF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AutoTracker/StoryBoards/Base.lproj/FindGas.storyboard; sourceTree = "<group>"; };
 		423925252347B03D00EABF16 /* Record.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Record.storyboard; sourceTree = "<group>"; };
 		423925282347B04B00EABF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AutoTracker/StoryBoards/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			children = (
 				2568108E2347A7A800629AEA /* AppDelegate.swift */,
 				2568109A2347A7A900629AEA /* Assets.xcassets */,
+				4202233F234FC48D006C60F6 /* Colors.xcassets */,
 				256810902347A7A800629AEA /* SceneDelegate.swift */,
 				256810BC2347F1DA00629AEA /* LocationManager.swift */,
 			);
@@ -350,6 +353,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42022340234FC48D006C60F6 /* Colors.xcassets in Resources */,
 				2568109E2347A7A900629AEA /* LaunchScreen.storyboard in Resources */,
 				423925242347B02F00EABF16 /* FindGas.storyboard in Resources */,
 				2568109B2347A7A900629AEA /* Assets.xcassets in Resources */,
