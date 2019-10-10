@@ -136,21 +136,169 @@
             </objects>
             <point key="canvasLocation" x="627.536231884058" y="739.95535714285711"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Car By Vin View Controller-->
         <scene sceneID="CIM-6U-6jq">
             <objects>
-                <viewController id="8gS-3a-qgK" sceneMemberID="viewController">
+                <viewController id="8gS-3a-qgK" customClass="AddCarByVinViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jay-tY-k4B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="Atd-8N-yhd">
+                                <rect key="frame" x="20.5" y="163" width="373" height="587"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input Your Vin and look up your car!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBS-Oc-hKQ" customClass="AutoTrackerDetailLabel" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="59"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AfR-hl-fKY">
+                                        <rect key="frame" x="0.0" y="88" width="373" height="59"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGc-BA-YLe">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="sdf-It-D7H"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Vin" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mBw-Iv-uHn" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="25" width="373" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="d9W-VN-pJL"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="CIv-wa-9TA"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KCI-eP-ESr">
+                                        <rect key="frame" x="0.0" y="176" width="373" height="59"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okN-a7-zTc">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dl3-8X-8Hz" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="20.5" width="373" height="38.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nqv-Sg-r1M">
+                                        <rect key="frame" x="0.0" y="264" width="373" height="59"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buA-bC-Fo6">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Make" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TyA-Gj-o3L" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="20.5" width="373" height="38.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="14B-9d-NHp">
+                                        <rect key="frame" x="0.0" y="352" width="373" height="59"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crk-md-zoQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bKl-Cr-FJv" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="20.5" width="373" height="38.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BjB-Ry-sCk">
+                                        <rect key="frame" x="0.0" y="440" width="373" height="59"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7Z-ul-6fr">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Engine" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rb0-AW-Dxm" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="20.5" width="373" height="38.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYC-nO-WUQ" customClass="AutoTrackerButtonAsLabel" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="528" width="373" height="59"/>
+                                        <state key="normal" title="Looks Good!">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="looksGoodButtonTapped:" destination="8gS-3a-qgK" eventType="touchUpInside" id="28X-Sp-gRt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Atd-8N-yhd" firstAttribute="centerX" secondItem="RtI-4U-tsp" secondAttribute="centerX" id="1ZQ-m7-bHI"/>
+                            <constraint firstItem="Atd-8N-yhd" firstAttribute="height" secondItem="RtI-4U-tsp" secondAttribute="height" multiplier="0.7" id="HRN-np-A9s"/>
+                            <constraint firstItem="Atd-8N-yhd" firstAttribute="width" secondItem="RtI-4U-tsp" secondAttribute="width" multiplier="0.9" id="JoR-Yl-PY7"/>
+                            <constraint firstItem="Atd-8N-yhd" firstAttribute="centerY" secondItem="RtI-4U-tsp" secondAttribute="centerY" multiplier="0.9" id="agC-K1-15I"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RtI-4U-tsp"/>
                     </view>
                     <navigationItem key="navigationItem" id="gYU-nB-SF8"/>
+                    <connections>
+                        <outlet property="engineLabel" destination="v7Z-ul-6fr" id="bix-NE-xU4"/>
+                        <outlet property="engineTextField" destination="Rb0-AW-Dxm" id="dlA-Rz-PLS"/>
+                        <outlet property="goButton" destination="kYC-nO-WUQ" id="fWN-jQ-sWO"/>
+                        <outlet property="headerLabel" destination="aBS-Oc-hKQ" id="NxL-Ok-CSz"/>
+                        <outlet property="makeLabel" destination="buA-bC-Fo6" id="l6g-b8-mZK"/>
+                        <outlet property="makeTextField" destination="TyA-Gj-o3L" id="RAY-HU-bky"/>
+                        <outlet property="modelLabel" destination="crk-md-zoQ" id="y20-Zh-xWg"/>
+                        <outlet property="modelTextField" destination="bKl-Cr-FJv" id="DLd-Vi-znh"/>
+                        <outlet property="vinLabel" destination="MGc-BA-YLe" id="3tj-Nm-qDB"/>
+                        <outlet property="vinTextField" destination="mBw-Iv-uHn" id="39S-Bx-766"/>
+                        <outlet property="yearLabel" destination="okN-a7-zTc" id="xCc-QA-W1m"/>
+                        <outlet property="yearTextField" destination="Dl3-8X-8Hz" id="SN8-5H-Fbm"/>
+                        <segue destination="o67-Jz-ec9" kind="show" id="b0E-wp-Dvv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Nt-27-Wh6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="628" y="1444"/>
+            <point key="canvasLocation" x="628" y="1457"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="aR6-Sp-y0T">
+            <objects>
+                <viewController id="o67-Jz-ec9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u2c-5z-3hh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="FX0-6y-9MG"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Qdv-wV-dQy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V0N-Hu-FKX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1525" y="1457"/>
         </scene>
         <!--Add Car Table View Controller-->
         <scene sceneID="ycX-Ee-ZY9">

@@ -130,12 +130,13 @@ class CarController{
     
     //retrieve a car from the api
     func retrieveCarDetailsWith(vin:String, year:String, completion: @escaping (CarJson?, Error?) -> Void){
-        var baseURL = URL(fileURLWithPath: "https://vpic.nhtsa.dot.gov/api/vehicles/decodevin/")
+        guard var baseURL = URL(string: "https://vpic.nhtsa.dot.gov/api/vehicles/decodevinvalues/") else {completion(nil, nil);return}
         baseURL.appendPathComponent(vin)
         guard var componenets = URLComponents(string: baseURL.absoluteString) else {completion(nil,nil);print("invalidUrl");return}
         let queryItems = [URLQueryItem(name: "format", value: "json"), URLQueryItem(name: "modelyear", value: year)]
         componenets.queryItems = queryItems
         guard let finalURL = componenets.url else {completion(nil,nil);print("invalidUrl");return}
+        print(finalURL)
         let request = URLRequest(url: finalURL)
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error{
@@ -147,7 +148,9 @@ class CarController{
             
             do{
                 let decoder = JSONDecoder()
+                print(data)
                 let results = try decoder.decode(CarResultsHead.self, from: data)
+                print(results)
                 guard let carJson = results.Results.first else {return}
                 completion(carJson, nil)
                 return
