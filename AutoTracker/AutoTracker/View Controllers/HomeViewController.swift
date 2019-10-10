@@ -41,6 +41,7 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
         self.myCar = CarController.shared.selectedCar
     }
     
