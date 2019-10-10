@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AKh-Ez-boc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AKh-Ez-boc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,13 +18,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="bpK-ry-9mR">
                                 <rect key="frame" x="10.5" y="204" width="393" height="495"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner: Jeremy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJc-tS-UVZ" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Cars in your garage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJc-tS-UVZ" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLb-jn-l3n" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tap the plus button to add  a vehicle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLb-jn-l3n" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="85" width="393" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="YMs-NW-An0"/>
@@ -33,25 +33,25 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Model" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUd-j4-qxd" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUd-j4-qxd" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="170" width="393" height="70"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qm3-b6-2HG" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qm3-b6-2HG" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="255" width="393" height="70"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engine Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGf-9u-t9a" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGf-9u-t9a" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="340" width="393" height="70"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIN#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dn2-W9-WcJ" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dn2-W9-WcJ" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="425" width="393" height="70"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
@@ -59,22 +59,15 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7j-k4-lrV">
-                                <rect key="frame" x="339" y="708" width="66" height="66"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="66" id="ZPs-c9-RLr"/>
-                                    <constraint firstAttribute="height" constant="66" id="tDm-5r-Lff"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" image="plus" catalog="system"/>
-                                <connections>
-                                    <segue destination="eHD-99-4xB" kind="show" id="cyb-re-euh"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="KOj-Ul-n58">
                                 <rect key="frame" x="0.0" y="97" width="414" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="r8Y-56-dXa">
+                                    <rect key="frame" x="0.0" y="126" width="414" height="0.0"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="car" rowHeight="70" id="l4e-Rc-cQg" customClass="MyGarageTableViewCell" customModule="AutoTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
@@ -115,14 +108,18 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="bpK-ry-9mR" firstAttribute="centerX" secondItem="Ibs-Ba-998" secondAttribute="centerX" id="ET7-KH-dYx"/>
-                            <constraint firstItem="e7j-k4-lrV" firstAttribute="top" secondItem="bpK-ry-9mR" secondAttribute="bottom" constant="9" id="GFF-b9-6BO"/>
-                            <constraint firstItem="Ibs-Ba-998" firstAttribute="trailing" secondItem="e7j-k4-lrV" secondAttribute="trailing" constant="9" id="IMD-sV-JRh"/>
                             <constraint firstItem="bpK-ry-9mR" firstAttribute="width" secondItem="Ibs-Ba-998" secondAttribute="width" multiplier="0.95" id="UBN-L4-Zcu"/>
                             <constraint firstItem="bpK-ry-9mR" firstAttribute="centerY" secondItem="Ibs-Ba-998" secondAttribute="centerY" multiplier="0.95" id="Zsp-aK-r02"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ibs-Ba-998"/>
                     </view>
-                    <navigationItem key="navigationItem" id="JQu-eN-dYr"/>
+                    <navigationItem key="navigationItem" id="JQu-eN-dYr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KSN-od-GQm">
+                            <connections>
+                                <action selector="AddACarButtonTapped:" destination="snd-le-aTe" id="c3x-bg-Xjp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="carSelectionTableView" destination="KOj-Ul-n58" id="PnL-kF-0y8"/>
                         <outlet property="engineTypeLabel" destination="oGf-9u-t9a" id="1RX-Ep-3En"/>
@@ -131,96 +128,206 @@
                         <outlet property="ownerLabel" destination="FJc-tS-UVZ" id="z8u-Tb-guT"/>
                         <outlet property="vinLabel" destination="dn2-W9-WcJ" id="0O3-uq-2do"/>
                         <outlet property="yearLabel" destination="Qm3-b6-2HG" id="QNt-QI-Tu8"/>
+                        <segue destination="eHD-99-4xB" kind="show" identifier="manual" id="V2v-kc-OCA"/>
+                        <segue destination="8gS-3a-qgK" kind="show" identifier="auto" id="Xfa-Kw-Z15"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z5L-gd-m7Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="679.71014492753625" y="739.95535714285711"/>
+            <point key="canvasLocation" x="627.536231884058" y="739.95535714285711"/>
         </scene>
-        <!--Title-->
-        <scene sceneID="j5n-rc-qAv">
+        <!--Add Car By Vin View Controller-->
+        <scene sceneID="CIM-6U-6jq">
             <objects>
-                <viewController id="BHg-bN-JRG" customClass="MockDataEntryViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="D4K-iu-Vim">
+                <viewController id="8gS-3a-qgK" customClass="AddCarByVinViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jay-tY-k4B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Mmf-5z-ZWV">
-                                <rect key="frame" x="20.5" y="90" width="373" height="409"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="Atd-8N-yhd">
+                                <rect key="frame" x="20.5" y="163" width="373" height="587"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="carName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bMT-YK-rvH">
-                                        <rect key="frame" x="0.0" y="0.0" width="373" height="39.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="owner" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IHx-Rg-JTS">
-                                        <rect key="frame" x="0.0" y="52.5" width="373" height="40"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="make" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dEy-rK-4Ox">
-                                        <rect key="frame" x="0.0" y="105.5" width="373" height="39.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="model" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tgu-dB-LB1">
-                                        <rect key="frame" x="0.0" y="158" width="373" height="40"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="engine type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gwY-zi-oY7">
-                                        <rect key="frame" x="0.0" y="211" width="373" height="39.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a9g-sK-rIK">
-                                        <rect key="frame" x="0.0" y="263.5" width="373" height="40"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Odometer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pmn-fa-BMB">
-                                        <rect key="frame" x="0.0" y="316.5" width="373" height="39.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="vin" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kbG-mG-gBB">
-                                        <rect key="frame" x="0.0" y="369" width="373" height="40"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input Your Vin and look up your car!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBS-Oc-hKQ" customClass="AutoTrackerDetailLabel" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="59"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AfR-hl-fKY">
+                                        <rect key="frame" x="0.0" y="88" width="373" height="59"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGc-BA-YLe">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="sdf-It-D7H"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Vin" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mBw-Iv-uHn" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="25" width="373" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="d9W-VN-pJL"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="CIv-wa-9TA"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KCI-eP-ESr">
+                                        <rect key="frame" x="0.0" y="176" width="373" height="59"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okN-a7-zTc">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dl3-8X-8Hz" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="20.5" width="373" height="38.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nqv-Sg-r1M">
+                                        <rect key="frame" x="0.0" y="264" width="373" height="59"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buA-bC-Fo6">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Make" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TyA-Gj-o3L" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="20.5" width="373" height="38.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="14B-9d-NHp">
+                                        <rect key="frame" x="0.0" y="352" width="373" height="59"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crk-md-zoQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bKl-Cr-FJv" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="20.5" width="373" height="38.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BjB-Ry-sCk">
+                                        <rect key="frame" x="0.0" y="440" width="373" height="59"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7Z-ul-6fr">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Engine" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rb0-AW-Dxm" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="20.5" width="373" height="38.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYC-nO-WUQ" customClass="AutoTrackerButtonAsLabel" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="528" width="373" height="59"/>
+                                        <state key="normal" title="Looks Good!">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="looksGoodButtonTapped:" destination="8gS-3a-qgK" eventType="touchUpInside" id="28X-Sp-gRt"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Mmf-5z-ZWV" firstAttribute="centerY" secondItem="s4z-Gf-Qpf" secondAttribute="centerY" multiplier="0.65" id="RY3-8g-I4U"/>
-                            <constraint firstItem="Mmf-5z-ZWV" firstAttribute="centerX" secondItem="s4z-Gf-Qpf" secondAttribute="centerX" id="T8W-GH-bHJ"/>
-                            <constraint firstItem="Mmf-5z-ZWV" firstAttribute="width" secondItem="s4z-Gf-Qpf" secondAttribute="width" multiplier="0.9" id="bjm-f6-Wyw"/>
-                            <constraint firstItem="Mmf-5z-ZWV" firstAttribute="height" secondItem="s4z-Gf-Qpf" secondAttribute="height" multiplier="0.5" id="wSw-YZ-bud"/>
+                            <constraint firstItem="Atd-8N-yhd" firstAttribute="centerX" secondItem="RtI-4U-tsp" secondAttribute="centerX" id="1ZQ-m7-bHI"/>
+                            <constraint firstItem="Atd-8N-yhd" firstAttribute="height" secondItem="RtI-4U-tsp" secondAttribute="height" multiplier="0.7" id="HRN-np-A9s"/>
+                            <constraint firstItem="Atd-8N-yhd" firstAttribute="width" secondItem="RtI-4U-tsp" secondAttribute="width" multiplier="0.9" id="JoR-Yl-PY7"/>
+                            <constraint firstItem="Atd-8N-yhd" firstAttribute="centerY" secondItem="RtI-4U-tsp" secondAttribute="centerY" multiplier="0.9" id="agC-K1-15I"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="s4z-Gf-Qpf"/>
+                        <viewLayoutGuide key="safeArea" id="RtI-4U-tsp"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="vv7-xK-yPg">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="FMc-Oe-yet">
-                            <connections>
-                                <action selector="saveButtonTapped:" destination="BHg-bN-JRG" id="9NV-oR-C1b"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="gYU-nB-SF8"/>
                     <connections>
-                        <outlet property="carNameTextField" destination="bMT-YK-rvH" id="Tn5-iO-HO6"/>
-                        <outlet property="engineTypeTextField" destination="gwY-zi-oY7" id="pCc-W2-rsr"/>
-                        <outlet property="makeTextField" destination="dEy-rK-4Ox" id="yuz-D6-rms"/>
-                        <outlet property="modelTextField" destination="tgu-dB-LB1" id="waG-qj-j74"/>
-                        <outlet property="odometerTextField" destination="pmn-fa-BMB" id="jZi-l4-cER"/>
-                        <outlet property="ownerTextFIeld" destination="IHx-Rg-JTS" id="U8B-3R-6bF"/>
-                        <outlet property="vinTextField" destination="kbG-mG-gBB" id="X4c-mk-tGl"/>
-                        <outlet property="yearTextField" destination="a9g-sK-rIK" id="WJ1-7q-RsI"/>
+                        <outlet property="engineLabel" destination="v7Z-ul-6fr" id="bix-NE-xU4"/>
+                        <outlet property="engineTextField" destination="Rb0-AW-Dxm" id="dlA-Rz-PLS"/>
+                        <outlet property="goButton" destination="kYC-nO-WUQ" id="fWN-jQ-sWO"/>
+                        <outlet property="headerLabel" destination="aBS-Oc-hKQ" id="NxL-Ok-CSz"/>
+                        <outlet property="makeLabel" destination="buA-bC-Fo6" id="l6g-b8-mZK"/>
+                        <outlet property="makeTextField" destination="TyA-Gj-o3L" id="RAY-HU-bky"/>
+                        <outlet property="modelLabel" destination="crk-md-zoQ" id="y20-Zh-xWg"/>
+                        <outlet property="modelTextField" destination="bKl-Cr-FJv" id="DLd-Vi-znh"/>
+                        <outlet property="vinLabel" destination="MGc-BA-YLe" id="3tj-Nm-qDB"/>
+                        <outlet property="vinTextField" destination="mBw-Iv-uHn" id="39S-Bx-766"/>
+                        <outlet property="yearLabel" destination="okN-a7-zTc" id="xCc-QA-W1m"/>
+                        <outlet property="yearTextField" destination="Dl3-8X-8Hz" id="SN8-5H-Fbm"/>
+                        <segue destination="o67-Jz-ec9" kind="show" id="b0E-wp-Dvv"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8hT-OO-A6x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Nt-27-Wh6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1486" y="743"/>
+            <point key="canvasLocation" x="628" y="1457"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="aR6-Sp-y0T">
+            <objects>
+                <viewController id="o67-Jz-ec9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u2c-5z-3hh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Final Steps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmo-Uk-SCe">
+                                <rect key="frame" x="45" y="170" width="330" height="83"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Car Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xn0-Dp-ey6">
+                                <rect key="frame" x="45" y="254" width="330" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Car Nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuk-yT-1HC">
+                                <rect key="frame" x="45" y="333" width="319" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rY8-c3-n42">
+                                <rect key="frame" x="45" y="353" width="319" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="FX0-6y-9MG"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Qdv-wV-dQy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V0N-Hu-FKX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1524.6376811594205" y="1456.4732142857142"/>
         </scene>
         <!--Add Car Table View Controller-->
         <scene sceneID="ycX-Ee-ZY9">
@@ -473,7 +580,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IKW-Qu-0mO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2149.275362318841" y="740.625"/>
+            <point key="canvasLocation" x="1526" y="740"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eAN-L0-ho5">
@@ -494,7 +601,4 @@
             <point key="canvasLocation" x="-230" y="740"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="plus" catalog="system" width="64" height="56"/>
-    </resources>
 </document>

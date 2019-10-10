@@ -21,7 +21,7 @@ struct CarJson:Decodable {
     
     let engine:String
     
-    enum codingKeys:String,CodingKey {
+    enum CodingKeys:String,CodingKey {
         case make = "Make"
         
         case model = "Model"
