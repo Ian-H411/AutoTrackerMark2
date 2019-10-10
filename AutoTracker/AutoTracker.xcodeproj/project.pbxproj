@@ -92,6 +92,7 @@
 		25C056F1234D38A40000D848 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		4202233D234FAAC2006C60F6 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		4202233F234FC48D006C60F6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		42022342234FDC66006C60F6 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		423925232347B02F00EABF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AutoTracker/StoryBoards/Base.lproj/FindGas.storyboard; sourceTree = "<group>"; };
 		423925252347B03D00EABF16 /* Record.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Record.storyboard; sourceTree = "<group>"; };
 		423925282347B04B00EABF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AutoTracker/StoryBoards/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
@@ -236,6 +237,7 @@
 				2568108E2347A7A800629AEA /* AppDelegate.swift */,
 				2568109A2347A7A900629AEA /* Assets.xcassets */,
 				4202233F234FC48D006C60F6 /* Colors.xcassets */,
+				42022341234FDC56006C60F6 /* Fonts */,
 				256810902347A7A800629AEA /* SceneDelegate.swift */,
 				256810BC2347F1DA00629AEA /* LocationManager.swift */,
 			);
@@ -282,6 +284,14 @@
 				25C056EF234D387C0000D848 /* MapDetailViewController.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		42022341234FDC56006C60F6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				42022342234FDC66006C60F6 /* Nunito-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		42DFEDAA234DA121004C40D7 /* Record */ = {
@@ -581,13 +591,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AutoTracker/AutoTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38AN8KZ7HW;
+				DEVELOPMENT_TEAM = UR48EZC8Y4;
 				INFOPLIST_FILE = AutoTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.IanH411.AutoTracker2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DjangoEarnhardt.AutoTracker2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -600,13 +610,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AutoTracker/AutoTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38AN8KZ7HW;
+				DEVELOPMENT_TEAM = UR48EZC8Y4;
 				INFOPLIST_FILE = AutoTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.IanH411.AutoTracker2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DjangoEarnhardt.AutoTracker2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
