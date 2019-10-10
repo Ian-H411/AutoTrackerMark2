@@ -38,7 +38,8 @@ class AddCarByVinViewController: UIViewController {
     
     //MARK: - VAIABLES
     
-    
+    var car: CarJson?
+    var vinStore: String?
     
     
     //MARK: -LIFECYCLE
@@ -91,6 +92,7 @@ class AddCarByVinViewController: UIViewController {
         guard let vin = vinTextField.text?.uppercased(), !vin.isEmpty,
             let year = yearTextField.text, !year.isEmpty
             else {return}
+        vinStore = vin
         CarController.shared.retrieveCarDetailsWith(vin: vin, year: year) { (carJson, error) in
             if let error = error{
                 print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
@@ -113,7 +115,16 @@ class AddCarByVinViewController: UIViewController {
     func presentAreYouSureAlert(){
         let alert = UIAlertController(title: "Everything look alright??", message: "", preferredStyle: .alert)
         let yesbutton = UIAlertAction(title: "Yes, it looks great", style: .default) { (_) in
-            //perform segue here
+            guard let make = self.makeTextField.text, !make.isEmpty,
+                let model = self.modelTextField.text, !model.isEmpty,
+                let year = self.yearTextField.text, !year.isEmpty,
+                let engine = self.engineTextField.text, !engine.isEmpty
+                else {return}
+            let car = CarJson(make: make, model: model, year: year, engine: engine)
+            self.car = car
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "finalCheck", sender: nil)
+            }
         }
         let cancelButton = UIAlertAction(title: "Not Quite", style: .destructive, handler: nil)
         alert.addAction(yesbutton)
@@ -152,12 +163,14 @@ class AddCarByVinViewController: UIViewController {
         presentAreYouSureAlert()
         
     }
-    
-    
-    
-    
-    
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "finalCheck"{
+            if let destinationVC = segue.destination as? FinalCheckForVinViewController{
+                destinationVC.car = car
+                destinationVC.vin = vinStore
+            }
+        }
+    }
     
     
     //MARK: - EXTENSIONS

@@ -277,53 +277,109 @@
                         <outlet property="vinTextField" destination="mBw-Iv-uHn" id="39S-Bx-766"/>
                         <outlet property="yearLabel" destination="okN-a7-zTc" id="xCc-QA-W1m"/>
                         <outlet property="yearTextField" destination="Dl3-8X-8Hz" id="SN8-5H-Fbm"/>
-                        <segue destination="o67-Jz-ec9" kind="show" id="b0E-wp-Dvv"/>
+                        <segue destination="o67-Jz-ec9" kind="show" identifier="finalCheck" id="b0E-wp-Dvv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Nt-27-Wh6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="628" y="1457"/>
         </scene>
-        <!--View Controller-->
+        <!--Final Check For Vin View Controller-->
         <scene sceneID="aR6-Sp-y0T">
             <objects>
-                <viewController id="o67-Jz-ec9" sceneMemberID="viewController">
+                <viewController id="o67-Jz-ec9" customClass="FinalCheckForVinViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u2c-5z-3hh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Final Steps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmo-Uk-SCe">
-                                <rect key="frame" x="45" y="170" width="330" height="83"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Car Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xn0-Dp-ey6">
-                                <rect key="frame" x="45" y="254" width="330" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Car Nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuk-yT-1HC">
-                                <rect key="frame" x="45" y="333" width="319" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rY8-c3-n42">
-                                <rect key="frame" x="45" y="353" width="319" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Qnd-wu-xJK">
+                                <rect key="frame" x="20.5" y="156.5" width="373" height="542"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final Steps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmo-Uk-SCe" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="87"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Summary" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xn0-Dp-ey6" customClass="AutoTrackerLabel" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="91" width="373" height="87"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XvJ-tT-fAb">
+                                        <rect key="frame" x="0.0" y="182" width="373" height="87"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbX-zz-sgi">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="43"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="EX: Daily Driver" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4m0-EO-hct">
+                                                <rect key="frame" x="0.0" y="43" width="373" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="muQ-uv-qY1"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YeA-4P-X47">
+                                        <rect key="frame" x="0.0" y="273" width="373" height="87"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owners Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DA-jf-LNe">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="43"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="EX: Dave - optional" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VDw-Cw-Aen">
+                                                <rect key="frame" x="0.0" y="43" width="373" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="xiQ-wv-Gh9"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v7k-Ev-4Jl">
+                                        <rect key="frame" x="0.0" y="364" width="373" height="87"/>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtp-82-OUF" customClass="AutoTrackerButtonAsLabel" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="455" width="373" height="87"/>
+                                        <state key="normal" title="Add car to MyGarage">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addCarToMyGarageButtonTapped:" destination="o67-Jz-ec9" eventType="touchUpInside" id="07B-tx-ChR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Qnd-wu-xJK" firstAttribute="centerY" secondItem="FX0-6y-9MG" secondAttribute="centerY" multiplier="0.9" id="ekL-Nl-e65"/>
+                            <constraint firstItem="Qnd-wu-xJK" firstAttribute="centerX" secondItem="FX0-6y-9MG" secondAttribute="centerX" id="rxN-X8-Dg6"/>
+                            <constraint firstItem="Qnd-wu-xJK" firstAttribute="width" secondItem="FX0-6y-9MG" secondAttribute="width" multiplier="0.9" id="xxN-TT-gZF"/>
+                            <constraint firstItem="Qnd-wu-xJK" firstAttribute="height" secondItem="FX0-6y-9MG" secondAttribute="height" multiplier="0.7" id="zmH-w5-aGh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="FX0-6y-9MG"/>
                     </view>
                     <navigationItem key="navigationItem" id="Qdv-wV-dQy"/>
+                    <connections>
+                        <outlet property="addCarToGarageButton" destination="jtp-82-OUF" id="nHc-BU-PRZ"/>
+                        <outlet property="carSummaryLabel" destination="xn0-Dp-ey6" id="esa-PS-Fgu"/>
+                        <outlet property="headerLabel" destination="bmo-Uk-SCe" id="o86-e6-9Sh"/>
+                        <outlet property="nicknameLabel" destination="RbX-zz-sgi" id="b42-W8-pbb"/>
+                        <outlet property="nicknameTextField" destination="4m0-EO-hct" id="ocD-kz-x9Z"/>
+                        <outlet property="odometerPicker" destination="v7k-Ev-4Jl" id="X5v-Vo-vKc"/>
+                        <outlet property="ownerTextField" destination="VDw-Cw-Aen" id="7Hg-aA-Cd1"/>
+                        <outlet property="ownerTextLabel" destination="4DA-jf-LNe" id="tXC-LN-ELf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V0N-Hu-FKX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
