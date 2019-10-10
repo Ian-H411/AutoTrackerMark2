@@ -40,3 +40,12 @@ class AutoTrackerDetailLabel: UILabel {
         self.font = UIFont(name: fontName, size: CGFloat(size))
     }
 }
+
+class AutoTrackerGreenBorderLabel: AutoTrackerLabel {
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        addBorder(color: .autoGreen, width: 2, bg: .white)
+        self.textColor = .autoGreen
+    }
+}

@@ -18,3 +18,8 @@ extension UIColor {
     
     static let autoGreen = UIColor(named: "autoGreen")!
 }
+
+extension UIFont {
+    
+    static let nunito = "Nunito"
+}

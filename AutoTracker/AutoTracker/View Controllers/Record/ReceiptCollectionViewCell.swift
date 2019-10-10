@@ -28,7 +28,7 @@ class ReceiptCollectionViewCell: UICollectionViewCell {
     
     func updateViews() {
         guard let receipt = receipt else { print("no RECEIPT"); return }
-        
+        self.backgroundColor = .lightGray
         
         
         totalLabel.text = receipt.total
