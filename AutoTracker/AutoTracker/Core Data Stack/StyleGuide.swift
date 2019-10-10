@@ -13,3 +13,8 @@ struct FontNames {
     static let system = "System"
     
 }
+
+extension UIColor {
+    
+    static let autoGreen = UIColor(named: "autoGreen")!
+}

@@ -38,3 +38,11 @@ class AutoTrackerButtonGrayBG: AutoTrackerButtonAsLabel {
         
     }
 }
+
+class AutoTrackerButtonGreen: AutoTrackerButtonAsLabel {
+    
+    override func addBorder(color: UIColor, width: CGFloat, bg: UIColor) {
+        self.layer.backgroundColor = UIColor.autoGreen.cgColor
+        self.setTitleColor(.white, for: .normal)
+    }
+}
