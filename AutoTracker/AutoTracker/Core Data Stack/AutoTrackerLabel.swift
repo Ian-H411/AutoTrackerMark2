@@ -18,8 +18,8 @@ class AutoTrackerLabel: UILabel {
     }
     
     func chooseFont(to fontName: String) {
-        let size = font.pointSize
-        self.font = UIFont(name: fontName, size: size)
+//        let size = font.pointSize
+        self.font = UIFont(name: fontName, size: 18)
     }
     
     func addBorder(color: UIColor, width: CGFloat, bg: UIColor) {

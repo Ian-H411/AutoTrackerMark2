@@ -11,15 +11,14 @@ import UIKit
 struct FontNames {
     
     static let system = "System"
-    
+    static let nunitoRegular = "Nunito-Regular"
+    static let nunitoBold = "Nunito-Bold"
 }
 
 extension UIColor {
     
     static let autoGreen = UIColor(named: "autoGreen")!
+    static let autoBlue = UIColor(named: "autoBlue")!
+    static let autoGray = UIColor(named: "autoGray")!
 }
 
-extension UIFont {
-    
-    static let nunito = "Nunito"
-}
