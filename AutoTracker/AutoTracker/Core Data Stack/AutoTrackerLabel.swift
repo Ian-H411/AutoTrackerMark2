@@ -41,6 +41,24 @@ class AutoTrackerDetailLabel: UILabel {
     }
 }
 
+class AutoTrackerGreenLabel: UILabel {
+        
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.font = UIFont(name: FontNames.nunitoRegular, size: 18)
+        self.textColor = .autoGreen
+    }
+}
+
+class AutoTrackerSmallGrayLabel: UILabel {
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.font = UIFont(name: FontNames.nunitoRegular, size: 14)
+        self.textColor = .autoGray
+    }
+}
+
 class AutoTrackerGreenBorderLabel: AutoTrackerLabel {
     
     override func awakeFromNib() {
