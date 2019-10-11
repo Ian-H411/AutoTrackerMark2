@@ -24,6 +24,7 @@ class MyGarageViewController: UIViewController {
     
     @IBOutlet weak var vinLabel: AutoTrackerLabel!
     
+    @IBOutlet weak var stackView: UIStackView!
     
     @IBOutlet weak var carSelectionTableView: UITableView!
     
@@ -39,6 +40,9 @@ class MyGarageViewController: UIViewController {
     
     // programatically creates a cgrect that we can set the tableView height to
     var tableViewSize:CGRect{
+        if UIDevice.modelName == "iPhone SE" || UIDevice.modelName == "Simulator iPhone SE"{
+            return seTableViewSize
+        }
         if isInCarSelectionMode{
             let x = carSelectionTableView.frame.origin.x
             let y = carSelectionTableView.frame.origin.y
@@ -58,10 +62,40 @@ class MyGarageViewController: UIViewController {
         }
     }
     
+    var seTableViewSize:CGRect{
+        let x = view.frame.origin.x
+        let y = view.frame.origin.y + 60
+        let width = view.frame.width
+        if isInCarSelectionMode{
+            var contentSize = 61
+            if let garage = CarController.shared.garage {
+                contentSize = 61 * garage.count
+            }
+            let height = CGFloat( contentSize )
+            return CGRect(x: x, y: y, width: width, height: height)
+        } else{
+            let height = CGFloat(61)
+            return CGRect(x: x, y: y, width: width, height: height)
+            
+        }
+    }
+    //work here
+    var stackViewFramForSE:CGRect{
+        
+        let x = view.frame.origin.x
+        let y = CGFloat(61)
+        let width = view.frame.width
+        let height = view.frame.height * 0.2
+        
+        return CGRect(x: x, y: y, width: width, height: height)
+    }
     //MARK: - LIFECYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UIDevice.modelName == "iPhone SE" || UIDevice.modelName == "Simulator iPhone SE"{
+            stackView.frame = stackViewFramForSE
+        }
         carSelectionTableView.delegate = self
         carSelectionTableView.dataSource = self
         guard let car = CarController.shared.selectedCar else {return}
@@ -69,7 +103,7 @@ class MyGarageViewController: UIViewController {
         updateTableViewFrame()
         setTextFields()
         self.carSelectionTableView.tableFooterView = UIView()
-  
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,7 +139,7 @@ class MyGarageViewController: UIViewController {
         vinLabel.text = selectedCar.vin
         
     }
-   
+    
     func presentOptions(){
         let alertController = UIAlertController(title: "Add a car", message: "How would you like to add your vehicle?", preferredStyle: .actionSheet)
         let button1 = UIAlertAction(title: "Manual Key in", style: .default) { (_) in
@@ -156,6 +190,9 @@ extension MyGarageViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if UIDevice.modelName == "iPhone SE" || UIDevice.modelName == "Simulator iPhone SE"{
+            return 61
+        }
         return 81
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
