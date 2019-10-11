@@ -38,6 +38,7 @@
 		25C056F2234D38A40000D848 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C056F1234D38A40000D848 /* MapController.swift */; };
 		4202233E234FAAC2006C60F6 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4202233D234FAAC2006C60F6 /* CustomTabBarController.swift */; };
 		42022340234FC48D006C60F6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4202233F234FC48D006C60F6 /* Colors.xcassets */; };
+		420223432350D31E006C60F6 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42022342234FDC66006C60F6 /* Nunito-Regular.ttf */; };
 		423925242347B02F00EABF16 /* FindGas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423925222347B02F00EABF16 /* FindGas.storyboard */; };
 		423925262347B03D00EABF16 /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423925252347B03D00EABF16 /* Record.storyboard */; };
 		423925292347B04B00EABF16 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423925272347B04B00EABF16 /* Home.storyboard */; };
@@ -55,6 +56,7 @@
 		42A3233B234BE48200B130A0 /* AutoTrackerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A3233A234BE48200B130A0 /* AutoTrackerTextField.swift */; };
 		42A3233F234BEBF300B130A0 /* ReceiptHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A3233E234BEBF300B130A0 /* ReceiptHistoryViewController.swift */; };
 		42A32341234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A32340234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift */; };
+		42CD62E42350D75A001A4B12 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42CD62E32350D75A001A4B12 /* Nunito-Bold.ttf */; };
 		42DFEDAC234E2D42004C40D7 /* AddCarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DFEDAB234E2D42004C40D7 /* AddCarTableViewController.swift */; };
 		42E0E982234D04EB00A2ADD5 /* AddReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0E981234D04EB00A2ADD5 /* AddReceiptTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -112,6 +114,7 @@
 		42A3233A234BE48200B130A0 /* AutoTrackerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoTrackerTextField.swift; path = "AutoTracker/View Controllers/AutoTrackerTextField.swift"; sourceTree = SOURCE_ROOT; };
 		42A3233E234BEBF300B130A0 /* ReceiptHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptHistoryViewController.swift; sourceTree = "<group>"; };
 		42A32340234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCollectionViewCell.swift; sourceTree = "<group>"; };
+		42CD62E32350D75A001A4B12 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		42DFEDAB234E2D42004C40D7 /* AddCarTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarTableViewController.swift; sourceTree = "<group>"; };
 		42E0E981234D04EB00A2ADD5 /* AddReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReceiptTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -293,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				42022342234FDC66006C60F6 /* Nunito-Regular.ttf */,
+				42CD62E32350D75A001A4B12 /* Nunito-Bold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -366,11 +370,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				420223432350D31E006C60F6 /* Nunito-Regular.ttf in Resources */,
 				42022340234FC48D006C60F6 /* Colors.xcassets in Resources */,
 				2568109E2347A7A900629AEA /* LaunchScreen.storyboard in Resources */,
 				423925242347B02F00EABF16 /* FindGas.storyboard in Resources */,
 				2568109B2347A7A900629AEA /* Assets.xcassets in Resources */,
 				423925292347B04B00EABF16 /* Home.storyboard in Resources */,
+				42CD62E42350D75A001A4B12 /* Nunito-Bold.ttf in Resources */,
 				4239252B2347B05700EABF16 /* Maintain.storyboard in Resources */,
 				256810962347A7A800629AEA /* Main.storyboard in Resources */,
 				423925262347B03D00EABF16 /* Record.storyboard in Resources */,
