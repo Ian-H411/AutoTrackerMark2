@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import UserNotifications
 
 class AddMaintenanceTableViewController: UITableViewController {
     //MARK: -outlets
+    
     
     @IBOutlet weak var maintenanceTextField: TextFieldStyle!
     
@@ -33,6 +35,7 @@ class AddMaintenanceTableViewController: UITableViewController {
     
     //MARK: - Variables
     
+    let notificationCenter = UNUserNotificationCenter.current()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +59,42 @@ class AddMaintenanceTableViewController: UITableViewController {
         }
     }
     
+    func notificationSetUP(){
+        let options:UNAuthorizationOptions = [.alert,.sound]
+        notificationCenter.requestAuthorization(options: options) { (didAllow, error) in
+            if let error = error{
+                print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
+                return
+            }
+            if didAllow{
+                self.createNotification()
+            }
+        }
+    }
+    
+    func createNotification(){
+        DispatchQueue.main.async {
+            let date = self.dueDatePicker.date
+            guard let bodyText = self.maintenanceTextField.text else {return}
+            
+            
+            let content = UNMutableNotificationContent()
+            content.title = "You have some car maintenance"
+            content.body = "\(bodyText) is due!"
+            content.sound = .default
+            let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+            let identifier = "Notification"
+            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+            
+            self.notificationCenter.add(request) { (error) in
+                if let error = error {
+                    print("Error \(error.localizedDescription)")
+                }
+                self.useSave()
+            }
+        }
+    }
     //brings up a camera that we can use to take a pic
     
     func camera(){
@@ -100,8 +139,46 @@ class AddMaintenanceTableViewController: UITableViewController {
         alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(alertController, animated: true)
     }
-    
-    
+    func addReminderPrompt(){
+        let alertController = UIAlertController(title: "add a reminder?", message: "This is set to a future date would you like to add a notification?", preferredStyle: .alert)
+        let okayButton = UIAlertAction(title: "Add Notification", style: .default) { (_) in
+            self.createNotification()
+            
+        }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        let okayButNoNotification = UIAlertAction(title: "Just add the mainteinance with no notificiation", style: .default) { (_) in
+            self.useSave()
+        }
+        alertController.addAction(okayButton)
+        alertController.addAction(okayButNoNotification)
+        alertController.addAction(cancelButton)
+        self.present(alertController,animated: true)
+    }
+    func useSave(){
+        DispatchQueue.main.async {
+            if self.isInEditMode{
+                guard let maintenance = self.maintenance else {return}
+                guard let title = self.maintenanceTextField.text, !title.isEmpty
+                    else {self.presentInvalidFieldWarning(); return}
+                let image = self.maintenanceReceiptPhoto.image
+                let details = self.additionalDetailsTextField.text
+                let date = self.dueDatePicker.date
+            CarController.shared.modifyMaintenanceRemainder(maintenance:maintenance , date: date, newTitle: title, details: details, image: image)
+            self.navigationController?.popViewController(animated: true)
+        } else {
+                guard let title = self.maintenanceTextField.text, !title.isEmpty
+                    else {self.presentInvalidFieldWarning(); return}
+                let image = self.maintenanceReceiptPhoto.image
+            guard let car = CarController.shared.selectedCar else {return}
+                let details = self.additionalDetailsTextField.text
+                let date = self.dueDatePicker.date
+            
+            CarController.shared.addMaintenanceReminder(car: car, message: details, maintanence: title, date: date, image: image)
+            self.navigationController?.popViewController(animated: true)
+            }
+            
+        }
+    }
     
     //MARK: - ACTIONS
     
@@ -110,28 +187,11 @@ class AddMaintenanceTableViewController: UITableViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        if isInEditMode{
-            guard let maintenance = maintenance else {return}
-            guard let title = maintenanceTextField.text, !title.isEmpty
-                else {presentInvalidFieldWarning(); return}
-            let image = maintenanceReceiptPhoto.image
-            let details = additionalDetailsTextField.text
-            let date = dueDatePicker.date
-            CarController.shared.modifyMaintenanceRemainder(maintenance:maintenance , date: date, newTitle: title, details: details, image: image)
-            self.navigationController?.popViewController(animated: true)
-        } else {
-            guard let title = maintenanceTextField.text, !title.isEmpty
-                else {presentInvalidFieldWarning(); return}
-            let image = maintenanceReceiptPhoto.image
-            guard let car = CarController.shared.selectedCar else {return}
-            let details = additionalDetailsTextField.text
-            let date = dueDatePicker.date
-            
-            CarController.shared.addMaintenanceReminder(car: car, message: details, maintanence: title, date: date, image: image)
-            self.navigationController?.popViewController(animated: true)
-            
-            
+        if dueDatePicker.date > Date(){
+            notificationSetUP()
+            return
         }
+        useSave()
     }
     
 }

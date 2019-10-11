@@ -24,6 +24,10 @@
 	<string>AutoTracker needs acsess to the camera to scan your vin and look up your vehicle</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>AutoTracker needs your location to find nearby gas stations</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Nunito-Regular-ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -67,10 +71,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Nunito-Regular-ttf</string>
 	</array>
 </dict>
 </plist>
