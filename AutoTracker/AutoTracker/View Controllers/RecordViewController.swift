@@ -13,7 +13,7 @@ class RecordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if CarController.shared.selectedCar != nil {
+        if CarController.shared.selectedCar == nil {
             enterCarAlert()
         }
         
