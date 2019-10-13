@@ -52,5 +52,6 @@ class AutoTrackerButtonGreen: AutoTrackerButtonAsLabel {
     
     override func addTextStyle(color: UIColor, font: UIFont) {
         self.setTitleColor(.white, for: .normal)
+        self.titleLabel?.font = UIFont(name: FontNames.nunitoRegular, size: 18)
     }
 }

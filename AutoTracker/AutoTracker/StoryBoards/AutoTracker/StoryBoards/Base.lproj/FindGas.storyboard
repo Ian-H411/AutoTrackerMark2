@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fxC-5n-kTG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fxC-5n-kTG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -200,7 +200,7 @@
         <scene sceneID="tGw-H5-I7n">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fxC-5n-kTG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Find Gas" image="map.fill" catalog="system" id="LiF-y4-OQN"/>
+                    <tabBarItem key="tabBarItem" title="Find Gas" image="findGasDeselected" id="LiF-y4-OQN"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="qkU-cg-aJH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="frM-Sj-ZLH">
@@ -219,7 +219,7 @@
     </scenes>
     <resources>
         <image name="5Stars" width="102" height="18"/>
-        <image name="map.fill" catalog="system" width="64" height="54"/>
+        <image name="findGasDeselected" width="29" height="28.5"/>
         <image name="yelp" width="143.33332824707031" height="83.666664123535156"/>
     </resources>
 </document>

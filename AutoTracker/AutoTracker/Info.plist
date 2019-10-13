@@ -26,7 +26,8 @@
 	<string>AutoTracker needs your location to find nearby gas stations</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Nunito-Regular-ttf</string>
+		<string>Nunito-Regular.ttf</string>
+		<string>Nunito-Bold.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
@@ -72,12 +73,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-
-	<key>UIAppFonts</key>
-	<array>
-		<string>Nunito-Regular.ttf</string>
-		<string>Nunito-Bold.ttf</string>
-	</array>
-
 </dict>
 </plist>
