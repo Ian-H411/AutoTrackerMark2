@@ -200,7 +200,7 @@
         <scene sceneID="tGw-H5-I7n">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fxC-5n-kTG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Find Gas" image="map.fill" catalog="system" id="LiF-y4-OQN"/>
+                    <tabBarItem key="tabBarItem" title="Find Gas" image="findGasDeselected" id="LiF-y4-OQN"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="qkU-cg-aJH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="frM-Sj-ZLH">
@@ -219,7 +219,7 @@
     </scenes>
     <resources>
         <image name="5Stars" width="102" height="18"/>
-        <image name="map.fill" catalog="system" width="64" height="56"/>
+        <image name="findGasDeselected" width="29" height="28.5"/>
         <image name="yelp" width="143.33332824707031" height="83.666664123535156"/>
     </resources>
 </document>
