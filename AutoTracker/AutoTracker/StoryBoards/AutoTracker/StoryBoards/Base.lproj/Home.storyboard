@@ -266,7 +266,7 @@
         <scene sceneID="ygL-l7-lph">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="csq-6I-Yn9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="uwi-B7-3of"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="homeDeselected" id="uwi-B7-3of"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dR0-VU-obw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -284,7 +284,7 @@
     </scenes>
     <resources>
         <image name="car" width="112.5" height="112.5"/>
-        <image name="house.fill" catalog="system" width="64" height="52"/>
+        <image name="homeDeselected" width="64" height="64"/>
         <namedColor name="bgGray">
             <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

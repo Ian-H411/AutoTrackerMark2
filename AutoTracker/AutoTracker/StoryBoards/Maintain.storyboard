@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PBd-tI-5CT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PBd-tI-5CT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -293,7 +293,7 @@
         <scene sceneID="cZY-P0-cEa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PBd-tI-5CT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Maintain" image="wrench.fill" catalog="system" id="Nbn-aS-ZuR"/>
+                    <tabBarItem key="tabBarItem" title="Maintain" image="maintenanceDeselected" id="Nbn-aS-ZuR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6vj-h7-Akm">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -310,7 +310,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="wrench.fill" catalog="system" width="64" height="62"/>
+        <image name="maintenanceDeselected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Bd8-11-oi1"/>

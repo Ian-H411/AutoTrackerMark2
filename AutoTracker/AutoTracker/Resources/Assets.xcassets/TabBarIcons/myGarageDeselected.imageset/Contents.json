@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "My Garage.png",
+      "filename" : "My Garage Unselected.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "My Garage@2x.png",
+      "filename" : "My Garage Unselected@2x.png",
       "scale" : "2x"
     },
     {
