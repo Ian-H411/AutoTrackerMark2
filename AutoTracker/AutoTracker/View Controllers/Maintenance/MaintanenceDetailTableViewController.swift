@@ -9,72 +9,106 @@
 import UIKit
 
 class MaintanenceDetailTableViewController: UITableViewController {
+    //MARK: - OUTLETS
+    
+    @IBOutlet weak var historySegmentedControl: UISegmentedControl!
+    
+    
+    //MARK: - VARIABLES
+    
+    var displayHistory = false
+    
+    var dataSource:[Maintanence]{
+        let list = CarController.shared.organizeAndReturnMaintainenceList()
+        var listHistory:[Maintanence] = []
+        var listIncomplete:[Maintanence] = []
+        for item in list{
+            if item.isComplete{
+                listHistory.append(item)
+            } else {
+                listIncomplete.append(item)
+            }
+        }
+        if displayHistory{
+            return listHistory
+        } else {
+            return listIncomplete
+        }
+    }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         tableView.reloadData()
     }
-
     
-    var maintainenceList: [Maintanence]{
-        return CarController.shared.organizeAndReturnMaintainenceList()
-    }
     // MARK: - Table view data source
-
-
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if maintainenceList.count == 0{
+        if dataSource.count == 0{
             return 1
         }
-        return maintainenceList.count
+        return dataSource.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 70
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "detail", for: indexPath) as? MaintainenceDetailTableViewCell else {return UITableViewCell()}
-        if maintainenceList.count == 0{
-            cell.cellLabel.text = "No maintenance Items for this car"
-            return cell
-        }
-        let maintenance = maintainenceList[indexPath.row]
-        guard let date = maintenance.dueOn else {return UITableViewCell()}
-        let dueDate = DateHelper.shared.stringForMaintenanceDate(date: date)
-        
-        cell.cellLabel.text = "\(maintenance.maintanenceRequired ?? "")|\(dueDate)"
-        // Configure the cell...
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "detail", for: indexPath) as? MaintenanceTableViewCell else {return UITableViewCell()}
+        let maintenance = dataSource[indexPath.row]
+        cell.delegate = self
+        cell.update(maintenance: maintenance)
         return cell
     }
-
-
-
+    
+    
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            let main = dataSource[indexPath.row]
+            CarController.shared.deleteMaintenance(maintenance: main)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
-
-
+    
+    //MARK: - ACTIONS
+    
+    @IBAction func historySegmentedControlTapped(_ sender: Any) {
+        displayHistory.toggle()
+        tableView.reloadData()
+    }
+    
+    
+    //MARK: - HELPERS
+    
+    
+    
     // MARK: - Navigation
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "edit"{
-            if let indexPath = tableView.indexPathForSelectedRow{
-                if let destinationVC = segue.destination as? AddMaintenanceTableViewController{
-                    if maintainenceList.count == 0{
-                        return
-                    }
-                    let maintenance = maintainenceList[indexPath.row]
-                    destinationVC.maintenance = maintenance
+            if let destinationVC = segue.destination as? AddMaintenanceTableViewController{
+                if let index = tableView.indexPathForSelectedRow {
+                    let main = dataSource[index.row]
+                    destinationVC.maintenance = main
                 }
             }
         }
     }
-
+    
+}
+extension MaintanenceDetailTableViewController: MaintenanceTableViewCellDelegate{
+    func buttonTapped(_ sender: MaintenanceTableViewCell) {
+        guard let maintenance = sender.selectedMaintenance else {return}
+        CarController.shared.toggleMaintenanceReminder(maintenance: maintenance)
+        tableView.reloadData()
+    }
+    
+    
 }
