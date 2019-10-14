@@ -12,7 +12,7 @@ class AddCarByVinViewController: UIViewController {
     
     //MARK: - OUTLETS
     
-    @IBOutlet weak var headerLabel: AutoTrackerDetailLabel!
+    @IBOutlet weak var headerLabel: AutoTrackerLabelDetail!
     
     @IBOutlet weak var vinLabel: UILabel!
     

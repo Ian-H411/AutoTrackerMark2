@@ -43,15 +43,29 @@ class AutoTrackerButtonGrayBG: AutoTrackerButtonAsLabel {
     }
 }
 
-class AutoTrackerButtonGreen: AutoTrackerButtonAsLabel {
+class AutoTrackerButtonGreenBG: AutoTrackerButtonAsLabel {
     
     override func addBorder(color: UIColor, width: CGFloat, bg: UIColor) {
         self.layer.backgroundColor = UIColor.autoGreen.cgColor
-        self.setTitleColor(.white, for: .normal)
+        
     }
     
     override func addTextStyle(color: UIColor, font: UIFont) {
         self.setTitleColor(.white, for: .normal)
+        self.titleLabel?.font = UIFont(name: FontNames.nunitoRegular, size: 18)
+    }
+}
+
+class AutoTrackerButtonWhiteBG: AutoTrackerButtonAsLabel {
+    
+    override func addBorder(color: UIColor, width: CGFloat, bg: UIColor) {
+        self.layer.backgroundColor = UIColor.white.cgColor
+        self.layer.borderColor = UIColor.autoGreen.cgColor
+        self.layer.borderWidth = 2
+    }
+    
+    override func addTextStyle(color: UIColor, font: UIFont) {
+        self.setTitleColor(.autoGreen, for: .normal)
         self.titleLabel?.font = UIFont(name: FontNames.nunitoRegular, size: 18)
     }
 }

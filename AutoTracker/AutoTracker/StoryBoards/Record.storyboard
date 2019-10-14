@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Record View Controller-->
+        <!--Receipt History-->
         <scene sceneID="7Rs-1v-e6D">
             <objects>
                 <viewController id="gPO-je-hId" customClass="RecordViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,21 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVQ-1F-G3Z" customClass="AutoTrackerButtonGreen" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="62" y="338" width="290" height="64"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVQ-1F-G3Z" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
+                                <rect key="frame" x="49.5" y="347" width="315" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="jzL-Gq-p4P"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Updated Odometer">
+                                <state key="normal" title="Enter Gas Fill Up">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="K9U-Av-9y1" kind="presentation" id="QyI-Co-ZVz"/>
-                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8I-t2-rX0" customClass="AutoTrackerButtonGreen" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="98.5" y="548" width="217" height="64"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8I-t2-rX0" customClass="AutoTrackerButtonWhiteBG" customModule="AutoTracker" customModuleProvider="target">
+                                <rect key="frame" x="118" y="443" width="178" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="gkV-mh-cZ1"/>
                                 </constraints>
@@ -38,41 +35,122 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="rYH-Qs-fMV" kind="show" id="WAO-vc-5cP"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdC-xE-jRj" customClass="AutoTrackerButtonGreen" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="98.5" y="443" width="217" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="JYN-YH-nsT"/>
-                                </constraints>
-                                <state key="normal" title="Record Gas Receipt">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="1u1-fE-c1d" kind="show" id="cpW-w9-RfB"/>
+                                    <segue destination="aw9-N6-wU8" kind="show" id="2kd-Om-7sr"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="OVQ-1F-G3Z" firstAttribute="centerX" secondItem="SRt-is-YzA" secondAttribute="centerX" id="5TX-uG-83i"/>
-                            <constraint firstItem="HdC-xE-jRj" firstAttribute="top" secondItem="OVQ-1F-G3Z" secondAttribute="bottom" constant="41" id="9mA-pj-CHB"/>
+                            <constraint firstItem="K8I-t2-rX0" firstAttribute="top" secondItem="OVQ-1F-G3Z" secondAttribute="bottom" constant="32" id="GiR-VQ-dlM"/>
                             <constraint firstItem="K8I-t2-rX0" firstAttribute="centerX" secondItem="SRt-is-YzA" secondAttribute="centerX" id="JEV-JS-ZlO"/>
-                            <constraint firstItem="HdC-xE-jRj" firstAttribute="centerY" secondItem="SRt-is-YzA" secondAttribute="centerY" id="MBI-IN-lKf"/>
-                            <constraint firstItem="OVQ-1F-G3Z" firstAttribute="width" secondItem="SRt-is-YzA" secondAttribute="width" multiplier="0.7" id="SfK-T3-Ere"/>
-                            <constraint firstItem="K8I-t2-rX0" firstAttribute="width" secondItem="HdC-xE-jRj" secondAttribute="width" id="XLC-Jf-Maa"/>
-                            <constraint firstItem="HdC-xE-jRj" firstAttribute="width" secondItem="OVQ-1F-G3Z" secondAttribute="width" multiplier="0.75" id="nnL-Hm-0LJ"/>
-                            <constraint firstItem="K8I-t2-rX0" firstAttribute="top" secondItem="HdC-xE-jRj" secondAttribute="bottom" constant="41" id="tQB-ob-n4x"/>
-                            <constraint firstItem="HdC-xE-jRj" firstAttribute="centerX" secondItem="SRt-is-YzA" secondAttribute="centerX" id="xtA-o1-lJ9"/>
+                            <constraint firstItem="OVQ-1F-G3Z" firstAttribute="width" secondItem="SRt-is-YzA" secondAttribute="width" multiplier="0.76" id="SfK-T3-Ere"/>
+                            <constraint firstItem="K8I-t2-rX0" firstAttribute="centerY" secondItem="SRt-is-YzA" secondAttribute="centerY" id="dJm-Ap-NNp"/>
+                            <constraint firstItem="K8I-t2-rX0" firstAttribute="width" secondItem="SRt-is-YzA" secondAttribute="width" multiplier="0.43" id="gyM-aQ-7w3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SRt-is-YzA"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5Yo-Ke-uTA"/>
+                    <navigationItem key="navigationItem" title="Receipt History" id="5Yo-Ke-uTA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6FG-ij-ZOd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="679.71014492753625" y="-532.36607142857144"/>
+        </scene>
+        <!--Averages and History-->
+        <scene sceneID="bbm-X9-xXI">
+            <objects>
+                <viewController id="aw9-N6-wU8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vJq-QV-ACy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="Q6e-07-ese">
+                                <rect key="frame" x="16.5" y="150" width="381" height="190"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CvC-VZ-yuH">
+                                        <rect key="frame" x="0.0" y="0.0" width="381" height="84.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average MPG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nj1-tB-2gH" customClass="AutoTrackerLabelDetail" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="381" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(mpg)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29H-xj-Rgu" customClass="AutoTrackerLabelGreenBG" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="20.5" width="381" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="64" id="DZN-Gb-a9l"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="29H-xj-Rgu" firstAttribute="width" secondItem="CvC-VZ-yuH" secondAttribute="width" id="hZC-Zt-amS"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5ib-tq-vrK">
+                                        <rect key="frame" x="0.0" y="105.5" width="381" height="84.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best MPG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yp3-6f-WC6" customClass="AutoTrackerLabelDetail" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="381" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(mpg)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D75-kY-9i0" customClass="AutoTrackerLabelGreenBG" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="20.5" width="381" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="64" id="5Dm-kt-Kiy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="D75-kY-9i0" firstAttribute="width" secondItem="5ib-tq-vrK" secondAttribute="width" id="dN7-Fa-mAM"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="OAc-T5-gkg">
+                                <rect key="frame" x="16.5" y="604" width="381" height="147"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dh0-qF-tcB" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="381" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="jKT-8a-85b"/>
+                                        </constraints>
+                                        <state key="normal" title="Receipt History"/>
+                                        <connections>
+                                            <segue destination="rYH-Qs-fMV" kind="show" id="QA6-y9-thm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MH-2t-tX2" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="83" width="381" height="64"/>
+                                        <state key="normal" title="Return"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="OAc-T5-gkg" firstAttribute="width" secondItem="Q6e-07-ese" secondAttribute="width" id="0al-gJ-Uy0"/>
+                            <constraint firstItem="3WU-4U-ZUC" firstAttribute="bottom" secondItem="OAc-T5-gkg" secondAttribute="bottom" constant="111" id="Pci-lB-tzb"/>
+                            <constraint firstItem="Q6e-07-ese" firstAttribute="top" secondItem="3WU-4U-ZUC" secondAttribute="top" constant="62" id="TfF-xF-jpu"/>
+                            <constraint firstItem="Q6e-07-ese" firstAttribute="centerX" secondItem="3WU-4U-ZUC" secondAttribute="centerX" id="Uzu-f2-2n5"/>
+                            <constraint firstItem="Q6e-07-ese" firstAttribute="width" secondItem="3WU-4U-ZUC" secondAttribute="width" multiplier="0.92" id="m2j-f0-NZs"/>
+                            <constraint firstItem="OAc-T5-gkg" firstAttribute="centerX" secondItem="3WU-4U-ZUC" secondAttribute="centerX" id="yRf-r5-c3S"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3WU-4U-ZUC"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Averages and History" id="ug3-gi-ZKr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DeC-So-O2z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1568" y="-532"/>
         </scene>
         <!--Add Receipt Table View Controller-->
         <scene sceneID="E0k-pC-1SZ">
@@ -250,7 +328,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VqD-QR-TlX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1521.7391304347827" y="-532.36607142857144"/>
+            <point key="canvasLocation" x="2484" y="-532"/>
         </scene>
         <!--Receipt History-->
         <scene sceneID="3R4-eN-i7C">
@@ -271,7 +349,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="I1E-ff-iBm">
                                             <rect key="frame" x="125" y="16" width="65.5" height="83"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(vendor)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFG-l6-JXj" customClass="AutoTrackerDetailLabel" customModule="AutoTracker" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(vendor)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFG-l6-JXj" customClass="AutoTrackerLabelDetail" customModule="AutoTracker" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="65.5" height="40.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -330,7 +408,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XfO-K4-Ohe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="679.71014492753625" y="160.71428571428569"/>
+            <point key="canvasLocation" x="1567" y="175"/>
         </scene>
         <!--Receipt History View Controller-->
         <scene sceneID="pCq-cT-Pg7">
@@ -439,24 +517,24 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1584" y="190"/>
+            <point key="canvasLocation" x="2483" y="175"/>
         </scene>
         <!--Odometer View Controller-->
         <scene sceneID="Cl4-ZI-NMh">
             <objects>
                 <viewController id="K9U-Av-9y1" customClass="OdometerViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7gF-x8-HPE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNQ-7n-DaP">
-                                <rect key="frame" x="41.5" y="366.5" width="331" height="75"/>
+                                <rect key="frame" x="41.5" y="415.5" width="331" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="8Kb-Yh-qHk"/>
                                 </constraints>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CO4-ia-R9y" customClass="AutoTrackerButtonGreen" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="83" y="451.5" width="248" height="64"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CO4-ia-R9y" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
+                                <rect key="frame" x="83" y="500.5" width="248" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="ygo-fv-hLc"/>
                                 </constraints>
@@ -466,7 +544,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miles Gone/ Current Odometer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85C-Na-pmo">
-                                <rect key="frame" x="89.5" y="335.5" width="235" height="21"/>
+                                <rect key="frame" x="89.5" y="384.5" width="235" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -510,7 +588,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="flx-eu-zhf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-230.43478260869566" y="-532.36607142857144"/>
+            <point key="canvasLocation" x="-190" y="-532"/>
         </scene>
     </scenes>
     <resources>

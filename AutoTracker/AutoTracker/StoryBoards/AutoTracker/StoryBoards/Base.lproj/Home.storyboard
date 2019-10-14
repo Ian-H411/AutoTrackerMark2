@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="csq-6I-Yn9">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -14,33 +13,33 @@
             <objects>
                 <viewController id="iU8-vQ-Uxl" customClass="HomeViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H3U-z9-LoV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="Orw-vb-yma">
-                                <rect key="frame" x="0.0" y="88" width="414" height="255.5"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="183.5"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Laj-G4-AnJ">
-                                <rect key="frame" x="20" y="343.5" width="374" height="255.5"/>
+                                <rect key="frame" x="20" y="227.5" width="560" height="183.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="bYg-Qf-8c9">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="255.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="183.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Car Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGR-I8-nWy" customClass="AutoTrackerGreenBorderLabel" customModule="AutoTracker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="72.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="48.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3m3-Jj-fuY">
-                                                <rect key="frame" x="0.0" y="91.5" width="374" height="72.5"/>
+                                                <rect key="frame" x="0.0" y="67.5" width="560" height="48.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="246" translatesAutoresizingMaskIntoConstraints="NO" id="U3K-B8-nk9">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="72.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="560" height="48.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YHy-4F-Buo">
-                                                                <rect key="frame" x="-18.5" y="-16" width="411" height="104"/>
+                                                                <rect key="frame" x="-18.5" y="-28" width="411" height="104"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="d98-wC-a1W">
                                                                         <rect key="frame" x="0.0" y="0.0" width="137" height="104"/>
@@ -120,8 +119,8 @@
                                                     <constraint firstItem="YHy-4F-Buo" firstAttribute="leading" secondItem="3m3-Jj-fuY" secondAttribute="leading" constant="-18.5" id="tgv-6i-p8p"/>
                                                 </constraints>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3T3-Pu-xrA" customClass="AutoTrackerButtonGreen" customModule="AutoTracker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="183" width="374" height="72.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3T3-Pu-xrA" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="135" width="560" height="48.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="Record Gas Fill Up">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -135,10 +134,10 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WV-M6-5et">
-                                <rect key="frame" x="0.0" y="435" width="414" height="72.5"/>
+                                <rect key="frame" x="0.0" y="295" width="600" height="48.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ctr-RP-tV0">
-                                        <rect key="frame" x="20" y="18" width="374" height="36"/>
+                                        <rect key="frame" x="20" y="-28" width="560" height="104"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="-4" id="jeh-6e-653">
                                                 <rect key="frame" x="0.0" y="0.0" width="119.5" height="36"/>
@@ -213,13 +212,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scheduled Maintenance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihk-R6-E0a" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="641.5" width="184.5" height="20.5"/>
+                                <rect key="frame" x="20" y="453.5" width="184.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sfv-gQ-ccB">
-                                <rect key="frame" x="0.0" y="662.5" width="414" height="224.5"/>
+                                <rect key="frame" x="0.0" y="474.5" width="600" height="161.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>

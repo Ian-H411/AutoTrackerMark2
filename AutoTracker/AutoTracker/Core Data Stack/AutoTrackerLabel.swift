@@ -33,11 +33,11 @@ class AutoTrackerLabel: UILabel {
     }
 }
 
-class AutoTrackerDetailLabel: UILabel {
+class AutoTrackerLabelDetail: UILabel {
     
-    func chooseFont(to fontName: String) {
-        let size = 14
-        self.font = UIFont(name: fontName, size: CGFloat(size))
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.font = UIFont(name: FontNames.nunitoRegular, size: 14)
     }
 }
 
@@ -47,6 +47,14 @@ class AutoTrackerGreenLabel: UILabel {
         super.awakeFromNib()
         self.font = UIFont(name: FontNames.nunitoRegular, size: 18)
         self.textColor = .autoGreen
+    }
+}
+
+class AutoTrackerLabelGreenBG: AutoTrackerLabel {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.textColor = .white
+        addBorder(color: .autoGreen, width: 2, bg: .autoGreen)
     }
 }
 
