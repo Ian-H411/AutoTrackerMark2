@@ -90,7 +90,7 @@ class MaintanenceDetailTableViewController: UITableViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
+     
     }
     
 }
@@ -98,7 +98,7 @@ extension MaintanenceDetailTableViewController: MaintenanceTableViewCellDelegate
     func buttonTapped(_ sender: MaintenanceTableViewCell) {
         guard let maintenance = sender.selectedMaintenance else {return}
         CarController.shared.toggleMaintenanceReminder(maintenance: maintenance)
-        
+        tableView.reloadData()
     }
     
     
