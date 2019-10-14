@@ -92,7 +92,14 @@ class MaintanenceDetailTableViewController: UITableViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "edit"{
+            if let destinationVC = segue.destination as? AddMaintenanceTableViewController{
+                if let index = tableView.indexPathForSelectedRow {
+                    let main = dataSource[index.row]
+                    destinationVC.maintenance = main
+                }
+            }
+        }
     }
     
 }
