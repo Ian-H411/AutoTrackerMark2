@@ -24,8 +24,8 @@ class RecordViewController: UIViewController {
     // MARK: - FUNCTIONS
     
     func enterCarAlert() {
-        let alertController = UIAlertController(title: "Enter a car before updating it's miles", message: nil, preferredStyle:  .actionSheet)
-        let action = UIAlertAction(title: "Cool", style: .default)
+        let alertController = UIAlertController(title: "Enter a car before updating its miles", message: nil, preferredStyle:  .alert)
+        let action = UIAlertAction(title: "Okay", style: .default)
         alertController.addAction(action)
         present(alertController, animated: true)
     }

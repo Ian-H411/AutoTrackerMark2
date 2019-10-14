@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Home View Controller-->
+        <!--Car Name-->
         <scene sceneID="pVx-lj-r3J">
             <objects>
                 <viewController id="iU8-vQ-Uxl" customClass="HomeViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -153,6 +153,7 @@
                                 <rect key="frame" x="0.0" y="451" width="414" height="72.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ctr-RP-tV0">
+<<<<<<< Updated upstream
                                         <rect key="frame" x="104.5" y="-16" width="205" height="104"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="-4" id="jeh-6e-653">
@@ -161,13 +162,27 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lifetime miles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xp9-fH-7F8" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
                                                         <rect key="frame" x="7" y="0.0" width="105.5" height="20.5"/>
+=======
+                                        <rect key="frame" x="20" y="-16" width="374" height="104"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="-4" id="jeh-6e-653">
+                                                <rect key="frame" x="0.0" y="33.5" width="63" height="37"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lifetime miles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xp9-fH-7F8" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="63" height="20.5"/>
+>>>>>>> Stashed changes
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="buA-SC-BHn" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
+<<<<<<< Updated upstream
                                                         <rect key="frame" x="31.5" y="16.5" width="56.5" height="20.5"/>
+=======
+                                                        <rect key="frame" x="3.5" y="16.5" width="56.5" height="20.5"/>
+>>>>>>> Stashed changes
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -177,18 +192,30 @@
                                                 <viewLayoutGuide key="safeArea" id="VOl-kX-G2q"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="-4" id="DEK-Wk-Bgx">
+<<<<<<< Updated upstream
                                                 <rect key="frame" x="127.5" y="33.5" width="119" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average MPG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ivs-Mu-LtZ" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
                                                         <rect key="frame" x="7.5" y="0.0" width="104" height="20.5"/>
+=======
+                                                <rect key="frame" x="71" y="33.5" width="63" height="37"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average MPG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ivs-Mu-LtZ" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="63" height="20.5"/>
+>>>>>>> Stashed changes
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 MPG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3aT-Fk-VLO" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
+<<<<<<< Updated upstream
                                                         <rect key="frame" x="28.5" y="16.5" width="62" height="20.5"/>
+=======
+                                                        <rect key="frame" x="0.5" y="16.5" width="62" height="20.5"/>
+>>>>>>> Stashed changes
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -198,18 +225,30 @@
                                                 <viewLayoutGuide key="safeArea" id="JHm-QT-NTP"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="-4" id="rcf-S7-OIg">
+<<<<<<< Updated upstream
                                                 <rect key="frame" x="254.5" y="33.5" width="119.5" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Tank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Rl-bk-ffD" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
                                                         <rect key="frame" x="23.5" y="0.0" width="73" height="20.5"/>
+=======
+                                                <rect key="frame" x="142" y="33.5" width="63" height="37"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Tank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Rl-bk-ffD" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="63" height="20.5"/>
+>>>>>>> Stashed changes
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="321 Left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="m9I-wn-UBz" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
+<<<<<<< Updated upstream
                                                         <rect key="frame" x="29" y="16.5" width="62" height="20.5"/>
+=======
+                                                        <rect key="frame" x="0.5" y="16.5" width="62" height="20.5"/>
+>>>>>>> Stashed changes
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -306,7 +345,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cty-iL-ccR"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YJP-BU-qvE"/>
+                    <navigationItem key="navigationItem" title="Car Name" id="YJP-BU-qvE"/>
                     <connections>
                         <outlet property="averageMPGLabel" destination="3aT-Fk-VLO" id="caO-55-DyP"/>
                         <outlet property="carImageView" destination="Orw-vb-yma" id="XHs-mS-RBb"/>
@@ -320,11 +359,11 @@
             </objects>
             <point key="canvasLocation" x="679.71014492753625" y="116.51785714285714"/>
         </scene>
-        <!--Home-->
+        <!--Navigation Controller-->
         <scene sceneID="ygL-l7-lph">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="csq-6I-Yn9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="homeDeselected" id="uwi-B7-3of"/>
+                    <tabBarItem key="tabBarItem" title="" image="homeDeselected" id="uwi-B7-3of"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dR0-VU-obw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
