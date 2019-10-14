@@ -202,6 +202,9 @@
                                         <segment title="History"/>
                                     </segments>
                                     <color key="selectedSegmentTintColor" name="autoGreen"/>
+                                    <connections>
+                                        <action selector="historySegmentedControlTapped:" destination="Aq4-yw-NSS" eventType="valueChanged" id="4G0-Qq-27z"/>
+                                    </connections>
                                 </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -292,7 +295,7 @@
                                     <outlet property="entryNameLabel" destination="CSY-1S-c2U" id="IRl-Ek-gXe"/>
                                     <outlet property="entryTypeLabel" destination="lpn-Md-zxA" id="mWf-Bj-Xfq"/>
                                     <outlet property="receiptImageView" destination="Nje-gD-TgS" id="baS-yb-Vv6"/>
-                                    <segue destination="5Cx-Is-yDk" kind="show" id="i5q-5g-URo"/>
+                                    <segue destination="5Cx-Is-yDk" kind="show" identifier="edit" id="i5q-5g-URo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -304,7 +307,7 @@
                     <navigationItem key="navigationItem" id="RaK-Oh-ghJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="4s5-Dj-PWR">
                             <connections>
-                                <segue destination="5Cx-Is-yDk" kind="show" id="SC1-Ul-8wJ"/>
+                                <segue destination="5Cx-Is-yDk" kind="show" identifier="new" id="SC1-Ul-8wJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -132,6 +132,10 @@ class CarController{
         maintenance.photo = image
         saveChangesToPersistentStoreOnly()
     }
+    func toggleMaintenanceReminder(maintenance: Maintanence){
+        maintenance.isComplete.toggle()
+        saveChangesToPersistentStoreOnly()
+    }
     
     
     //retrieve a car from the api

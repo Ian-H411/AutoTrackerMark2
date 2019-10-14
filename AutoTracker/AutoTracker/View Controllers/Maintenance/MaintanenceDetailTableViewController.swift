@@ -60,7 +60,8 @@ class MaintanenceDetailTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "detail", for: indexPath) as? MaintenanceTableViewCell else {return UITableViewCell()}
         let maintenance = dataSource[indexPath.row]
-        
+        cell.delegate = self
+        cell.update(maintenance: maintenance)
         return cell
     }
     
@@ -76,6 +77,10 @@ class MaintanenceDetailTableViewController: UITableViewController {
     
     //MARK: - ACTIONS
     
+    @IBAction func historySegmentedControlTapped(_ sender: Any) {
+        displayHistory.toggle()
+        
+    }
     
     
     //MARK: - HELPERS
@@ -87,5 +92,14 @@ class MaintanenceDetailTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
     }
+    
+}
+extension MaintanenceDetailTableViewController: MaintenanceTableViewCellDelegate{
+    func buttonTapped(_ sender: MaintenanceTableViewCell) {
+        guard let maintenance = sender.selectedMaintenance else {return}
+        CarController.shared.toggleMaintenanceReminder(maintenance: maintenance)
+        
+    }
+    
     
 }

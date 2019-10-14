@@ -15,6 +15,7 @@ protocol MaintenanceTableViewCellDelegate {
 class MaintenanceTableViewCell: UITableViewCell {
     
     //MARK: -OUTLETS
+    
     @IBOutlet weak var entryNameLabel: UILabel!
     
     @IBOutlet weak var entryTypeLabel: UILabel!
@@ -31,6 +32,8 @@ class MaintenanceTableViewCell: UITableViewCell {
     
     var delegate: MaintenanceTableViewCellDelegate?
     
+    var selectedMaintenance: Maintanence?
+    
     //MARK: - ACTIONS
     
     @IBAction func CompletionButtonTapped(_ sender: Any) {
@@ -40,6 +43,7 @@ class MaintenanceTableViewCell: UITableViewCell {
     //MARK: -HELPERS
     
     func update(maintenance:Maintanence){
+        selectedMaintenance = maintenance
         entryNameLabel.text = maintenance.maintanenceRequired
         entryTypeLabel.text = maintenance.details
         let dateAsString = DateHelper.shared.stringForMaintenanceDate(date: maintenance.dueOn ?? Date())
@@ -51,6 +55,8 @@ class MaintenanceTableViewCell: UITableViewCell {
             } else {
                 completionButton.setTitle("Complete", for: .normal)
             }
+        } else {
+            completionButton.setTitle("Incomplete", for: .normal)
         }
     }
     
