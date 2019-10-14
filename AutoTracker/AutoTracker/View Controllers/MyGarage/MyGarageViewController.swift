@@ -12,17 +12,15 @@ class MyGarageViewController: UIViewController {
     
     //MARK: - OUTLETS
     
-    @IBOutlet weak var engineTypeLabel: AutoTrackerLabel!
+
+    @IBOutlet weak var currentCarButton: AutoTrackerButtonGreen!
     
-    @IBOutlet weak var yearLabel: AutoTrackerLabel!
-    
-    @IBOutlet weak var modelLabel: AutoTrackerLabel!
+    @IBOutlet weak var odometerPicker: UIPickerView!
     
     @IBOutlet weak var makeLabel: AutoTrackerLabel!
     
     @IBOutlet weak var ownerLabel: AutoTrackerLabel!
     
-    @IBOutlet weak var vinLabel: AutoTrackerLabel!
     
     @IBOutlet weak var stackView: UIStackView!
     
@@ -32,6 +30,7 @@ class MyGarageViewController: UIViewController {
     
     var isInCarSelectionMode:Bool = false
     
+    var odometer = ["0","1","2","3","4","5","6","7","8","9"]
     
     var currentCarSelected: Car?
     
@@ -40,13 +39,10 @@ class MyGarageViewController: UIViewController {
     
     // programatically creates a cgrect that we can set the tableView height to
     var tableViewSize:CGRect{
-        if UIDevice.modelName == "iPhone SE" || UIDevice.modelName == "Simulator iPhone SE"{
-            return seTableViewSize
-        }
         if isInCarSelectionMode{
-            let x = carSelectionTableView.frame.origin.x
-            let y = carSelectionTableView.frame.origin.y
-            let width = carSelectionTableView.frame.width
+            let x = stackView.frame.origin.x
+            let y = stackView.frame.origin.y
+            let width = stackView.frame.width
             var contentSize = 81
             if let garage = CarController.shared.garage {
                 contentSize = 81 * garage.count
@@ -54,51 +50,27 @@ class MyGarageViewController: UIViewController {
             let height = CGFloat( contentSize )
             return CGRect(x: x, y: y, width: width, height: height)
         } else {
-            let x = carSelectionTableView.frame.origin.x
-            let y = carSelectionTableView.frame.origin.y
-            let width = carSelectionTableView.frame.width
+            let x = stackView.frame.origin.x
+             let y = stackView.frame.origin.y
+            let width = stackView.frame.width
             let height = CGFloat(81)
             return CGRect(x: x, y: y, width: width, height:height)
         }
     }
     
-    var seTableViewSize:CGRect{
-        let x = view.frame.origin.x
-        let y = view.frame.origin.y + 60
-        let width = view.frame.width
-        if isInCarSelectionMode{
-            var contentSize = 61
-            if let garage = CarController.shared.garage {
-                contentSize = 61 * garage.count
-            }
-            let height = CGFloat( contentSize )
-            return CGRect(x: x, y: y, width: width, height: height)
-        } else{
-            let height = CGFloat(61)
-            return CGRect(x: x, y: y, width: width, height: height)
-            
-        }
-    }
-    //work here
-    var stackViewFramForSE:CGRect{
-        
-        let x = view.frame.origin.x
-        let y = CGFloat(61)
-        let width = view.frame.width
-        let height = view.frame.height * 0.2
-        
-        return CGRect(x: x, y: y, width: width, height: height)
-    }
+    
     //MARK: - LIFECYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UIDevice.modelName == "iPhone SE" || UIDevice.modelName == "Simulator iPhone SE"{
-            stackView.frame = stackViewFramForSE
-        }
+        odometerPicker.delegate = self
+        odometerPicker.dataSource = self
+        
         carSelectionTableView.delegate = self
         carSelectionTableView.dataSource = self
+        carSelectionTableView.isHidden = true
         guard let car = CarController.shared.selectedCar else {return}
+        currentCarButton.setTitle(car.name, for: .normal)
         currentCarSelected = car
         updateTableViewFrame()
         setTextFields()
@@ -112,18 +84,29 @@ class MyGarageViewController: UIViewController {
     }
     
     //MARK: - HELPER FUNCTIONS
+//    
+//    func setPickerViewToCarValue(){
+//        guard let car = CarController.shared.selectedCar else {return}
+//        var numberArray:[Int] = []
+//        for digit in string{
+//            guard let digitInt = Int(digit) else {return}
+//            numberArray.append(digitInt)
+//        }
+//
+//        odometerPicker.selectRow(<#T##row: Int##Int#>, inComponent: <#T##Int#>, animated: <#T##Bool#>)
+//    }
     
     func updateTableViewFrame(){
         UIView.animate(withDuration: 0.5) {
             self.carSelectionTableView.frame = self.tableViewSize
         }
         if isInCarSelectionMode{
-            view.bringSubviewToFront(carSelectionTableView)
+
             carSelectionTableView.layer.borderWidth = 3
             carSelectionTableView.layer.backgroundColor = UIColor.red.cgColor
             carSelectionTableView.layer.cornerRadius = 10
         } else {
-            view.addSubview(carSelectionTableView)
+
             carSelectionTableView.layer.backgroundColor = UIColor.clear.cgColor
             carSelectionTableView.layer.borderWidth = 0
         }
@@ -133,11 +116,6 @@ class MyGarageViewController: UIViewController {
         guard let selectedCar = currentCarSelected else {return}
         ownerLabel.text = selectedCar.ownerName
         makeLabel.text = selectedCar.make
-        modelLabel.text = selectedCar.model
-        yearLabel.text = selectedCar.year
-        engineTypeLabel.text = selectedCar.engine
-        vinLabel.text = selectedCar.vin
-        
     }
     
     func presentOptions(){
@@ -156,21 +134,28 @@ class MyGarageViewController: UIViewController {
         self.present(alertController, animated: true)
     }
     
+    func odometerResults() -> Int {
+         var placeholder: [Int] = []
+         for component in 0..<odometerPicker.numberOfComponents {
+             let number = odometerPicker.selectedRow(inComponent: component)
+             placeholder.append(number)
+         }
+         let odometer = placeholder.reduce(0, {$0*10 + $1})
+         return odometer
+     }
+    
     //MARK: - ACTIONS
     
     @IBAction func AddACarButtonTapped(_ sender: Any) {
         presentOptions()
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    @IBAction func presentCarsButtonTapped(_ sender: Any) {
+        carSelectionTableView.isHidden = false
+        isInCarSelectionMode.toggle()
+        updateTableViewFrame()
+    }
+    
     
 }
 extension MyGarageViewController: UITableViewDelegate, UITableViewDataSource{
@@ -190,9 +175,7 @@ extension MyGarageViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if UIDevice.modelName == "iPhone SE" || UIDevice.modelName == "Simulator iPhone SE"{
-            return 61
-        }
+     
         return 81
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -213,5 +196,27 @@ extension MyGarageViewController: MyGarageTableViewCellDelegate{
         self.carSelectionTableView.scrollToRow(at: indexPath, at: .top, animated: true)
         setTextFields()
         carSelectionTableView.reloadData()
+        carSelectionTableView.isHidden = true
+        currentCarButton.setTitle(car.name, for: .normal)
     }
+}
+extension MyGarageViewController: UIPickerViewDataSource, UIPickerViewDelegate{
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 7
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.odometer.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        return
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(row)
+    }
+    
+    
 }

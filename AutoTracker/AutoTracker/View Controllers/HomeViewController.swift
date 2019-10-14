@@ -17,10 +17,10 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var averageMPGLabel: UILabel!
     @IBOutlet weak var lifetimeMilesLabel: UILabel!
     @IBOutlet weak var thisTankLabel: UILabel!
-    @IBOutlet weak var mostRecentMaintenanceLabel: AutoTrackerLabel!
-    
-    @IBOutlet weak var nextMostRecentMaintenanceLabel: AutoTrackerLabel!
-    @IBOutlet weak var noMaintenanceLabel: AutoTrackerLabel!
+//    @IBOutlet weak var mostRecentMaintenanceLabel: AutoTrackerLabel!
+//
+//    @IBOutlet weak var nextMostRecentMaintenanceLabel: AutoTrackerLabel!
+//    @IBOutlet weak var noMaintenanceLabel: AutoTrackerLabel!
     
     // MARK: - PROPERTIES
     var myCar: Car? {
@@ -60,24 +60,24 @@ class HomeViewController: UIViewController {
 
         carImageView.image = myCar.photo ?? UIImage(named: "car")
         carNameLabel.text = myCar.name ?? "Car Name"
-        lifetimeMilesLabel.text = String(describing: myCar.odometer)
+//        lifetimeMilesLabel.text = String(describing: myCar.odometer)
         lifetimeMilesLabel.layer.cornerRadius = 8
         averageMPGLabel.layer.cornerRadius = 8
         thisTankLabel.layer.cornerRadius = 8
-        mostRecentMaintenanceLabel.isHidden = true
-        nextMostRecentMaintenanceLabel.isHidden = true
+//        mostRecentMaintenanceLabel.isHidden = true
+//        nextMostRecentMaintenanceLabel.isHidden = true
         
         guard let scheduledMaintenance = scheduledMaintenance else { return }
-        mostRecentMaintenanceLabel.isHidden = false
-        mostRecentMaintenanceLabel.text = "No Maintenance Items For This Car"
+//        mostRecentMaintenanceLabel.isHidden = false
+//        mostRecentMaintenanceLabel.text = "No Maintenance Items For This Car"
         if scheduledMaintenance.count <= 2 {
             guard let maintenanceRequired = scheduledMaintenance.first?.maintanenceRequired, let dueOn = scheduledMaintenance.first?.dueOn else { return }
-            mostRecentMaintenanceLabel.isHidden = false
-            mostRecentMaintenanceLabel.text = maintenanceRequired + " | " + DateHelper.shared.stringForMaintenanceDate(date: dueOn)
+//            mostRecentMaintenanceLabel.isHidden = false
+//            mostRecentMaintenanceLabel.text = maintenanceRequired + " | " + DateHelper.shared.stringForMaintenanceDate(date: dueOn)
             if scheduledMaintenance.count > 1 {
             guard let secondMaintenanceRequired = scheduledMaintenance[1].maintanenceRequired, let secondDueOn = scheduledMaintenance[1].dueOn else { return }
-            nextMostRecentMaintenanceLabel.isHidden = false
-            nextMostRecentMaintenanceLabel.text = secondMaintenanceRequired + " | " + DateHelper.shared.stringForMaintenanceDate(date: secondDueOn)
+//            nextMostRecentMaintenanceLabel.isHidden = false
+//            nextMostRecentMaintenanceLabel.text = secondMaintenanceRequired + " | " + DateHelper.shared.stringForMaintenanceDate(date: secondDueOn)
             }
         } else if scheduledMaintenance.count == 0 {
             
