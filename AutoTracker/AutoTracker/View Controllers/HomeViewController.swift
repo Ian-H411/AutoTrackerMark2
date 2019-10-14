@@ -17,7 +17,10 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var averageMPGLabel: UILabel!
     @IBOutlet weak var lifetimeMilesLabel: UILabel!
     @IBOutlet weak var thisTankLabel: UILabel!
+
     @IBOutlet weak var scheduledMaintenanceTableView: UITableView!
+
+
     
     // MARK: - PROPERTIES
     var myCar: Car? {
@@ -58,29 +61,13 @@ class HomeViewController: UIViewController {
 
         carImageView.image = myCar.photo ?? UIImage(named: "car")
         carNameLabel.text = myCar.name ?? "Car Name"
-        lifetimeMilesLabel.text = String(describing: myCar.odometer)
+//        lifetimeMilesLabel.text = String(describing: myCar.odometer)
         lifetimeMilesLabel.layer.cornerRadius = 8
         averageMPGLabel.layer.cornerRadius = 8
         thisTankLabel.layer.cornerRadius = 8
+
         scheduledMaintenanceTableView.reloadData()
-//        mostRecentMaintenanceLabel.isHidden = true
-//        nextMostRecentMaintenanceLabel.isHidden = true
-        
-//        guard let scheduledMaintenance = scheduledMaintenance else { return }
-//        mostRecentMaintenanceLabel.isHidden = false
-//        mostRecentMaintenanceLabel.text = "No Maintenance Items For This Car"
-//        if scheduledMaintenance.count <= 2 {
-//            guard let maintenanceRequired = scheduledMaintenance.first?.maintanenceRequired, let dueOn = scheduledMaintenance.first?.dueOn else { return }
-//            mostRecentMaintenanceLabel.isHidden = false
-//            mostRecentMaintenanceLabel.text = maintenanceRequired + " | " + DateHelper.shared.stringForMaintenanceDate(date: dueOn)
-//            if scheduledMaintenance.count > 1 {
-//            guard let secondMaintenanceRequired = scheduledMaintenance[1].maintanenceRequired, let secondDueOn = scheduledMaintenance[1].dueOn else { return }
-//            nextMostRecentMaintenanceLabel.isHidden = false
-//            nextMostRecentMaintenanceLabel.text = secondMaintenanceRequired + " | " + DateHelper.shared.stringForMaintenanceDate(date: secondDueOn)
-//            }
-//        } else if scheduledMaintenance.count == 0 {
-//
-//        }
+
     }
     
     func camera(){
@@ -138,6 +125,7 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
             guard let car = myCar else { return }
             CarController.shared.updatePhoto(car: car, photo: image) { (success) in
                 
+
             }
             
         } else {
