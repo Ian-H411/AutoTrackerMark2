@@ -77,11 +77,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irJ-3A-RJs" customClass="AutoTrackerButtonAsLabel" customModule="AutoTracker" customModuleProvider="target">
-                                                    <rect key="frame" x="10.5" y="0.0" width="393" height="70"/>
+                                                    <rect key="frame" x="10.5" y="3.5" width="393" height="63"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="70" id="cN7-tf-DWN"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                     <state key="normal" title="Car">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -94,6 +91,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="irJ-3A-RJs" firstAttribute="centerY" secondItem="t7e-Uc-ti3" secondAttribute="centerY" id="BHz-5U-yOe"/>
+                                                <constraint firstItem="irJ-3A-RJs" firstAttribute="height" secondItem="t7e-Uc-ti3" secondAttribute="height" multiplier="0.9" id="Khy-eQ-amV"/>
                                                 <constraint firstItem="irJ-3A-RJs" firstAttribute="centerX" secondItem="t7e-Uc-ti3" secondAttribute="centerX" id="OzK-ia-Qq2"/>
                                                 <constraint firstItem="irJ-3A-RJs" firstAttribute="width" secondItem="t7e-Uc-ti3" secondAttribute="width" multiplier="0.95" id="q1D-uR-J7N"/>
                                             </constraints>
@@ -126,6 +124,7 @@
                         <outlet property="makeLabel" destination="mLb-jn-l3n" id="pJa-Hm-NiC"/>
                         <outlet property="modelLabel" destination="IUd-j4-qxd" id="lc2-HU-UJt"/>
                         <outlet property="ownerLabel" destination="FJc-tS-UVZ" id="z8u-Tb-guT"/>
+                        <outlet property="stackView" destination="bpK-ry-9mR" id="hic-H9-UTb"/>
                         <outlet property="vinLabel" destination="dn2-W9-WcJ" id="0O3-uq-2do"/>
                         <outlet property="yearLabel" destination="Qm3-b6-2HG" id="QNt-QI-Tu8"/>
                         <segue destination="eHD-99-4xB" kind="show" identifier="manual" id="V2v-kc-OCA"/>
@@ -145,19 +144,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="Atd-8N-yhd">
-                                <rect key="frame" x="20.5" y="151.5" width="373" height="507.5"/>
+                                <rect key="frame" x="20.5" y="168.5" width="373" height="625.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input Your Vin and look up your car!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBS-Oc-hKQ" customClass="AutoTrackerDetailLabel" customModule="AutoTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="373" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="64.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AfR-hl-fKY">
-                                        <rect key="frame" x="0.0" y="77" width="373" height="47.5"/>
+                                        <rect key="frame" x="0.0" y="93.5" width="373" height="64.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGc-BA-YLe">
+
                                                 <rect key="frame" x="0.0" y="0.0" width="373" height="3.5"/>
+
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="sdf-It-D7H"/>
                                                 </constraints>
@@ -166,7 +167,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Vin" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mBw-Iv-uHn" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+
                                                 <rect key="frame" x="0.0" y="3.5" width="373" height="44"/>
+
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="d9W-VN-pJL"/>
                                                 </constraints>
@@ -179,71 +182,71 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KCI-eP-ESr">
-                                        <rect key="frame" x="0.0" y="153.5" width="373" height="47.5"/>
+                                        <rect key="frame" x="0.0" y="187" width="373" height="64.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okN-a7-zTc">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="13.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okN-a7-zTc">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dl3-8X-8Hz" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="13.5" width="373" height="34"/>
+                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dl3-8X-8Hz" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="20.5" width="373" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nqv-Sg-r1M">
-                                        <rect key="frame" x="0.0" y="230" width="373" height="48"/>
+                                        <rect key="frame" x="0.0" y="280.5" width="373" height="64.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Make" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buA-bC-Fo6">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="14"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buA-bC-Fo6">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Make" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TyA-Gj-o3L" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="14" width="373" height="34"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Make" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TyA-Gj-o3L" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="20.5" width="373" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="14B-9d-NHp">
-                                        <rect key="frame" x="0.0" y="307" width="373" height="47.5"/>
+                                        <rect key="frame" x="0.0" y="374" width="373" height="64.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crk-md-zoQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="13.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crk-md-zoQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bKl-Cr-FJv" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="13.5" width="373" height="34"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bKl-Cr-FJv" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="20.5" width="373" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BjB-Ry-sCk">
-                                        <rect key="frame" x="0.0" y="383.5" width="373" height="47.5"/>
+                                        <rect key="frame" x="0.0" y="467.5" width="373" height="64.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Engine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7Z-ul-6fr">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="13.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7Z-ul-6fr">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Engine" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rb0-AW-Dxm" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="13.5" width="373" height="34"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Engine" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rb0-AW-Dxm" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="20.5" width="373" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYC-nO-WUQ" customClass="AutoTrackerButtonAsLabel" customModule="AutoTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="460" width="373" height="47.5"/>
+                                        <rect key="frame" x="0.0" y="561" width="373" height="64.5"/>
                                         <state key="normal" title="Looks Good!">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
