@@ -117,9 +117,9 @@ class CarController{
     }
     
     //add a maintenance reminder
-    func addMaintenanceReminder(car:Car, message:String?, maintanence:String ,date: Date, image: UIImage?){
+    func addMaintenanceReminder(car:Car, message:String?, maintanence:String ,date: Date, image: UIImage?, price: String){
         //TODO: - SET UP ABILITY TO ADD NOTIFICATION
-        let newMain = Maintanence(duedate: date, maintanenceRequiered: maintanence, details: message ?? "", car: car)
+        let newMain = Maintanence(duedate: date, maintanenceRequiered: maintanence, details: message ?? "", car: car, price:price)
         newMain.photo = image
         car.upcomingMaintanence?.adding(newMain)
         saveChangesToPersistentStoreOnly()

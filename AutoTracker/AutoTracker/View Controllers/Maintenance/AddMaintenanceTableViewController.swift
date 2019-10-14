@@ -173,7 +173,7 @@ class AddMaintenanceTableViewController: UITableViewController {
                 let details = self.additionalDetailsTextField.text
                 let date = self.dueDatePicker.date
             
-            CarController.shared.addMaintenanceReminder(car: car, message: details, maintanence: title, date: date, image: image)
+            CarController.shared.addMaintenanceReminder(car: car, message: details, maintanence: title, date: date, image: image, price: "")
             self.navigationController?.popViewController(animated: true)
             }
             
