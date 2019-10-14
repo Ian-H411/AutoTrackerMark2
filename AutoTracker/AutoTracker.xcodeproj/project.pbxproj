@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2540E9B02350F89300CC3D83 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2540E9AF2350F89300CC3D83 /* DeviceInfo.swift */; };
 		2568108F2347A7A800629AEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568108E2347A7A800629AEA /* AppDelegate.swift */; };
 		256810912347A7A800629AEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810902347A7A800629AEA /* SceneDelegate.swift */; };
 		256810962347A7A800629AEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 256810942347A7A800629AEA /* Main.storyboard */; };
@@ -64,6 +65,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2540E9AF2350F89300CC3D83 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		2568108B2347A7A800629AEA /* AutoTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2568108E2347A7A800629AEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		256810902347A7A800629AEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				256810902347A7A800629AEA /* SceneDelegate.swift */,
 				256810BC2347F1DA00629AEA /* LocationManager.swift */,
 				25BDF720234FCA01009DD2E2 /* Reachability.swift */,
+				2540E9AF2350F89300CC3D83 /* DeviceInfo.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				42A32341234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift in Sources */,
 				423925342347D75D00EABF16 /* AutoTrackerLabel.swift in Sources */,
 				256810B52347AAE100629AEA /* Car+Convenience.swift in Sources */,
+				2540E9B02350F89300CC3D83 /* DeviceInfo.swift in Sources */,
 				256810CC234BB63C00629AEA /* AutoTrackerButtonAsLabelStyle.swift in Sources */,
 				256810B32347AAAE00629AEA /* Constants.swift in Sources */,
 				25C056EE234D1C690000D848 /* Place.swift in Sources */,
