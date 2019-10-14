@@ -19,16 +19,19 @@ class ReceiptController {
     
     // source of Truth
     var receipts: [Receipt] {
-        
+     return returnReceiptsArray()
+    }
+    
+    //database location
+//    let privateDB = CKContainer.default().privateCloudDatabase
+    
+    func returnReceiptsArray() -> [Receipt] {
         let moc = CoreDataStack.context
         
         let fetchRequest: NSFetchRequest<Receipt> = Receipt.fetchRequest()
         
         return (try? moc.fetch(fetchRequest)) ?? []
     }
-    
-    //database location
-//    let privateDB = CKContainer.default().privateCloudDatabase
     
     // MARK: - CRUD
     
@@ -37,6 +40,7 @@ class ReceiptController {
         let timestamp = Date()
         let newReceipt = Receipt(name: name, timestamp: timestamp, total: total, ppg: ppg, context: CoreDataStack.context)
         newReceipt.photo = photo
+        
         saveToPersistentStoreOnly()
 //        saveReceiptToPersistentStoreAndCloud(receipt: newReceipt)
     }

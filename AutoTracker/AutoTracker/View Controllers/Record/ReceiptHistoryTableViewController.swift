@@ -11,12 +11,14 @@ import UIKit
 class ReceiptHistoryTableViewController: UITableViewController {
 
     // MARK: - PROPERTIES
-    var receipts = ReceiptController.shared.receipts
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -31,7 +33,7 @@ class ReceiptHistoryTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "receiptCell", for: indexPath) as? ReceiptTableViewCell else { return UITableViewCell() }
 
         
-        cell.receipt = receipts[indexPath.row]
+        cell.receipt = ReceiptController.shared.receipts[indexPath.row]
 
         return cell
     }

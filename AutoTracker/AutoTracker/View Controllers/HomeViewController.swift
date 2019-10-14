@@ -19,25 +19,12 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var thisTankLabel: UILabel!
     @IBOutlet weak var scheduledMaintenanceTableView: UITableView!
     
-//    @IBOutlet weak var mostRecentMaintenanceLabel: AutoTrackerLabel!
-//
-//    @IBOutlet weak var nextMostRecentMaintenanceLabel: AutoTrackerLabel!
-//    @IBOutlet weak var noMaintenanceLabel: AutoTrackerLabel!
-    
     // MARK: - PROPERTIES
     var myCar: Car? {
         didSet {
             updateViews()
         }
     }
-    
-//    var scheduledMaintenance: [Maintanence]? {
-//        if let maintenance = myCar?.upcomingMaintanence?.allObjects as? [Maintanence] {
-//            return maintenance
-//        } else {
-//            return []
-//        }
-//    }
     
     var scheduledMaintenance: [Maintanence]{
         return CarController.shared.organizeAndReturnMaintainenceList()
@@ -60,7 +47,7 @@ class HomeViewController: UIViewController {
     // MARK: - ACTIONS
    
     @IBAction func updateProfilePictureButtonTapped(_ sender: Any) {
-        
+        presentActionSheet()
     }
     
     
@@ -94,6 +81,75 @@ class HomeViewController: UIViewController {
 //        } else if scheduledMaintenance.count == 0 {
 //
 //        }
+    }
+    
+    func camera(){
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                let myPickerController = UIImagePickerController()
+                myPickerController.delegate = self
+                myPickerController.sourceType = .camera
+                self.present(myPickerController, animated: true , completion: nil)
+            }
+        }
+        
+        func photoLibrary() {
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+                let mypickerController = UIImagePickerController()
+                mypickerController.delegate = self
+                mypickerController.sourceType = .photoLibrary
+                self.present(mypickerController, animated: true, completion: nil)
+            }
+        }
+        
+        func presentActionSheet(){
+            let actionSheet = UIAlertController(title: "Import Receipt Photo", message: nil, preferredStyle: .alert)
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                let cameraButton = UIAlertAction(title: "Import With Camera", style: .default) { (_) in
+                    self.camera()
+                }
+                actionSheet.addAction(cameraButton)
+            }
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+                let photoLibrary = UIAlertAction(title: "Import From Photo Library", style: .default) { (_) in
+                    self.photoLibrary()
+                }
+                actionSheet.addAction(photoLibrary)
+            }
+            let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+            actionSheet.addAction(cancelButton)
+            self.present(actionSheet, animated: true, completion: nil)
+        }
+        
+        func presentInvalidFieldWarning(){
+            let alertController = UIAlertController(title: "Invalid field", message: "it looks like your maintenance title may be empty go add something then try again", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self.present(alertController, animated: true)
+        }
+    }
+
+extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage{
+            self.carImageView.image = image
+            guard let car = myCar else { return }
+            CarController.shared.updatePhoto(car: car, photo: image) { (success) in
+                
+            }
+            
+        } else {
+            print("Something went wrong")
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+extension HomeViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        resignFirstResponder()
+        return false
     }
 }
 

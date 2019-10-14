@@ -161,7 +161,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Receipt Title" id="cTc-7T-Ggh">
+                            <tableViewSection headerTitle="Gas Station" id="cTc-7T-Ggh">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="VxB-D4-mSr">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
@@ -328,7 +328,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VqD-QR-TlX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2484" y="-532"/>
+            <point key="canvasLocation" x="2484" y="175"/>
         </scene>
         <!--Receipt History-->
         <scene sceneID="3R4-eN-i7C">
@@ -404,7 +404,13 @@
                             <outlet property="delegate" destination="rYH-Qs-fMV" id="fVe-Gg-bu8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Receipt History" id="iyS-eb-2Q5"/>
+                    <navigationItem key="navigationItem" title="Receipt History" id="iyS-eb-2Q5">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5rl-Ap-1uE">
+                            <connections>
+                                <segue destination="1u1-fE-c1d" kind="show" id="Ilj-hg-ivv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XfO-K4-Ohe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -517,7 +523,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2483" y="175"/>
+            <point key="canvasLocation" x="3374" y="175"/>
         </scene>
         <!--Odometer View Controller-->
         <scene sceneID="Cl4-ZI-NMh">
