@@ -86,6 +86,13 @@ class CarController{
         completion(true)
         saveChangesToPersistentStoreOnly()
     }
+    
+    func updatePhoto(car: Car, photo: UIImage, completion: @escaping (Bool) -> Void) {
+        
+        car.photo = photo
+        completion(true)
+        saveChangesToPersistentStoreOnly()
+    }
     ///use this so we dont have to constantly find the cars maintenance
     func organizeAndReturnMaintainenceList() -> [Maintanence] {
         guard let car = selectedCar else {return[]}
