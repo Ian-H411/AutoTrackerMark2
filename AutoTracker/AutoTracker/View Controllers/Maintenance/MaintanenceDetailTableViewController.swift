@@ -71,6 +71,8 @@ class MaintanenceDetailTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            let main = dataSource[indexPath.row]
+            CarController.shared.deleteMaintenance(maintenance: main)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -79,7 +81,7 @@ class MaintanenceDetailTableViewController: UITableViewController {
     
     @IBAction func historySegmentedControlTapped(_ sender: Any) {
         displayHistory.toggle()
-        
+        tableView.reloadData()
     }
     
     
@@ -90,7 +92,7 @@ class MaintanenceDetailTableViewController: UITableViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     
+        
     }
     
 }

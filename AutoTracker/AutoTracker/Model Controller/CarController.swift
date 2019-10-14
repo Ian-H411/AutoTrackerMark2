@@ -17,7 +17,7 @@ class CarController{
     //singleton
     static let shared = CarController()
     
-
+    
     
     // source of Truth
     var garage: [Car]?
@@ -26,7 +26,7 @@ class CarController{
     var selectedCar:Car?
     
     //database location
-//    let privateDB = CKContainer.default().privateCloudDatabase
+    //    let privateDB = CKContainer.default().privateCloudDatabase
     
     //initializer to fetch
     init() {
@@ -66,17 +66,17 @@ class CarController{
         
         //save changes
         saveChangesToPersistentStoreOnly()
-//
-//        //create a record of the modified car
-//        guard let modifiedCar = CKRecord(car: car) else {return}
-//
-//        //create my operation
-//        let operation = CKModifyRecordsOperation(recordsToSave: [modifiedCar], recordIDsToDelete: nil)
-//        operation.savePolicy = .changedKeys
-//        operation.qualityOfService = .userInitiated
+        //
+        //        //create a record of the modified car
+        //        guard let modifiedCar = CKRecord(car: car) else {return}
+        //
+        //        //create my operation
+        //        let operation = CKModifyRecordsOperation(recordsToSave: [modifiedCar], recordIDsToDelete: nil)
+        //        operation.savePolicy = .changedKeys
+        //        operation.qualityOfService = .userInitiated
         
         //perform my cloudpush
-//        privateDB.add(operation)
+        //        privateDB.add(operation)
         
     }
     
@@ -100,7 +100,7 @@ class CarController{
         let sortedMaintenance = maintenance.sorted { (lhs, rhs) -> Bool in
             guard let leftDate = lhs.dueOn,
                 let rhsDate = rhs.dueOn
-            else {return false}
+                else {return false}
             return leftDate.compare(rhsDate) == .orderedAscending
         }
         return sortedMaintenance
@@ -113,12 +113,12 @@ class CarController{
             //delete locally first
             moc.delete(car)
             saveChangesToPersistentStoreOnly()
-//
-//            //delete in cloud
-//            guard let recordIDAsString = car.recordID else {return}
-//            let recordIdToDelete = CKRecord.ID(recordName: recordIDAsString)
-//            let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [recordIdToDelete])
-//            privateDB.add(operation)
+            //
+            //            //delete in cloud
+            //            guard let recordIDAsString = car.recordID else {return}
+            //            let recordIdToDelete = CKRecord.ID(recordName: recordIDAsString)
+            //            let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [recordIdToDelete])
+            //            privateDB.add(operation)
         }
         
     }
@@ -143,7 +143,12 @@ class CarController{
         maintenance.isComplete.toggle()
         saveChangesToPersistentStoreOnly()
     }
-    
+    func deleteMaintenance(maintenance:Maintanence){
+        if let moc = maintenance.managedObjectContext{
+            moc.delete(maintenance)
+            saveChangesToPersistentStoreOnly()
+        }
+    }
     
     //retrieve a car from the api
     func retrieveCarDetailsWith(vin:String, year:String, completion: @escaping (CarJson?, Error?) -> Void){
@@ -187,47 +192,47 @@ class CarController{
     }
     
     //retrievecarsfromcloud
-//    func retrieveOnlineGarageAndSave(completion: @escaping (Bool) -> Void){
-//
-//        //retrieve all records from the users private
-//        let predicate = NSPredicate(value: true)
-//        let query = CKQuery(recordType: CarConstants.CarTypeKey, predicate: predicate)
-//        privateDB.perform(query, inZoneWith: nil) { (recordsOptional, error) in
-//            if let error = error{
-//                print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
-//                completion(false)
-//                return
-//            }
-//            guard let carRecords = recordsOptional else {completion(false);return}
-//            for record in carRecords {
-//                guard let _ = Car(record: record) else {completion(false);return}
-//            }
-//
-//            self.saveChangesToPersistentStoreOnly()
-//            completion(true)
-//            return
-//        }
-//    }
+    //    func retrieveOnlineGarageAndSave(completion: @escaping (Bool) -> Void){
+    //
+    //        //retrieve all records from the users private
+    //        let predicate = NSPredicate(value: true)
+    //        let query = CKQuery(recordType: CarConstants.CarTypeKey, predicate: predicate)
+    //        privateDB.perform(query, inZoneWith: nil) { (recordsOptional, error) in
+    //            if let error = error{
+    //                print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
+    //                completion(false)
+    //                return
+    //            }
+    //            guard let carRecords = recordsOptional else {completion(false);return}
+    //            for record in carRecords {
+    //                guard let _ = Car(record: record) else {completion(false);return}
+    //            }
+    //
+    //            self.saveChangesToPersistentStoreOnly()
+    //            completion(true)
+    //            return
+    //        }
+    //    }
     
     //MARK: -SAVE
-//    private func saveCarToPersistentStoreAndCloud(car: Car){
-//        //save locally first
-//        let moc = CoreDataStack.context
-//        do {
-//            try moc.save()
-//        } catch  {
-//            print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
-//        }
-//        //create record and push to cloud
-//        guard let record = CKRecord(car: car) else {return}
-//        privateDB.save(record) { (record, error) in
-//            if let error = error{
-//                print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
-//                return
-//            }
-//
-//        }
-//    }
+    //    private func saveCarToPersistentStoreAndCloud(car: Car){
+    //        //save locally first
+    //        let moc = CoreDataStack.context
+    //        do {
+    //            try moc.save()
+    //        } catch  {
+    //            print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
+    //        }
+    //        //create record and push to cloud
+    //        guard let record = CKRecord(car: car) else {return}
+    //        privateDB.save(record) { (record, error) in
+    //            if let error = error{
+    //                print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
+    //                return
+    //            }
+    //
+    //        }
+    //    }
     
     //save function that only performs locally
     private func saveChangesToPersistentStoreOnly(){
