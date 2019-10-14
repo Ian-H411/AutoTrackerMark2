@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AKh-Ez-boc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AKh-Ez-boc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -156,7 +156,9 @@
                                         <rect key="frame" x="0.0" y="93.5" width="373" height="64.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGc-BA-YLe">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="20.5"/>
+
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="3.5"/>
+
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="sdf-It-D7H"/>
                                                 </constraints>
@@ -165,7 +167,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Vin" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mBw-Iv-uHn" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="20.5" width="373" height="44"/>
+
+                                                <rect key="frame" x="0.0" y="3.5" width="373" height="44"/>
+
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="d9W-VN-pJL"/>
                                                 </constraints>
@@ -641,7 +645,7 @@
         <scene sceneID="eAN-L0-ho5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AKh-Ez-boc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Garage" image="car.fill" catalog="system" id="baJ-9O-oqN"/>
+                    <tabBarItem key="tabBarItem" title="My Garage" image="myGarageDeselected" id="baJ-9O-oqN"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uIi-YD-ntW">
@@ -659,6 +663,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="car.fill" catalog="system" width="64" height="48"/>
+        <image name="myGarageDeselected" width="28" height="28"/>
     </resources>
 </document>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0pw-oB-O4G">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0pw-oB-O4G">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,6 +21,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="jzL-Gq-p4P"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Updated Odometer">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -37,7 +38,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="8YQ-7t-Jey" kind="show" id="aF9-uM-Mrl"/>
+                                    <segue destination="rYH-Qs-fMV" kind="show" id="WAO-vc-5cP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdC-xE-jRj" customClass="AutoTrackerButtonGreen" customModule="AutoTracker" customModuleProvider="target">
@@ -251,6 +252,86 @@
             </objects>
             <point key="canvasLocation" x="1521.7391304347827" y="-532.36607142857144"/>
         </scene>
+        <!--Receipt History-->
+        <scene sceneID="3R4-eN-i7C">
+            <objects>
+                <tableViewController id="rYH-Qs-fMV" customClass="ReceiptHistoryTableViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="83q-81-ojH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="receiptCell" rowHeight="115" id="04g-uc-7Ke" customClass="ReceiptTableViewCell" customModule="AutoTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="115"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="04g-uc-7Ke" id="9Tn-ET-csC">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="115"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="I1E-ff-iBm">
+                                            <rect key="frame" x="125" y="16" width="65.5" height="83"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(vendor)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFG-l6-JXj" customClass="AutoTrackerDetailLabel" customModule="AutoTracker" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="65.5" height="40.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(total)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9u-eK-o17" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="42.5" width="65.5" height="40.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="xft-y0-BRo">
+                                            <rect key="frame" x="330" y="16" width="46.5" height="83"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(date)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="279-5C-I2I" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="46.5" height="40.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(ppg)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1i-2C-yL1" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="42.5" width="46.5" height="40.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="xft-y0-BRo" firstAttribute="centerY" secondItem="I1E-ff-iBm" secondAttribute="centerY" id="MIo-ez-1Q2"/>
+                                        <constraint firstItem="I1E-ff-iBm" firstAttribute="top" secondItem="9Tn-ET-csC" secondAttribute="topMargin" constant="5" id="NJp-IX-TL5"/>
+                                        <constraint firstItem="xft-y0-BRo" firstAttribute="height" secondItem="I1E-ff-iBm" secondAttribute="height" id="YQ5-Va-El9"/>
+                                        <constraint firstItem="I1E-ff-iBm" firstAttribute="centerY" secondItem="9Tn-ET-csC" secondAttribute="centerY" id="eoA-od-vB1"/>
+                                        <constraint firstItem="I1E-ff-iBm" firstAttribute="leading" secondItem="9Tn-ET-csC" secondAttribute="leading" constant="125" id="fSV-al-Ma6"/>
+                                        <constraint firstAttribute="trailing" secondItem="xft-y0-BRo" secondAttribute="trailing" constant="37.5" id="kXJ-dq-APX"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="I1E-ff-iBm" secondAttribute="bottom" constant="5" id="txv-yH-a2L"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="279-5C-I2I" id="cSv-lw-eRB"/>
+                                    <outlet property="ppgLabel" destination="O1i-2C-yL1" id="N5M-KH-lES"/>
+                                    <outlet property="totalLabel" destination="D9u-eK-o17" id="NaJ-MI-k8q"/>
+                                    <outlet property="vendorLabel" destination="JFG-l6-JXj" id="AVv-cq-dkn"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rYH-Qs-fMV" id="BzZ-6H-rbr"/>
+                            <outlet property="delegate" destination="rYH-Qs-fMV" id="fVe-Gg-bu8"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Receipt History" id="iyS-eb-2Q5"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XfO-K4-Ohe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="679.71014492753625" y="160.71428571428569"/>
+        </scene>
         <!--Receipt History View Controller-->
         <scene sceneID="pCq-cT-Pg7">
             <objects>
@@ -260,7 +341,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Y1y-hL-gXe">
-                                <rect key="frame" x="41.5" y="238" width="331" height="474"/>
+                                <rect key="frame" x="41.5" y="194" width="331" height="518"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hip-Fj-v34">
                                     <size key="itemSize" width="157" height="200"/>
@@ -321,7 +402,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reciepts History" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYR-XB-6Iq" customClass="AutoTrackerGreenBorderLabel" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="83" y="149" width="248" height="64"/>
+                                <rect key="frame" x="83" y="105" width="248" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="qjq-SI-jI1"/>
                                 </constraints>
@@ -412,11 +493,11 @@
             </objects>
             <point key="canvasLocation" x="612" y="-1347"/>
         </scene>
-        <!--Record-->
+        <!--Fill Up-->
         <scene sceneID="jti-I7-Idg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0pw-oB-O4G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Record" image="pencil.and.ellipsis.rectangle" catalog="system" id="mXH-Pt-Yyl"/>
+                    <tabBarItem key="tabBarItem" title="Fill Up" image="fillUpDeselected" id="mXH-Pt-Yyl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bf7-Mf-03d">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -433,6 +514,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pencil.and.ellipsis.rectangle" catalog="system" width="64" height="40"/>
+        <image name="fillUpDeselected" width="33.5" height="28"/>
     </resources>
 </document>
