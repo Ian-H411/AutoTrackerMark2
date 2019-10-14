@@ -13,7 +13,7 @@ class MyGarageViewController: UIViewController {
     //MARK: - OUTLETS
     
     
-    @IBOutlet weak var currentCarButton: AutoTrackerButtonGreen!
+    @IBOutlet weak var currentCarButton: AutoTrackerButtonGreenBG!
     
     @IBOutlet weak var odometerPicker: UIPickerView!
     
@@ -26,7 +26,7 @@ class MyGarageViewController: UIViewController {
     
     @IBOutlet weak var carSelectionTableView: UITableView!
     
-    @IBOutlet weak var savebutton: AutoTrackerButtonGreen!
+    @IBOutlet weak var savebutton: AutoTrackerButtonGreenBG!
     
     
     //MARK: - Needed Variables
