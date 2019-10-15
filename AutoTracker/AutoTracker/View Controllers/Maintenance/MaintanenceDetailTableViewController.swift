@@ -48,7 +48,6 @@ class MaintanenceDetailTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     
         return dataSource.count
     }
     
