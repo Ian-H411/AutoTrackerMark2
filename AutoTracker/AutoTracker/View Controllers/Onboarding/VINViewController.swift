@@ -1,5 +1,5 @@
 //
-//  GetStartedViewController.swift
+//  VINViewController.swift
 //  AutoTracker
 //
 //  Created by Sam LoBue on 10/15/19.
@@ -8,14 +8,18 @@
 
 import UIKit
 
-class GetStartedViewController: UIViewController {
+class VINViewController: UIViewController {
 
-   
+    // MARK: - OUTLETS
+    @IBOutlet weak var vinTextField: TextFieldStyle!
     
-    // MARK: - LIFECYCLE
+    // MARK: - PROPERTIES
+       var vin: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        vinTextField.delegate = self
+        // Do any additional setup after loading the view.
     }
     
     @IBAction func helpButtonTapped(_ sender: Any) {
@@ -30,13 +34,29 @@ class GetStartedViewController: UIViewController {
         alertController.addAction(okAction)
         present(alertController, animated: true)
     }
-}
 
-extension GetStartedViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        guard let vin = vinEntryTextField.text else { return }
-        performSegue(withIdentifier: "toOdometerVC", sender: nil)
-        return true
+    // MARK: - NAVIGATION
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toOdometerVC" {
+            if let destinationVC = segue.destination as? OdometerViewController {
+                destinationVC.vin = vin
+            }
+        }
     }
     
 }
+
+extension VINViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        
+        
+        performSegue(withIdentifier: "toOdometerVC", sender: nil)
+        
+        return true
+    }
+}
+
+
+
+

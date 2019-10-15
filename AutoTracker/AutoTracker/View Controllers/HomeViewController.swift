@@ -50,6 +50,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !launchedBefore() {
+            self.performSegue(withIdentifier: "toOnboardingVC", sender: nil)
+        }
         scheduledMaintenanceTableView.delegate = self
         scheduledMaintenanceTableView.dataSource = self
     }
@@ -118,6 +121,11 @@ class HomeViewController: UIViewController {
         let alertController = UIAlertController(title: "Invalid field", message: "it looks like your maintenance title may be empty go add something then try again", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(alertController, animated: true)
+    }
+    
+    func launchedBefore() -> Bool {
+    let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        return launchedBefore
     }
 }
 
