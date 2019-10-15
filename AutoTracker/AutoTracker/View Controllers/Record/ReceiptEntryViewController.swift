@@ -134,13 +134,20 @@ class ReceiptEntryViewController: UIViewController {
     @IBAction func saveFillUpButtonTapped(_ sender: Any) {
         
         guard let car = CarController.shared.selectedCar,
+            
             let gallons = gallonsButton.titleLabel?.text,
             let cost = costButton.titleLabel?.text else { return }
+        
+        if gallons == "Gallons" || cost == "Cost" || miles == 0 {
+            
+            emptyFieldsAlert()
+            
+        } else {
         
         CarController.shared.addReceipt(car: car, miles: miles, gallons: gallons, cost: cost)
         
         let mpg = milesPerGallon(miles: self.miles, gallon: self.gallons)
-        resultsLabel.text = "You got \(mpg) miles per gallon this trip!"
+        resultsLabel.text = "You got \(round((100 * mpg) / 100)) miles per gallon this trip!"
         
         UIView.animate(withDuration: 0.5) {
         self.milesButton.alpha = 0.0
@@ -159,6 +166,7 @@ class ReceiptEntryViewController: UIViewController {
         self.resultsButton.isHidden = false
         self.resultsButton.alpha = 1.0
             self.view.bringSubviewToFront(self.resultsButton)
+        }
         }
     }
     
@@ -198,4 +206,11 @@ class ReceiptEntryViewController: UIViewController {
         return (miles / gallon)
     }
     
+    func emptyFieldsAlert() {
+        let alertController = UIAlertController(title: "You have empty Receipt fields", message: "Please enter a value for each of the fields to proceed", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Okay", style: .default)
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
+    }
+
 }
