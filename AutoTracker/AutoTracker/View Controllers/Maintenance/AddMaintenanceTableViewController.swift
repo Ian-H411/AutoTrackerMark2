@@ -23,7 +23,12 @@ class AddMaintenanceTableViewController: UITableViewController {
     
     @IBOutlet weak var additionalDetailsTextField: TextFieldStyle!
     
+    @IBOutlet weak var maintenanceCostTextField: TextFieldStyle!
+    
+    
     var maintenance: Maintanence?
+    
+    var maintenanceToSend: Maintanence?
     
     var isInEditMode:Bool{
         if let _ = maintenance {
@@ -45,6 +50,9 @@ class AddMaintenanceTableViewController: UITableViewController {
     // MARK: - Helpers
     
     func initialSetup(){
+        additionalDetailsTextField.delegate = self
+        maintenanceTextField.delegate = self
+        maintenanceCostTextField.delegate = self
         if isInEditMode{
             guard let maintenance = maintenance else {return}
             guard let date = maintenance.dueOn else {return}
@@ -163,18 +171,19 @@ class AddMaintenanceTableViewController: UITableViewController {
                 let image = self.maintenanceReceiptPhoto.image
                 let details = self.additionalDetailsTextField.text
                 let date = self.dueDatePicker.date
-            CarController.shared.modifyMaintenanceRemainder(maintenance:maintenance , date: date, newTitle: title, details: details, image: image)
-            self.navigationController?.popViewController(animated: true)
-        } else {
+                self.maintenanceToSend = maintenance
+                CarController.shared.modifyMaintenanceRemainder(maintenance:maintenance , date: date, newTitle: title, details: details, image: image)
+                self.navigationController?.popToRootViewController(animated: true)
+            } else {
                 guard let title = self.maintenanceTextField.text, !title.isEmpty
                     else {self.presentInvalidFieldWarning(); return}
                 let image = self.maintenanceReceiptPhoto.image
-            guard let car = CarController.shared.selectedCar else {return}
+                guard let car = CarController.shared.selectedCar else {return}
                 let details = self.additionalDetailsTextField.text
                 let date = self.dueDatePicker.date
-            
-            CarController.shared.addMaintenanceReminder(car: car, message: details, maintanence: title, date: date, image: image, price: "")
-            self.navigationController?.popViewController(animated: true)
+                
+                CarController.shared.addMaintenanceReminder(car: car, message: details, maintanence: title, date: date, image: image, price: "")
+                self.performSegue(withIdentifier: "odometer", sender: nil)
             }
             
         }
@@ -192,6 +201,19 @@ class AddMaintenanceTableViewController: UITableViewController {
             return
         }
         useSave()
+    }
+    
+    //MARK: - NAVIGATION
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "edit"{
+            if let destinationVC = segue.destination as? UpdateOdometerViewController {
+                guard let main = maintenanceToSend else {return}
+                destinationVC.maintenance = main
+                
+                
+            }
+        }
     }
     
 }
@@ -213,7 +235,7 @@ extension AddMaintenanceTableViewController: UIImagePickerControllerDelegate, UI
 }
 extension AddMaintenanceTableViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        resignFirstResponder()
+        textField.resignFirstResponder()
         return false
     }
 }

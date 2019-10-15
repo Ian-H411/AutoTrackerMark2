@@ -85,15 +85,15 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Due Date" id="rIL-uL-aYZ">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="200" id="aSs-DW-iCt">
-                                        <rect key="frame" x="0.0" y="608" width="414" height="200"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="138" id="aSs-DW-iCt">
+                                        <rect key="frame" x="0.0" y="608" width="414" height="138"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aSs-DW-iCt" id="Up6-oc-bUQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="138"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="ZCx-6X-9ra">
-                                                    <rect key="frame" x="0.0" y="10" width="414" height="180"/>
+                                                    <rect key="frame" x="0.0" y="7" width="414" height="124"/>
                                                     <date key="minimumDate" timeIntervalSinceReferenceDate="-347115600">
                                                         <!--1990-01-01 11:00:00 +0000-->
                                                     </date>
@@ -112,10 +112,37 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Maintenance Cost" id="D1N-Ps-s44">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="56" id="C5M-ai-wdO">
+                                        <rect key="frame" x="0.0" y="802" width="414" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C5M-ai-wdO" id="58G-Op-qXc">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QEQ-Ex-xbz" customClass="TextFieldStyle" customModule="AutoTracker" customModuleProvider="target">
+                                                    <rect key="frame" x="20.5" y="6" width="373" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="csZ-5w-vBE"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="QEQ-Ex-xbz" firstAttribute="width" secondItem="58G-Op-qXc" secondAttribute="width" multiplier="0.9" id="B6i-7n-c3n"/>
+                                                <constraint firstItem="QEQ-Ex-xbz" firstAttribute="centerX" secondItem="58G-Op-qXc" secondAttribute="centerX" id="NA4-XW-MxT"/>
+                                                <constraint firstItem="QEQ-Ex-xbz" firstAttribute="centerY" secondItem="58G-Op-qXc" secondAttribute="centerY" id="byH-VS-N2g"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="Additional Details" id="4OO-1u-Km9">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="160" id="fLk-Ji-z0L">
-                                        <rect key="frame" x="0.0" y="864" width="414" height="160"/>
+                                        <rect key="frame" x="0.0" y="914" width="414" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fLk-Ji-z0L" id="ZBy-H5-kbB">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
@@ -137,31 +164,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Additional Details" id="D1N-Ps-s44">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="160" id="C5M-ai-wdO">
-                                        <rect key="frame" x="0.0" y="1080" width="414" height="160"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C5M-ai-wdO" id="58G-Op-qXc">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Details" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QEQ-Ex-xbz" customClass="TextFieldStyle" customModule="AutoTracker" customModuleProvider="target">
-                                                    <rect key="frame" x="20.5" y="8" width="373" height="144"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="QEQ-Ex-xbz" firstAttribute="width" secondItem="58G-Op-qXc" secondAttribute="width" multiplier="0.9" id="B6i-7n-c3n"/>
-                                                <constraint firstItem="QEQ-Ex-xbz" firstAttribute="height" secondItem="58G-Op-qXc" secondAttribute="height" multiplier="0.9" id="Lzz-NQ-Ibe"/>
-                                                <constraint firstItem="QEQ-Ex-xbz" firstAttribute="centerX" secondItem="58G-Op-qXc" secondAttribute="centerX" id="NA4-XW-MxT"/>
-                                                <constraint firstItem="QEQ-Ex-xbz" firstAttribute="centerY" secondItem="58G-Op-qXc" secondAttribute="centerY" id="byH-VS-N2g"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="5Cx-Is-yDk" id="Cwa-63-s0g"/>
@@ -172,7 +174,6 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="hWY-pE-pXS">
                             <connections>
                                 <action selector="saveButtonTapped:" destination="5Cx-Is-yDk" id="zO1-uW-sSw"/>
-                                <segue destination="i10-sF-rrp" kind="show" id="2qB-ee-BeG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -180,13 +181,15 @@
                         <outlet property="addPhotoButton" destination="4iw-nN-k8l" id="ATd-lx-DIo"/>
                         <outlet property="additionalDetailsTextField" destination="hSB-42-lrg" id="yh0-Xk-Jwy"/>
                         <outlet property="dueDatePicker" destination="ZCx-6X-9ra" id="lCv-II-9UW"/>
+                        <outlet property="maintenanceCostTextField" destination="QEQ-Ex-xbz" id="KV4-zo-DfE"/>
                         <outlet property="maintenanceReceiptPhoto" destination="PAm-Ew-an2" id="q5W-pw-0gs"/>
                         <outlet property="maintenanceTextField" destination="U3e-es-aP8" id="5pA-Ob-lJK"/>
+                        <segue destination="i10-sF-rrp" kind="show" identifier="odometer" id="fHK-6O-L3B"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ctc-xO-OMq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1560.8695652173915" y="754.6875"/>
+            <point key="canvasLocation" x="1454" y="428"/>
         </scene>
         <!--Update Odometer View Controller-->
         <scene sceneID="4LZ-Fr-uLb">
@@ -215,6 +218,9 @@
                                                     <constraint firstAttribute="height" constant="44" id="vgx-uH-xkk"/>
                                                 </constraints>
                                                 <state key="normal" title="Save"/>
+                                                <connections>
+                                                    <action selector="saveButtonTapped:" destination="i10-sF-rrp" eventType="touchUpInside" id="7Dw-rp-RqN"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -223,18 +229,27 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UPDATE (CarName)'s Odometer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHt-gv-upd" customClass="AutoTrackerLabelGreenBG" customModule="AutoTracker" customModuleProvider="target">
+                                <rect key="frame" x="20.5" y="253" width="373" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="zwL-7n-wkk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dA9-r1-mem" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
                                 <rect key="frame" x="20.5" y="552.5" width="373" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="kWu-ad-Xei"/>
                                 </constraints>
                                 <state key="normal" title="Skip?"/>
+                                <connections>
+                                    <action selector="skipButtonTapped:" destination="i10-sF-rrp" eventType="touchUpInside" id="S2p-Hb-uMu"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UPDATE (CarName)'s Odometer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHt-gv-upd" customClass="AutoTrackerLabelGreenBG" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="20.5" y="253" width="373" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="zwL-7n-wkk"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAVED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcd-B7-BvR" customClass="AutoTrackerLabelGreenBG" customModule="AutoTracker" customModuleProvider="target">
+                                <rect key="frame" x="20.5" y="182" width="373" height="64"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -245,21 +260,30 @@
                             <constraint firstItem="SDM-B1-ey9" firstAttribute="height" secondItem="7s3-2I-77B" secondAttribute="height" multiplier="0.2" id="1ld-un-QzF"/>
                             <constraint firstItem="SDM-B1-ey9" firstAttribute="centerX" secondItem="7s3-2I-77B" secondAttribute="centerX" id="A85-hS-v1J"/>
                             <constraint firstItem="qHt-gv-upd" firstAttribute="centerY" secondItem="7s3-2I-77B" secondAttribute="centerY" multiplier="0.6" id="Hre-X2-RB7"/>
+                            <constraint firstItem="dcd-B7-BvR" firstAttribute="width" secondItem="qHt-gv-upd" secondAttribute="width" id="MkI-aO-hp8"/>
                             <constraint firstItem="qHt-gv-upd" firstAttribute="width" secondItem="7s3-2I-77B" secondAttribute="width" multiplier="0.9" id="NE4-Mp-05q"/>
                             <constraint firstItem="dA9-r1-mem" firstAttribute="width" secondItem="7s3-2I-77B" secondAttribute="width" multiplier="0.9" id="Nn2-DC-2xd"/>
                             <constraint firstItem="dA9-r1-mem" firstAttribute="centerX" secondItem="7s3-2I-77B" secondAttribute="centerX" id="SFB-4Y-S0y"/>
                             <constraint firstItem="SDM-B1-ey9" firstAttribute="width" secondItem="7s3-2I-77B" secondAttribute="width" multiplier="0.85" id="SIi-Bv-wvh"/>
                             <constraint firstItem="qHt-gv-upd" firstAttribute="centerX" secondItem="7s3-2I-77B" secondAttribute="centerX" id="Vxn-Ow-JwV"/>
                             <constraint firstItem="SDM-B1-ey9" firstAttribute="centerY" secondItem="7s3-2I-77B" secondAttribute="centerY" multiplier="0.9" id="dno-Pi-sBy"/>
+                            <constraint firstItem="dcd-B7-BvR" firstAttribute="centerY" secondItem="7s3-2I-77B" secondAttribute="centerY" multiplier="0.45" id="f50-Wm-zFF"/>
                             <constraint firstItem="dA9-r1-mem" firstAttribute="centerY" secondItem="7s3-2I-77B" secondAttribute="centerY" multiplier="1.23" id="fFv-ED-lVx"/>
+                            <constraint firstItem="dcd-B7-BvR" firstAttribute="centerX" secondItem="7s3-2I-77B" secondAttribute="centerX" id="kFU-Vx-haL"/>
+                            <constraint firstItem="dcd-B7-BvR" firstAttribute="height" secondItem="qHt-gv-upd" secondAttribute="height" id="vhH-TH-gK5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7s3-2I-77B"/>
                     </view>
                     <navigationItem key="navigationItem" id="bKc-8W-X2S"/>
+                    <connections>
+                        <outlet property="carNameLabel" destination="qHt-gv-upd" id="01B-61-KZM"/>
+                        <outlet property="odometerPicker" destination="SPh-cY-zZw" id="gea-gP-CSI"/>
+                        <outlet property="savedLabel" destination="dcd-B7-BvR" id="UzC-JC-vwY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejD-Hw-iNq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2324.6376811594205" y="755.35714285714278"/>
+            <point key="canvasLocation" x="2291" y="755"/>
         </scene>
         <!--Maintain-->
         <scene sceneID="cZY-P0-cEa">
@@ -413,11 +437,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="historySegmentedControl" destination="aHJ-EB-Bgk" id="AC3-mU-4SA"/>
+                        <segue destination="i10-sF-rrp" kind="show" identifier="updateodo" id="uQ8-X2-LaN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yub-wm-4nm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="569.56521739130437" y="755.35714285714278"/>
+            <point key="canvasLocation" x="541" y="755"/>
         </scene>
     </scenes>
     <resources>
@@ -427,6 +452,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="i5q-5g-URo"/>
+        <segue reference="uQ8-X2-LaN"/>
+        <segue reference="SC1-Ul-8wJ"/>
     </inferredMetricsTieBreakers>
 </document>

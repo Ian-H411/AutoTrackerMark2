@@ -36,6 +36,7 @@ class MaintanenceDetailTableViewController: UITableViewController {
         }
     }
     
+    var sendToOdometer: Maintanence?
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,7 +48,6 @@ class MaintanenceDetailTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         return dataSource.count
     }
     
@@ -97,6 +97,12 @@ class MaintanenceDetailTableViewController: UITableViewController {
                     destinationVC.maintenance = main
                 }
             }
+        } else if segue.identifier == "updateodo" {
+            guard let main = sendToOdometer else {return}
+            if let destinationVC = segue.destination as? UpdateOdometerViewController {
+                destinationVC.maintenance = main
+            }
+            
         }
     }
     
@@ -105,6 +111,10 @@ extension MaintanenceDetailTableViewController: MaintenanceTableViewCellDelegate
     func buttonTapped(_ sender: MaintenanceTableViewCell) {
         guard let maintenance = sender.selectedMaintenance else {return}
         CarController.shared.toggleMaintenanceReminder(maintenance: maintenance)
+        if maintenance.isComplete{
+            sendToOdometer = maintenance
+            self.performSegue(withIdentifier: "updateodo", sender: nil)
+        }
         tableView.reloadData()
     }
     
