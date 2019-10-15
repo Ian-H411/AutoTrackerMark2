@@ -80,26 +80,32 @@ class AddMaintenanceTableViewController: UITableViewController {
         }
     }
     
+    
     func createNotification(){
+        self.useSave()
         DispatchQueue.main.async {
             let date = self.dueDatePicker.date
             guard let bodyText = self.maintenanceTextField.text else {return}
             
-            
+            guard let main = self.maintenanceToSend else {return}
+            let id = main.uuid ?? ""
             let content = UNMutableNotificationContent()
             content.title = "You have some car maintenance"
             content.body = "\(bodyText) is due!"
             content.sound = .default
             let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
             let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-            let identifier = "Notification"
+            let identifier = "id"
             let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
             
             self.notificationCenter.add(request) { (error) in
                 if let error = error {
                     print("Error \(error.localizedDescription)")
                 }
-                self.useSave()
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "odometer", sender: nil)
+                }
+                
             }
         }
     }
@@ -150,12 +156,15 @@ class AddMaintenanceTableViewController: UITableViewController {
     func addReminderPrompt(){
         let alertController = UIAlertController(title: "add a reminder?", message: "This is set to a future date would you like to add a notification?", preferredStyle: .alert)
         let okayButton = UIAlertAction(title: "Add Notification", style: .default) { (_) in
-            self.createNotification()
+            self.notificationSetUP()
             
         }
         let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-        let okayButNoNotification = UIAlertAction(title: "Just add the mainteinance with no notificiation", style: .default) { (_) in
+        let okayButNoNotification = UIAlertAction(title: "Just add the mainteinance", style: .default) { (_) in
             self.useSave()
+            DispatchQueue.main.async {
+              self.performSegue(withIdentifier: "odometer", sender: nil)
+            }
         }
         alertController.addAction(okayButton)
         alertController.addAction(okayButNoNotification)
@@ -182,8 +191,12 @@ class AddMaintenanceTableViewController: UITableViewController {
                 let details = self.additionalDetailsTextField.text
                 let date = self.dueDatePicker.date
                 
-                CarController.shared.addMaintenanceReminder(car: car, message: details, maintanence: title, date: date, image: image, price: "")
-                self.performSegue(withIdentifier: "odometer", sender: nil)
+                let main = CarController.shared.addMaintenanceReminder(car: car, message: details, maintanence: title, date: date, image: image, price: "")
+                if self.dueDatePicker.date > Date(){
+            CarController.shared.toggleMaintenanceReminder(maintenance: main)
+                }
+                self.maintenanceToSend = main
+//                self.performSegue(withIdentifier: "odometer", sender: nil)
             }
             
         }
@@ -197,7 +210,7 @@ class AddMaintenanceTableViewController: UITableViewController {
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         if dueDatePicker.date > Date(){
-            notificationSetUP()
+            addReminderPrompt()
             return
         }
         useSave()

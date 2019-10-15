@@ -48,15 +48,15 @@ class MaintenanceTableViewCell: UITableViewCell {
         entryTypeLabel.text = maintenance.details
         let dateAsString = DateHelper.shared.stringForMaintenanceDate(date: maintenance.dueOn ?? Date())
         dateLabel.text = dateAsString
+        cashTotalLabel.text = selectedMaintenance?.price
         if maintenance.isComplete{
             if let image = maintenance.photo{
                 imageView?.image = image
-                completionButton.isHidden = true
             } else {
-                completionButton.setTitle("Complete", for: .normal)
+                imageView?.image = UIImage(named: "check")!
             }
         } else {
-            completionButton.setTitle("Incomplete", for: .normal)
+            imageView?.image = UIImage(named: "notCheck")
         }
     }
     

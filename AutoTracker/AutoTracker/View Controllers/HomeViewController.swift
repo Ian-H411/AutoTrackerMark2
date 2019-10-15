@@ -33,7 +33,7 @@ class HomeViewController: UIViewController {
         let list = CarController.shared.organizeAndReturnMaintainenceList()
         var returnList: [Maintanence] = []
         for item in list {
-            if !item.isComplete{
+            if !item.isComplete && !item.isReceipt{
                 returnList.append(item)
             }
         }

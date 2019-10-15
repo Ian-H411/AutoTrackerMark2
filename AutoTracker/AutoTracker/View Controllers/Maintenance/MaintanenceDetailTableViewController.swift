@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class MaintanenceDetailTableViewController: UITableViewController {
     //MARK: - OUTLETS
@@ -84,8 +85,20 @@ class MaintanenceDetailTableViewController: UITableViewController {
     
     
     //MARK: - HELPERS
-    
-    
+    func presentUpdateOdometerAlert(){
+        guard let car = CarController.shared.selectedCar else {return}
+        let alertcontroller = UIAlertController(title: "Would you like to update the odometer", message: "update the odometer for \(car.name ?? "")", preferredStyle: .alert)
+        let yesButton = UIAlertAction(title: "Update Odometer", style: .default) { (_) in
+            self.performSegue(withIdentifier: "updateodo", sender: nil)
+        }
+        let noButton = UIAlertAction(title: "No", style: .destructive, handler: nil)
+        alertcontroller.addAction(yesButton)
+        alertcontroller.addAction(noButton)
+        self.present(alertcontroller, animated: true)
+    }
+    func removeNotification(maintenance: Maintanence){
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [maintenance.uuid ?? ""])
+    }
     
     // MARK: - Navigation
     
@@ -113,7 +126,8 @@ extension MaintanenceDetailTableViewController: MaintenanceTableViewCellDelegate
         CarController.shared.toggleMaintenanceReminder(maintenance: maintenance)
         if maintenance.isComplete{
             sendToOdometer = maintenance
-            self.performSegue(withIdentifier: "updateodo", sender: nil)
+            removeNotification(maintenance: maintenance)
+            presentUpdateOdometerAlert()
         }
         tableView.reloadData()
     }

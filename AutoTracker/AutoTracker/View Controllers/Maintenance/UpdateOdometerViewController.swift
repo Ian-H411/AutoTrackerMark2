@@ -79,6 +79,7 @@ class UpdateOdometerViewController: UIViewController {
         carNameLabel.text = "update \(car.name ?? "")'s odometer"
         savedLabel.isHidden = true
         odometerPicker.delegate = self
+        self.navigationItem.hidesBackButton = true
     }
     func odometerResults() -> Int {
          var placeholder: [Int] = []
