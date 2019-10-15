@@ -19,6 +19,19 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var locationTitleLabel: UILabel!
+    
+    @IBOutlet weak var locationYelpStarsImage: UIImageView!
+    
+    @IBOutlet weak var totalReviewsLabel: UILabel!
+    
+    @IBOutlet weak var addressButton: AutoTrackerButtonGreenBG!
+    
+    @IBOutlet weak var locationImage: UIImageView!
+    
+    @IBOutlet weak var cardView: UIView!
+    
+    @IBOutlet weak var yelpButton: UIButton!
     
     
     
@@ -32,6 +45,8 @@ class MapViewController: UIViewController {
     
     var selectedPlace:PlaceObject?
     
+    var hideLocationCard:Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
@@ -39,6 +54,7 @@ class MapViewController: UIViewController {
         locationManager.startUpdatingLocation()
         locationsMapView.delegate = self
         activityIndicator.stopAnimating()
+        toggleLocationCard()
         
         
     }
@@ -51,39 +67,84 @@ class MapViewController: UIViewController {
     //MARK: - ACTIONS
     
     @IBAction func searchAreaButtonTapped(_ sender: Any) {
-        if !Reachability.isConnectedToNetwork(){
-            presentNoInternetAlert()
-            return
+       searchArea()
+    }
+    
+    @IBAction func addressButtonTapped(_ sender: Any) {
+        getDirectionsInAppleMaps()
+    }
+    
+    @IBAction func yelpButtonTapped(_ sender: Any) {
+        goToYelpPage()
+    }
+    
+    
+    @IBAction func screenTapped(_ sender: Any) {
+        if hideLocationCard == false{
+                toggleLocationCard()
         }
-        locationsMapView.removeAnnotations(locationsMapView.annotations)
-        activityIndicator.startAnimating()
-        let center = locationsMapView.centerCoordinate
-        let radius = Int(locationsMapView.region.span.longitudeDelta)
-        MapController.shared.grabNearbyGasStationsAndConvert(location: center, radius: radius) { (success) in
-            if success{
-                DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
-                }
-                
-                self.results = MapController.shared.results
-                self.setUpMarkers()
-            }
-        }
-        
-        
+    
     }
     
     
     
     //MARK: - HELPERS
-    func centerMapOnLocation(location:CLLocation,regionRadius:CLLocationDistance){
-        
-        let region:MKCoordinateRegion = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
-        locationsMapView.setRegion(region, animated: true)
-        
+    func toggleLocationCard(){
+        hideLocationCard.toggle()
+        if hideLocationCard{
+            locationImage.isHidden = true
+            cardView.isHidden = true
+            totalReviewsLabel.isHidden = true
+            locationYelpStarsImage.isHidden = true
+            yelpButton.isHidden = true
+            locationTitleLabel.isHidden = true
+            addressButton.isHidden = true
+        } else {
+            guard let place = selectedPlace else {return}
+            locationImage.isHidden = false
+            cardView.isHidden = false
+            totalReviewsLabel.isHidden = false
+            locationYelpStarsImage.isHidden = false
+            yelpButton.isHidden = false
+            locationTitleLabel.isHidden = false
+            addressButton.isHidden = false
+            retrieveAndSetImage(place: place)
+            locationYelpStarsImage.image = place.ratingImage
+            totalReviewsLabel.text = "Based on \(place.numberOfReviews) reviews!"
+            locationTitleLabel.text = place.title ?? "No Name Provided"
+            addressButton.setTitle(place.address, for: .normal)
+            
+        }
     }
-    func setUpMarkers(){
-        locationsMapView.addAnnotations(results)
+    func searchArea(){
+        if !Reachability.isConnectedToNetwork(){
+                   presentNoInternetAlert()
+                   return
+               }
+               locationsMapView.removeAnnotations(locationsMapView.annotations)
+               activityIndicator.startAnimating()
+               let center = locationsMapView.centerCoordinate
+               let radius = Int(locationsMapView.region.span.longitudeDelta)
+               MapController.shared.grabNearbyGasStationsAndConvert(location: center, radius: radius) { (success) in
+                   if success{
+                       DispatchQueue.main.async {
+                           self.activityIndicator.stopAnimating()
+                       }
+                       self.results = MapController.shared.results
+                       self.setUpMarkers()
+                   }
+               }
+    }
+    func retrieveAndSetImage(place: PlaceObject){
+        guard let image = place.imageURL else {return}
+        MapController.shared.retrieveImage(urlString: image) { (imageOptional) in
+            guard let imageUnwrapped = imageOptional else {return}
+            DispatchQueue.main.async {
+                self.locationImage.image = imageUnwrapped
+            }
+            
+        }
+        
     }
     
     func presentNoInternetAlert(){
@@ -92,16 +153,54 @@ class MapViewController: UIViewController {
         alert.addAction(okayButton)
         self.present(alert, animated: true)
     }
-    //MARK: - NAVIGATION
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "placeDetail"{
-            if let vc = segue.destination as? MapDetailViewController {
-                vc.place = selectedPlace
-            }
+    func goToYelpPage(){
+        if !Reachability.isConnectedToNetwork(){
+            presentNoInternetAlert()
+            return
         }
+        guard let place = self.selectedPlace else {return}
+        let alertController = UIAlertController(title: "Open this Business's page on Yelp?", message: "This will open Safari and display \(place.title ?? "")'s Yelp Page", preferredStyle: .alert)
+        let okayButton = UIAlertAction(title: "Open", style: .default) { (_) in
+            guard let url = URL(string: place.url) else {return}
+            UIApplication.shared.open(url)
+        }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        alertController.addAction(okayButton)
+        alertController.addAction(cancelButton)
+        self.present(alertController, animated: true)
+        
     }
     
+    func getDirectionsInAppleMaps(){
+        if !Reachability.isConnectedToNetwork(){
+            presentNoInternetAlert()
+            return
+        }
+        guard let location = selectedPlace else {return}
+        let alertController = UIAlertController(title: "Open in Apple Maps?", message: "This will give you directions to \(location.title ?? "")", preferredStyle: .alert)
+        let okayButton = UIAlertAction(title: "Get Directions", style: .default) { (_) in
+            let launchOptions = [MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving]
+            let placeMark = MKPlacemark(coordinate: location.coordinate)
+            let mapitem = MKMapItem(placemark: placeMark)
+            mapitem.name = "\(location.title ?? "")"
+            mapitem.openInMaps(launchOptions: launchOptions)
+        }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        alertController.addAction(okayButton)
+        alertController.addAction(cancelButton)
+        self.present(alertController, animated: true)
+    }
+    func centerMapOnLocation(location:CLLocation,regionRadius:CLLocationDistance){
+        
+        let region:MKCoordinateRegion = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        locationsMapView.setRegion(region, animated: false)
+        searchArea()
+        
+    }
+    func setUpMarkers(){
+        locationsMapView.addAnnotations(results)
+    }
     
 }
 extension MapViewController: CLLocationManagerDelegate{
@@ -137,6 +236,12 @@ extension MapViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let place = view.annotation as! PlaceObject
         selectedPlace = place
-        self.performSegue(withIdentifier: "placeDetail", sender: nil)
+        toggleLocationCard()
+    }
+    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        if hideLocationCard == false{
+            toggleLocationCard()
+        }
+   
     }
 }

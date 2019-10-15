@@ -17,6 +17,10 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zbZ-MF-8i7">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="u13-ly-UMf" appends="YES" id="QyB-mD-uXp"/>
+                                </connections>
                             </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="EiN-3c-PCp">
                                 <rect key="frame" x="0.0" y="754" width="414" height="60"/>
@@ -73,12 +77,15 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MfR-LB-KeX">
                                                 <rect key="frame" x="0.0" y="18" width="160" height="25.5"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="5Stars" translatesAutoresizingMaskIntoConstraints="NO" id="8xP-48-HFY">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5Stars" translatesAutoresizingMaskIntoConstraints="NO" id="8xP-48-HFY">
                                                         <rect key="frame" x="0.0" y="0.0" width="102" height="25.5"/>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySO-Zq-x1e">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySO-Zq-x1e">
                                                         <rect key="frame" x="102" y="0.0" width="58" height="25.5"/>
                                                         <state key="normal" title="Button" image="yelp"/>
+                                                        <connections>
+                                                            <action selector="yelpButtonTapped:" destination="7Uz-8R-jIB" eventType="touchUpInside" id="KYW-kN-LOE"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -97,6 +104,9 @@
                                             <constraint firstAttribute="width" constant="160" id="beT-G1-emV"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="addressButtonTapped:" destination="7Uz-8R-jIB" eventType="touchUpInside" id="2OK-fJ-gso"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -111,7 +121,7 @@
                                     <constraint firstAttribute="height" constant="176" id="sbi-YG-aCm"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yKI-UO-gC5">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yKI-UO-gC5">
                                 <rect key="frame" x="230" y="415" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="yKI-UO-gC5" secondAttribute="height" multiplier="1:1" id="6Se-Ez-oCN"/>
@@ -127,6 +137,7 @@
                             <constraint firstItem="xEC-gE-Ehp" firstAttribute="width" secondItem="wUW-Ky-hIS" secondAttribute="width" multiplier="0.8" id="KLS-D7-VqI"/>
                             <constraint firstItem="zbZ-MF-8i7" firstAttribute="centerX" secondItem="wUW-Ky-hIS" secondAttribute="centerX" id="Oni-6z-4l1"/>
                             <constraint firstItem="EiN-3c-PCp" firstAttribute="width" secondItem="zbZ-MF-8i7" secondAttribute="width" id="UvW-Nq-t3h"/>
+                            <constraint firstItem="yKI-UO-gC5" firstAttribute="centerY" secondItem="V6k-Wh-XJ2" secondAttribute="centerY" id="V38-hF-RmR"/>
                             <constraint firstItem="vmi-5G-HBi" firstAttribute="centerY" secondItem="wUW-Ky-hIS" secondAttribute="centerY" id="WMl-jq-qhV"/>
                             <constraint firstItem="xEC-gE-Ehp" firstAttribute="centerX" secondItem="wUW-Ky-hIS" secondAttribute="centerX" id="a1B-Ay-zmX"/>
                             <constraint firstItem="zbZ-MF-8i7" firstAttribute="centerY" secondItem="wUW-Ky-hIS" secondAttribute="centerY" id="aPv-IM-Otb"/>
@@ -144,122 +155,24 @@
                     <navigationItem key="navigationItem" id="0eX-0b-JVx"/>
                     <connections>
                         <outlet property="activityIndicator" destination="V6k-Wh-XJ2" id="bFc-yn-TUE"/>
+                        <outlet property="addressButton" destination="tfH-CA-zzU" id="RHD-eS-ZaJ"/>
+                        <outlet property="cardView" destination="vmi-5G-HBi" id="ED2-y4-HNQ"/>
+                        <outlet property="locationImage" destination="yKI-UO-gC5" id="Yd6-cY-GmT"/>
+                        <outlet property="locationTitleLabel" destination="YJ0-iz-yfz" id="D1J-rY-SpU"/>
+                        <outlet property="locationYelpStarsImage" destination="8xP-48-HFY" id="3T8-rj-kVU"/>
                         <outlet property="locationsMapView" destination="zbZ-MF-8i7" id="EkJ-Ze-nia"/>
+                        <outlet property="totalReviewsLabel" destination="3iF-O3-GzT" id="rhP-Aj-KBm"/>
+                        <outlet property="yelpButton" destination="ySO-Zq-x1e" id="HfU-yl-uA0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="drx-M4-XE2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="u13-ly-UMf">
+                    <connections>
+                        <action selector="screenTapped:" destination="7Uz-8R-jIB" id="ILC-bw-pOf"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="598.55072463768124" y="-1183.2589285714284"/>
-        </scene>
-        <!--Map Detail View Controller-->
-        <scene sceneID="ibL-DO-OgQ">
-            <objects>
-                <viewController id="Yc6-HF-FhC" customClass="MapDetailViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jGn-LJ-nyl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="nWy-U9-WY7">
-                                <rect key="frame" x="0.0" y="117" width="414" height="491"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="location Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TrL-G0-vRc">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="GuS-PF-WYL"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="WU6-Mf-o41">
-                                        <rect key="frame" x="0.0" y="89" width="414" height="188.5"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hK-Sb-3KK" customClass="AutoTrackerButtonAsLabel" customModule="AutoTracker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="194.5" height="188.5"/>
-                                                <state key="normal" title="Address"/>
-                                                <connections>
-                                                    <action selector="addressButtonTapped:" destination="Yc6-HF-FhC" eventType="touchUpInside" id="DDC-ns-oV2"/>
-                                                </connections>
-                                            </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UOi-WC-Un8">
-                                                <rect key="frame" x="225.5" y="0.0" width="188.5" height="188.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="UOi-WC-Un8" secondAttribute="height" multiplier="1:1" id="a55-iO-2dg"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6XG-2p-YMW">
-                                        <rect key="frame" x="0.0" y="306.5" width="414" height="52"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="b5L-63-UUh">
-                                                <rect key="frame" x="0.0" y="0.0" width="248.5" height="52"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5Stars" translatesAutoresizingMaskIntoConstraints="NO" id="9Hi-0c-lAb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="248.5" height="52"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="9Hi-0c-lAb" secondAttribute="height" multiplier="24:5" id="sbJ-QK-8IP"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                </subviews>
-                                            </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Based on..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dO-gH-Hs3">
-                                                <rect key="frame" x="256.5" y="0.0" width="157.5" height="52"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="9dO-gH-Hs3" firstAttribute="height" secondItem="b5L-63-UUh" secondAttribute="height" id="ZT7-ot-xor"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFu-76-1rK">
-                                        <rect key="frame" x="155.5" y="387.5" width="103.5" height="103.5"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHV-60-CFo">
-                                                <rect key="frame" x="0.0" y="0.0" width="103.5" height="103.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="fHV-60-CFo" secondAttribute="height" multiplier="1:1" id="3ch-PN-hGn"/>
-                                                </constraints>
-                                                <state key="normal" image="yelp"/>
-                                                <connections>
-                                                    <action selector="yelpButtonTapped:" destination="Yc6-HF-FhC" eventType="touchUpInside" id="xDg-b2-DZ5"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="WU6-Mf-o41" firstAttribute="width" secondItem="nWy-U9-WY7" secondAttribute="width" id="2Cu-ao-U2A"/>
-                                    <constraint firstItem="6XG-2p-YMW" firstAttribute="width" secondItem="nWy-U9-WY7" secondAttribute="width" id="iBh-gD-q1s"/>
-                                    <constraint firstItem="9Hi-0c-lAb" firstAttribute="width" secondItem="nWy-U9-WY7" secondAttribute="width" multiplier="0.6" id="jAH-ze-2li"/>
-                                    <constraint firstItem="fFu-76-1rK" firstAttribute="width" secondItem="nWy-U9-WY7" secondAttribute="width" multiplier="0.25" id="oYv-2h-ZPy"/>
-                                    <constraint firstItem="TrL-G0-vRc" firstAttribute="width" secondItem="nWy-U9-WY7" secondAttribute="width" id="rRi-Yf-ELZ"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="nWy-U9-WY7" firstAttribute="centerY" secondItem="qaL-G6-NpR" secondAttribute="centerY" multiplier="0.8" id="76d-bO-Hpu"/>
-                            <constraint firstItem="nWy-U9-WY7" firstAttribute="width" secondItem="qaL-G6-NpR" secondAttribute="width" id="EgO-MB-2Gp"/>
-                            <constraint firstItem="nWy-U9-WY7" firstAttribute="height" secondItem="qaL-G6-NpR" secondAttribute="height" multiplier="0.6" id="m2g-N6-yyJ"/>
-                            <constraint firstItem="nWy-U9-WY7" firstAttribute="centerX" secondItem="qaL-G6-NpR" secondAttribute="centerX" id="pmb-EG-7Zc"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="qaL-G6-NpR"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="dUu-ad-icQ"/>
-                    <connections>
-                        <outlet property="addressButton" destination="7hK-Sb-3KK" id="5VU-1g-LmY"/>
-                        <outlet property="imageOfPlace" destination="UOi-WC-Un8" id="lF5-LR-dIH"/>
-                        <outlet property="locationTitleLabel" destination="TrL-G0-vRc" id="HUt-E4-BuC"/>
-                        <outlet property="totalReviewsLabel" destination="9dO-gH-Hs3" id="Zal-F2-oRR"/>
-                        <outlet property="yelpStarsImage" destination="9Hi-0c-lAb" id="oqD-Pc-QFo"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yGV-Aw-qsC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1398.5507246376812" y="-1177.2321428571429"/>
         </scene>
         <!--Find Gas-->
         <scene sceneID="tGw-H5-I7n">
