@@ -53,7 +53,7 @@ class MaintenanceTableViewCell: UITableViewCell {
             if let image = maintenance.photo{
                 imageView?.image = image
             } else {
-                imageView?.image = UIImage(named: "check")!
+                imageView?.image = UIImage(named: "Check")!
             }
         } else {
             imageView?.image = UIImage(named: "notCheck")
