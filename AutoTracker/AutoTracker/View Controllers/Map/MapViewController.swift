@@ -33,6 +33,7 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var yelpButton: UIButton!
     
+    @IBOutlet weak var searchAreaButton: AutoTrackerButtonGreenBG!
     
     
     //MARK: -VARIABLES
@@ -55,8 +56,11 @@ class MapViewController: UIViewController {
         locationsMapView.delegate = self
         activityIndicator.stopAnimating()
         toggleLocationCard()
-        
-        
+        view.sendSubviewToBack(locationsMapView)
+        searchAreaButton.layer.shadowRadius = 10
+        searchAreaButton.layer.shadowOffset = .zero
+        searchAreaButton.layer.shadowColor = UIColor.black.cgColor
+        searchAreaButton.layer.shadowOpacity = 0.5
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
@@ -67,7 +71,7 @@ class MapViewController: UIViewController {
     //MARK: - ACTIONS
     
     @IBAction func searchAreaButtonTapped(_ sender: Any) {
-       searchArea()
+        searchArea()
     }
     
     @IBAction func addressButtonTapped(_ sender: Any) {
@@ -81,9 +85,9 @@ class MapViewController: UIViewController {
     
     @IBAction func screenTapped(_ sender: Any) {
         if hideLocationCard == false{
-                toggleLocationCard()
+            toggleLocationCard()
         }
-    
+        
     }
     
     
@@ -91,6 +95,10 @@ class MapViewController: UIViewController {
     //MARK: - HELPERS
     func toggleLocationCard(){
         hideLocationCard.toggle()
+        cardView.layer.shadowRadius = 10
+        cardView.layer.shadowOffset = .zero
+        cardView.layer.shadowColor = UIColor.black.cgColor
+        cardView.layer.shadowOpacity = 0.5
         if hideLocationCard{
             locationImage.isHidden = true
             cardView.isHidden = true
@@ -118,22 +126,22 @@ class MapViewController: UIViewController {
     }
     func searchArea(){
         if !Reachability.isConnectedToNetwork(){
-                   presentNoInternetAlert()
-                   return
-               }
-               locationsMapView.removeAnnotations(locationsMapView.annotations)
-               activityIndicator.startAnimating()
-               let center = locationsMapView.centerCoordinate
-               let radius = Int(locationsMapView.region.span.longitudeDelta)
-               MapController.shared.grabNearbyGasStationsAndConvert(location: center, radius: radius) { (success) in
-                   if success{
-                       DispatchQueue.main.async {
-                           self.activityIndicator.stopAnimating()
-                       }
-                       self.results = MapController.shared.results
-                       self.setUpMarkers()
-                   }
-               }
+            presentNoInternetAlert()
+            return
+        }
+        locationsMapView.removeAnnotations(locationsMapView.annotations)
+        activityIndicator.startAnimating()
+        let center = locationsMapView.centerCoordinate
+        let radius = Int(locationsMapView.region.span.longitudeDelta)
+        MapController.shared.grabNearbyGasStationsAndConvert(location: center, radius: radius) { (success) in
+            if success{
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                }
+                self.results = MapController.shared.results
+                self.setUpMarkers()
+            }
+        }
     }
     func retrieveAndSetImage(place: PlaceObject){
         guard let image = place.imageURL else {return}
@@ -242,6 +250,6 @@ extension MapViewController: MKMapViewDelegate{
         if hideLocationCard == false{
             toggleLocationCard()
         }
-   
+        
     }
 }

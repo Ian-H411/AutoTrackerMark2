@@ -20,6 +20,11 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var scheduledMaintenanceTableView: UITableView!
     
+    @IBOutlet weak var updatePhotoButtton: UIButton!
+    
+    @IBOutlet weak var reviewIntroButton: UIButton!
+    
+    @IBOutlet weak var optionView: UIView!
     
     
     // MARK: - PROPERTIES
@@ -28,6 +33,8 @@ class HomeViewController: UIViewController {
             updateViews()
         }
     }
+    
+    var hideMenu = false
     
     var scheduledMaintenance: [Maintanence]{
         let list = CarController.shared.organizeAndReturnMaintainenceList()
@@ -52,12 +59,16 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         scheduledMaintenanceTableView.delegate = self
         scheduledMaintenanceTableView.dataSource = self
+        toggleOptions()
     }
     
     // MARK: - ACTIONS
     
     @IBAction func updateProfilePictureButtonTapped(_ sender: Any) {
         presentActionSheet()
+    }
+    @IBAction func displayOptions(_ sender: Any) {
+        toggleOptions()
     }
     
     
@@ -95,6 +106,17 @@ class HomeViewController: UIViewController {
         }
     }
     
+    func toggleOptions(){
+        hideMenu.toggle()
+        optionView.isHidden = hideMenu
+        updatePhotoButtton.isHidden = hideMenu
+        reviewIntroButton.isHidden = hideMenu
+        optionView.layer.shadowRadius = 10
+        optionView.layer.shadowOffset = .zero
+        optionView.layer.shadowColor = UIColor.black.cgColor
+        optionView.layer.shadowOpacity = 0.5
+        
+    }
     func presentActionSheet(){
         let actionSheet = UIAlertController(title: "Import Receipt Photo", message: nil, preferredStyle: .alert)
         if UIImagePickerController.isSourceTypeAvailable(.camera){
