@@ -124,6 +124,7 @@ class ReceiptEntryViewController: UIViewController {
     
     @IBAction func saveFillUpButtonTapped(_ sender: Any) {
         
+        guard let car = CarController.shared.selectedCar, let miles = milesButton.titleLabel?.text, let gallons = gallonsButton.titleLabel?.text, let cost = costButton.titleLabel?.text else { return }
         
         
     }

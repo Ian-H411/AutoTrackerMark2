@@ -29,6 +29,19 @@ extension Maintanence {
         
         self.isComplete = true
         
+        self.isReceipt = false
+        
+        self.uuid = UUID().uuidString
+        
+    }
+    
+    convenience init(price: String, odometerStamp: Double, details: String, isReceipt: Bool = false, context: NSManagedObjectContext = CoreDataStack.context) {
+        self.init(context: context)
+        
+        self.price = price
+        self.odometerStamp = odometerStamp
+        self.details = details
+        self.isReceipt = isReceipt
     }
     
 }
