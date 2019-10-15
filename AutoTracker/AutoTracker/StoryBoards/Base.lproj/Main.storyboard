@@ -9,7 +9,7 @@
         <!--Custom Tab Bar Controller-->
         <scene sceneID="tzf-YD-8tE">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="w9W-b9-GUe" customClass="CustomTabBarController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainVC" automaticallyAdjustsScrollViewInsets="NO" id="w9W-b9-GUe" customClass="CustomTabBarController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vQZ-WS-QHJ">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
