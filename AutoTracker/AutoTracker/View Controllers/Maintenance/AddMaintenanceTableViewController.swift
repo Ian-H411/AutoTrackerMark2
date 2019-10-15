@@ -95,7 +95,7 @@ class AddMaintenanceTableViewController: UITableViewController {
             content.sound = .default
             let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
             let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-            let identifier = "id"
+            let identifier = id
             let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
             
             self.notificationCenter.add(request) { (error) in
