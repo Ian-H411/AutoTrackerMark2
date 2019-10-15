@@ -7,6 +7,11 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Receipt History-->
         <scene sceneID="7Rs-1v-e6D">
@@ -26,6 +31,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="enterGasButtonTapped:" destination="gPO-je-hId" eventType="touchUpInside" id="C5n-Mw-Otl"/>
                                     <segue destination="zh6-M5-qE9" kind="show" id="FKy-AZ-cwu"/>
                                 </connections>
                             </button>
@@ -64,6 +70,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2i9-kF-zET">
+                                <rect key="frame" x="94" y="356.5" width="226" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KuU-AS-yDb" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
+                                <rect key="frame" x="94" y="388.5" width="226" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="kqM-ch-0Yw"/>
+                                </constraints>
+                                <state key="normal" title="Okay"/>
+                                <connections>
+                                    <action selector="resultsButtonTapped:" destination="zh6-M5-qE9" eventType="touchUpInside" id="5ln-NF-KgB"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fkz-vf-5cC" customClass="TextFieldStyle" customModule="AutoTracker" customModuleProvider="target">
                                 <rect key="frame" x="18.5" y="299" width="377" height="64"/>
                                 <constraints>
@@ -129,13 +151,19 @@
                         <constraints>
                             <constraint firstItem="TqK-E7-iuP" firstAttribute="centerX" secondItem="O26-Be-hP5" secondAttribute="centerX" id="CGs-RN-5qQ"/>
                             <constraint firstItem="fkz-vf-5cC" firstAttribute="centerY" secondItem="WcZ-lq-igx" secondAttribute="centerY" id="K6a-Kv-aMS"/>
+                            <constraint firstItem="KuU-AS-yDb" firstAttribute="width" secondItem="2i9-kF-zET" secondAttribute="width" id="MQ7-yW-RSb"/>
                             <constraint firstItem="fkz-vf-5cC" firstAttribute="centerX" secondItem="WcZ-lq-igx" secondAttribute="centerX" id="MSn-hc-qrX"/>
+                            <constraint firstItem="KuU-AS-yDb" firstAttribute="centerX" secondItem="AnO-AN-hwS" secondAttribute="centerX" id="VEW-zw-lBp"/>
                             <constraint firstItem="3Ew-hH-D0N" firstAttribute="width" secondItem="AnO-AN-hwS" secondAttribute="width" multiplier="0.91" id="Y1S-8A-gir"/>
                             <constraint firstItem="3Ew-hH-D0N" firstAttribute="centerX" secondItem="AnO-AN-hwS" secondAttribute="centerX" id="aEf-Kp-dqW"/>
+                            <constraint firstItem="2i9-kF-zET" firstAttribute="width" secondItem="3Ew-hH-D0N" secondAttribute="width" multiplier="0.6" id="bNp-Pf-rTX"/>
                             <constraint firstItem="TqK-E7-iuP" firstAttribute="width" secondItem="O26-Be-hP5" secondAttribute="width" id="cMf-wj-N2E"/>
                             <constraint firstItem="TqK-E7-iuP" firstAttribute="centerY" secondItem="O26-Be-hP5" secondAttribute="centerY" id="mVK-r6-ctn"/>
                             <constraint firstItem="3Ew-hH-D0N" firstAttribute="centerY" secondItem="AnO-AN-hwS" secondAttribute="centerY" id="nUM-x1-dGW"/>
+                            <constraint firstItem="2i9-kF-zET" firstAttribute="centerY" secondItem="AnO-AN-hwS" secondAttribute="centerY" multiplier="0.75" id="pLF-33-jc3"/>
+                            <constraint firstItem="2i9-kF-zET" firstAttribute="centerX" secondItem="AnO-AN-hwS" secondAttribute="centerX" id="qU7-4C-TcQ"/>
                             <constraint firstItem="fkz-vf-5cC" firstAttribute="width" secondItem="WcZ-lq-igx" secondAttribute="width" id="rBt-o3-KXI"/>
+                            <constraint firstItem="KuU-AS-yDb" firstAttribute="top" secondItem="2i9-kF-zET" secondAttribute="bottom" constant="32" id="sb7-Zw-qYA"/>
                             <constraint firstItem="TqK-E7-iuP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fkz-vf-5cC" secondAttribute="bottom" constant="32" id="wGq-eP-SfJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AnO-AN-hwS"/>
@@ -145,6 +173,8 @@
                         <outlet property="costButton" destination="O26-Be-hP5" id="U1x-pG-r1U"/>
                         <outlet property="gallonsButton" destination="maL-Ny-8aA" id="oRs-IH-X2T"/>
                         <outlet property="milesButton" destination="WcZ-lq-igx" id="azb-M1-aZu"/>
+                        <outlet property="resultsButton" destination="KuU-AS-yDb" id="ZFd-VC-oQ3"/>
+                        <outlet property="resultsLabel" destination="2i9-kF-zET" id="oW4-03-JwA"/>
                         <outlet property="reusableTextField" destination="fkz-vf-5cC" id="4Kl-CM-roU"/>
                         <outlet property="saveFillUpButton" destination="yy2-ji-a1f" id="7mv-Mh-p93"/>
                         <outlet property="updateButton" destination="TqK-E7-iuP" id="gpS-pb-KJu"/>

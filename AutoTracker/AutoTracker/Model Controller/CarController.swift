@@ -24,6 +24,7 @@ class CarController{
     
     //secondary source of truth
     var selectedCar:Car?
+
     
     //database location
     //    let privateDB = CKContainer.default().privateCloudDatabase
@@ -40,8 +41,7 @@ class CarController{
         
         selectedCar = carFirst
     }
-    
-    
+
     
     //MARK: -CRUD
     
@@ -106,6 +106,13 @@ class CarController{
         return sortedMaintenance
     }
     
+    func organizeAndReturnReceipts() -> [Maintanence] {
+        guard let car = selectedCar else { return [] }
+        let maintenance = car.upcomingMaintanence?.allObjects as? [Maintanence] ?? []
+        let receipts = maintenance.filter({$0.isReceipt})
+        return receipts
+    }
+    
     //delete a car
     func removeCarFromGarage(car:Car){
         if let moc = car.managedObjectContext{
@@ -131,6 +138,15 @@ class CarController{
         car.upcomingMaintanence?.adding(newMain)
         saveChangesToPersistentStoreOnly()
         return newMain
+    }
+    
+    func addReceipt(car: Car, miles: Double, gallons: String, cost: String) {
+        
+        let miles = Double(miles)
+        
+        let receipt = Maintanence(car: car, price: cost, odometerStamp: miles, details: gallons, isReceipt: true)
+        car.upcomingMaintanence?.adding(receipt)
+        saveChangesToPersistentStoreOnly()
     }
     
     func modifyMaintenanceRemainder(maintenance:Maintanence, date:Date, newTitle:String, details:String?, image: UIImage?){

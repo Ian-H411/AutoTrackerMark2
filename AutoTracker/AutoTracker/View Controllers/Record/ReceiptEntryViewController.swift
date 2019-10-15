@@ -17,6 +17,8 @@ class ReceiptEntryViewController: UIViewController {
     @IBOutlet weak var saveFillUpButton: AutoTrackerButtonGreenBG!
     @IBOutlet weak var reusableTextField: UITextField!
     @IBOutlet weak var updateButton: AutoTrackerButtonGreenBG!
+    @IBOutlet weak var resultsLabel: AutoTrackerLabelGreenBG!
+    @IBOutlet weak var resultsButton: UIButton!
     
     
     // MARK: - PROPERTIES
@@ -24,6 +26,8 @@ class ReceiptEntryViewController: UIViewController {
     var milesTapped = 0
     var gallonsTapped = 0
     var costTapped = 0
+    var miles: Double = 0
+    var gallons: Double = 0
     
     var milesValue = "" {
         didSet {
@@ -39,7 +43,10 @@ class ReceiptEntryViewController: UIViewController {
         
         updateButton.alpha = 0.0
         reusableTextField.alpha = 0.0
-        
+        resultsLabel.isHidden = true
+        resultsLabel.alpha = 0.0
+        resultsButton.isHidden = true
+        resultsButton.alpha = 0.0
         // Do any additional setup after loading the view.
     }
     
@@ -109,9 +116,11 @@ class ReceiptEntryViewController: UIViewController {
         }
         guard let entryText = reusableTextField.text, !entryText.isEmpty else { return }
         if milesTapped > 0 {
+            miles = Double(entryText) ?? 0
             milesButton.setTitle("\(entryText) miles", for: .normal)
             reusableTextField.text = ""
         } else if gallonsTapped > 0 {
+            gallons = Double(entryText) ?? 0
             gallonsButton.setTitle("\(entryText) gallons", for: .normal)
             reusableTextField.text = ""
         } else if costTapped > 0 {
@@ -124,9 +133,37 @@ class ReceiptEntryViewController: UIViewController {
     
     @IBAction func saveFillUpButtonTapped(_ sender: Any) {
         
-        guard let car = CarController.shared.selectedCar, let miles = milesButton.titleLabel?.text, let gallons = gallonsButton.titleLabel?.text, let cost = costButton.titleLabel?.text else { return }
+        guard let car = CarController.shared.selectedCar,
+            let gallons = gallonsButton.titleLabel?.text,
+            let cost = costButton.titleLabel?.text else { return }
         
+        CarController.shared.addReceipt(car: car, miles: miles, gallons: gallons, cost: cost)
         
+        let mpg = milesPerGallon(miles: self.miles, gallon: self.gallons)
+        resultsLabel.text = "You got \(mpg) miles per gallon this trip!"
+        
+        UIView.animate(withDuration: 0.5) {
+        self.milesButton.alpha = 0.0
+        self.milesButton.isHidden = true
+        self.gallonsButton.alpha = 0.0
+        self.gallonsButton.isHidden = true
+        self.costButton.alpha = 0.0
+        self.costButton.isHidden = true
+        self.resultsLabel.alpha = 1.0
+        self.resultsLabel.isHidden = false
+            self.saveFillUpButton.alpha = 0.0
+//        self.saveFillUpButton.isHidden = true
+//            self.updateButton.isHidden = true
+            self.saveFillUpButton.isEnabled = false
+            self.reusableTextField.isHidden = true
+        self.resultsButton.isHidden = false
+        self.resultsButton.alpha = 1.0
+            self.view.bringSubviewToFront(self.resultsButton)
+        }
+    }
+    
+    @IBAction func resultsButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: - FUNCTIONS
@@ -155,6 +192,10 @@ class ReceiptEntryViewController: UIViewController {
         milesTapped = 0
         gallonsTapped = 0
         costTapped = 0
+    }
+    
+    func milesPerGallon(miles: Double, gallon: Double) -> Double {
+        return (miles / gallon)
     }
     
 }

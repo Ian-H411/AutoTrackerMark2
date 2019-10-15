@@ -35,9 +35,11 @@ extension Maintanence {
         
     }
     
-    convenience init(price: String, odometerStamp: Double, details: String, isReceipt: Bool = false, context: NSManagedObjectContext = CoreDataStack.context) {
+    // Receipt Initializer
+    convenience init(car: Car, price: String, odometerStamp: Double, details: String, isReceipt: Bool, context: NSManagedObjectContext = CoreDataStack.context) {
         self.init(context: context)
         
+        self.car = car
         self.price = price
         self.odometerStamp = odometerStamp
         self.details = details
