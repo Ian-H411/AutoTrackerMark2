@@ -33,6 +33,14 @@ class AutoTrackerLabel: UILabel {
     }
 }
 
+class AutoTrackerLabelHeadline: UILabel {
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.font = UIFont(name: FontNames.nunitoRegular, size: 18)
+    }
+}
+
 class AutoTrackerLabelDetail: UILabel {
     
     override func awakeFromNib() {

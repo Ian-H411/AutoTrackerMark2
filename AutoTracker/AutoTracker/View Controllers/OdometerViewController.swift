@@ -38,7 +38,7 @@ class OdometerViewController: UIViewController {
     @IBAction func updateButtonTapped(_ sender: Any) {
         
         let odometer = odometerResults()
-    
+        
         guard let car = CarController.shared.selectedCar else { return }
         CarController.shared.updateOdometer(car: car, odometer: Double(odometer)) { (success) in
             if success {
@@ -52,6 +52,20 @@ class OdometerViewController: UIViewController {
         }
     }
     
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        let odometer = odometerResults()
+        
+        guard let car = CarController.shared.selectedCar else { return }
+        CarController.shared.updateOdometer(car: car, odometer: Double(odometer)) { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    UIView.animate(withDuration: 0.5) {
+                        self.dismiss(animated: true)
+                    }
+                }
+            }
+        }
+    }
     
     /*
      // MARK: - Navigation
@@ -96,7 +110,7 @@ extension OdometerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         return 50
     }
     
-        
+    
 }
 
 //extension OdometerViewController: UITextFieldDelegate {
