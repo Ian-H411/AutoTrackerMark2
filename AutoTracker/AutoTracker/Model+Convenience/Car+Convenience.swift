@@ -21,8 +21,6 @@ extension Car {
                      
                      year:String,
                      
-                     vin:String,
-                     
                      engine:String,
                      
                      ownerName:String,
@@ -43,8 +41,6 @@ extension Car {
         
         self.year = year
         
-        self.vin = vin
-        
         self.engine = engine
         
         self.ownerName = ownerName
@@ -60,74 +56,22 @@ extension Car {
         self.recordID = UUID().uuidString
         
         self.odometer = odometer
-                
- 
         
         self.photoData = photoData
         
     }
     
-    convenience init(name: String, vin: String, odometer: Double, photoData: Data?, context: NSManagedObjectContext = CoreDataStack.context) {
+    convenience init(name: String, odometer: Double, photoData: Data?, context: NSManagedObjectContext = CoreDataStack.context) {
         self.init(context: context)
         self.name = name
-        self.vin = vin
         self.odometer = odometer
         self.photoData = photoData
     }
     
-    convenience init?(carjson: CarJson, name:String, vin:String, ownerName:String, odometer:Double, photoData: Data?, context:NSManagedObjectContext = CoreDataStack.context){
-        self.init(context:context)
-        self.name = name
-        self.model = carjson.model
-        self.make = carjson.make
-        self.year = carjson.year
-        self.vin = vin
-        self.engine = carjson.engine
-        self.ownerName = ownerName
-        self.altitude = 0
-        self.lattitude = 0
-        self.longitude = 0
-        self.recordID = UUID().uuidString
-        self.odometer = odometer
-        self.photoData = photoData
-        
-    }
+ 
 }
 
-//extension CKRecord{
-//
-//    convenience init?(car:Car){
-//
-//        guard let recordid = car.recordID else {return nil}
-//
-//        let recordIDinFormat = CKRecord.ID(recordName: recordid)
-//
-//        self.init(recordType:CarConstants.CarTypeKey, recordID:recordIDinFormat)
-//
-//        self.setValue(car.name, forKey: CarConstants.nameKey)
-//
-//        self.setValue(car.make, forKey: CarConstants.makeKey)
-//
-//        self.setValue(car.model, forKey: CarConstants.modelKey)
-//
-//        self.setValue(car.year, forKey: CarConstants.yearKey)
-//
-//        self.setValue(car.vin, forKey: CarConstants.vinKey)
-//
-//        self.setValue(car.engine, forKey: CarConstants.engineKey)
-//
-//        self.setValue(car.ownerName, forKey: CarConstants.engineKey)
-//
-//        self.setValue(car.altitude, forKey: CarConstants.altitudeKey)
-//
-//        self.setValue(car.lattitude, forKey: CarConstants.lattitudeKey)
-//
-//        self.setValue(car.longitude, forKey: CarConstants.longitudeKey)
-//
-//        self.setValue(car.photoData, forKey: CarConstants.photoKey)
-//
-//    }
-//}
+
 
 extension Car {
     

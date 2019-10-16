@@ -102,17 +102,17 @@ class MyGarageViewController: UIViewController {
     }
     func initialSetUP(){
         odometerPicker.delegate = self
-           odometerPicker.dataSource = self
-           odometerPicker.isUserInteractionEnabled = false
-           carSelectionTableView.delegate = self
-           carSelectionTableView.dataSource = self
-           carSelectionTableView.isHidden = true
-           guard let car = CarController.shared.selectedCar else {return}
-           currentCarButton.setTitle(car.name, for: .normal)
-           currentCarSelected = car
-           updateTableViewFrame()
-           setTextFields()
-           self.carSelectionTableView.tableFooterView = UIView()
+        odometerPicker.dataSource = self
+        odometerPicker.isUserInteractionEnabled = false
+        carSelectionTableView.delegate = self
+        carSelectionTableView.dataSource = self
+        carSelectionTableView.isHidden = true
+        guard let car = CarController.shared.selectedCar else {return}
+        currentCarButton.setTitle(car.name, for: .normal)
+        currentCarSelected = car
+        updateTableViewFrame()
+        setTextFields()
+        self.carSelectionTableView.tableFooterView = UIView()
     }
     
     func updateTableViewFrame(){
@@ -154,10 +154,19 @@ class MyGarageViewController: UIViewController {
         let button2 = UIAlertAction(title: "Look up by Vin", style: .default) { (_) in
             self.performSegue(withIdentifier: "auto", sender: nil)
         }
+        let button3 = UIAlertAction(title: "Edit current car", style: .default) { (_) in
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "manuelEdit", sender: nil)
+            }
+        }
         let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
         }
         alertController.addAction(button1)
         alertController.addAction(button2)
+        if let _ = CarController.shared.selectedCar{
+            alertController.addAction(button3)
+        }
+        
         alertController.addAction(cancel)
         self.present(alertController, animated: true)
     }
@@ -194,6 +203,14 @@ class MyGarageViewController: UIViewController {
         setTextFields()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "manuelEdit"{
+            if let destination = segue.destination as? AddCarTableViewController{
+                guard let car = CarController.shared.selectedCar else {return}
+                destination.carToEdit = car
+            }
+        }
+    }
     
     
 }
@@ -264,19 +281,19 @@ extension MyGarageViewController: UIPickerViewDataSource, UIPickerViewDelegate{
     
 }
 extension UIView {
-  func blurView(style: UIBlurEffect.Style) {
-    var blurEffectView = UIVisualEffectView()
-    let blurEffect = UIBlurEffect(style: style)
-    blurEffectView = UIVisualEffectView(effect: blurEffect)
-    blurEffectView.frame = bounds
-    addSubview(blurEffectView)
-  }
-  
-  func removeBlur() {
-    for view in self.subviews {
-      if let view = view as? UIVisualEffectView {
-        view.removeFromSuperview()
-      }
+    func blurView(style: UIBlurEffect.Style) {
+        var blurEffectView = UIVisualEffectView()
+        let blurEffect = UIBlurEffect(style: style)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = bounds
+        addSubview(blurEffectView)
     }
-  }
+    
+    func removeBlur() {
+        for view in self.subviews {
+            if let view = view as? UIVisualEffectView {
+                view.removeFromSuperview()
+            }
+        }
+    }
 }

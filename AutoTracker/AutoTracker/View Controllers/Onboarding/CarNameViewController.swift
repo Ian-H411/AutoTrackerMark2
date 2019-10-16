@@ -32,10 +32,9 @@ class CarNameViewController: UIViewController {
     @IBAction func finishIntroButtonTapped(_ sender: Any) {
         guard let car = carParts else { return }
         let name = car.name ?? "Default Name"
-        let vin = car.vin ?? "Missing VIN"
         let odometer = car.odometer
         let photoData = car.photoData
-        CarController.shared.onboardACar(name: name, vin: vin, odometer: odometer, photoData: photoData)
+        CarController.shared.onboardACar(name: name, odometer: odometer, photoData: photoData)
         performSegue(withIdentifier: "toMainVC", sender: nil)
         
         

@@ -50,7 +50,6 @@ class VINViewController: UIViewController {
 extension VINViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        carParts.vin = vinTextField.text
         performSegue(withIdentifier: "toOdometerVC", sender: nil)
         
         return true
