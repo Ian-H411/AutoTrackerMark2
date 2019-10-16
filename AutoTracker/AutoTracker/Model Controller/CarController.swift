@@ -176,6 +176,14 @@ class CarController{
         maintenance.odometerStamp = odometer
         saveChangesToPersistentStoreOnly()
     }
+    func modifyMaintenance(price:String, maintenance: Maintanence){
+        maintenance.price = price
+        saveChangesToPersistentStoreOnly()
+    }
+    func modifyMaintenance(photo:UIImage, maintenance: Maintanence){
+        maintenance.photo = photo
+        saveChangesToPersistentStoreOnly()
+    }
     
     //retrieve a car from the api
     func retrieveCarDetailsWith(vin:String, year:String, completion: @escaping (CarJson?, Error?) -> Void){

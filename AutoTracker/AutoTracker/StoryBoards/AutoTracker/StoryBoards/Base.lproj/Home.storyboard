@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="csq-6I-Yn9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="csq-6I-Yn9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -26,16 +26,6 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="255.5"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugn-U5-flj">
-                                <rect key="frame" x="290.5" y="291.5" width="103.5" height="64"/>
-                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
-                                <state key="normal" title="Update Photo">
-                                    <color key="titleColor" name="autoGreen"/>
-                                </state>
-                                <connections>
-                                    <action selector="updateProfilePictureButtonTapped:" destination="iU8-vQ-Uxl" eventType="touchUpInside" id="Ga6-eu-PdS"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Laj-G4-AnJ">
                                 <rect key="frame" x="20" y="359.5" width="374" height="255.5"/>
                                 <subviews>
@@ -153,21 +143,25 @@
                                 <rect key="frame" x="0.0" y="451" width="414" height="72.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ctr-RP-tV0">
-                                        <rect key="frame" x="188.5" y="-16" width="37" height="104"/>
+
+                                        <rect key="frame" x="199" y="-16" width="16" height="104"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="-4" id="jeh-6e-653">
-                                                <rect key="frame" x="0.0" y="33.5" width="63" height="37"/>
+                                                <rect key="frame" x="0.0" y="33.5" width="7" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lifetime miles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xp9-fH-7F8" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="63" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="7" height="20.5"/>
+
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="buA-SC-BHn" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
-                                                        <rect key="frame" x="3.5" y="16.5" width="56.5" height="20.5"/>
+
+                                                        <rect key="frame" x="0.0" y="16.5" width="7" height="20.5"/>
+
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -177,18 +171,22 @@
                                                 <viewLayoutGuide key="safeArea" id="VOl-kX-G2q"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="-4" id="DEK-Wk-Bgx">
-                                                <rect key="frame" x="71" y="33.5" width="63" height="37"/>
+
+                                                <rect key="frame" x="15" y="33.5" width="7" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average MPG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ivs-Mu-LtZ" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="63" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="7" height="20.5"/>
+
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 MPG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3aT-Fk-VLO" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
-                                                        <rect key="frame" x="0.5" y="16.5" width="62" height="20.5"/>
+
+                                                        <rect key="frame" x="0.0" y="16.5" width="7" height="20.5"/>
+
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -198,18 +196,22 @@
                                                 <viewLayoutGuide key="safeArea" id="JHm-QT-NTP"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="-4" id="rcf-S7-OIg">
-                                                <rect key="frame" x="142" y="33.5" width="63" height="37"/>
+
+                                                <rect key="frame" x="30" y="33.5" width="7" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Tank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Rl-bk-ffD" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="63" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="7" height="20.5"/>
+
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="321 Left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="m9I-wn-UBz" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
-                                                        <rect key="frame" x="0.5" y="16.5" width="62" height="20.5"/>
+
+                                                        <rect key="frame" x="0.0" y="16.5" width="7" height="20.5"/>
+
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -321,14 +323,47 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lx4-Jm-oGy">
+                                <rect key="frame" x="207" y="88" width="207" height="155"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugn-U5-flj">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="77.5"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
+                                        <state key="normal" title="Update Photo">
+                                            <color key="titleColor" name="autoGreen"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="updateProfilePictureButtonTapped:" destination="iU8-vQ-Uxl" eventType="touchUpInside" id="Ga6-eu-PdS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j64-oT-IQH">
+                                        <rect key="frame" x="0.0" y="77.5" width="207" height="77.5"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
+                                        <state key="normal" title="Review Intro">
+                                            <color key="titleColor" name="autoGreen"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="j64-oT-IQH" firstAttribute="centerX" secondItem="lx4-Jm-oGy" secondAttribute="centerX" id="2fG-A7-yXc"/>
+                                    <constraint firstItem="j64-oT-IQH" firstAttribute="centerY" secondItem="lx4-Jm-oGy" secondAttribute="centerY" multiplier="1.5" id="4Rc-tE-Hf3"/>
+                                    <constraint firstItem="Ugn-U5-flj" firstAttribute="centerY" secondItem="lx4-Jm-oGy" secondAttribute="centerY" multiplier="0.5" id="IMP-YY-JDB"/>
+                                    <constraint firstItem="Ugn-U5-flj" firstAttribute="height" secondItem="lx4-Jm-oGy" secondAttribute="height" multiplier="0.5" id="evK-nH-qgf"/>
+                                    <constraint firstItem="j64-oT-IQH" firstAttribute="height" secondItem="lx4-Jm-oGy" secondAttribute="height" multiplier="0.5" id="oUY-Rf-M7w"/>
+                                    <constraint firstItem="Ugn-U5-flj" firstAttribute="centerX" secondItem="lx4-Jm-oGy" secondAttribute="centerX" id="ohJ-pR-bUn"/>
+                                    <constraint firstItem="Ugn-U5-flj" firstAttribute="width" secondItem="lx4-Jm-oGy" secondAttribute="width" id="r8w-uM-riT"/>
+                                    <constraint firstItem="j64-oT-IQH" firstAttribute="width" secondItem="lx4-Jm-oGy" secondAttribute="width" id="sBA-uu-heW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Ugn-U5-flj" firstAttribute="trailing" secondItem="Laj-G4-AnJ" secondAttribute="trailing" id="0bR-nq-rnt"/>
                             <constraint firstItem="Ihk-R6-E0a" firstAttribute="firstBaseline" secondItem="Sfv-gQ-ccB" secondAttribute="firstBaseline" constant="-5" id="0lM-SS-Th6"/>
                             <constraint firstItem="Cty-iL-ccR" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ihk-R6-E0a" secondAttribute="trailing" symbolic="YES" id="1sV-XQ-SSU"/>
                             <constraint firstItem="Sfv-gQ-ccB" firstAttribute="height" secondItem="Orw-vb-yma" secondAttribute="height" multiplier="0.88" id="36M-wb-wjJ"/>
                             <constraint firstItem="Sfv-gQ-ccB" firstAttribute="leading" secondItem="Cty-iL-ccR" secondAttribute="leading" id="36q-bh-MLl"/>
+                            <constraint firstItem="lx4-Jm-oGy" firstAttribute="top" secondItem="Cty-iL-ccR" secondAttribute="top" id="4UL-Mg-HiL"/>
                             <constraint firstItem="Laj-G4-AnJ" firstAttribute="leading" secondItem="Cty-iL-ccR" secondAttribute="leading" constant="20" id="8Uu-mP-5hE"/>
                             <constraint firstItem="Laj-G4-AnJ" firstAttribute="height" secondItem="Orw-vb-yma" secondAttribute="height" id="9dy-Mx-Zee"/>
                             <constraint firstItem="Orw-vb-yma" firstAttribute="height" secondItem="Cty-iL-ccR" secondAttribute="height" multiplier="0.33" id="Acz-RB-i0h"/>
@@ -338,17 +373,17 @@
                             <constraint firstItem="1WV-M6-5et" firstAttribute="centerY" secondItem="U3K-B8-nk9" secondAttribute="centerY" id="He3-k3-ffN"/>
                             <constraint firstItem="Laj-G4-AnJ" firstAttribute="top" secondItem="Orw-vb-yma" secondAttribute="bottom" constant="16" id="I9a-75-oID"/>
                             <constraint firstItem="Ihk-R6-E0a" firstAttribute="leading" secondItem="3T3-Pu-xrA" secondAttribute="leading" id="IMn-fJ-HwM"/>
+                            <constraint firstItem="Cty-iL-ccR" firstAttribute="trailing" secondItem="lx4-Jm-oGy" secondAttribute="trailing" id="JBI-VS-CV0"/>
                             <constraint firstItem="Sfv-gQ-ccB" firstAttribute="top" secondItem="3T3-Pu-xrA" secondAttribute="bottom" constant="63.5" id="bn6-Y2-Jer"/>
-                            <constraint firstItem="Ugn-U5-flj" firstAttribute="width" secondItem="Orw-vb-yma" secondAttribute="width" multiplier="0.25" id="cqW-lJ-aL6"/>
                             <constraint firstItem="Sfv-gQ-ccB" firstAttribute="trailing" secondItem="Cty-iL-ccR" secondAttribute="trailing" id="ct2-GV-1QD"/>
                             <constraint firstItem="Laj-G4-AnJ" firstAttribute="trailing" secondItem="Cty-iL-ccR" secondAttribute="trailing" constant="-20" id="dFf-yh-QYA"/>
-                            <constraint firstItem="Ugn-U5-flj" firstAttribute="height" secondItem="Orw-vb-yma" secondAttribute="height" multiplier="0.25" id="jmb-XD-82x"/>
+                            <constraint firstItem="lx4-Jm-oGy" firstAttribute="width" secondItem="Cty-iL-ccR" secondAttribute="width" multiplier="0.5" id="hvZ-lb-OoN"/>
                             <constraint firstItem="Cty-iL-ccR" firstAttribute="bottom" secondItem="Sfv-gQ-ccB" secondAttribute="bottom" priority="250" id="m5c-Os-mAz"/>
                             <constraint firstItem="YHy-4F-Buo" firstAttribute="centerX" secondItem="Cty-iL-ccR" secondAttribute="centerX" id="oW6-F3-qhR"/>
                             <constraint firstAttribute="trailing" secondItem="1WV-M6-5et" secondAttribute="trailing" id="p40-s6-nba"/>
                             <constraint firstItem="Orw-vb-yma" firstAttribute="top" secondItem="Cty-iL-ccR" secondAttribute="top" id="qCY-lT-Pyb"/>
-                            <constraint firstItem="Ugn-U5-flj" firstAttribute="centerY" secondItem="Orw-vb-yma" secondAttribute="centerY" multiplier="1.5" id="u6u-x6-88D"/>
                             <constraint firstItem="1WV-M6-5et" firstAttribute="height" secondItem="U3K-B8-nk9" secondAttribute="height" id="ua6-fN-7Ee"/>
+                            <constraint firstItem="lx4-Jm-oGy" firstAttribute="height" secondItem="Cty-iL-ccR" secondAttribute="height" multiplier="0.2" id="wAB-Vc-2ky"/>
                             <constraint firstItem="1WV-M6-5et" firstAttribute="centerX" secondItem="U3K-B8-nk9" secondAttribute="centerX" id="xjX-5u-pBU"/>
                             <constraint firstItem="Laj-G4-AnJ" firstAttribute="centerX" secondItem="Cty-iL-ccR" secondAttribute="centerX" id="y4m-Ja-dKD"/>
                             <constraint firstItem="ctr-RP-tV0" firstAttribute="width" secondItem="Laj-G4-AnJ" secondAttribute="width" id="yPX-lj-EJZ"/>
@@ -356,16 +391,24 @@
                         <viewLayoutGuide key="safeArea" id="Cty-iL-ccR"/>
                     </view>
                     <navigationItem key="navigationItem" id="TcT-O5-eHk">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="ly8-iN-vXJ"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="line.horizontal.3" catalog="system" id="ly8-iN-vXJ">
+                            <connections>
+                                <action selector="displayOptions:" destination="iU8-vQ-Uxl" id="GyA-FH-1yD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="averageMPGLabel" destination="3aT-Fk-VLO" id="caO-55-DyP"/>
                         <outlet property="carImageView" destination="Orw-vb-yma" id="XHs-mS-RBb"/>
                         <outlet property="carNameLabel" destination="NGR-I8-nWy" id="VgE-yu-aAu"/>
                         <outlet property="lifetimeMilesLabel" destination="Xp9-fH-7F8" id="6Hw-8f-xB3"/>
+                        <outlet property="optionView" destination="lx4-Jm-oGy" id="EiF-pq-uIu"/>
+                        <outlet property="reviewIntroButton" destination="j64-oT-IQH" id="Qf4-62-G7w"/>
                         <outlet property="scheduledMaintenanceTableView" destination="Sfv-gQ-ccB" id="1mF-Cx-7N9"/>
                         <outlet property="thisTankLabel" destination="m9I-wn-UBz" id="HkN-Ld-UhA"/>
-                        <segue destination="0su-ek-GNY" kind="show" identifier="toOnboardingVC" id="Yn1-xH-24G"/>
+
+                        <outlet property="updatePhotoButtton" destination="Ugn-U5-flj" id="zUC-dp-hp6"/>
+
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pwi-tC-1zd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -405,6 +448,7 @@
     <resources>
         <image name="car" width="112.5" height="112.5"/>
         <image name="homeDeselected" width="64" height="64"/>
+        <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
         <namedColor name="autoGreen">
             <color red="0.29800000786781311" green="0.85000002384185791" blue="0.38999998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
