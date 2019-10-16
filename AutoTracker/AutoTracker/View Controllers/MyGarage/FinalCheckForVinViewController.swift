@@ -77,8 +77,7 @@ class FinalCheckForVinViewController: UIViewController {
         self.present(alert, animated: true)
     }
     func popViewAndSaveCar(){
-        guard let carJson = car,
-        let vin = vin
+        guard let carJson = car
         else {return}
         guard let name = nicknameTextField.text,
             let owner = ownerTextField.text
@@ -88,7 +87,7 @@ class FinalCheckForVinViewController: UIViewController {
         let year = carJson.year
         let engine  = carJson.engine
         let odometer = odometerResults()
-        CarController.shared.addACar(name: name, make: make, model: model, year: year, vin: vin, engine: engine, ownerName: owner, odometer: Double(odometer), photoData: nil)
+        let _ = CarController.shared.addACar(name: name, make: make, model: model, year: year, engine: engine, ownerName: owner, odometer: Double(odometer))
         navigationController?.popToRootViewController(animated: true)
     }
     

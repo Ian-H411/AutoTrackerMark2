@@ -57,6 +57,7 @@ extension VINViewController: UITextFieldDelegate {
 //    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
         if let vin = vinTextField.text,
             let year = yearTextField.text {
         carParts.vin = vin
@@ -68,6 +69,7 @@ extension VINViewController: UITextFieldDelegate {
                 }
             }
         }
+
         return true
     }
 }

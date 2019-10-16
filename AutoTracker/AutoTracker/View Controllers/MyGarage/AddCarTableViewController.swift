@@ -14,7 +14,7 @@ protocol Alerts: class {
 }
 
 class AddCarTableViewController: UITableViewController {
-
+    
     // MARK: - OUTLETS
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var ownerTextField: UITextField!
@@ -22,12 +22,21 @@ class AddCarTableViewController: UITableViewController {
     @IBOutlet weak var modelTextField: UITextField!
     @IBOutlet weak var engineTextField: UITextField!
     @IBOutlet weak var yearTextField: UITextField!
-    @IBOutlet weak var vinTextField: UITextField!
+    
     @IBOutlet weak var odometerPicker: UIPickerView!
     
-
+    @IBOutlet weak var photoButton: AutoTrackerButtonWhiteBG!
+    
+    @IBOutlet weak var carImage: UIImageView!
+    
+    
     // MARK: - PROPERTIES
     var odometer = ["0","1","2","3","4","5","6","7","8","9"]
+    
+    var carToEdit: Car?
+    
+    var isInEditMode: Bool = false
+    
     
     // MARK: - LIFECYCLE
     
@@ -37,10 +46,12 @@ class AddCarTableViewController: UITableViewController {
         yearTextField.delegate = self
         odometerPicker.delegate = self
         odometerPicker.dataSource = self
+        initialSetUp()
     }
-
+    
     // MARK: - ACTIONS
     @IBAction func saveButtonTapped(_ sender: Any) {
+        
         guard let name = nameTextField.text,
             !name.isEmpty,
             let owner = ownerTextField.text,
@@ -52,18 +63,8 @@ class AddCarTableViewController: UITableViewController {
             let year = yearTextField.text,
             !year.isEmpty,
             let engine = engineTextField.text,
-            !engine.isEmpty,
-            let vin = vinTextField.text,
-            !vin.isEmpty
+            !engine.isEmpty
             else { return }
-        
-        let cleanVIN = cleanVin(vin: vin)
-        
-        if cleanVIN.contains("I") || cleanVIN.contains("O") || cleanVIN.count < 11 && cleanVIN.count > 17 {
-            notAVINAlert()
-            vinTextField.text = ""
-            return
-        }
         
         if year.count != 4 {
             notAValidYear()
@@ -72,10 +73,34 @@ class AddCarTableViewController: UITableViewController {
         }
         
         let odometer = odometerResults()
+        if isInEditMode{
+            guard let car = carToEdit else {return}
+            CarController.shared.carupdate(name: name, make: make, model: model, year: year, engine: engine, ownerName: owner, car: car)
+            if let image = carImage.image {
+                CarController.shared.updatePhoto(car: car, photo: image) { (_) in
+                }
+            }
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+            return
+        }
+        let car = CarController.shared.addACar(name: name, make: make, model: model, year: year, engine: engine, ownerName: owner, odometer: Double(odometer))
+        if let image = carImage.image {
+            CarController.shared.updatePhoto(car: car, photo: image) { (_) in
+            }
+        }
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+        }
         
-        CarController.shared.addACar(name: name, make: make, model: model, year: year, vin: cleanVIN, engine: engine, ownerName: owner, odometer: Double(odometer), photoData: nil)
-        navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func photoButtonTapped(_ sender: Any) {
+        presentActionSheet()
+    }
+    
+    
     
     
     // MARK: - Functions
@@ -117,57 +142,86 @@ class AddCarTableViewController: UITableViewController {
         return odometer
     }
     
-    // MARK: - Table view data source
-
-
-
+    func initialSetUp() {
+        if let car = carToEdit {
+            nameTextField.text = car.name
+            ownerTextField.text = car.ownerName
+            makeTextField.text = car.make
+            modelTextField.text = car.model
+            engineTextField.text = car.engine
+            isInEditMode = true
+            yearTextField.text = car.year
+            setPickerViewToCarValue()
+            if let photo = car.photo{
+                carImage.image = photo
+                photoButton.setTitle("", for: .normal)
+            } else {
+                photoButton.setTitle("Tap to add a photo", for: .normal)
+            }
+        } else {
+            photoButton.setTitle("Tap to add a photo", for: .normal)
+        }
+        
+    }
+    func setPickerViewToCarValue(){
+           guard let car = CarController.shared.selectedCar else {return}
+           var odomenterAsStringArray = Array("\(Int(car.odometer))")
+           print(odomenterAsStringArray)
+           while odomenterAsStringArray.count < 7 {
+               odomenterAsStringArray.insert("0", at: 0)
+           }
+           print(odomenterAsStringArray)
+           UIView.animate(withDuration: 2) {
+               self.odometerPicker.selectRow(Int(String(odomenterAsStringArray[0])) ?? 0, inComponent: 0, animated: true)
+               self.odometerPicker.selectRow(Int(String(odomenterAsStringArray[1])) ?? 0, inComponent: 1, animated:  true)
+               self.odometerPicker.selectRow(Int(String(odomenterAsStringArray[2])) ?? 0, inComponent: 2, animated: true)
+               self.odometerPicker.selectRow(Int(String(odomenterAsStringArray[3])) ?? 0, inComponent: 3, animated: true)
+               self.odometerPicker.selectRow(Int(String(odomenterAsStringArray[4])) ?? 0, inComponent: 4, animated: true)
+               self.odometerPicker.selectRow(Int(String(odomenterAsStringArray[5])) ?? 0, inComponent: 5, animated: true)
+               self.odometerPicker.selectRow(Int(String(odomenterAsStringArray[6])) ?? 0, inComponent: 6, animated: true)
+           }
+           
+       }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func camera(){
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            let myPickerController = UIImagePickerController()
+            myPickerController.delegate = self
+            myPickerController.sourceType = .camera
+            self.present(myPickerController, animated: true , completion: nil)
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func photoLibrary() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            let mypickerController = UIImagePickerController()
+            mypickerController.delegate = self
+            mypickerController.sourceType = .photoLibrary
+            self.present(mypickerController, animated: true, completion: nil)
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    func presentActionSheet(){
+        let actionSheet = UIAlertController(title: "Import Receipt Photo", message: nil, preferredStyle: .actionSheet)
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            let cameraButton = UIAlertAction(title: "Import With Camera", style: .default) { (_) in
+                self.camera()
+            }
+            actionSheet.addAction(cameraButton)
+        }
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            let photoLibrary = UIAlertAction(title: "Import From Photo Library", style: .default) { (_) in
+                self.photoLibrary()
+            }
+            actionSheet.addAction(photoLibrary)
+        }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        actionSheet.addAction(cancelButton)
+        self.present(actionSheet, animated: true, completion: nil)
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
+    
 }
 
 extension AddCarTableViewController: UITextFieldDelegate {
@@ -205,4 +259,24 @@ extension AddCarTableViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         return String(row)
     }
     
+}
+extension AddCarTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage{
+            carImage.image = image
+            photoButton.setTitle("", for: .normal)
+            tableView.reloadData()
+        } else {
+            print("Something went wrong")
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
 }

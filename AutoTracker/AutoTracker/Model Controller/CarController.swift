@@ -46,45 +46,33 @@ class CarController{
     //MARK: -CRUD
     
     //Create a car
-    func addACar(name:String, make:String, model:String, year:String, vin:String, engine:String, ownerName:String,odometer:Double, photoData: Data?) {
-        let newCar = Car(name: name, make: make, model: model, year: year, vin: vin, engine: engine, ownerName: ownerName, odometer: odometer, photoData: photoData)
+    func addACar(name:String, make:String, model:String, year:String, engine:String, ownerName:String,odometer:Double) -> Car{
+        let newCar = Car(name: name, make: make, model: model, year: year, engine: engine, ownerName: ownerName, odometer: odometer, photoData: nil)
         garage?.append(newCar)
         saveChangesToPersistentStoreOnly()
+        return newCar
     }
     
-    func onboardACar(name: String, vin: String, odometer: Double, photoData: Data?) {
-       let newCar = Car(name: name, vin: vin, odometer: odometer, photoData: photoData)
+    func onboardACar(name: String, odometer: Double, photoData: Data?) {
+       let newCar = Car(name: name, odometer: odometer, photoData: photoData)
         garage?.append(newCar)
         selectedCar = newCar
         saveChangesToPersistentStoreOnly()
     }
     
     //update car
-    func carupdate(name:String, make:String, model:String, year:String, vin:String, engine:String, ownerName:String, car:Car){
+    func carupdate(name:String, make:String, model:String, year:String, engine:String, ownerName:String, car:Car){
         
         //update details
         car.name = name
         car.make = make
         car.model = model
         car.year = year
-        car.vin = vin
         car.engine = engine
         car.ownerName = ownerName
         
-        //save changes
         saveChangesToPersistentStoreOnly()
-        //
-        //        //create a record of the modified car
-        //        guard let modifiedCar = CKRecord(car: car) else {return}
-        //
-        //        //create my operation
-        //        let operation = CKModifyRecordsOperation(recordsToSave: [modifiedCar], recordIDsToDelete: nil)
-        //        operation.savePolicy = .changedKeys
-        //        operation.qualityOfService = .userInitiated
-        
-        //perform my cloudpush
-        //        privateDB.add(operation)
-        
+       
     }
     
     func updateOdometer(car: Car, odometer: Double, completion: @escaping (Bool) -> Void) {
