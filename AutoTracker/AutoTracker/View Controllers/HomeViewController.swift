@@ -13,9 +13,10 @@ class HomeViewController: UIViewController {
     // MARK: - OUTLETS
     
     @IBOutlet weak var carImageView: UIImageView!
-    @IBOutlet weak var carNameLabel: UILabel!
+
     @IBOutlet weak var averageMPGLabel: UILabel!
     @IBOutlet weak var lifetimeMilesLabel: UILabel!
+    @IBOutlet weak var updateOdometerLabel: AutoTrackerGreenLabel!
     @IBOutlet weak var thisTankLabel: UILabel!
     
     @IBOutlet weak var scheduledMaintenanceTableView: UITableView!
@@ -73,6 +74,18 @@ class HomeViewController: UIViewController {
     @IBAction func displayOptions(_ sender: Any) {
         toggleOptions()
     }
+    @IBAction func recordGasButtonTapped(_ sender: Any) {
+        
+////        if !(myCar?.odometer != nil) {
+//        let window = UIWindow(frame: UIScreen.main.bounds)
+//            let storyBoard = UIStoryboard(name: "Record", bundle: nil)
+//            let entryVC = storyBoard.instantiateViewController(identifier: "receiptEntryVC")
+//            window.rootViewController = entryVC
+//
+//            window.makeKeyAndVisible()
+//
+////        }
+    }
     
     
     // MARK: - FUNCTIONS
@@ -81,8 +94,10 @@ class HomeViewController: UIViewController {
         guard let myCar = myCar else { return }
         
         carImageView.image = myCar.photo ?? UIImage(named: "car")
-        carNameLabel.text = myCar.name ?? "Car Name"
-        //        lifetimeMilesLabel.text = String(describing: myCar.odometer)
+        self.navigationItem.title = myCar.name ?? "Car Name"
+//                lifetimeMilesLabel.text = String(describing: myCar.odometer)
+        updateOdometerLabel.text = String(describing: myCar.odometer)
+        
         lifetimeMilesLabel.layer.cornerRadius = 8
         averageMPGLabel.layer.cornerRadius = 8
         thisTankLabel.layer.cornerRadius = 8

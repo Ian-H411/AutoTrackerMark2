@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="csq-6I-Yn9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="csq-6I-Yn9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -22,30 +22,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="Orw-vb-yma">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="Orw-vb-yma">
                                 <rect key="frame" x="0.0" y="88" width="414" height="255.5"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Laj-G4-AnJ">
-                                <rect key="frame" x="20" y="359.5" width="374" height="255.5"/>
+                                <rect key="frame" x="20" y="359.5" width="374" height="147"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="bYg-Qf-8c9">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="255.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="147"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Car Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGR-I8-nWy" customClass="AutoTrackerGreenBorderLabel" customModule="AutoTracker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="72.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3m3-Jj-fuY">
-                                                <rect key="frame" x="0.0" y="91.5" width="374" height="72.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="64"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="246" translatesAutoresizingMaskIntoConstraints="NO" id="U3K-B8-nk9">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="72.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="64"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YHy-4F-Buo">
-                                                                <rect key="frame" x="-18.5" y="-16" width="411" height="104"/>
+                                                                <rect key="frame" x="-18.5" y="-20" width="411" height="104"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="d98-wC-a1W">
                                                                         <rect key="frame" x="0.0" y="0.0" width="137" height="104"/>
@@ -126,42 +120,41 @@
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3T3-Pu-xrA" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="183" width="374" height="72.5"/>
+                                                <rect key="frame" x="0.0" y="83" width="374" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="64" id="RlY-z0-LhF"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="Record Gas Fill Up">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="recordGasButtonTapped:" destination="iU8-vQ-Uxl" eventType="touchUpInside" id="6jy-yt-ZS6"/>
+                                                </connections>
                                             </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="NGR-I8-nWy" firstAttribute="width" secondItem="bYg-Qf-8c9" secondAttribute="width" id="qXW-S3-CoG"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WV-M6-5et">
-                                <rect key="frame" x="0.0" y="451" width="414" height="72.5"/>
+                                <rect key="frame" x="0.0" y="359.5" width="414" height="64"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ctr-RP-tV0">
-
-                                        <rect key="frame" x="199" y="-16" width="16" height="104"/>
+                                        <rect key="frame" x="188.5" y="-20" width="37" height="104"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="-4" id="jeh-6e-653">
-                                                <rect key="frame" x="0.0" y="33.5" width="7" height="37"/>
+                                                <rect key="frame" x="0.0" y="33.5" width="63" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lifetime miles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xp9-fH-7F8" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="7" height="20.5"/>
-
+                                                        <rect key="frame" x="0.0" y="0.0" width="63" height="20.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="buA-SC-BHn" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
-
-                                                        <rect key="frame" x="0.0" y="16.5" width="7" height="20.5"/>
-
+                                                        <rect key="frame" x="3.5" y="16.5" width="56.5" height="20.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -171,22 +164,18 @@
                                                 <viewLayoutGuide key="safeArea" id="VOl-kX-G2q"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="-4" id="DEK-Wk-Bgx">
-
-                                                <rect key="frame" x="15" y="33.5" width="7" height="37"/>
+                                                <rect key="frame" x="71" y="33.5" width="63" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average MPG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ivs-Mu-LtZ" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="7" height="20.5"/>
-
+                                                        <rect key="frame" x="0.0" y="0.0" width="63" height="20.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 MPG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3aT-Fk-VLO" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
-
-                                                        <rect key="frame" x="0.0" y="16.5" width="7" height="20.5"/>
-
+                                                        <rect key="frame" x="0.5" y="16.5" width="62" height="20.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -196,22 +185,18 @@
                                                 <viewLayoutGuide key="safeArea" id="JHm-QT-NTP"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="-4" id="rcf-S7-OIg">
-
-                                                <rect key="frame" x="30" y="33.5" width="7" height="37"/>
+                                                <rect key="frame" x="142" y="33.5" width="63" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Tank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Rl-bk-ffD" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="7" height="20.5"/>
-
+                                                        <rect key="frame" x="0.0" y="0.0" width="63" height="20.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="321 Left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="m9I-wn-UBz" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
-
-                                                        <rect key="frame" x="0.0" y="16.5" width="7" height="20.5"/>
-
+                                                        <rect key="frame" x="0.5" y="16.5" width="62" height="20.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -230,13 +215,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scheduled Maintenance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihk-R6-E0a" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="657.5" width="184.5" height="20.5"/>
+                                <rect key="frame" x="20" y="549" width="184.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sfv-gQ-ccB">
-                                <rect key="frame" x="0.0" y="678.5" width="414" height="224.5"/>
+                                <rect key="frame" x="0.0" y="570" width="414" height="224.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="maintenanceCell" rowHeight="70" id="16W-Vp-sYs" customClass="MaintenanceTableViewCell" customModule="AutoTracker" customModuleProvider="target">
@@ -342,6 +327,9 @@
                                         <state key="normal" title="Review Intro">
                                             <color key="titleColor" name="autoGreen"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="0su-ek-GNY" kind="presentation" modalPresentationStyle="fullScreen" id="r16-bW-qpg"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -365,7 +353,6 @@
                             <constraint firstItem="Sfv-gQ-ccB" firstAttribute="leading" secondItem="Cty-iL-ccR" secondAttribute="leading" id="36q-bh-MLl"/>
                             <constraint firstItem="lx4-Jm-oGy" firstAttribute="top" secondItem="Cty-iL-ccR" secondAttribute="top" id="4UL-Mg-HiL"/>
                             <constraint firstItem="Laj-G4-AnJ" firstAttribute="leading" secondItem="Cty-iL-ccR" secondAttribute="leading" constant="20" id="8Uu-mP-5hE"/>
-                            <constraint firstItem="Laj-G4-AnJ" firstAttribute="height" secondItem="Orw-vb-yma" secondAttribute="height" id="9dy-Mx-Zee"/>
                             <constraint firstItem="Orw-vb-yma" firstAttribute="height" secondItem="Cty-iL-ccR" secondAttribute="height" multiplier="0.33" id="Acz-RB-i0h"/>
                             <constraint firstItem="ctr-RP-tV0" firstAttribute="height" secondItem="YHy-4F-Buo" secondAttribute="height" id="DCu-XJ-Whw"/>
                             <constraint firstItem="Orw-vb-yma" firstAttribute="centerX" secondItem="Laj-G4-AnJ" secondAttribute="centerX" id="Fir-ss-gNF"/>
@@ -400,15 +387,13 @@
                     <connections>
                         <outlet property="averageMPGLabel" destination="3aT-Fk-VLO" id="caO-55-DyP"/>
                         <outlet property="carImageView" destination="Orw-vb-yma" id="XHs-mS-RBb"/>
-                        <outlet property="carNameLabel" destination="NGR-I8-nWy" id="VgE-yu-aAu"/>
                         <outlet property="lifetimeMilesLabel" destination="Xp9-fH-7F8" id="6Hw-8f-xB3"/>
                         <outlet property="optionView" destination="lx4-Jm-oGy" id="EiF-pq-uIu"/>
                         <outlet property="reviewIntroButton" destination="j64-oT-IQH" id="Qf4-62-G7w"/>
                         <outlet property="scheduledMaintenanceTableView" destination="Sfv-gQ-ccB" id="1mF-Cx-7N9"/>
                         <outlet property="thisTankLabel" destination="m9I-wn-UBz" id="HkN-Ld-UhA"/>
-
+                        <outlet property="updateOdometerLabel" destination="buA-SC-BHn" id="utY-Pw-VuF"/>
                         <outlet property="updatePhotoButtton" destination="Ugn-U5-flj" id="zUC-dp-hp6"/>
-
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pwi-tC-1zd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -423,7 +408,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TcO-MJ-5c4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1356" y="192"/>
+            <point key="canvasLocation" x="1346" y="-48"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ygL-l7-lph">

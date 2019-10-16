@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0pw-oB-O4G">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0pw-oB-O4G">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,6 +42,9 @@
                                 <state key="normal" title="History">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="hpS-B5-Ts2" kind="show" identifier="toMaintainVC" id="EWz-td-U7E"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -61,10 +64,20 @@
             </objects>
             <point key="canvasLocation" x="679.71014492753625" y="-532.36607142857144"/>
         </scene>
+        <!--Maintain-->
+        <scene sceneID="BwQ-nl-5pq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Maintain" id="hpS-B5-Ts2" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Yr1-Xw-bK9"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2km-P6-5YK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="680" y="-126"/>
+        </scene>
         <!--Receipt Entry View Controller-->
         <scene sceneID="HKI-ln-Ldk">
             <objects>
-                <viewController id="zh6-M5-qE9" customClass="ReceiptEntryViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="receiptEntryVC" id="zh6-M5-qE9" customClass="ReceiptEntryViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uo7-Bk-lsK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

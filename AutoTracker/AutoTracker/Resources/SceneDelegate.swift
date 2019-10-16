@@ -12,21 +12,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    func launchedBefore() -> Bool {
-    let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        return launchedBefore
-    }
-    
-    func isAppAlreadyLaunchedOnce()->Bool{
+    func isAppAlreadyLaunchedOnce() -> Bool {
         let defaults = UserDefaults.standard
-        if let _ = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
-            print("App already launched")
-            return true
-        }else{
-            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
-            print("App launched first time")
-            return false
-        }
+        return defaults.bool(forKey: "isAppAlreadyLaunchedOnce")
     }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -39,7 +27,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             } else {
                 let onboardingVC = UIStoryboard(name: "Onboarding", bundle: nil).instantiateInitialViewController()
                 window.rootViewController = onboardingVC
-                
             }
             self.window = window
             window.makeKeyAndVisible()
