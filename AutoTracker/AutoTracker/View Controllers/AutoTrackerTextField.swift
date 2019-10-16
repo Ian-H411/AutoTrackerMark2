@@ -9,16 +9,15 @@
 import UIKit
 
 class AutoTrackerTextField: UITextField {
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         addBorderAndBG()
     }
-    
     func addBorderAndBG() {
         self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.black.cgColor
-//        self.borderStyle = .roundedRect // ?
-        self.backgroundColor = UIColor.lightGray
+        self.layer.cornerRadius = 10
+        self.layer.borderColor = UIColor.autoGreen.cgColor
+        self.backgroundColor = UIColor.clear
+        self.layer.masksToBounds = true
     }
 }

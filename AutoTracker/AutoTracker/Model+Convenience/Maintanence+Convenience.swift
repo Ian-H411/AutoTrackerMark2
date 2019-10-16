@@ -12,7 +12,7 @@ import CloudKit
 
 extension Maintanence {
     
-    convenience init(duedate: Date?, maintanenceRequiered:String, details: String, car:Car, context: NSManagedObjectContext = CoreDataStack.context){
+    convenience init(duedate: Date?, maintanenceRequiered:String, details: String, car:Car, price:String, context: NSManagedObjectContext = CoreDataStack.context){
         self.init(context:context)
         
         self.dueOn = duedate
@@ -23,6 +23,27 @@ extension Maintanence {
         
         self.car = car
         
+        self.price = price
+        
+        self.odometerStamp  = car.odometer
+        
+        self.isComplete = true
+        
+        self.isReceipt = false
+        
+        self.uuid = UUID().uuidString
+        
+    }
+    
+    // Receipt Initializer
+    convenience init(car: Car, price: String, odometerStamp: Double, details: String, isReceipt: Bool, context: NSManagedObjectContext = CoreDataStack.context) {
+        self.init(context: context)
+        
+        self.car = car
+        self.price = price
+        self.odometerStamp = odometerStamp
+        self.details = details
+        self.isReceipt = isReceipt
     }
     
 }

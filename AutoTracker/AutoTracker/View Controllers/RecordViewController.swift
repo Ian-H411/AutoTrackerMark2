@@ -10,21 +10,49 @@ import UIKit
 
 class RecordViewController: UIViewController {
 
+    // MARK: - PROPERTIES
+//    var enteredGasEntry: Bool = false
+    
+    // MARK: - LIFECYCLE
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(true)
+//        if enteredGasEntry == true {
+//
+//            backHome()
+//            enteredGasEntry = false
+//        }
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if CarController.shared.selectedCar == nil {
+            enterCarAlert()
+        }
+    }
+    
+    @IBAction func enterGasButtonTapped(_ sender: Any) {
+//        enteredGasEntry = true
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - FUNCTIONS
+    
+    func enterCarAlert() {
+        let alertController = UIAlertController(title: "Enter a car before updating its miles", message: nil, preferredStyle:  .alert)
+        let action = UIAlertAction(title: "Okay", style: .default)
+        alertController.addAction(action)
+        present(alertController, animated: true)
     }
-    */
+    
+    
+    func backHome()
+    {
+            
+        guard let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "mainVC") as? CustomTabBarController else { return }
+        homeVC.modalPresentationStyle = .fullScreen
+        self.present(homeVC, animated: true)
+
+    }
 
 }
