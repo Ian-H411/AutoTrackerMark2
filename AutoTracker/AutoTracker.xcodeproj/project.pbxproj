@@ -10,6 +10,8 @@
 		2540E9B02350F89300CC3D83 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2540E9AF2350F89300CC3D83 /* DeviceInfo.swift */; };
 		2558F34D235508D300BDF2DC /* MaintenanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2558F34C235508D300BDF2DC /* MaintenanceTableViewCell.swift */; };
 		2558F34F2355265400BDF2DC /* UpdateOdometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2558F34E2355265400BDF2DC /* UpdateOdometerViewController.swift */; };
+		2558F3512356B02800BDF2DC /* AddMaintenanceTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2558F3502356B02800BDF2DC /* AddMaintenanceTextViewController.swift */; };
+		2558F3532356BF1C00BDF2DC /* AddMaintenancePicAndPriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2558F3522356BF1C00BDF2DC /* AddMaintenancePicAndPriceViewController.swift */; };
 		2568108F2347A7A800629AEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568108E2347A7A800629AEA /* AppDelegate.swift */; };
 		256810912347A7A800629AEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810902347A7A800629AEA /* SceneDelegate.swift */; };
 		256810962347A7A800629AEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 256810942347A7A800629AEA /* Main.storyboard */; };
@@ -68,6 +70,8 @@
 		2540E9AF2350F89300CC3D83 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		2558F34C235508D300BDF2DC /* MaintenanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceTableViewCell.swift; sourceTree = "<group>"; };
 		2558F34E2355265400BDF2DC /* UpdateOdometerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateOdometerViewController.swift; sourceTree = "<group>"; };
+		2558F3502356B02800BDF2DC /* AddMaintenanceTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenanceTextViewController.swift; sourceTree = "<group>"; };
+		2558F3522356BF1C00BDF2DC /* AddMaintenancePicAndPriceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenancePicAndPriceViewController.swift; sourceTree = "<group>"; };
 		2568108B2347A7A800629AEA /* AutoTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2568108E2347A7A800629AEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		256810902347A7A800629AEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -286,6 +290,8 @@
 				256810CF234BDF0800629AEA /* MaintanenceDetailTableViewController.swift */,
 				2558F34C235508D300BDF2DC /* MaintenanceTableViewCell.swift */,
 				2558F34E2355265400BDF2DC /* UpdateOdometerViewController.swift */,
+				2558F3502356B02800BDF2DC /* AddMaintenanceTextViewController.swift */,
+				2558F3522356BF1C00BDF2DC /* AddMaintenancePicAndPriceViewController.swift */,
 			);
 			path = Maintenance;
 			sourceTree = "<group>";
@@ -417,6 +423,7 @@
 				256810D6234BED2800629AEA /* AddMaintenanceTableViewController.swift in Sources */,
 				256810B12347AA6300629AEA /* Receipt+Convenience.swift in Sources */,
 				2558F34D235508D300BDF2DC /* MaintenanceTableViewCell.swift in Sources */,
+				2558F3532356BF1C00BDF2DC /* AddMaintenancePicAndPriceViewController.swift in Sources */,
 				42A32337234BB7FF00B130A0 /* OdometerViewController.swift in Sources */,
 				256810992347A7A800629AEA /* AutoTracker.xcdatamodeld in Sources */,
 				42A32331234B965800B130A0 /* HomeViewController.swift in Sources */,
@@ -441,6 +448,7 @@
 				42E0E982234D04EB00A2ADD5 /* AddReceiptTableViewController.swift in Sources */,
 				256810BB2347D77200629AEA /* CarJsonCompliance.swift in Sources */,
 				42A3233F234BEBF300B130A0 /* ReceiptHistoryViewController.swift in Sources */,
+				2558F3512356B02800BDF2DC /* AddMaintenanceTextViewController.swift in Sources */,
 				256810D4234BE77800629AEA /* TextFieldStyle.swift in Sources */,
 				256810912347A7A800629AEA /* SceneDelegate.swift in Sources */,
 				423925322347D72500EABF16 /* StyleGuide.swift in Sources */,
