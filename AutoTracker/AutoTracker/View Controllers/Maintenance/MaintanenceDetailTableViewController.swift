@@ -104,10 +104,10 @@ class MaintanenceDetailTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "edit"{
-            if let destinationVC = segue.destination as? AddMaintenanceTableViewController{
+            if let destinationVC = segue.destination as? EditMaintenaneViewController{
                 if let index = tableView.indexPathForSelectedRow {
                     let main = dataSource[index.row]
-                    destinationVC.maintenance = main
+                    destinationVC.selectedMaintenance = main
                 }
             }
         } else if segue.identifier == "updateodo" {

@@ -263,76 +263,144 @@
             </objects>
             <point key="canvasLocation" x="558" y="807"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Maintenane View Controller-->
         <scene sceneID="qhW-0A-8eX">
             <objects>
-                <viewController id="3sN-yl-SSe" sceneMemberID="viewController">
+                <viewController id="3sN-yl-SSe" customClass="EditMaintenaneViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GGN-yW-FES">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="jTG-Pr-Dma">
-                                <rect key="frame" x="20" y="398" width="352" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
-                                    <!--1970-01-01 11:00:00 +0000-->
-                                </date>
-                                <date key="maximumDate" timeIntervalSinceReferenceDate="694177200">
-                                    <!--2022-12-31 11:00:00 +0000-->
-                                </date>
-                            </datePicker>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="W1R-8a-yPo">
-                                <rect key="frame" x="0.0" y="127" width="226" height="264"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="W1D-dY-FOU">
+                                <rect key="frame" x="0.0" y="204" width="414" height="542"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qur-RH-b52">
-                                        <rect key="frame" x="0.0" y="0.0" width="226" height="226"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="qur-RH-b52" secondAttribute="height" multiplier="1:1" id="6fy-un-qdh"/>
-                                        </constraints>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M9U-vf-bLc">
-                                        <rect key="frame" x="0.0" y="234" width="226" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UkH-Or-u0F">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="195.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRs-m4-anj">
-                                                <rect key="frame" x="0.0" y="0.0" width="109" height="30"/>
-                                                <state key="normal" title="Edit Photo"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Om3-yY-aae">
-                                                <rect key="frame" x="117" y="0.0" width="109" height="30"/>
-                                                <state key="normal" title="View FullScreen"/>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="W1R-8a-yPo">
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="195.5"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="qur-RH-b52">
+                                                        <rect key="frame" x="20.5" y="0.0" width="166" height="165.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="qur-RH-b52" secondAttribute="height" multiplier="1:1" id="6fy-un-qdh"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M9U-vf-bLc">
+                                                        <rect key="frame" x="28.5" y="173.5" width="150" height="22"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRs-m4-anj">
+                                                                <rect key="frame" x="0.0" y="0.0" width="71" height="22"/>
+                                                                <state key="normal" title="Edit Photo">
+                                                                    <color key="titleColor" name="autoGreen"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="editPhotoButtonTapped:" destination="3sN-yl-SSe" eventType="touchUpInside" id="Om7-zD-VGb"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Om3-yY-aae">
+                                                                <rect key="frame" x="79" y="0.0" width="71" height="22"/>
+                                                                <color key="tintColor" name="autoGreen"/>
+                                                                <state key="normal" image="photo.on.rectangle" catalog="system"/>
+                                                                <connections>
+                                                                    <segue destination="nh1-QZ-6tG" kind="show" identifier="editphoto" id="MuI-WI-GPq"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="qur-RH-b52" firstAttribute="width" secondItem="W1R-8a-yPo" secondAttribute="width" multiplier="0.8" id="cm8-E6-cdC"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="59" translatesAutoresizingMaskIntoConstraints="NO" id="JJz-Wz-4YY">
+                                                <rect key="frame" x="207" y="27.5" width="207" height="140.5"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p0i-bq-c1T" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="186.5" height="37.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kom-pd-jLj" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="96.5" width="186.5" height="44"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="44" id="bzm-oq-CiZ"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="p0i-bq-c1T" firstAttribute="width" secondItem="JJz-Wz-4YY" secondAttribute="width" multiplier="0.9" id="1ML-X0-zZ5"/>
+                                                    <constraint firstItem="Kom-pd-jLj" firstAttribute="width" secondItem="JJz-Wz-4YY" secondAttribute="width" multiplier="0.9" id="cea-UY-dUM"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="JJz-Wz-4YY" firstAttribute="width" secondItem="W1R-8a-yPo" secondAttribute="width" id="FWl-ZW-h46"/>
+                                        </constraints>
+                                    </stackView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Details" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3iU-YS-SPo" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="20.5" y="211.5" width="373" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="5Me-vR-ODh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="iAR-r2-qha">
+                                        <rect key="frame" x="47" y="347.5" width="320" height="194.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZ3-PY-t1R" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="36" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="SmZ-Uk-bij"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="jTG-Pr-Dma">
+                                                <rect key="frame" x="0.0" y="30" width="320" height="164.5"/>
+                                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                                    <!--1970-01-01 11:00:00 +0000-->
+                                                </date>
+                                                <date key="maximumDate" timeIntervalSinceReferenceDate="694177200">
+                                                    <!--2022-12-31 11:00:00 +0000-->
+                                                </date>
+                                            </datePicker>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="M9U-vf-bLc" firstAttribute="width" secondItem="qur-RH-b52" secondAttribute="width" id="7Ec-rY-8df"/>
+                                    <constraint firstItem="3iU-YS-SPo" firstAttribute="width" secondItem="W1D-dY-FOU" secondAttribute="width" multiplier="0.9" id="U3w-Aa-KvN"/>
+                                    <constraint firstItem="UkH-Or-u0F" firstAttribute="width" secondItem="W1D-dY-FOU" secondAttribute="width" id="ksq-Jk-7CF"/>
                                 </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" alignment="bottom" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="JJz-Wz-4YY">
-                                <rect key="frame" x="283" y="152" width="72.5" height="174"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p0i-bq-c1T">
-                                        <rect key="frame" x="16" y="0.0" width="56.5" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kom-pd-jLj">
-                                        <rect key="frame" x="11.5" y="70" width="61" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Details" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3iU-YS-SPo">
-                                        <rect key="frame" x="0.0" y="140" width="72.5" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="W1D-dY-FOU" firstAttribute="width" secondItem="044-zx-BDg" secondAttribute="width" id="OXB-ua-D4Y"/>
+                            <constraint firstItem="W1D-dY-FOU" firstAttribute="centerY" secondItem="044-zx-BDg" secondAttribute="centerY" id="PDr-tB-2Q5"/>
+                            <constraint firstItem="W1D-dY-FOU" firstAttribute="centerX" secondItem="044-zx-BDg" secondAttribute="centerX" id="rOh-b2-BO3"/>
+                            <constraint firstItem="W1D-dY-FOU" firstAttribute="height" secondItem="044-zx-BDg" secondAttribute="height" multiplier="0.7" id="sfJ-UH-c6l"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="044-zx-BDg"/>
                     </view>
-                    <navigationItem key="navigationItem" id="2ey-eV-xtB"/>
+                    <navigationItem key="navigationItem" id="BIv-CI-rY8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="etf-VV-bOl">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="3sN-yl-SSe" id="7CT-hG-ZuJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="jTG-Pr-Dma" id="Siy-H8-SVY"/>
+                        <outlet property="detailsTextField" destination="3iU-YS-SPo" id="FMu-Ux-3P0"/>
+                        <outlet property="imageView" destination="qur-RH-b52" id="fWc-P3-x7U"/>
+                        <outlet property="priceTextField" destination="Kom-pd-jLj" id="buO-fl-cJo"/>
+                        <outlet property="titleTextField" destination="p0i-bq-c1T" id="g1p-OX-ApU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Iq-fB-SnM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -595,12 +663,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="car" width="112.5" height="112.5"/>
         <image name="maintenanceDeselected" width="32" height="32"/>
+        <image name="photo.on.rectangle" catalog="system" width="64" height="48"/>
         <namedColor name="autoGreen">
             <color red="0.29800000786781311" green="0.85000002384185791" blue="0.38999998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="MuI-WI-GPq"/>
         <segue reference="uQ8-X2-LaN"/>
     </inferredMetricsTieBreakers>
 </document>
