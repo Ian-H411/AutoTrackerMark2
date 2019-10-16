@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -184,12 +185,11 @@
                         <outlet property="maintenanceCostTextField" destination="QEQ-Ex-xbz" id="KV4-zo-DfE"/>
                         <outlet property="maintenanceReceiptPhoto" destination="PAm-Ew-an2" id="q5W-pw-0gs"/>
                         <outlet property="maintenanceTextField" destination="U3e-es-aP8" id="5pA-Ob-lJK"/>
-                        <segue destination="i10-sF-rrp" kind="show" identifier="odometer" id="fHK-6O-L3B"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ctc-xO-OMq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1454" y="428"/>
+            <point key="canvasLocation" x="1349" y="352"/>
         </scene>
         <!--Update Odometer View Controller-->
         <scene sceneID="4LZ-Fr-uLb">
@@ -283,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejD-Hw-iNq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2291" y="755"/>
+            <point key="canvasLocation" x="2301" y="818"/>
         </scene>
         <!--Maintain-->
         <scene sceneID="cZY-P0-cEa">
@@ -420,7 +420,7 @@
                                     <outlet property="entryNameLabel" destination="CSY-1S-c2U" id="IRl-Ek-gXe"/>
                                     <outlet property="entryTypeLabel" destination="lpn-Md-zxA" id="mWf-Bj-Xfq"/>
                                     <outlet property="receiptImageView" destination="Nje-gD-TgS" id="baS-yb-Vv6"/>
-                                    <segue destination="5Cx-Is-yDk" kind="show" identifier="edit" id="i5q-5g-URo"/>
+                                    <segue destination="1Y6-5U-KMc" kind="show" identifier="edit" id="ifc-we-xaZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -432,7 +432,7 @@
                     <navigationItem key="navigationItem" id="RaK-Oh-ghJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="4s5-Dj-PWR">
                             <connections>
-                                <segue destination="5Cx-Is-yDk" kind="show" identifier="new" id="SC1-Ul-8wJ"/>
+                                <segue destination="1Y6-5U-KMc" kind="show" id="czh-fq-69M"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -443,7 +443,175 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yub-wm-4nm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="541" y="755"/>
+            <point key="canvasLocation" x="558" y="807"/>
+        </scene>
+        <!--Add Maintenance Text View Controller-->
+        <scene sceneID="rcg-sE-tW2">
+            <objects>
+                <viewController id="1Y6-5U-KMc" customClass="AddMaintenanceTextViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c6Y-PP-hfh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="JF9-Vf-LJV">
+                                <rect key="frame" x="31" y="175.5" width="352" height="599.5"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LuI-6c-FXL" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="352" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="0YF-3X-3Aj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VS-kz-V7T" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="76" width="352" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="wSH-M4-8QQ"/>
+                                        </constraints>
+                                        <state key="normal" title="Maintenance Type"/>
+                                        <connections>
+                                            <action selector="maintenanceTypeButtonTapped:" destination="1Y6-5U-KMc" eventType="touchUpInside" id="QUW-ow-32G"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gFM-bE-3ds">
+                                        <rect key="frame" x="0.0" y="172" width="352" height="129.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYK-SE-dEs">
+                                                <rect key="frame" x="0.0" y="0.0" width="352" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hra-au-0CC">
+                                                <rect key="frame" x="0.0" y="28.5" width="352" height="101"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="101" id="f4L-wA-fVf"/>
+                                                </constraints>
+                                            </datePicker>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dx2-AE-Ep0" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="333.5" width="352" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="BCO-JD-Ms4"/>
+                                        </constraints>
+                                        <state key="normal" title="Next Cost &amp; Receipt"/>
+                                        <connections>
+                                            <action selector="costAndReceiptButtonTapped:" destination="1Y6-5U-KMc" eventType="touchUpInside" id="D1V-K1-V19"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Xkz-yC-h3K">
+                                        <rect key="frame" x="0.0" y="429.5" width="352" height="74"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AdditionalDetails" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHV-RC-mKn" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="352" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="kub-3I-vrb"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Aditional Details" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hr2-QP-bbk" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="30" width="352" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="zTN-VB-eGe"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anx-cA-bsf" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="535.5" width="352" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="HDy-cn-yBI"/>
+                                        </constraints>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="1Y6-5U-KMc" eventType="touchUpInside" id="8dN-wt-ScV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="JF9-Vf-LJV" firstAttribute="centerY" secondItem="g8P-2Q-5Rt" secondAttribute="centerY" id="GtN-Em-Pwh"/>
+                            <constraint firstItem="JF9-Vf-LJV" firstAttribute="width" secondItem="g8P-2Q-5Rt" secondAttribute="width" multiplier="0.85" id="YUQ-Ca-t5G"/>
+                            <constraint firstItem="JF9-Vf-LJV" firstAttribute="centerX" secondItem="g8P-2Q-5Rt" secondAttribute="centerX" id="bri-oA-wWp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="g8P-2Q-5Rt"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="y1h-8k-K7h"/>
+                    <connections>
+                        <outlet property="SaveButton" destination="anx-cA-bsf" id="VE8-Jw-Nrx"/>
+                        <outlet property="additionalDetailsLabel" destination="XHV-RC-mKn" id="CtR-qS-dLM"/>
+                        <outlet property="additionalDetailsTextField" destination="hr2-QP-bbk" id="n9z-fk-yQM"/>
+                        <outlet property="answerTextField" destination="LuI-6c-FXL" id="c3y-Kv-CpM"/>
+                        <outlet property="costAndReceipt" destination="dx2-AE-Ep0" id="t2n-pZ-FC8"/>
+                        <outlet property="datePicker" destination="hra-au-0CC" id="BWo-jN-9PJ"/>
+                        <outlet property="dueDateLabel" destination="jYK-SE-dEs" id="bLC-N3-P2M"/>
+                        <outlet property="maintenanceTypeButton" destination="3VS-kz-V7T" id="G6y-YB-1iX"/>
+                        <segue destination="5IZ-c6-wWA" kind="show" identifier="nextStep" id="rYz-Bd-672"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DIs-Uf-3l9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1107" y="1532"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="FhT-cg-Y8Y">
+            <objects>
+                <viewController id="5IZ-c6-wWA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="144-kk-jZD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="J0b-Bl-ZCB">
+                                <rect key="frame" x="31" y="234" width="352" height="387"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32n-G5-BcU" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="352" height="59"/>
+                                        <state key="normal" title="Take Picture of Receipt"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Brn-xj-WsJ" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="82" width="352" height="59"/>
+                                        <state key="normal" title="Enter Cost"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ldm-5m-IVm" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="164" width="352" height="59"/>
+                                        <state key="normal" title="Update Cars Odometer"/>
+                                        <connections>
+                                            <segue destination="i10-sF-rrp" kind="show" id="4da-Uz-x65"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AA7-O0-xtq" customClass="AutoTrackerButtonWhiteBG" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="246" width="352" height="59"/>
+                                        <state key="normal" title="Save"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEo-VV-vkx" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="328" width="352" height="59"/>
+                                        <state key="normal" title="Go Back"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="J0b-Bl-ZCB" firstAttribute="width" secondItem="dlc-Bj-6Sd" secondAttribute="width" multiplier="0.85" id="0mF-Sh-cOj"/>
+                            <constraint firstItem="J0b-Bl-ZCB" firstAttribute="height" secondItem="dlc-Bj-6Sd" secondAttribute="height" multiplier="0.5" id="2Dh-dd-mt6"/>
+                            <constraint firstItem="J0b-Bl-ZCB" firstAttribute="centerY" secondItem="dlc-Bj-6Sd" secondAttribute="centerY" multiplier="0.9" id="mP2-Au-TYW"/>
+                            <constraint firstItem="J0b-Bl-ZCB" firstAttribute="centerX" secondItem="dlc-Bj-6Sd" secondAttribute="centerX" id="nLg-cQ-xAz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dlc-Bj-6Sd"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8eB-nS-oC9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kLs-Uc-x5J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1975" y="1671"/>
         </scene>
     </scenes>
     <resources>
@@ -453,7 +621,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uQ8-X2-LaN"/>
-        <segue reference="SC1-Ul-8wJ"/>
+        <segue reference="ifc-we-xaZ"/>
+        <segue reference="4da-Uz-x65"/>
     </inferredMetricsTieBreakers>
 </document>
