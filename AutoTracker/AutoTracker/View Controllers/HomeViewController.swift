@@ -50,9 +50,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if !launchedBefore() {
-            self.performSegue(withIdentifier: "toOnboardingVC", sender: nil)
-        }
+//        if launchedBefore() {
+//            self.performSegue(withIdentifier: "toOnboardingVC", sender: nil)
+//        }
         scheduledMaintenanceTableView.delegate = self
         scheduledMaintenanceTableView.dataSource = self
     }

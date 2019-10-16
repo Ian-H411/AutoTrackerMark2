@@ -24,8 +24,7 @@ class GetStartedViewController: UIViewController {
     }
     
     @IBAction func skipButtonTapped(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
+            }
     
     
     

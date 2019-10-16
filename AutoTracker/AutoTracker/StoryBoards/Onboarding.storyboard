@@ -130,6 +130,7 @@
                                         <state key="normal" title="Skip Intro"/>
                                         <connections>
                                             <action selector="skipButtonTapped:" destination="YKy-48-Puh" eventType="touchUpInside" id="Ug1-GW-OwI"/>
+                                            <segue destination="GMe-g3-jgm" kind="presentation" identifier="toMainVC" modalPresentationStyle="fullScreen" id="cKH-bl-hJP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -154,6 +155,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6gq-FU-bLm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-214.49275362318843" y="40.848214285714285"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="poZ-QW-xXf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="GMe-g3-jgm" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="h2B-Rf-Roi"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G11-Si-fRr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-214" y="479"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="ukw-dg-qLj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="KDp-dZ-LQu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="txs-mU-TSw"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wch-7Q-iPd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="617" y="479"/>
         </scene>
         <!--Get Started View Controller-->
         <scene sceneID="GHw-Ew-ZFX">
@@ -202,6 +223,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdg-VO-Toy">
                                         <rect key="frame" x="0.0" y="221" width="207" height="30"/>
                                         <state key="normal" title="Skip for Now"/>
+                                        <connections>
+                                            <segue destination="KDp-dZ-LQu" kind="presentation" identifier="toMainVC" modalPresentationStyle="fullScreen" id="KaS-b1-hr2"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -333,6 +357,9 @@
                                         <state key="normal" title="Skip for Now">
                                             <color key="titleColor" name="autoGreen"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="iHl-CL-S4n" kind="presentation" identifier="toMainVC" modalPresentationStyle="fullScreen" id="YUK-Ww-zeD"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -360,6 +387,24 @@
                 <exit id="vZZ-do-pbH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2220" y="41"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="NYj-h8-4GL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="iHl-CL-S4n" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="yCK-T8-gGg"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="at1-4x-iX7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2220" y="479"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="1R1-Ir-qqo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="loX-XF-h0s" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kWg-fI-mVa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3088" y="479"/>
         </scene>
         <!--Car Name View Controller-->
         <scene sceneID="rhQ-SF-4Un">
@@ -418,6 +463,9 @@
                                         <state key="normal" title="Skip for Now">
                                             <color key="titleColor" name="autoGreen"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="loX-XF-h0s" kind="presentation" identifier="toMainVC" modalPresentationStyle="fullScreen" id="B1a-Kp-7q0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -442,7 +490,7 @@
                         <outlet property="laterButton" destination="3IB-QI-Zok" id="Esy-a0-JGm"/>
                         <outlet property="nameTextField" destination="ym7-ee-Y0u" id="M7R-ZM-guo"/>
                         <outlet property="takePictureButton" destination="q4J-bp-qms" id="3ta-K1-fgL"/>
-                        <segue destination="XeG-EG-qDi" kind="show" identifier="toMainVC" id="0WL-sp-i4m"/>
+                        <segue destination="XeG-EG-qDi" kind="presentation" identifier="toMainVC" modalPresentationStyle="fullScreen" id="0WL-sp-i4m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIP-5l-JdH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -470,7 +518,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vek-vk-pK1"/>
+        <segue reference="6N5-8u-lU6"/>
         <segue reference="8UE-yJ-Jjo"/>
     </inferredMetricsTieBreakers>
 </document>

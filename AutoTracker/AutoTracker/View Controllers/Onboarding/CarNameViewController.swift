@@ -36,7 +36,11 @@ class CarNameViewController: UIViewController {
         let odometer = car.odometer
         let photoData = car.photoData
         CarController.shared.onboardACar(name: name, vin: vin, odometer: odometer, photoData: photoData)
-        navigationController?.popViewController(animated: true)
+        performSegue(withIdentifier: "toMainVC", sender: nil)
+        
+        
+        
+        
     }
     
     // MARK: - HELPER FUNCTIONS
