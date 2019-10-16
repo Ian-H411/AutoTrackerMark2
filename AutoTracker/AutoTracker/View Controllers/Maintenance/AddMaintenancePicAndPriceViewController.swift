@@ -9,7 +9,7 @@
 import UIKit
 
 class AddMaintenancePicAndPriceViewController: UIViewController {
-
+    
     //MARK: - OUTLETS
     
     @IBOutlet weak var answertextField: AutoTrackerTextField!
@@ -19,7 +19,7 @@ class AddMaintenancePicAndPriceViewController: UIViewController {
     @IBOutlet weak var enterCostButton: AutoTrackerButtonGreenBG!
     
     @IBOutlet weak var updateOdometerButton: AutoTrackerButtonGreenBG!
-
+    
     @IBOutlet weak var goBackButton: AutoTrackerButtonGreenBG!
     
     @IBOutlet weak var receiptImage: UIImageView!
@@ -38,6 +38,9 @@ class AddMaintenancePicAndPriceViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
         receiptImage.isHidden = true
         answertextField.isHidden = true
+        receiptImage.layer.masksToBounds = true
+        receiptImage.layer.cornerRadius = 10
+        receiptImage.layer.borderWidth = 5
     }
     
     
@@ -50,11 +53,19 @@ class AddMaintenancePicAndPriceViewController: UIViewController {
     
     
     @IBAction func enterCostButtonTapped(_ sender: Any) {
-        takePictureOfReceiptButton.isHidden = true
-        enterCostButton.isHidden = true
-        answertextField.isHidden = false
-        updateOdometerButton.isHidden = true
-        goBackButton.isHidden = true
+        UIView.animate(withDuration: 0.5) {
+            self.takePictureOfReceiptButton.isHidden = true
+            self.takePictureOfReceiptButton.alpha = 0.0
+            self.enterCostButton.isHidden = true
+            self.enterCostButton.alpha = 0.0
+            self.answertextField.isHidden = false
+            self.answertextField.alpha = 1.0
+            self.updateOdometerButton.isHidden = true
+            self.updateOdometerButton.alpha = 0.0
+            self.goBackButton.isHidden = true
+            self.goBackButton.alpha = 0.0
+        }
+        
     }
     
     @IBAction func updateCarsOdometerButtonTapped(_ sender: Any) {
@@ -93,31 +104,31 @@ class AddMaintenancePicAndPriceViewController: UIViewController {
     }
     
     func camera(){
-          if UIImagePickerController.isSourceTypeAvailable(.camera){
-              let myPickerController = UIImagePickerController()
-              myPickerController.delegate = self
-              myPickerController.sourceType = .camera
-              self.present(myPickerController, animated: true , completion: nil)
-          }
-      }
-      
-      func photoLibrary() {
-          if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-              let mypickerController = UIImagePickerController()
-              mypickerController.delegate = self
-              mypickerController.sourceType = .photoLibrary
-              self.present(mypickerController, animated: true, completion: nil)
-          }
-      }
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            let myPickerController = UIImagePickerController()
+            myPickerController.delegate = self
+            myPickerController.sourceType = .camera
+            self.present(myPickerController, animated: true , completion: nil)
+        }
+    }
+    
+    func photoLibrary() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            let mypickerController = UIImagePickerController()
+            mypickerController.delegate = self
+            mypickerController.sourceType = .photoLibrary
+            self.present(mypickerController, animated: true, completion: nil)
+        }
+    }
     
     
     
     
-
-
+    
+    
     // MARK: - Navigation
-
-
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "newMainOdo"{
             if let destination = segue.destination as? UpdateOdometerViewController{
@@ -131,18 +142,26 @@ class AddMaintenancePicAndPriceViewController: UIViewController {
             }
         }
     }
-
-
+    
+    
 }
 extension AddMaintenancePicAndPriceViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         takePictureOfReceiptButton.isHidden = false
         guard let main = incomingMaintenance else {return true}
-             enterCostButton.isHidden = false
-             answertextField.isHidden = true
-             updateOdometerButton.isHidden = false
-             goBackButton.isHidden = false
+        UIView.animate(withDuration: 0.5) {
+            self.enterCostButton.isHidden = false
+            self.enterCostButton.alpha = 1.0
+            self.answertextField.isHidden = true
+            self.answertextField.alpha = 0.0
+            self.updateOdometerButton.isHidden = false
+            self.updateOdometerButton.alpha = 1.0
+            self.goBackButton.isHidden = false
+            self.goBackButton.alpha = 1.0
+            
+        }
+     
         guard let price = textField.text else {return true}
         enterCostButton.setTitle(price, for: .normal)
         CarController.shared.modifyMaintenance(price: price, maintenance: main)
@@ -151,17 +170,17 @@ extension AddMaintenancePicAndPriceViewController: UITextFieldDelegate{
 }
 extension AddMaintenancePicAndPriceViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
-   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-       if let image = info[.originalImage] as? UIImage{
-           self.receiptImage.image = image
-        guard let main = incomingMaintenance else {return}
-        CarController.shared.modifyMaintenance(photo: image, maintenance: main)
-        self.receiptImage.isHidden = false
-       } else {
-           print("Something went wrong")
-       }
-       self.dismiss(animated: true, completion: nil)
-   }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage{
+            self.receiptImage.image = image
+            guard let main = incomingMaintenance else {return}
+            CarController.shared.modifyMaintenance(photo: image, maintenance: main)
+            self.receiptImage.isHidden = false
+        } else {
+            print("Something went wrong")
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
 }

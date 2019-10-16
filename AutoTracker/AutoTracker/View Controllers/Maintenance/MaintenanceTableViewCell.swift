@@ -52,11 +52,17 @@ class MaintenanceTableViewCell: UITableViewCell {
         if maintenance.isComplete{
             if let image = maintenance.photo{
                 imageView?.image = image
+                imageView?.layer.borderWidth = 2
+                imageView?.layer.borderColor = UIColor.autoGreen.cgColor
+                imageView?.layer.cornerRadius = 10
+                imageView?.layer.masksToBounds = true
             } else {
                 imageView?.image = UIImage(named: "Check")!
+                imageView?.layer.borderWidth = 0
             }
         } else {
             imageView?.image = UIImage(named: "notCheck")
+            imageView?.layer.borderWidth = 0
         }
     }
     

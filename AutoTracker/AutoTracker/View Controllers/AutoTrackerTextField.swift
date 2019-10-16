@@ -18,5 +18,6 @@ class AutoTrackerTextField: UITextField {
         self.layer.cornerRadius = 10
         self.layer.borderColor = UIColor.autoGreen.cgColor
         self.backgroundColor = UIColor.clear
+        self.layer.masksToBounds = true
     }
 }
