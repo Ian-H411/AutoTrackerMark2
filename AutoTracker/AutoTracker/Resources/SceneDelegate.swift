@@ -12,12 +12,38 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    func launchedBefore() -> Bool {
+    let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        return launchedBefore
+    }
+    
+    func isAppAlreadyLaunchedOnce()->Bool{
+        let defaults = UserDefaults.standard
+        if let _ = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
+            print("App already launched")
+            return true
+        }else{
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            print("App launched first time")
+            return false
+        }
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        if let scene = (scene as? UIWindowScene) {
+            let window = UIWindow(windowScene: scene)
+            if isAppAlreadyLaunchedOnce() {
+                let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+                window.rootViewController = mainVC
+            } else {
+                let onboardingVC = UIStoryboard(name: "Onboarding", bundle: nil).instantiateInitialViewController()
+                window.rootViewController = onboardingVC
+                
+            }
+            self.window = window
+            window.makeKeyAndVisible()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

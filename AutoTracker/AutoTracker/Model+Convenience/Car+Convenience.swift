@@ -67,7 +67,13 @@ extension Car {
         
     }
     
-  
+    convenience init(name: String, vin: String, odometer: Double, photoData: Data?, context: NSManagedObjectContext = CoreDataStack.context) {
+        self.init(context: context)
+        self.name = name
+        self.vin = vin
+        self.odometer = odometer
+        self.photoData = photoData
+    }
     
     convenience init?(carjson: CarJson, name:String, vin:String, ownerName:String, odometer:Double, photoData: Data?, context:NSManagedObjectContext = CoreDataStack.context){
         self.init(context:context)

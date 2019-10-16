@@ -9,7 +9,7 @@
 import UIKit
 
 class ReceiptEntryViewController: UIViewController {
-
+    
     // MARK: - OUTLETS
     @IBOutlet weak var milesButton: AutoTrackerButtonGreenBG!
     @IBOutlet weak var gallonsButton: AutoTrackerButtonGreenBG!
@@ -21,6 +21,7 @@ class ReceiptEntryViewController: UIViewController {
     @IBOutlet weak var resultsButton: UIButton!
     
     
+    
     // MARK: - PROPERTIES
     
     var milesTapped = 0
@@ -29,13 +30,8 @@ class ReceiptEntryViewController: UIViewController {
     var miles: Double = 0
     var gallons: Double = 0
     
-    var milesValue = "" {
-        didSet {
-            if self.milesValue != "" {
-//                milesButton.setTitle(self.milesValue, for: .normal)
-            }
-        }
-    }
+    
+    
     
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
@@ -47,7 +43,7 @@ class ReceiptEntryViewController: UIViewController {
         resultsLabel.alpha = 0.0
         resultsButton.isHidden = true
         resultsButton.alpha = 0.0
-        // Do any additional setup after loading the view.
+        
     }
     
     // MARK: - ACTIONS
@@ -67,6 +63,7 @@ class ReceiptEntryViewController: UIViewController {
         
         UIView.animate(withDuration: 0.5) {
             self.entryFieldsAppear()
+            
         }
         milesTapped += 1
         print("Miles tapped: \(milesTapped)")
@@ -113,6 +110,7 @@ class ReceiptEntryViewController: UIViewController {
         UIView.animate(withDuration: 1) {
             self.entryFieldsFadeAway()
             self.backToNormal()
+            
         }
         guard let entryText = reusableTextField.text, !entryText.isEmpty else { return }
         if milesTapped > 0 {
@@ -134,31 +132,42 @@ class ReceiptEntryViewController: UIViewController {
     @IBAction func saveFillUpButtonTapped(_ sender: Any) {
         
         guard let car = CarController.shared.selectedCar,
+            
             let gallons = gallonsButton.titleLabel?.text,
             let cost = costButton.titleLabel?.text else { return }
         
-        CarController.shared.addReceipt(car: car, miles: miles, gallons: gallons, cost: cost)
-        
-        let mpg = milesPerGallon(miles: self.miles, gallon: self.gallons)
-        resultsLabel.text = "You got \(mpg) miles per gallon this trip!"
-        
-        UIView.animate(withDuration: 0.5) {
-        self.milesButton.alpha = 0.0
-        self.milesButton.isHidden = true
-        self.gallonsButton.alpha = 0.0
-        self.gallonsButton.isHidden = true
-        self.costButton.alpha = 0.0
-        self.costButton.isHidden = true
-        self.resultsLabel.alpha = 1.0
-        self.resultsLabel.isHidden = false
-            self.saveFillUpButton.alpha = 0.0
-//        self.saveFillUpButton.isHidden = true
-//            self.updateButton.isHidden = true
-            self.saveFillUpButton.isEnabled = false
-            self.reusableTextField.isHidden = true
-        self.resultsButton.isHidden = false
-        self.resultsButton.alpha = 1.0
-            self.view.bringSubviewToFront(self.resultsButton)
+        if gallons == "Gallons" || cost == "Cost" || miles == 0 {
+            
+            emptyFieldsAlert()
+            
+        } else {
+            
+            CarController.shared.addReceipt(car: car, miles: miles, gallons: gallons, cost: cost)
+            
+            CarController.shared.updateOdometer(car: car, odometer: miles) { (_) in
+                
+            }
+            let mpg = milesPerGallon(miles: self.miles, gallon: self.gallons)
+            resultsLabel.text = "You got \(round((100 * mpg) / 100)) miles per gallon this trip!"
+            
+            UIView.animate(withDuration: 0.5) {
+                self.milesButton.alpha = 0.0
+                self.milesButton.isHidden = true
+                self.gallonsButton.alpha = 0.0
+                self.gallonsButton.isHidden = true
+                self.costButton.alpha = 0.0
+                self.costButton.isHidden = true
+                self.resultsLabel.alpha = 1.0
+                self.resultsLabel.isHidden = false
+                self.saveFillUpButton.alpha = 0.0
+                //        self.saveFillUpButton.isHidden = true
+                //            self.updateButton.isHidden = true
+                self.saveFillUpButton.isEnabled = false
+                self.reusableTextField.isHidden = true
+                self.resultsButton.isHidden = false
+                self.resultsButton.alpha = 1.0
+                self.view.bringSubviewToFront(self.resultsButton)
+            }
         }
     }
     
@@ -198,4 +207,10 @@ class ReceiptEntryViewController: UIViewController {
         return (miles / gallon)
     }
     
+    func emptyFieldsAlert() {
+        let alertController = UIAlertController(title: "You have empty Receipt fields", message: "Please enter a value for each of the fields to proceed", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Okay", style: .default)
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
+    }
 }

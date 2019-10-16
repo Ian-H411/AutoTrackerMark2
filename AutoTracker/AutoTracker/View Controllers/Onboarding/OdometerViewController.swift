@@ -17,7 +17,7 @@ class OdometerViewController: UIViewController {
     
     // MARK: - PROPERTIES
     var odometer = ["0","1","2","3","4","5","6","7","8","9"]
-    
+    var carParts: Car?
     
     // MARK: - LIFECYCLE
     
@@ -35,33 +35,26 @@ class OdometerViewController: UIViewController {
     }
     
     // MARK: - ACTIONS
-    @IBAction func updateButtonTapped(_ sender: Any) {
-        
-        let odometer = odometerResults()
     
-        guard let car = CarController.shared.selectedCar else { return }
-        CarController.shared.updateOdometer(car: car, odometer: Double(odometer)) { (success) in
-            if success {
-                DispatchQueue.main.async {
-                    
-                    UIView.animate(withDuration: 0.5) {
-                        self.dismiss(animated: true)
-                    }
-                }
-            }
-        }
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        let odometer = odometerResults()
+        carParts?.odometer = Double(odometer)
     }
     
-    
-    /*
+
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+     
+        if segue.identifier == "toCarNameVC" {
+            if let destinationVC = segue.destination as? CarNameViewController {
+                destinationVC.carParts = carParts
+            }
+            
+        }
      }
-     */
+     
     
     func odometerResults() -> Int {
         var placeholder: [Int] = []
@@ -96,16 +89,7 @@ extension OdometerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         return 50
     }
     
-        
+    
 }
 
-//extension OdometerViewController: UITextFieldDelegate {
-//
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        print("tapped")
-//    }
-//
-//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-//        return false
-//    }
-//}
+
