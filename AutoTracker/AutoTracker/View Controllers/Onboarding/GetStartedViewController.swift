@@ -10,7 +10,7 @@ import UIKit
 
 class GetStartedViewController: UIViewController {
 
-   
+   // MARK: - OUTLETS
     
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
@@ -18,9 +18,15 @@ class GetStartedViewController: UIViewController {
         
     }
     
+    // MARK: - ACTIONS
     @IBAction func helpButtonTapped(_ sender: Any) {
         presentVINAlert()
     }
+    
+    @IBAction func skipButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     
     
     // MARK: - FUNCTIONS

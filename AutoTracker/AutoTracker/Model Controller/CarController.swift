@@ -52,6 +52,12 @@ class CarController{
         saveChangesToPersistentStoreOnly()
     }
     
+    func onboardACar(name: String, vin: String, odometer: Double, photoData: Data?) {
+       let newCar = Car(name: name, vin: vin, odometer: odometer, photoData: photoData)
+        garage?.append(newCar)
+        saveChangesToPersistentStoreOnly()
+    }
+    
     //update car
     func carupdate(name:String, make:String, model:String, year:String, vin:String, engine:String, ownerName:String, car:Car){
         

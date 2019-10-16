@@ -9,12 +9,13 @@
 import UIKit
 
 class VINViewController: UIViewController {
-
+    
     // MARK: - OUTLETS
     @IBOutlet weak var vinTextField: TextFieldStyle!
     
     // MARK: - PROPERTIES
-       var vin: String?
+    var vin: String?
+    var carParts: Car = Car(context: CoreDataStack.context)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +35,12 @@ class VINViewController: UIViewController {
         alertController.addAction(okAction)
         present(alertController, animated: true)
     }
-
+    
     // MARK: - NAVIGATION
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toOdometerVC" {
             if let destinationVC = segue.destination as? OdometerViewController {
-                destinationVC.vin = vin
+                destinationVC.carParts = carParts
             }
         }
     }
@@ -49,8 +50,7 @@ class VINViewController: UIViewController {
 extension VINViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        
-        
+        carParts.vin = vinTextField.text
         performSegue(withIdentifier: "toOdometerVC", sender: nil)
         
         return true

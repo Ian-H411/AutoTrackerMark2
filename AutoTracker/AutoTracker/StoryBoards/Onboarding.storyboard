@@ -128,6 +128,9 @@
                                             <constraint firstAttribute="height" constant="64" id="DN4-3W-yyu"/>
                                         </constraints>
                                         <state key="normal" title="Skip Intro"/>
+                                        <connections>
+                                            <action selector="skipButtonTapped:" destination="YKy-48-Puh" eventType="touchUpInside" id="Ug1-GW-OwI"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -192,6 +195,9 @@
                                             <constraint firstAttribute="height" constant="64" id="gzv-To-zYv"/>
                                         </constraints>
                                         <state key="normal" title="Don't Use VIN"/>
+                                        <connections>
+                                            <segue destination="iI4-1t-ros" kind="show" id="8UE-yJ-Jjo"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdg-VO-Toy">
                                         <rect key="frame" x="0.0" y="221" width="207" height="30"/>
@@ -306,6 +312,7 @@
                                 <connections>
                                     <action selector="saveButtonTapped:" destination="iI4-1t-ros" eventType="touchUpInside" id="CaB-dX-fXg"/>
                                     <action selector="saveButtonTapped:" destination="vZZ-do-pbH" eventType="touchUpInside" id="pBn-SH-FjJ"/>
+                                    <segue destination="Eex-kh-iC9" kind="show" identifier="toCarNameVC" id="Vek-vk-pK1"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="TAS-b0-okj">
@@ -317,6 +324,9 @@
                                             <constraint firstAttribute="height" constant="64" id="hgD-Rj-gpg"/>
                                         </constraints>
                                         <state key="normal" title="Later"/>
+                                        <connections>
+                                            <segue destination="Eex-kh-iC9" kind="show" id="6N5-8u-lU6"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNg-Vl-aiK">
                                         <rect key="frame" x="0.0" y="85" width="207" height="30"/>
@@ -351,6 +361,104 @@
             </objects>
             <point key="canvasLocation" x="2220" y="41"/>
         </scene>
+        <!--Car Name View Controller-->
+        <scene sceneID="rhQ-SF-4Un">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="Eex-kh-iC9" customClass="CarNameViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Iks-JF-r1C">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name your car and take a picture of it:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jlc-4y-Hvu" customClass="AutoTrackerLabelHeadline" customModule="AutoTracker" customModuleProvider="target">
+                                <rect key="frame" x="61.5" y="215" width="291.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ym7-ee-Y0u" customClass="TextFieldStyle" customModule="AutoTracker" customModuleProvider="target">
+                                <rect key="frame" x="18.5" y="421" width="377" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="eAd-eh-fZR"/>
+                                </constraints>
+                                <color key="textColor" name="autoGreen"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TyD-GG-DFV" customClass="AutoTrackerLabelDetail" customModule="AutoTracker" customModuleProvider="target">
+                                <rect key="frame" x="169" y="392.5" width="76.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="twi-TN-cbL">
+                                <rect key="frame" x="103.5" y="601" width="207" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4J-bp-qms" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="L4z-iV-qsX"/>
+                                        </constraints>
+                                        <state key="normal" title="Take Picture"/>
+                                        <connections>
+                                            <action selector="takePictureButtonTapped:" destination="Eex-kh-iC9" eventType="touchUpInside" id="WOc-IR-VdZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3IB-QI-Zok" customClass="AutoTrackerButtonWhiteBG" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="85" width="207" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="GKA-Cr-No9"/>
+                                        </constraints>
+                                        <state key="normal" title="Later"/>
+                                        <connections>
+                                            <action selector="finishIntroButtonTapped:" destination="Eex-kh-iC9" eventType="touchUpInside" id="Bqs-u7-dh5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jek-MS-2nZ">
+                                        <rect key="frame" x="0.0" y="170" width="207" height="30"/>
+                                        <state key="normal" title="Skip for Now">
+                                            <color key="titleColor" name="autoGreen"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ym7-ee-Y0u" firstAttribute="top" secondItem="TyD-GG-DFV" secondAttribute="bottom" constant="8" id="11A-Wl-IWA"/>
+                            <constraint firstItem="Y1J-5i-K3l" firstAttribute="bottom" secondItem="twi-TN-cbL" secondAttribute="bottom" constant="61" id="8wD-xd-Yz6"/>
+                            <constraint firstItem="ym7-ee-Y0u" firstAttribute="width" secondItem="Y1J-5i-K3l" secondAttribute="width" multiplier="0.91" id="CBN-ha-nmk"/>
+                            <constraint firstItem="ym7-ee-Y0u" firstAttribute="centerX" secondItem="Y1J-5i-K3l" secondAttribute="centerX" id="L5b-KB-obI"/>
+                            <constraint firstItem="ym7-ee-Y0u" firstAttribute="centerY" secondItem="Y1J-5i-K3l" secondAttribute="centerY" id="M9J-Zz-91N"/>
+                            <constraint firstItem="Jlc-4y-Hvu" firstAttribute="centerX" secondItem="Y1J-5i-K3l" secondAttribute="centerX" id="NTH-u1-azI"/>
+                            <constraint firstItem="twi-TN-cbL" firstAttribute="width" secondItem="Y1J-5i-K3l" secondAttribute="width" multiplier="0.5" id="Vmf-HV-UvX"/>
+                            <constraint firstItem="Jlc-4y-Hvu" firstAttribute="top" secondItem="Y1J-5i-K3l" secondAttribute="top" constant="171" id="ftg-ej-P4X"/>
+                            <constraint firstItem="TyD-GG-DFV" firstAttribute="centerX" secondItem="ym7-ee-Y0u" secondAttribute="centerX" id="y75-bJ-h3Q"/>
+                            <constraint firstItem="twi-TN-cbL" firstAttribute="centerX" secondItem="Y1J-5i-K3l" secondAttribute="centerX" id="zn2-OB-xHi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Y1J-5i-K3l"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yeh-aF-mFx"/>
+                    <connections>
+                        <outlet property="laterButton" destination="3IB-QI-Zok" id="Esy-a0-JGm"/>
+                        <outlet property="nameTextField" destination="ym7-ee-Y0u" id="M7R-ZM-guo"/>
+                        <outlet property="takePictureButton" destination="q4J-bp-qms" id="3ta-K1-fgL"/>
+                        <segue destination="XeG-EG-qDi" kind="show" identifier="toMainVC" id="0WL-sp-i4m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oIP-5l-JdH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3088" y="41"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="3bq-Yo-qGX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="XeG-EG-qDi" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hCj-Db-mKq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ziG-0S-8i8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3848" y="42"/>
+        </scene>
     </scenes>
     <resources>
         <image name="fillUpSelected" width="33.5" height="28"/>
@@ -361,4 +469,8 @@
             <color red="0.29800000786781311" green="0.85000002384185791" blue="0.38999998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Vek-vk-pK1"/>
+        <segue reference="8UE-yJ-Jjo"/>
+    </inferredMetricsTieBreakers>
 </document>
