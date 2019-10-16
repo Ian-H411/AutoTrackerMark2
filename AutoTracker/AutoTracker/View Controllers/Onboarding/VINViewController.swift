@@ -11,16 +11,18 @@ import UIKit
 class VINViewController: UIViewController {
     
     // MARK: - OUTLETS
-    @IBOutlet weak var vinTextField: TextFieldStyle!
+    @IBOutlet weak var vinTextField: UITextField!
+    @IBOutlet weak var yearTextField: UITextField!
     
     // MARK: - PROPERTIES
     var vin: String?
     var carParts: Car = Car(context: CoreDataStack.context)
+    var CarJson: CarJson?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         vinTextField.delegate = self
-        // Do any additional setup after loading the view.
+        yearTextField.delegate = self
     }
     
     @IBAction func helpButtonTapped(_ sender: Any) {
@@ -38,9 +40,10 @@ class VINViewController: UIViewController {
     
     // MARK: - NAVIGATION
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toOdometerVC" {
-            if let destinationVC = segue.destination as? OdometerViewController {
+        if segue.identifier == "toVINResultsVC" {
+            if let destinationVC = segue.destination as? VINResultsViewController {
                 destinationVC.carParts = carParts
+                destinationVC.CarJson = CarJson
             }
         }
     }
@@ -48,10 +51,25 @@ class VINViewController: UIViewController {
 }
 
 extension VINViewController: UITextFieldDelegate {
+
+//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+//        return true
+//    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        performSegue(withIdentifier: "toOdometerVC", sender: nil)
-        
+
+        if let vin = vinTextField.text,
+            let year = yearTextField.text {
+        carParts.vin = vin
+        carParts.year = year
+            CarController.shared.retrieveCarDetailsWith(vin: vin, year: year) { (CarJson, error) in
+                DispatchQueue.main.async {
+                    self.CarJson = CarJson
+                    self.performSegue(withIdentifier: "toVINResultsVC", sender: nil)
+                }
+            }
+        }
+
         return true
     }
 }
