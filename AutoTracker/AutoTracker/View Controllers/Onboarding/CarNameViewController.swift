@@ -30,6 +30,7 @@ class CarNameViewController: UIViewController {
     }
     
     @IBAction func finishIntroButtonTapped(_ sender: Any) {
+        carParts?.name = nameTextField.text
         guard let car = carParts else { return }
         let name = car.name ?? "Default Name"
         let vin = car.vin ?? "Missing VIN"

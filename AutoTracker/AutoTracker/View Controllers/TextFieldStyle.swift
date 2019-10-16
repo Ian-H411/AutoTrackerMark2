@@ -8,13 +8,12 @@
 
 import UIKit
 
-class TextFieldStyle:UITextField{
+class TextFieldStyle: UITextField {
     override func awakeFromNib() {
         super.awakeFromNib()
         addBorder(color: .black, width: 2, bg: .lightGray)
         addCornerRadius()
     }
-    
     
     func addBorder(color: UIColor, width: CGFloat, bg: UIColor) {
         self.layer.borderColor = color.cgColor
