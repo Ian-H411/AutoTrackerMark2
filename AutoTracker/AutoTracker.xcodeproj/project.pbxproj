@@ -52,9 +52,7 @@
 		423925342347D75D00EABF16 /* AutoTrackerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423925332347D75D00EABF16 /* AutoTrackerLabel.swift */; };
 		423925362347DBDF00EABF16 /* MyGarageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423925352347DBDF00EABF16 /* MyGarageTableViewCell.swift */; };
 		423925382347F0E000EABF16 /* ReceiptController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423925372347F0E000EABF16 /* ReceiptController.swift */; };
-
 		428784792357B51300460FCD /* VINResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428784782357B51300460FCD /* VINResultsViewController.swift */; };
-
 		428C8E952352CDEA00AA2E2F /* ReceiptHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428C8E942352CDEA00AA2E2F /* ReceiptHistoryTableViewController.swift */; };
 		428C8E972352D0A600AA2E2F /* ReceiptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428C8E962352D0A600AA2E2F /* ReceiptTableViewCell.swift */; };
 		428F7CCB2354EE0D006531FC /* ReceiptEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F7CCA2354EE0D006531FC /* ReceiptEntryViewController.swift */; };
@@ -124,9 +122,7 @@
 		423925332347D75D00EABF16 /* AutoTrackerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoTrackerLabel.swift; path = "AutoTracker/Core Data Stack/AutoTrackerLabel.swift"; sourceTree = SOURCE_ROOT; };
 		423925352347DBDF00EABF16 /* MyGarageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyGarageTableViewCell.swift; path = "AutoTracker/View Controllers/MyGarage/MyGarageTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		423925372347F0E000EABF16 /* ReceiptController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptController.swift; sourceTree = "<group>"; };
-
 		428784782357B51300460FCD /* VINResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINResultsViewController.swift; sourceTree = "<group>"; };
-
 		428C8E942352CDEA00AA2E2F /* ReceiptHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptHistoryTableViewController.swift; sourceTree = "<group>"; };
 		428C8E962352D0A600AA2E2F /* ReceiptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewCell.swift; sourceTree = "<group>"; };
 		428F7CCA2354EE0D006531FC /* ReceiptEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptEntryViewController.swift; sourceTree = "<group>"; };
@@ -667,6 +663,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.IanH411.AutoTracker2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -686,6 +683,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.IanH411.AutoTracker2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
