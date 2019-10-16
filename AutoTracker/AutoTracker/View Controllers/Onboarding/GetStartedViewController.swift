@@ -24,8 +24,15 @@ class GetStartedViewController: UIViewController {
     }
     
     @IBAction func skipButtonTapped(_ sender: Any) {
-            }
-    
+        //manual segue based on ifapploaded before
+        //pop if has been loaded, and segue if not
+        if isAppAlreadyLaunchedOnce() {
+            self.presentingViewController?.dismiss(animated: true)
+        } else {
+            
+            self.performSegue(withIdentifier: "toMainVC", sender: nil)
+        }
+    }
     
     
     // MARK: - FUNCTIONS
@@ -35,6 +42,22 @@ class GetStartedViewController: UIViewController {
         alertController.addAction(okAction)
         present(alertController, animated: true)
     }
+    
+     func isAppAlreadyLaunchedOnce()->Bool{
+            let defaults = UserDefaults.standard
+            if let _ = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
+    //            print("App already launched")
+                return true
+            }else{
+                defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+    //            print("App launched first time")
+                return false
+            }
+        }
+
+    
+    // MARK: - NAVIGATION
+    
 }
 
 extension GetStartedViewController: UITextFieldDelegate {

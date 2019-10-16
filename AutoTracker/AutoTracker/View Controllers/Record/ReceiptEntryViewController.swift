@@ -66,7 +66,7 @@ class ReceiptEntryViewController: UIViewController {
             
         }
         milesTapped += 1
-        print("Miles tapped: \(milesTapped)")
+        
     }
     @IBAction func gallonsButtonTapped(_ sender: Any) {
         
@@ -84,7 +84,7 @@ class ReceiptEntryViewController: UIViewController {
             self.entryFieldsAppear()
         }
         gallonsTapped += 1
-        print("Gallons tapped: \(gallonsTapped)")
+        
     }
     @IBAction func costButtonTapped(_ sender: Any) {
         
@@ -103,7 +103,7 @@ class ReceiptEntryViewController: UIViewController {
             self.entryFieldsAppear()
         }
         costTapped += 1
-        print("Cost tapped: \(costTapped)")
+        
     }
     @IBAction func updateButtonTapped(_ sender: Any) {
         

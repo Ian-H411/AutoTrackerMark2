@@ -130,7 +130,6 @@
                                         <state key="normal" title="Skip Intro"/>
                                         <connections>
                                             <action selector="skipButtonTapped:" destination="YKy-48-Puh" eventType="touchUpInside" id="Ug1-GW-OwI"/>
-                                            <segue destination="GMe-g3-jgm" kind="presentation" identifier="toMainVC" modalPresentationStyle="fullScreen" id="cKH-bl-hJP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -151,20 +150,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fGn-vM-XK7"/>
                     </view>
+                    <connections>
+                        <segue destination="KDp-dZ-LQu" kind="presentation" identifier="toMainVC" modalPresentationStyle="fullScreen" id="IRd-qq-xP0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6gq-FU-bLm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-214.49275362318843" y="40.848214285714285"/>
-        </scene>
-        <!--Main-->
-        <scene sceneID="poZ-QW-xXf">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="GMe-g3-jgm" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="h2B-Rf-Roi"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G11-Si-fRr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-214" y="479"/>
         </scene>
         <!--Main-->
         <scene sceneID="ukw-dg-qLj">
@@ -520,5 +512,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="6N5-8u-lU6"/>
         <segue reference="8UE-yJ-Jjo"/>
+        <segue reference="IRd-qq-xP0"/>
     </inferredMetricsTieBreakers>
 </document>
