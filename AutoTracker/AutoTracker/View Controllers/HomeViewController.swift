@@ -95,15 +95,11 @@ class HomeViewController: UIViewController {
         
         carImageView.image = myCar.photo ?? UIImage(named: "car")
         self.navigationItem.title = myCar.name ?? "Car Name"
-//                lifetimeMilesLabel.text = String(describing: myCar.odometer)
         updateOdometerLabel.text = String(describing: myCar.odometer)
-        
         lifetimeMilesLabel.layer.cornerRadius = 8
         averageMPGLabel.layer.cornerRadius = 8
         thisTankLabel.layer.cornerRadius = 8
-        
         scheduledMaintenanceTableView.reloadData()
-        
     }
     
     func camera(){
@@ -172,11 +168,11 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
         self.dismiss(animated: true, completion: nil)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         if let image = info[.originalImage] as? UIImage{
             self.carImageView.image = image
             guard let car = myCar else { return }
             CarController.shared.updatePhoto(car: car, photo: image) { (success) in
-                
                 
             }
             
