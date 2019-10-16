@@ -15,11 +15,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4Dr-W4-UW1">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="EiN-3c-PCp">
-                                <rect key="frame" x="-152" y="754" width="718" height="60"/>
+                                <rect key="frame" x="0.0" y="754" width="414" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="xFf-mv-oEc">
-                                        <rect key="frame" x="439.5" y="0.0" width="278.5" height="60"/>
+                                        <rect key="frame" x="196" y="0.0" width="218" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Results provided by" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqL-1g-LGP">
                                                 <rect key="frame" x="0.0" y="0.0" width="135" height="60"/>
@@ -28,7 +31,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WN-aa-iHu">
-                                                <rect key="frame" x="135" y="0.0" width="143.5" height="60"/>
+                                                <rect key="frame" x="135" y="0.0" width="83" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="C04-Ow-PD1"/>
                                                 </constraints>
@@ -42,11 +45,12 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="1WN-aa-iHu" firstAttribute="width" secondItem="EiN-3c-PCp" secondAttribute="width" multiplier="0.2" id="WXP-vD-4EQ"/>
+                                    <constraint firstItem="1WN-aa-iHu" firstAttribute="width" secondItem="EiN-3c-PCp" secondAttribute="width" multiplier="0.2" id="eSl-Hy-RL0"/>
                                 </constraints>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="V6k-Wh-XJ2">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="V6k-Wh-XJ2">
                                 <rect key="frame" x="190.5" y="444" width="33" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEC-gE-Ehp" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
                                 <rect key="frame" x="41.5" y="110.5" width="331" height="64"/>
@@ -104,36 +108,41 @@
                                             <action selector="addressButtonTapped:" destination="7Uz-8R-jIB" eventType="touchUpInside" id="2OK-fJ-gso"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yKI-UO-gC5">
+                                        <rect key="frame" x="176" y="24" width="128" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="yKI-UO-gC5" secondAttribute="height" multiplier="1:1" id="6Se-Ez-oCN"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="tfH-CA-zzU" firstAttribute="centerY" secondItem="We3-uJ-yoj" secondAttribute="centerY" multiplier="2.6" id="FGO-Ox-kRe"/>
                                     <constraint firstAttribute="width" constant="320" id="JSD-1R-uzI"/>
+                                    <constraint firstItem="yKI-UO-gC5" firstAttribute="width" secondItem="vmi-5G-HBi" secondAttribute="width" multiplier="0.4" id="LLM-Ko-cLf"/>
                                     <constraint firstItem="We3-uJ-yoj" firstAttribute="centerY" secondItem="vmi-5G-HBi" secondAttribute="centerY" multiplier="0.5" id="QMD-2O-06P"/>
                                     <constraint firstItem="We3-uJ-yoj" firstAttribute="width" secondItem="vmi-5G-HBi" secondAttribute="width" multiplier="0.5" id="Sno-dQ-80a"/>
                                     <constraint firstItem="We3-uJ-yoj" firstAttribute="centerX" secondItem="vmi-5G-HBi" secondAttribute="centerX" multiplier="0.55" id="X4F-xh-FxC"/>
                                     <constraint firstItem="We3-uJ-yoj" firstAttribute="height" secondItem="vmi-5G-HBi" secondAttribute="height" multiplier="0.33" id="bSu-2W-QG5"/>
+                                    <constraint firstItem="yKI-UO-gC5" firstAttribute="centerY" secondItem="vmi-5G-HBi" secondAttribute="centerY" id="gSO-9S-cUu"/>
+                                    <constraint firstItem="yKI-UO-gC5" firstAttribute="centerX" secondItem="vmi-5G-HBi" secondAttribute="centerX" multiplier="1.5" id="hA0-hx-hg7"/>
                                     <constraint firstItem="tfH-CA-zzU" firstAttribute="centerX" secondItem="We3-uJ-yoj" secondAttribute="centerX" id="rNm-OR-cVN"/>
                                     <constraint firstAttribute="height" constant="176" id="sbi-YG-aCm"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yKI-UO-gC5">
-                                <rect key="frame" x="230" y="415" width="120" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="yKI-UO-gC5" secondAttribute="height" multiplier="1:1" id="6Se-Ez-oCN"/>
-                                    <constraint firstAttribute="height" constant="120" id="lcW-km-8cj"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="4Dr-W4-UW1" firstAttribute="centerY" secondItem="wUW-Ky-hIS" secondAttribute="centerY" id="3Dg-l3-VQ4"/>
+                            <constraint firstItem="4Dr-W4-UW1" firstAttribute="centerX" secondItem="wUW-Ky-hIS" secondAttribute="centerX" id="6br-yj-8nO"/>
                             <constraint firstItem="xEC-gE-Ehp" firstAttribute="centerY" secondItem="wUW-Ky-hIS" secondAttribute="centerY" multiplier="0.3" id="8Rp-w5-4IV"/>
-                            <constraint firstItem="yKI-UO-gC5" firstAttribute="centerX" secondItem="vmi-5G-HBi" secondAttribute="centerX" multiplier="1.4" id="9fy-Ke-aRL"/>
                             <constraint firstItem="xEC-gE-Ehp" firstAttribute="width" secondItem="wUW-Ky-hIS" secondAttribute="width" multiplier="0.8" id="KLS-D7-VqI"/>
-                            <constraint firstItem="yKI-UO-gC5" firstAttribute="centerY" secondItem="V6k-Wh-XJ2" secondAttribute="centerY" id="V38-hF-RmR"/>
+                            <constraint firstItem="EiN-3c-PCp" firstAttribute="width" secondItem="wUW-Ky-hIS" secondAttribute="width" id="LdC-ct-Aih"/>
+                            <constraint firstItem="4Dr-W4-UW1" firstAttribute="height" secondItem="wUW-Ky-hIS" secondAttribute="height" id="Qhj-Qb-Kxb"/>
                             <constraint firstItem="vmi-5G-HBi" firstAttribute="centerY" secondItem="wUW-Ky-hIS" secondAttribute="centerY" id="WMl-jq-qhV"/>
                             <constraint firstItem="xEC-gE-Ehp" firstAttribute="centerX" secondItem="wUW-Ky-hIS" secondAttribute="centerX" id="a1B-Ay-zmX"/>
                             <constraint firstItem="vmi-5G-HBi" firstAttribute="centerX" secondItem="wUW-Ky-hIS" secondAttribute="centerX" id="ib4-4y-z5W"/>
+                            <constraint firstItem="4Dr-W4-UW1" firstAttribute="width" secondItem="wUW-Ky-hIS" secondAttribute="width" id="vWr-Fj-Pdl"/>
                             <constraint firstItem="EiN-3c-PCp" firstAttribute="centerX" secondItem="wUW-Ky-hIS" secondAttribute="centerX" id="wi6-IX-xfA"/>
                             <constraint firstItem="EiN-3c-PCp" firstAttribute="centerY" secondItem="wUW-Ky-hIS" secondAttribute="centerY" multiplier="1.65" id="ybR-HI-QUC"/>
                         </constraints>
@@ -147,6 +156,7 @@
                         <outlet property="locationImage" destination="yKI-UO-gC5" id="Yd6-cY-GmT"/>
                         <outlet property="locationTitleLabel" destination="YJ0-iz-yfz" id="D1J-rY-SpU"/>
                         <outlet property="locationYelpStarsImage" destination="8xP-48-HFY" id="3T8-rj-kVU"/>
+                        <outlet property="locationsMapView" destination="4Dr-W4-UW1" id="EKY-MA-0uI"/>
                         <outlet property="searchAreaButton" destination="xEC-gE-Ehp" id="8iy-re-p4D"/>
                         <outlet property="totalReviewsLabel" destination="3iF-O3-GzT" id="rhP-Aj-KBm"/>
                         <outlet property="yelpButton" destination="ySO-Zq-x1e" id="HfU-yl-uA0"/>
