@@ -62,10 +62,9 @@ class AddMaintenanceTextViewController: UIViewController {
     
     @IBAction func costAndReceiptButtonTapped(_ sender: Any) {
         guard let title = titleString else {return}
-        guard let details = details else {return}
         let date = datePicker.date
         guard let car = CarController.shared.selectedCar else {return}
-        let main = CarController.shared.addMaintenanceReminder(car: car, message: details , maintanence: title, date: date, image: nil, price: "")
+        let main = CarController.shared.addMaintenanceReminder(car: car, message: details ?? "" , maintanence: title, date: date, image: nil, price: "")
         maintenanceToSend = main
         if date > Date(){
             addReminderPrompt()
@@ -80,7 +79,7 @@ class AddMaintenanceTextViewController: UIViewController {
         
         if additionalDetailsLabel.isHidden{
             guard let titleText = answerTextField.text else {return}
-            title = titleText
+            titleString = titleText
             maintenanceTypeButton.setTitle(titleText, for: .normal)
             toggleMaintenanceLabels()
             answerTextField.resignFirstResponder()
@@ -90,6 +89,9 @@ class AddMaintenanceTextViewController: UIViewController {
         }
         SaveButton.isHidden = true
     }
+    
+   
+    
     
     
     //MARK: -HELPER FUNCTIONS
