@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YKy-48-Puh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YKy-48-Puh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -589,17 +589,26 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Owner Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p6g-zR-hpe" customClass="TextFieldStyle" customModule="AutoTracker" customModuleProvider="target">
+                                <rect key="frame" x="18.5" y="511.5" width="377" height="64"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ym7-ee-Y0u" firstAttribute="top" secondItem="TyD-GG-DFV" secondAttribute="bottom" constant="8" id="11A-Wl-IWA"/>
+                            <constraint firstItem="p6g-zR-hpe" firstAttribute="centerX" secondItem="Y1J-5i-K3l" secondAttribute="centerX" id="53w-hq-srp"/>
                             <constraint firstItem="Y1J-5i-K3l" firstAttribute="bottom" secondItem="twi-TN-cbL" secondAttribute="bottom" constant="61" id="8wD-xd-Yz6"/>
                             <constraint firstItem="ym7-ee-Y0u" firstAttribute="width" secondItem="Y1J-5i-K3l" secondAttribute="width" multiplier="0.91" id="CBN-ha-nmk"/>
+                            <constraint firstItem="p6g-zR-hpe" firstAttribute="centerY" secondItem="Y1J-5i-K3l" secondAttribute="centerY" multiplier="1.2" id="EKO-Al-FIs"/>
                             <constraint firstItem="ym7-ee-Y0u" firstAttribute="centerX" secondItem="Y1J-5i-K3l" secondAttribute="centerX" id="L5b-KB-obI"/>
                             <constraint firstItem="ym7-ee-Y0u" firstAttribute="centerY" secondItem="Y1J-5i-K3l" secondAttribute="centerY" id="M9J-Zz-91N"/>
                             <constraint firstItem="Jlc-4y-Hvu" firstAttribute="centerX" secondItem="Y1J-5i-K3l" secondAttribute="centerX" id="NTH-u1-azI"/>
                             <constraint firstItem="twi-TN-cbL" firstAttribute="width" secondItem="Y1J-5i-K3l" secondAttribute="width" multiplier="0.5" id="Vmf-HV-UvX"/>
                             <constraint firstItem="Jlc-4y-Hvu" firstAttribute="top" secondItem="Y1J-5i-K3l" secondAttribute="top" constant="171" id="ftg-ej-P4X"/>
+                            <constraint firstItem="p6g-zR-hpe" firstAttribute="width" secondItem="ym7-ee-Y0u" secondAttribute="width" id="jFd-Ka-IMR"/>
+                            <constraint firstItem="p6g-zR-hpe" firstAttribute="height" secondItem="ym7-ee-Y0u" secondAttribute="height" id="vDD-kH-2jZ"/>
                             <constraint firstItem="TyD-GG-DFV" firstAttribute="centerX" secondItem="ym7-ee-Y0u" secondAttribute="centerX" id="y75-bJ-h3Q"/>
                             <constraint firstItem="twi-TN-cbL" firstAttribute="centerX" secondItem="Y1J-5i-K3l" secondAttribute="centerX" id="zn2-OB-xHi"/>
                         </constraints>
@@ -609,6 +618,7 @@
                     <connections>
                         <outlet property="laterButton" destination="3IB-QI-Zok" id="Esy-a0-JGm"/>
                         <outlet property="nameTextField" destination="ym7-ee-Y0u" id="M7R-ZM-guo"/>
+                        <outlet property="ownerNameTextField" destination="p6g-zR-hpe" id="Z1w-ql-gc2"/>
                         <outlet property="takePictureButton" destination="q4J-bp-qms" id="3ta-K1-fgL"/>
                         <segue destination="XeG-EG-qDi" kind="presentation" identifier="toMainVC" modalPresentationStyle="fullScreen" id="0WL-sp-i4m"/>
                     </connections>

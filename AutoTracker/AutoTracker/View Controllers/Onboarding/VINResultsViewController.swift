@@ -22,7 +22,10 @@ class VINResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        makeTextField.delegate = self
+        modelTextField.delegate = self
+        yearTextField.delegate = self
+        engineTextField.delegate = self
         updateTextFields()
     }
     
@@ -59,5 +62,11 @@ class VINResultsViewController: UIViewController {
                 destinationVC.carParts = carParts
             }
         }
+    }
+}
+extension VINResultsViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

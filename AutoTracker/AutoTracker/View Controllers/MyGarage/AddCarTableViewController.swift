@@ -46,6 +46,11 @@ class AddCarTableViewController: UITableViewController {
         yearTextField.delegate = self
         odometerPicker.delegate = self
         odometerPicker.dataSource = self
+        engineTextField.delegate = self
+        modelTextField.delegate = self
+        nameTextField.delegate = self
+        ownerTextField.delegate = self
+        
         initialSetUp()
     }
     

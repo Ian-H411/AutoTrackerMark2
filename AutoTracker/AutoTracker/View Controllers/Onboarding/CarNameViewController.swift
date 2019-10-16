@@ -9,12 +9,13 @@
 import UIKit
 
 class CarNameViewController: UIViewController {
-
+    
     // MARK: - OUTLETS
     @IBOutlet weak var nameTextField: TextFieldStyle!
     @IBOutlet weak var takePictureButton: AutoTrackerButtonGreenBG!
     @IBOutlet weak var laterButton: AutoTrackerButtonWhiteBG!
     
+    @IBOutlet weak var ownerNameTextField: UITextField!
     // MARK: - PROPERTIES
     var carParts: Car?
     
@@ -22,6 +23,9 @@ class CarNameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.delegate = self
+        ownerNameTextField.delegate = self
+        
+        
     }
     
     // MARK: - ACTIONS
@@ -35,10 +39,13 @@ class CarNameViewController: UIViewController {
         let name = car.name ?? "Default Name"
         let odometer = car.odometer
         let photoData = car.photoData
-
-        CarController.shared.onboardACar(name: name, vin: vin, odometer: odometer, photoData: photoData)
+        car.odometer = odometer
+        car.photoData = photoData
+        let ownerName = ownerNameTextField.text ?? ""
+        CarController.shared.carupdate(name: name, make: car.make ?? "", model: car.model ?? "", year: car.year ?? "", engine: car.engine ?? "" , ownerName: ownerName, car: car)
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
         
-
         performSegue(withIdentifier: "toMainVC", sender: nil)
         
         
@@ -69,18 +76,18 @@ class CarNameViewController: UIViewController {
     func presentActionSheet(){
         let actionSheet = UIAlertController(title: "Car Picture", message: nil, preferredStyle: .alert)
         
-       
-            let cameraButton = UIAlertAction(title: "Use your Camera", style: .default) { (_) in
-                self.camera()
-            }
-            actionSheet.addAction(cameraButton)
+        
+        let cameraButton = UIAlertAction(title: "Use your Camera", style: .default) { (_) in
+            self.camera()
+        }
+        actionSheet.addAction(cameraButton)
         
         
-            let photoLibrary = UIAlertAction(title: "Import From Your Photo Library", style: .default) { (_) in
-                self.photoLibrary()
-            }
-            
-            actionSheet.addAction(photoLibrary)
+        let photoLibrary = UIAlertAction(title: "Import From Your Photo Library", style: .default) { (_) in
+            self.photoLibrary()
+        }
+        
+        actionSheet.addAction(photoLibrary)
         
         let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
         actionSheet.addAction(cancelButton)
@@ -94,21 +101,19 @@ class CarNameViewController: UIViewController {
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension CarNameViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-
-        carParts?.name = nameTextField.text
         nameTextField.resignFirstResponder()
         return true
     }

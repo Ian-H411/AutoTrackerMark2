@@ -60,7 +60,6 @@ extension VINViewController: UITextFieldDelegate {
 
         if let vin = vinTextField.text,
             let year = yearTextField.text {
-        carParts.vin = vin
         carParts.year = year
             CarController.shared.retrieveCarDetailsWith(vin: vin, year: year) { (CarJson, error) in
                 DispatchQueue.main.async {

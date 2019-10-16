@@ -67,6 +67,7 @@ class AddMaintenanceTextViewController: UIViewController {
         let main = CarController.shared.addMaintenanceReminder(car: car, message: details ?? "" , maintanence: title, date: date, image: nil, price: "")
         maintenanceToSend = main
         if date > Date(){
+            CarController.shared.toggleMaintenanceReminder(maintenance: main)
             addReminderPrompt()
         } else {
             self.performSegue(withIdentifier: "nextStep", sender: nil)

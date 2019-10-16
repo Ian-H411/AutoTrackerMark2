@@ -36,7 +36,7 @@ class ReceiptEntryViewController: UIViewController {
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        reusableTextField.delegate = self
         updateButton.alpha = 0.0
         reusableTextField.alpha = 0.0
         resultsLabel.isHidden = true
@@ -212,5 +212,11 @@ class ReceiptEntryViewController: UIViewController {
         let okAction = UIAlertAction(title: "Okay", style: .default)
         alertController.addAction(okAction)
         present(alertController, animated: true)
+    }
+}
+extension ReceiptEntryViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
