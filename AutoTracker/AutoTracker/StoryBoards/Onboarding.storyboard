@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -182,8 +183,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="LaF-vu-ID3">
-                                <rect key="frame" x="103.5" y="666" width="207" height="176"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LaF-vu-ID3">
+                                <rect key="frame" x="103.5" y="630" width="207" height="212"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qN2-2Z-0tg" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="64"/>
@@ -196,7 +197,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7Q-MW-oWO">
-                                        <rect key="frame" x="0.0" y="60" width="207" height="30"/>
+                                        <rect key="frame" x="0.0" y="72" width="207" height="30"/>
                                         <state key="normal" title="Help?">
                                             <color key="titleColor" name="autoGreen"/>
                                         </state>
@@ -205,7 +206,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzE-xH-d2a" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="86" width="207" height="64"/>
+                                        <rect key="frame" x="0.0" y="110" width="207" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="gzv-To-zYv"/>
                                         </constraints>
@@ -215,7 +216,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdg-VO-Toy">
-                                        <rect key="frame" x="0.0" y="146" width="207" height="30"/>
+                                        <rect key="frame" x="0.0" y="182" width="207" height="30"/>
                                         <state key="normal" title="Skip for Now">
                                             <color key="titleColor" name="autoGreen"/>
                                         </state>
@@ -466,19 +467,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ud8-il-qy8">
-                                <rect key="frame" x="41.5" y="415.5" width="331" height="75"/>
+                                <rect key="frame" x="41.5" y="437.5" width="331" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="mtq-bm-QlO"/>
                                 </constraints>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many miles are on your odometer?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOm-Yq-DfI" customClass="AutoTrackerLabelHeadline" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="18.5" y="180" width="377" height="20.5"/>
+                                <rect key="frame" x="18.5" y="189.5" width="377" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3V-nt-vcT">
-                                <rect key="frame" x="338.5" y="501" width="34" height="30"/>
+                                <rect key="frame" x="338.5" y="523" width="34" height="30"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" name="autoGreen"/>
                                 </state>
@@ -566,13 +567,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name your car and take a picture of it:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jlc-4y-Hvu" customClass="AutoTrackerLabelHeadline" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="61.5" y="180" width="291.5" height="20.5"/>
+                                <rect key="frame" x="61.5" y="189.5" width="291.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p6g-zR-hpe" customClass="TextFieldStyle" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="18.5" y="431" width="377" height="44"/>
+                                <rect key="frame" x="18.5" y="453" width="377" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -611,7 +612,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner's Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mi9-vF-52y" customClass="AutoTrackerLabelDetail" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="151" y="402.5" width="112.5" height="20.5"/>
+                                <rect key="frame" x="151" y="424.5" width="112.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -633,6 +634,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="ym7-ee-Y0u" firstAttribute="top" secondItem="TyD-GG-DFV" secondAttribute="bottom" constant="8" id="11A-Wl-IWA"/>
                             <constraint firstItem="p6g-zR-hpe" firstAttribute="centerX" secondItem="Y1J-5i-K3l" secondAttribute="centerX" id="53w-hq-srp"/>
@@ -652,6 +654,9 @@
                             <constraint firstItem="twi-TN-cbL" firstAttribute="centerX" secondItem="Y1J-5i-K3l" secondAttribute="centerX" id="zn2-OB-xHi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Y1J-5i-K3l"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ghs-Xk-JlY" appends="YES" id="A2q-MV-bvi"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="yeh-aF-mFx"/>
                     <connections>
@@ -663,6 +668,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIP-5l-JdH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ghs-Xk-JlY">
+                    <connections>
+                        <action selector="dismissKeyboardTapped:" destination="Eex-kh-iC9" id="6de-HJ-FR7"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5150.7246376811599" y="41.517857142857139"/>
         </scene>
@@ -707,7 +717,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Vek-vk-pK1"/>
-        <segue reference="91R-0F-VUl"/>
-        <segue reference="7ov-gU-u4j"/>
+        <segue reference="8UE-yJ-Jjo"/>
+        <segue reference="KaS-b1-hr2"/>
     </inferredMetricsTieBreakers>
 </document>

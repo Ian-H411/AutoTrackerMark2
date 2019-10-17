@@ -14,8 +14,8 @@ class CarNameViewController: UIViewController {
     @IBOutlet weak var nameTextField: TextFieldStyle!
     @IBOutlet weak var takePictureButton: AutoTrackerButtonGreenBG!
     @IBOutlet weak var laterButton: AutoTrackerButtonWhiteBG!
-    
     @IBOutlet weak var ownerNameTextField: UITextField!
+    
     // MARK: - PROPERTIES
     var carParts: Car?
     
@@ -45,12 +45,12 @@ class CarNameViewController: UIViewController {
         CarController.shared.carupdate(name: name, make: car.make ?? "", model: car.model ?? "", year: car.year ?? "", engine: car.engine ?? "" , ownerName: ownerName, car: car)
         let defaults = UserDefaults.standard
         defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
-        
         performSegue(withIdentifier: "toMainVC", sender: nil)
-        
-        
-        
-        
+    }
+    
+    @IBAction func dismissKeyboardTapped(_ sender: Any) {
+        nameTextField.resignFirstResponder()
+        ownerNameTextField.resignFirstResponder()
     }
     
     // MARK: - HELPER FUNCTIONS
@@ -115,6 +115,7 @@ class CarNameViewController: UIViewController {
 extension CarNameViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
+        ownerNameTextField.resignFirstResponder()
         return true
     }
 }
