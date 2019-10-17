@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2509E0A02358D98D004FFA9F /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2509E09F2358D98D004FFA9F /* APIKeys.plist */; };
 		2540E9B02350F89300CC3D83 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2540E9AF2350F89300CC3D83 /* DeviceInfo.swift */; };
 		2558F34D235508D300BDF2DC /* MaintenanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2558F34C235508D300BDF2DC /* MaintenanceTableViewCell.swift */; };
 		2558F34F2355265400BDF2DC /* UpdateOdometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2558F34E2355265400BDF2DC /* UpdateOdometerViewController.swift */; };
@@ -74,6 +75,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2509E09F2358D98D004FFA9F /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		2540E9AF2350F89300CC3D83 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		2558F34C235508D300BDF2DC /* MaintenanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceTableViewCell.swift; sourceTree = "<group>"; };
 		2558F34E2355265400BDF2DC /* UpdateOdometerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateOdometerViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				256810BC2347F1DA00629AEA /* LocationManager.swift */,
 				25BDF720234FCA01009DD2E2 /* Reachability.swift */,
 				2540E9AF2350F89300CC3D83 /* DeviceInfo.swift */,
+				2509E09F2358D98D004FFA9F /* APIKeys.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				2568109B2347A7A900629AEA /* Assets.xcassets in Resources */,
 				423925292347B04B00EABF16 /* Home.storyboard in Resources */,
 				42CD62E42350D75A001A4B12 /* Nunito-Bold.ttf in Resources */,
+				2509E0A02358D98D004FFA9F /* APIKeys.plist in Resources */,
 				4239252B2347B05700EABF16 /* Maintain.storyboard in Resources */,
 				256810962347A7A800629AEA /* Main.storyboard in Resources */,
 				423925262347B03D00EABF16 /* Record.storyboard in Resources */,
@@ -663,7 +667,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DjangoEarnhardt.AutoTracker2;
+
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.IanH411.AutoTracker2;
+
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -682,7 +689,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DjangoEarnhardt.AutoTracker2;
+
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.IanH411.AutoTracker2;
+
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

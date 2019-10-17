@@ -60,6 +60,15 @@ class AddCarByVinViewController: UIViewController {
     
     func setUpUI(){
         goButton.isHidden = true
+        self.yearLabel.alpha = 0.0
+        self.makeLabel.alpha = 0.0
+        self.makeTextField.alpha = 0.0
+        self.modelLabel.alpha = 0.0
+        self.modelTextField.alpha = 0.0
+        self.engineLabel.alpha = 0.0
+        self.engineTextField.alpha = 0.0
+        self.goButton.alpha = 0.0
+        self.yearTextField.alpha = 0.0
         let labelCarousel:[UILabel] = [yearLabel, makeLabel,modelLabel,engineLabel]
         for label in labelCarousel{
             label.isHidden = true
@@ -79,25 +88,34 @@ class AddCarByVinViewController: UIViewController {
             self.engineLabel.isHidden = false
             self.engineTextField.isHidden = false
             self.goButton.isHidden = false
+            self.yearTextField.isHidden = false
+            self.yearLabel.isHidden = false
+            self.yearLabel.alpha = 1.0
+            self.makeLabel.alpha = 1.0
+            self.makeTextField.alpha = 1.0
+            self.modelLabel.alpha = 1.0
+            self.modelTextField.alpha = 1.0
+            self.engineLabel.alpha = 1.0
+            self.engineTextField.alpha = 1.0
+            self.goButton.alpha = 1.0
+            self.yearTextField.alpha = 1.0
+            self.yearTextField.text = carJson.year == "" ? "Year not Found" : carJson.year
             self.makeTextField.text = carJson.make == "" ? "Car Make not found" : carJson.make
-            
             self.modelTextField.text = carJson.model == "" ? "Car model not found" : carJson.model
-            
             self.engineTextField.text = carJson.engine == "" ? "Engine not found" : "\(carJson.engine) Cylinder"
             
         }
     }
     
     func beginDataFetchByCarVin(){
-        guard let vin = vinTextField.text?.uppercased(), !vin.isEmpty,
-            let year = yearTextField.text, !year.isEmpty
+        guard let vin = vinTextField.text?.uppercased(), !vin.isEmpty
             else {return}
         if !Reachability.isConnectedToNetwork(){
             presentNoInternetAlert()
             return
         }
         vinStore = vin
-        CarController.shared.retrieveCarDetailsWith(vin: vin, year: year) { (carJson, error) in
+        CarController.shared.retrieveCarDetailsWith(vin: vin, year: "") { (carJson, error) in
             if let error = error{
                 print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
                 return
@@ -105,6 +123,7 @@ class AddCarByVinViewController: UIViewController {
             guard let car = carJson else {return}
             DispatchQueue.main.async {
                 self.dataRecievedBeginSetup(carJson:car)
+                self.headerLabel.isHidden = true
             }
             
         }
@@ -163,7 +182,7 @@ class AddCarByVinViewController: UIViewController {
     @objc func doneButtonAction(){
     
         yearTextField.resignFirstResponder()
-        beginDataFetchByCarVin()
+        
 
     }
     
@@ -190,7 +209,7 @@ extension AddCarByVinViewController:UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if textField.tag == 1{
-            displayYearTextField()
+            beginDataFetchByCarVin()
         }
         
         return true

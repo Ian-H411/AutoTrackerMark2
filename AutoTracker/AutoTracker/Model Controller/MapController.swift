@@ -14,7 +14,7 @@ class MapController{
     var results = [PlaceObject]()
     
     private func retrieveGasStationsNearby(location: CLLocationCoordinate2D, radius:Int, completion: @escaping (Places?) -> Void){
-        let apikey = "GCRBpvYBFTs9Cm0DHzTZB4GWMG9qYkTkBP99YuMPC_K_g2DaW9N73-8p1fs7P9I3eSrP3T_hDQeLYXa1rf_h-w-5-zISI_Yt4y0wEnb66agE0UOyiSj1I2xC1vWcXXYx"
+        let apikey = retrieveValueFromPlist(key: "yelpKey", plistName: "APIKeys")
         guard let url = URL(string: "https://api.yelp.com/v3/businesses/search") else {return}
         let gasStations = URLQueryItem(name: "categories", value: "servicestations")
         let lattitude = URLQueryItem(name: "latitude", value:"\(location.latitude)")
@@ -53,6 +53,13 @@ class MapController{
         }.resume()
         
     }
+    func retrieveValueFromPlist(key: String, plistName: String) -> String {
+        guard let filepath = Bundle.main.path(forResource: plistName, ofType: "plist") else { return "error" }
+        let propertyList = NSDictionary.init(contentsOfFile: filepath)
+        guard let value = propertyList?.value(forKey: key) as? String else { return "error" }
+        return value
+    }
+
     func retrieveImage(urlString:String, completion: @escaping (UIImage?) -> Void){
         guard let url = URL(string: urlString) else {completion(nil);print("error url was nil");return}
         URLSession.shared.dataTask(with: url) { (data, _, error) in

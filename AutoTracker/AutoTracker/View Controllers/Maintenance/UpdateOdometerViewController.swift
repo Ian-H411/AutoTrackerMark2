@@ -79,6 +79,11 @@ class UpdateOdometerViewController: UIViewController {
         carNameLabel.text = "update \(car.name ?? "")'s odometer"
         savedLabel.isHidden = true
         odometerPicker.delegate = self
+        odometerPicker.layer.borderWidth = 5
+        odometerPicker.layer.cornerRadius = 12
+        odometerPicker.layer.borderColor = UIColor.black.cgColor
+        odometerPicker.layer.backgroundColor = UIColor.black.cgColor
+        odometerPicker.setValue(UIColor.white, forKey: "textColor")
         self.navigationItem.hidesBackButton = true
     }
     func odometerResults() -> Int {
