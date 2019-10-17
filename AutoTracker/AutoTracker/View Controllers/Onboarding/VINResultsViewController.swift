@@ -34,6 +34,14 @@ class VINResultsViewController: UIViewController {
         buildCarParts()
         performSegue(withIdentifier: "toOdometerVC", sender: nil)
     }
+    @IBAction func skipButtonTapped(_ sender: Any) {
+    }
+    @IBAction func dismissKeyboardTapped(_ sender: Any) {
+        makeTextField.resignFirstResponder()
+        modelTextField.resignFirstResponder()
+        yearTextField.resignFirstResponder()
+        engineTextField.resignFirstResponder()
+    }
     
     // MARK: - FUNCTIONS
     
