@@ -55,6 +55,7 @@ class FinalCheckForVinViewController: UIViewController {
         odometerPicker.setValue(UIColor.white, forKey: "textColor")
         ownerTextField.delegate = self
         nicknameTextField.delegate = self
+       
     }
     
     
@@ -83,7 +84,7 @@ class FinalCheckForVinViewController: UIViewController {
     }
     func popViewAndSaveCar(){
         guard let carJson = car
-        else {return}
+            else {return}
         guard let name = nicknameTextField.text,
             let owner = ownerTextField.text
             else {return}

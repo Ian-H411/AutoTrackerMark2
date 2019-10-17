@@ -124,6 +124,63 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssK-28-RC0">
+                                <rect key="frame" x="124" y="88" width="290" height="200"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="y24-9d-dn8">
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="200"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Awj-D9-64u">
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="64" id="QCo-lN-oa7"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <state key="normal" title="Add car by VIN">
+                                                    <color key="titleColor" name="autoGreen"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="addCarByVinTapped:" destination="snd-le-aTe" eventType="touchUpInside" id="5eK-5a-n9o"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEf-TS-oqd">
+                                                <rect key="frame" x="0.0" y="68" width="290" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="64" id="0hF-6L-ukC"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <state key="normal" title="Add car manually">
+                                                    <color key="titleColor" name="autoGreen"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="addCarByTextTapped:" destination="snd-le-aTe" eventType="touchUpInside" id="Buy-Z2-W9e"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xq8-hY-9Ba">
+                                                <rect key="frame" x="0.0" y="136" width="290" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="64" id="KsG-HG-68m"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <state key="normal" title="Edit current car">
+                                                    <color key="titleColor" name="autoGreen"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="editCarButtonTapped:" destination="snd-le-aTe" eventType="touchUpInside" id="RbV-wY-9aI"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="RrT-RY-7gL"/>
+                                    <constraint firstItem="y24-9d-dn8" firstAttribute="centerY" secondItem="ssK-28-RC0" secondAttribute="centerY" id="iOy-9j-Ywk"/>
+                                    <constraint firstItem="y24-9d-dn8" firstAttribute="centerX" secondItem="ssK-28-RC0" secondAttribute="centerX" id="l5V-wQ-yde"/>
+                                    <constraint firstItem="y24-9d-dn8" firstAttribute="width" secondItem="ssK-28-RC0" secondAttribute="width" id="pmN-RZ-GSu"/>
+                                    <constraint firstItem="y24-9d-dn8" firstAttribute="height" secondItem="ssK-28-RC0" secondAttribute="height" id="xbW-RZ-ni6"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -131,10 +188,13 @@
                             <constraint firstItem="bpK-ry-9mR" firstAttribute="centerX" secondItem="Ibs-Ba-998" secondAttribute="centerX" id="7yP-fk-K4t"/>
                             <constraint firstItem="afS-cb-27v" firstAttribute="width" secondItem="Ibs-Ba-998" secondAttribute="width" multiplier="0.9" id="JOc-Rq-gVw"/>
                             <constraint firstItem="bpK-ry-9mR" firstAttribute="height" secondItem="Ibs-Ba-998" secondAttribute="height" multiplier="0.3" id="LGx-R5-pgE"/>
+                            <constraint firstItem="ssK-28-RC0" firstAttribute="width" secondItem="Ibs-Ba-998" secondAttribute="width" multiplier="0.7" id="T2s-R2-sP5"/>
                             <constraint firstItem="afS-cb-27v" firstAttribute="centerX" secondItem="Ibs-Ba-998" secondAttribute="centerX" id="dT2-Yi-78G"/>
                             <constraint firstItem="bpK-ry-9mR" firstAttribute="top" secondItem="Ibs-Ba-998" secondAttribute="top" constant="30" id="gzU-78-FaV"/>
                             <constraint firstItem="afS-cb-27v" firstAttribute="top" secondItem="bpK-ry-9mR" secondAttribute="bottom" constant="55" id="hPT-Lc-9fF"/>
                             <constraint firstItem="bpK-ry-9mR" firstAttribute="leading" secondItem="Ibs-Ba-998" secondAttribute="leading" constant="10.5" id="tRZ-nm-STQ"/>
+                            <constraint firstItem="ssK-28-RC0" firstAttribute="top" secondItem="Ibs-Ba-998" secondAttribute="top" id="tn1-Ma-Gh7"/>
+                            <constraint firstItem="Ibs-Ba-998" firstAttribute="trailing" secondItem="ssK-28-RC0" secondAttribute="trailing" id="wrd-YJ-kNx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ibs-Ba-998"/>
                     </view>
@@ -146,9 +206,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addCarByTextButton" destination="cEf-TS-oqd" id="Dth-zy-Xk2"/>
+                        <outlet property="addCarByVinButton" destination="Awj-D9-64u" id="B1r-58-qGs"/>
                         <outlet property="carSelectionTableView" destination="KOj-Ul-n58" id="PnL-kF-0y8"/>
                         <outlet property="currentCarButton" destination="P2x-te-KEZ" id="no2-wa-GPf"/>
+                        <outlet property="editCurrentCarButton" destination="xq8-hY-9Ba" id="cez-qZ-v8T"/>
                         <outlet property="makeLabel" destination="mLb-jn-l3n" id="pJa-Hm-NiC"/>
+                        <outlet property="menuCard" destination="ssK-28-RC0" id="efo-sM-VtB"/>
                         <outlet property="odometerPicker" destination="5mN-2n-idC" id="8C2-Uw-vYJ"/>
                         <outlet property="ownerLabel" destination="FJc-tS-UVZ" id="z8u-Tb-guT"/>
                         <outlet property="savebutton" destination="WgG-2f-8pD" id="7MJ-51-732"/>
@@ -160,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z5L-gd-m7Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="677" y="740"/>
+            <point key="canvasLocation" x="676.81159420289862" y="739.95535714285711"/>
         </scene>
         <!--Add Car By Vin View Controller-->
         <scene sceneID="CIM-6U-6jq">
@@ -587,7 +651,7 @@
                                                         <constraint firstAttribute="height" constant="44" id="onX-8v-DZV"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
