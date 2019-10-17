@@ -38,7 +38,13 @@ class OdometerViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         let odometer = odometerResults()
-        carParts?.odometer = Double(odometer)
+        
+        if let _ = carParts {
+            carParts?.odometer = Double(odometer)
+        } else {
+            carParts = Car(context: CoreDataStack.context)
+            carParts?.odometer = Double(odometer)
+        }
     }
     
 
