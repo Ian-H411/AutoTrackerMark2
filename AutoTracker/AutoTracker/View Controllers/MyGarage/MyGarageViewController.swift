@@ -77,6 +77,11 @@ class MyGarageViewController: UIViewController {
         super.viewWillAppear(true)
         carSelectionTableView.reloadData()
         setPickerViewToCarValue()
+        odometerPicker.layer.borderWidth = 5
+        odometerPicker.layer.cornerRadius = 12
+        odometerPicker.layer.borderColor = UIColor.black.cgColor
+        odometerPicker.layer.backgroundColor = UIColor.black.cgColor
+        odometerPicker.setValue(UIColor.white, forKey: "textColor")
     }
     
     //MARK: - HELPER FUNCTIONS
