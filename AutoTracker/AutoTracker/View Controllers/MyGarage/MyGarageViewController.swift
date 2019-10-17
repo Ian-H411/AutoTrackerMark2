@@ -21,7 +21,6 @@ class MyGarageViewController: UIViewController {
     
     @IBOutlet weak var ownerLabel: AutoTrackerLabel!
     
-    
     @IBOutlet weak var stackView: UIStackView!
     
     @IBOutlet weak var carSelectionTableView: UITableView!
@@ -38,7 +37,6 @@ class MyGarageViewController: UIViewController {
     var currentCarSelected: Car?
     
     var hackCarDeleteButton:Car?
-    
     
     // programatically creates a cgrect that we can set the tableView height to
     var tableViewSize:CGRect{
@@ -64,13 +62,10 @@ class MyGarageViewController: UIViewController {
         }
     }
     
-    
     //MARK: - LIFECYCLE
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetUP()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,7 +80,6 @@ class MyGarageViewController: UIViewController {
     }
     
     //MARK: - HELPER FUNCTIONS
-    
     func setPickerViewToCarValue(){
         guard let car = CarController.shared.selectedCar else {return}
         var odomenterAsStringArray = Array("\(Int(car.odometer))")
@@ -187,7 +181,6 @@ class MyGarageViewController: UIViewController {
     }
     
     //MARK: - ACTIONS
-    
     @IBAction func AddACarButtonTapped(_ sender: Any) {
         presentOptions()
     }
