@@ -130,7 +130,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="recordGasButtonTapped:" destination="iU8-vQ-Uxl" eventType="touchUpInside" id="6jy-yt-ZS6"/>
-                                                    <segue destination="nF9-EV-yrR" kind="presentation" modalPresentationStyle="fullScreen" id="Nfj-18-FUx"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -144,18 +143,22 @@
                                         <rect key="frame" x="20" y="-20" width="374" height="104"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="-4" id="jeh-6e-653">
+
                                                 <rect key="frame" x="0.0" y="33.5" width="63" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lifetime miles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xp9-fH-7F8" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="63" height="20.5"/>
+
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="buA-SC-BHn" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
+
                                                         <rect key="frame" x="3.5" y="16.5" width="56.5" height="20.5"/>
+
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -165,18 +168,22 @@
                                                 <viewLayoutGuide key="safeArea" id="VOl-kX-G2q"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="-4" id="DEK-Wk-Bgx">
+
                                                 <rect key="frame" x="71" y="33.5" width="63" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average MPG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ivs-Mu-LtZ" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="63" height="20.5"/>
+
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 MPG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3aT-Fk-VLO" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
+
                                                         <rect key="frame" x="0.5" y="16.5" width="62" height="20.5"/>
+
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -186,18 +193,22 @@
                                                 <viewLayoutGuide key="safeArea" id="JHm-QT-NTP"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="-4" id="rcf-S7-OIg">
+
                                                 <rect key="frame" x="142" y="33.5" width="63" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Tank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Rl-bk-ffD" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="63" height="20.5"/>
+
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="321 Left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="m9I-wn-UBz" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
+
                                                         <rect key="frame" x="0.5" y="16.5" width="62" height="20.5"/>
+
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -410,6 +421,7 @@
                         <outlet property="thisTankLabel" destination="m9I-wn-UBz" id="HkN-Ld-UhA"/>
                         <outlet property="updateOdometerLabel" destination="buA-SC-BHn" id="utY-Pw-VuF"/>
                         <outlet property="updatePhotoButtton" destination="Ugn-U5-flj" id="zUC-dp-hp6"/>
+                        <segue destination="nF9-EV-yrR" kind="presentation" identifier="toRecordVC" modalPresentationStyle="fullScreen" id="T0s-16-CgX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pwi-tC-1zd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -498,10 +510,12 @@
             </objects>
             <point key="canvasLocation" x="1346" y="-48"/>
         </scene>
-        <!--Record-->
+        <!--Main-->
         <scene sceneID="Pa0-6K-U9w">
             <objects>
-                <viewControllerPlaceholder storyboardName="Record" id="nF9-EV-yrR" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Main" id="nF9-EV-yrR" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="kLj-3k-55D"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iWU-ps-CgQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1346" y="140"/>

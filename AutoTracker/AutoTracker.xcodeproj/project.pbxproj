@@ -55,8 +55,6 @@
 		423925362347DBDF00EABF16 /* MyGarageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423925352347DBDF00EABF16 /* MyGarageTableViewCell.swift */; };
 		423925382347F0E000EABF16 /* ReceiptController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423925372347F0E000EABF16 /* ReceiptController.swift */; };
 		428784792357B51300460FCD /* VINResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428784782357B51300460FCD /* VINResultsViewController.swift */; };
-		428C8E952352CDEA00AA2E2F /* ReceiptHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428C8E942352CDEA00AA2E2F /* ReceiptHistoryTableViewController.swift */; };
-		428C8E972352D0A600AA2E2F /* ReceiptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428C8E962352D0A600AA2E2F /* ReceiptTableViewCell.swift */; };
 		428F7CCB2354EE0D006531FC /* ReceiptEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F7CCA2354EE0D006531FC /* ReceiptEntryViewController.swift */; };
 		428F7CCD23566582006531FC /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 428F7CCC23566582006531FC /* Onboarding.storyboard */; };
 		428F7CD023566D48006531FC /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F7CCF23566D48006531FC /* GetStartedViewController.swift */; };
@@ -68,13 +66,11 @@
 		42A32333234B9E9900B130A0 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A32332234B9E9900B130A0 /* DateHelper.swift */; };
 		42A32335234BB05000B130A0 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A32334234BB05000B130A0 /* RecordViewController.swift */; };
 		42A32337234BB7FF00B130A0 /* OdometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A32336234BB7FF00B130A0 /* OdometerViewController.swift */; };
-		42A32339234BD4A400B130A0 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A32338234BD4A400B130A0 /* HistoryViewController.swift */; };
 		42A3233B234BE48200B130A0 /* AutoTrackerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A3233A234BE48200B130A0 /* AutoTrackerTextField.swift */; };
-		42A3233F234BEBF300B130A0 /* ReceiptHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A3233E234BEBF300B130A0 /* ReceiptHistoryViewController.swift */; };
-		42A32341234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A32340234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift */; };
 		42CD62E42350D75A001A4B12 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42CD62E32350D75A001A4B12 /* Nunito-Bold.ttf */; };
 		42DFEDAC234E2D42004C40D7 /* AddCarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DFEDAB234E2D42004C40D7 /* AddCarTableViewController.swift */; };
 		42E0E982234D04EB00A2ADD5 /* AddReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0E981234D04EB00A2ADD5 /* AddReceiptTableViewController.swift */; };
+		42F7593A235A14F700602238 /* ReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F75939235A14F700602238 /* ReceiptTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,8 +125,6 @@
 		423925352347DBDF00EABF16 /* MyGarageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyGarageTableViewCell.swift; path = "AutoTracker/View Controllers/MyGarage/MyGarageTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		423925372347F0E000EABF16 /* ReceiptController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptController.swift; sourceTree = "<group>"; };
 		428784782357B51300460FCD /* VINResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINResultsViewController.swift; sourceTree = "<group>"; };
-		428C8E942352CDEA00AA2E2F /* ReceiptHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptHistoryTableViewController.swift; sourceTree = "<group>"; };
-		428C8E962352D0A600AA2E2F /* ReceiptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewCell.swift; sourceTree = "<group>"; };
 		428F7CCA2354EE0D006531FC /* ReceiptEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptEntryViewController.swift; sourceTree = "<group>"; };
 		428F7CCC23566582006531FC /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		428F7CCF23566D48006531FC /* GetStartedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedViewController.swift; sourceTree = "<group>"; };
@@ -142,13 +136,11 @@
 		42A32332234B9E9900B130A0 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateHelper.swift; path = "AutoTracker/View Controllers/DateHelper.swift"; sourceTree = SOURCE_ROOT; };
 		42A32334234BB05000B130A0 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		42A32336234BB7FF00B130A0 /* OdometerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerViewController.swift; sourceTree = "<group>"; };
-		42A32338234BD4A400B130A0 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		42A3233A234BE48200B130A0 /* AutoTrackerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoTrackerTextField.swift; path = "AutoTracker/View Controllers/AutoTrackerTextField.swift"; sourceTree = SOURCE_ROOT; };
-		42A3233E234BEBF300B130A0 /* ReceiptHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptHistoryViewController.swift; sourceTree = "<group>"; };
-		42A32340234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCollectionViewCell.swift; sourceTree = "<group>"; };
 		42CD62E32350D75A001A4B12 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		42DFEDAB234E2D42004C40D7 /* AddCarTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarTableViewController.swift; sourceTree = "<group>"; };
 		42E0E981234D04EB00A2ADD5 /* AddReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReceiptTableViewController.swift; sourceTree = "<group>"; };
+		42F75939235A14F700602238 /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +251,8 @@
 		256810AD2347A88800629AEA /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				42F7593C235A230800602238 /* Main */,
+				42F7593B235A230200602238 /* Home */,
 				428F7CCE2356659B006531FC /* Onboarding */,
 				25C056EA234CFBEC0000D848 /* Map */,
 				256810D8234C121000629AEA /* Maintenance */,
@@ -266,7 +260,6 @@
 				42A32330234B965800B130A0 /* HomeViewController.swift */,
 				250A0F79235A249700A2424F /* legalViewController.swift */,
 				4202233D234FAAC2006C60F6 /* CustomTabBarController.swift */,
-				42A32334234BB05000B130A0 /* RecordViewController.swift */,
 				42DFEDAA234DA121004C40D7 /* Record */,
 			);
 			path = "View Controllers";
@@ -357,15 +350,26 @@
 		42DFEDAA234DA121004C40D7 /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				42A32334234BB05000B130A0 /* RecordViewController.swift */,
 				428F7CCA2354EE0D006531FC /* ReceiptEntryViewController.swift */,
-				42A32338234BD4A400B130A0 /* HistoryViewController.swift */,
-				428C8E942352CDEA00AA2E2F /* ReceiptHistoryTableViewController.swift */,
-				428C8E962352D0A600AA2E2F /* ReceiptTableViewCell.swift */,
-				42A3233E234BEBF300B130A0 /* ReceiptHistoryViewController.swift */,
-				42A32340234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift */,
+				42F75939235A14F700602238 /* ReceiptTableViewController.swift */,
 				42E0E981234D04EB00A2ADD5 /* AddReceiptTableViewController.swift */,
 			);
 			path = Record;
+			sourceTree = "<group>";
+		};
+		42F7593B235A230200602238 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		42F7593C235A230800602238 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -454,7 +458,6 @@
 				256810BD2347F1DA00629AEA /* LocationManager.swift in Sources */,
 				428F7CD023566D48006531FC /* GetStartedViewController.swift in Sources */,
 				42A3233B234BE48200B130A0 /* AutoTrackerTextField.swift in Sources */,
-				42A32341234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift in Sources */,
 				423925342347D75D00EABF16 /* AutoTrackerLabel.swift in Sources */,
 				256810B52347AAE100629AEA /* Car+Convenience.swift in Sources */,
 				2540E9B02350F89300CC3D83 /* DeviceInfo.swift in Sources */,
@@ -479,14 +482,12 @@
 				25C056F2234D38A40000D848 /* MapController.swift in Sources */,
 				256810D0234BDF0800629AEA /* MaintanenceDetailTableViewController.swift in Sources */,
 				42A32333234B9E9900B130A0 /* DateHelper.swift in Sources */,
+				42F7593A235A14F700602238 /* ReceiptTableViewController.swift in Sources */,
 				2558F34F2355265400BDF2DC /* UpdateOdometerViewController.swift in Sources */,
-				428C8E972352D0A600AA2E2F /* ReceiptTableViewCell.swift in Sources */,
 				2568108F2347A7A800629AEA /* AppDelegate.swift in Sources */,
 				423925382347F0E000EABF16 /* ReceiptController.swift in Sources */,
 				25BDF71D234EC8BB009DD2E2 /* AddCarByVinViewController.swift in Sources */,
-				428C8E952352CDEA00AA2E2F /* ReceiptHistoryTableViewController.swift in Sources */,
 				4202233E234FAAC2006C60F6 /* CustomTabBarController.swift in Sources */,
-				42A32339234BD4A400B130A0 /* HistoryViewController.swift in Sources */,
 				423925362347DBDF00EABF16 /* MyGarageTableViewCell.swift in Sources */,
 				2558F357235788CA00BDF2DC /* EditMaintenaneViewController.swift in Sources */,
 				25BDF71F234FB9DB009DD2E2 /* FinalCheckForVinViewController.swift in Sources */,
@@ -498,7 +499,6 @@
 				256810C8234A35AE00629AEA /* MyGarageViewController.swift in Sources */,
 				42E0E982234D04EB00A2ADD5 /* AddReceiptTableViewController.swift in Sources */,
 				256810BB2347D77200629AEA /* CarJsonCompliance.swift in Sources */,
-				42A3233F234BEBF300B130A0 /* ReceiptHistoryViewController.swift in Sources */,
 				2558F3512356B02800BDF2DC /* AddMaintenanceTextViewController.swift in Sources */,
 				256810D4234BE77800629AEA /* TextFieldStyle.swift in Sources */,
 				256810912347A7A800629AEA /* SceneDelegate.swift in Sources */,

@@ -1,43 +1,44 @@
 //
-//  ReceiptHistoryTableViewController.swift
+//  ReceiptTableViewController.swift
 //  AutoTracker
 //
-//  Created by Sam LoBue on 10/12/19.
+//  Created by Sam LoBue on 10/18/19.
 //  Copyright © 2019 Ian Hall. All rights reserved.
 //
 
 import UIKit
 
-class ReceiptHistoryTableViewController: UITableViewController {
+class ReceiptTableViewController: UITableViewController {
 
     // MARK: - PROPERTIES
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        tableView.reloadData()
+    var maintenance: [Maintanence]? {
+        let list = CarController.shared.organizeAndReturnReceipts()
+        return list
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
+        
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return ReceiptController.shared.receipts.count
+        guard let maintenance = maintenance else { return 0 }
+        return maintenance.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "receiptCell", for: indexPath) as? ReceiptTableViewCell else { return UITableViewCell() }
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "detail", for: indexPath) as? MaintenanceTableViewCell else { return UITableViewCell() }
         
-        cell.receipt = ReceiptController.shared.receipts[indexPath.row]
-
+        guard let maintenance = maintenance else { return UITableViewCell() }
+        cell.update(maintenance: maintenance[indexPath.row])
         return cell
     }
-   
+    
 
     /*
     // Override to support conditional editing of the table view.

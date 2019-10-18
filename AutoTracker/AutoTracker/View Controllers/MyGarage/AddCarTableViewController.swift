@@ -92,6 +92,7 @@ class AddCarTableViewController: UITableViewController {
             return
         }
         let car = CarController.shared.addACar(name: name, make: make, model: model, year: year, engine: engine, ownerName: owner, odometer: Double(odometer))
+        CarController.shared.selectedCar = car
         if let image = carImage.image {
             CarController.shared.updatePhoto(car: car, photo: image) { (_) in
             }
