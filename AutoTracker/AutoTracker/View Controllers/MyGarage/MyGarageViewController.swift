@@ -274,6 +274,15 @@ class MyGarageViewController: UIViewController {
         self.performSegue(withIdentifier: "manuelEdit", sender: nil)
     }
     
+    @IBAction func screenTapped(_ sender: Any) {
+        if !menuCard.isHidden{
+            toggleMenu()
+            view.removeBlur()
+        }
+    }
+    
+    
+    
     //MARK: - NAVIGATION
     
     

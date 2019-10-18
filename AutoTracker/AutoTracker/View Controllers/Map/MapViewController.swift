@@ -124,7 +124,7 @@ class MapViewController: UIViewController {
             
         }
     }
-    func searchArea(){
+    func searchArea() {
         if !Reachability.isConnectedToNetwork(){
             presentNoInternetAlert()
             return
@@ -137,13 +137,15 @@ class MapViewController: UIViewController {
             if success{
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
+                    self.results = MapController.shared.results
+                    self.setUpMarkers()
                 }
-                self.results = MapController.shared.results
-                self.setUpMarkers()
+                
+                
             }
         }
     }
-    func retrieveAndSetImage(place: PlaceObject){
+    func retrieveAndSetImage(place: PlaceObject) {
         guard let image = place.imageURL else {return}
         MapController.shared.retrieveImage(urlString: image) { (imageOptional) in
             guard let imageUnwrapped = imageOptional else {return}
@@ -155,7 +157,7 @@ class MapViewController: UIViewController {
         
     }
     
-    func presentNoInternetAlert(){
+    func presentNoInternetAlert() {
         let alert = UIAlertController(title: "No Internet", message: "Sorry but this function requires an internet connection.  check your connection and try again", preferredStyle: .alert)
         let okayButton = UIAlertAction(title: "okay", style: .default, handler: nil)
         alert.addAction(okayButton)
@@ -177,7 +179,6 @@ class MapViewController: UIViewController {
         alertController.addAction(okayButton)
         alertController.addAction(cancelButton)
         self.present(alertController, animated: true)
-        
     }
     
     func getDirectionsInAppleMaps(){
@@ -240,6 +241,7 @@ extension MapViewController: MKMapViewDelegate{
         }
         return view
     }
+    
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let place = view.annotation as! PlaceObject

@@ -182,6 +182,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Ibs-Ba-998" firstAttribute="trailing" secondItem="bpK-ry-9mR" secondAttribute="trailing" constant="10.5" id="26G-0A-WX4"/>
                             <constraint firstItem="bpK-ry-9mR" firstAttribute="centerX" secondItem="Ibs-Ba-998" secondAttribute="centerX" id="7yP-fk-K4t"/>
@@ -196,9 +197,12 @@
                             <constraint firstItem="Ibs-Ba-998" firstAttribute="trailing" secondItem="ssK-28-RC0" secondAttribute="trailing" id="wrd-YJ-kNx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ibs-Ba-998"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Ee7-eu-zgE" appends="YES" id="FyH-Lo-OrO"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="JQu-eN-dYr">
-                        <barButtonItem key="rightBarButtonItem" image="line.horizontal.3" catalog="system" id="KSN-od-GQm">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KSN-od-GQm">
                             <connections>
                                 <action selector="AddACarButtonTapped:" destination="snd-le-aTe" id="c3x-bg-Xjp"/>
                             </connections>
@@ -222,6 +226,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z5L-gd-m7Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Ee7-eu-zgE">
+                    <connections>
+                        <action selector="screenTapped:" destination="snd-le-aTe" id="ps9-Vf-vk8"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="676.81159420289862" y="739.95535714285711"/>
         </scene>
@@ -766,7 +775,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
         <image name="myGarageDeselected" width="28" height="28"/>
         <namedColor name="autoGreen">
             <color red="0.29800000786781311" green="0.85000002384185791" blue="0.38999998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
