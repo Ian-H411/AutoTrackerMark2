@@ -48,6 +48,18 @@ class CarNameViewController: UIViewController {
         performSegue(withIdentifier: "toMainVC", sender: nil)
     }
     
+    @IBAction func skipButtonTapped(_ sender: Any) {
+        if let car = carParts {
+            CarController.shared.removeCarFromGarage(car: car)
+            CarController.shared.selectedCar = nil
+            performSegue(withIdentifier: "toMainVC", sender: nil)
+        } else {
+            
+            CarController.shared.selectedCar = nil
+            performSegue(withIdentifier: "toMainVC", sender: nil)
+        }
+    }
+    
     @IBAction func dismissKeyboardTapped(_ sender: Any) {
         nameTextField.resignFirstResponder()
         ownerNameTextField.resignFirstResponder()

@@ -35,6 +35,10 @@ class VINResultsViewController: UIViewController {
         performSegue(withIdentifier: "toOdometerVC", sender: nil)
     }
     @IBAction func skipButtonTapped(_ sender: Any) {
+        guard let car = carParts else { return }
+        CarController.shared.removeCarFromGarage(car: car)
+        CarController.shared.selectedCar = nil
+        performSegue(withIdentifier: "toMainVC", sender: nil)
     }
     @IBAction func dismissKeyboardTapped(_ sender: Any) {
         makeTextField.resignFirstResponder()
