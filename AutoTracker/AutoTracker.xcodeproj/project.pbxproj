@@ -60,6 +60,8 @@
 		428F7CCD23566582006531FC /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 428F7CCC23566582006531FC /* Onboarding.storyboard */; };
 		428F7CD023566D48006531FC /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F7CCF23566D48006531FC /* GetStartedViewController.swift */; };
 		428F7CD423567D6F006531FC /* VINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428F7CD323567D6F006531FC /* VINViewController.swift */; };
+		4293B3572359EBCD0081698E /* AutoTrackerOdometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4293B3562359EBCD0081698E /* AutoTrackerOdometer.swift */; };
+		4293B3592359EEFF0081698E /* AutoTrackerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4293B3582359EEFF0081698E /* AutoTrackerImage.swift */; };
 		4298EC792356D4BE00459950 /* CarNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4298EC782356D4BE00459950 /* CarNameViewController.swift */; };
 		42A32331234B965800B130A0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A32330234B965800B130A0 /* HomeViewController.swift */; };
 		42A32333234B9E9900B130A0 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A32332234B9E9900B130A0 /* DateHelper.swift */; };
@@ -131,6 +133,8 @@
 		428F7CCC23566582006531FC /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		428F7CCF23566D48006531FC /* GetStartedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedViewController.swift; sourceTree = "<group>"; };
 		428F7CD323567D6F006531FC /* VINViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINViewController.swift; sourceTree = "<group>"; };
+		4293B3562359EBCD0081698E /* AutoTrackerOdometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoTrackerOdometer.swift; path = AutoTracker/Resources/AutoTrackerOdometer.swift; sourceTree = SOURCE_ROOT; };
+		4293B3582359EEFF0081698E /* AutoTrackerImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoTrackerImage.swift; path = AutoTracker/Resources/AutoTrackerImage.swift; sourceTree = SOURCE_ROOT; };
 		4298EC782356D4BE00459950 /* CarNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarNameViewController.swift; sourceTree = "<group>"; };
 		42A32330234B965800B130A0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		42A32332234B9E9900B130A0 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateHelper.swift; path = "AutoTracker/View Controllers/DateHelper.swift"; sourceTree = SOURCE_ROOT; };
@@ -229,6 +233,8 @@
 				42A32332234B9E9900B130A0 /* DateHelper.swift */,
 				256810D3234BE77800629AEA /* TextFieldStyle.swift */,
 				42A3233A234BE48200B130A0 /* AutoTrackerTextField.swift */,
+				4293B3562359EBCD0081698E /* AutoTrackerOdometer.swift */,
+				4293B3582359EEFF0081698E /* AutoTrackerImage.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -465,6 +471,8 @@
 				42A32337234BB7FF00B130A0 /* OdometerViewController.swift in Sources */,
 				256810992347A7A800629AEA /* AutoTracker.xcdatamodeld in Sources */,
 				42A32331234B965800B130A0 /* HomeViewController.swift in Sources */,
+				4293B3592359EEFF0081698E /* AutoTrackerImage.swift in Sources */,
+				4293B3572359EBCD0081698E /* AutoTrackerOdometer.swift in Sources */,
 				25C056F2234D38A40000D848 /* MapController.swift in Sources */,
 				256810D0234BDF0800629AEA /* MaintanenceDetailTableViewController.swift in Sources */,
 				42A32333234B9E9900B130A0 /* DateHelper.swift in Sources */,
@@ -667,10 +675,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.IanH411.AutoTracker2;
-
+				PRODUCT_BUNDLE_IDENTIFIER = com.DjangoEarnhardt.AutoTracker2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -689,10 +695,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.IanH411.AutoTracker2;
-
+				PRODUCT_BUNDLE_IDENTIFIER = com.DjangoEarnhardt.AutoTracker2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

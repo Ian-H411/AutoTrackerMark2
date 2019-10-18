@@ -466,7 +466,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ud8-il-qy8">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ud8-il-qy8" customClass="AutoTrackerOdometer" customModule="AutoTracker" customModuleProvider="target">
                                 <rect key="frame" x="41.5" y="437.5" width="331" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="mtq-bm-QlO"/>
@@ -617,8 +617,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ym7-ee-Y0u" customClass="TextFieldStyle" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="17" y="305" width="377" height="44"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ym7-ee-Y0u" customClass="TextFieldStyle" customModule="AutoTracker" customModuleProvider="target">
+                                <rect key="frame" x="18.5" y="354" width="377" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="eAd-eh-fZR"/>
                                 </constraints>
@@ -626,8 +626,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Car's Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TyD-GG-DFV" customClass="AutoTrackerLabelDetail" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="161" y="277" width="89" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car's Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TyD-GG-DFV" customClass="AutoTrackerLabelDetail" customModule="AutoTracker" customModuleProvider="target">
+                                <rect key="frame" x="162.5" y="325.5" width="89" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
