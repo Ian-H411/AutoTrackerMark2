@@ -74,6 +74,7 @@
 		42CD62E42350D75A001A4B12 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42CD62E32350D75A001A4B12 /* Nunito-Bold.ttf */; };
 		42DFEDAC234E2D42004C40D7 /* AddCarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DFEDAB234E2D42004C40D7 /* AddCarTableViewController.swift */; };
 		42E0E982234D04EB00A2ADD5 /* AddReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0E981234D04EB00A2ADD5 /* AddReceiptTableViewController.swift */; };
+		42F7593A235A14F700602238 /* ReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F75939235A14F700602238 /* ReceiptTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,6 +148,7 @@
 		42CD62E32350D75A001A4B12 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		42DFEDAB234E2D42004C40D7 /* AddCarTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarTableViewController.swift; sourceTree = "<group>"; };
 		42E0E981234D04EB00A2ADD5 /* AddReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReceiptTableViewController.swift; sourceTree = "<group>"; };
+		42F75939235A14F700602238 /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +363,7 @@
 				42A3233E234BEBF300B130A0 /* ReceiptHistoryViewController.swift */,
 				42A32340234BEFCC00B130A0 /* ReceiptCollectionViewCell.swift */,
 				42E0E981234D04EB00A2ADD5 /* AddReceiptTableViewController.swift */,
+				42F75939235A14F700602238 /* ReceiptTableViewController.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				25C056F2234D38A40000D848 /* MapController.swift in Sources */,
 				256810D0234BDF0800629AEA /* MaintanenceDetailTableViewController.swift in Sources */,
 				42A32333234B9E9900B130A0 /* DateHelper.swift in Sources */,
+				42F7593A235A14F700602238 /* ReceiptTableViewController.swift in Sources */,
 				2558F34F2355265400BDF2DC /* UpdateOdometerViewController.swift in Sources */,
 				428C8E972352D0A600AA2E2F /* ReceiptTableViewCell.swift in Sources */,
 				2568108F2347A7A800629AEA /* AppDelegate.swift in Sources */,
