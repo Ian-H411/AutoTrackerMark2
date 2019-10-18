@@ -613,7 +613,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="eAd-eh-fZR"/>
                                 </constraints>
-                                <color key="textColor" name="autoGreen"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
