@@ -542,16 +542,6 @@
             <point key="canvasLocation" x="4231.884057971015" y="40.848214285714285"/>
         </scene>
         <!--Main-->
-        <scene sceneID="NYj-h8-4GL">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="iHl-CL-S4n" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="yCK-T8-gGg"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="at1-4x-iX7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3322" y="479"/>
-        </scene>
-        <!--Main-->
         <scene sceneID="1R1-Ir-qqo">
             <objects>
                 <viewControllerPlaceholder storyboardName="Main" id="loX-XF-h0s" sceneMemberID="viewController"/>
@@ -719,7 +709,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Vek-vk-pK1"/>
-        <segue reference="3rs-5p-Itq"/>
+        <segue reference="ey3-la-tbK"/>
         <segue reference="91R-0F-VUl"/>
         <segue reference="IRd-qq-xP0"/>
     </inferredMetricsTieBreakers>
