@@ -50,6 +50,7 @@ class AddCarTableViewController: UITableViewController {
         modelTextField.delegate = self
         nameTextField.delegate = self
         ownerTextField.delegate = self
+       
         
         initialSetUp()
     }

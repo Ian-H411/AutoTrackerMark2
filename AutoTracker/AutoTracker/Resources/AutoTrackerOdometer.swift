@@ -16,7 +16,7 @@ class AutoTrackerOdometer: UIPickerView {
     }
     
     func addStyle() {
-    self.layer.borderWidth = 5
+ 
     self.layer.cornerRadius = 12
     self.layer.borderColor = UIColor.black.cgColor
     self.layer.backgroundColor = UIColor.black.cgColor

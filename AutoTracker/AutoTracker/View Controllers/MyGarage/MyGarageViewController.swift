@@ -91,11 +91,6 @@ class MyGarageViewController: UIViewController {
     func viewWillAppearSetUP(){
         carSelectionTableView.reloadData()
            setPickerViewToCarValue()
-           odometerPicker.layer.borderWidth = 5
-           odometerPicker.layer.cornerRadius = 12
-           odometerPicker.layer.borderColor = UIColor.black.cgColor
-           odometerPicker.layer.backgroundColor = UIColor.black.cgColor
-           odometerPicker.setValue(UIColor.white, forKey: "textColor")
            menuCard.isHidden = true
            menuCard.alpha = 0.0
            addCarByVinButton.alpha = 0.0

@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var optionView: UIView!
     
+    @IBOutlet weak var infoButton: UIButton!
     
     // MARK: - PROPERTIES
     var myCar: Car? {
@@ -140,6 +141,8 @@ class HomeViewController: UIViewController {
         hideMenu.toggle()
         let alpha = hideMenu ? CGFloat(0.0) : CGFloat(1.0)
         UIView.animate(withDuration: 0.5) {
+            self.infoButton.isHidden = self.hideMenu
+            self.infoButton.alpha = alpha
             self.optionView.isHidden = self.hideMenu
             self.optionView.alpha = alpha
             self.updatePhotoButtton.alpha = alpha
