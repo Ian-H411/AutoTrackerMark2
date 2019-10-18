@@ -50,6 +50,7 @@ class AddCarTableViewController: UITableViewController {
         modelTextField.delegate = self
         nameTextField.delegate = self
         ownerTextField.delegate = self
+       
         
         initialSetUp()
     }
@@ -91,6 +92,7 @@ class AddCarTableViewController: UITableViewController {
             return
         }
         let car = CarController.shared.addACar(name: name, make: make, model: model, year: year, engine: engine, ownerName: owner, odometer: Double(odometer))
+        CarController.shared.selectedCar = car
         if let image = carImage.image {
             CarController.shared.updatePhoto(car: car, photo: image) { (_) in
             }
@@ -148,12 +150,14 @@ class AddCarTableViewController: UITableViewController {
     }
     
     func initialSetUp() {
+        addDoneButtonOnKeyboard(textField: yearTextField)
         if let car = carToEdit {
             nameTextField.text = car.name
             ownerTextField.text = car.ownerName
             makeTextField.text = car.make
             modelTextField.text = car.model
             engineTextField.text = car.engine
+            
             isInEditMode = true
             yearTextField.text = car.year
             setPickerViewToCarValue()
@@ -167,6 +171,29 @@ class AddCarTableViewController: UITableViewController {
             photoButton.setTitle("Tap to add a photo", for: .normal)
         }
         
+    }
+    func addDoneButtonOnKeyboard(textField: UITextField){
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolbar.barStyle = .default
+
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
+
+        let items = [flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+
+        textField.inputAccessoryView = doneToolbar
+    }
+
+    
+
+    @objc func doneButtonAction(){
+        yearTextField.resignFirstResponder()
+        if let text = yearTextField.text, !text.isNumeric {
+                self.notANumberAlert()
+            }
     }
     func setPickerViewToCarValue(){
            guard let car = CarController.shared.selectedCar else {return}
@@ -229,13 +256,9 @@ class AddCarTableViewController: UITableViewController {
     
 }
 
-extension AddCarTableViewController: UITextFieldDelegate {
-    
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if textField == yearTextField, let text = textField.text, !text.isNumeric {
-            self.notANumberAlert()
-            return false
-        }
+extension AddCarTableViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
 }
@@ -267,10 +290,7 @@ extension AddCarTableViewController: UIPickerViewDelegate, UIPickerViewDataSourc
 }
 extension AddCarTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
     }

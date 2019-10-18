@@ -26,35 +26,43 @@ class OdometerViewController: UIViewController {
         
         odometerPicker.delegate = self
         odometerPicker.dataSource = self
-        odometerPicker.layer.borderWidth = 5
-        odometerPicker.layer.cornerRadius = 12
-        odometerPicker.layer.borderColor = UIColor.black.cgColor
-        odometerPicker.layer.backgroundColor = UIColor.black.cgColor
-        odometerPicker.setValue(UIColor.white, forKey: "textColor")
-        
     }
     
     // MARK: - ACTIONS
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         let odometer = odometerResults()
-        carParts?.odometer = Double(odometer)
+        
+        if let _ = carParts {
+            carParts?.odometer = Double(odometer)
+        } else {
+            carParts = Car(context: CoreDataStack.context)
+            carParts?.odometer = Double(odometer)
+        }
     }
     
-
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     
+    @IBAction func skipButtonTapped(_ sender: Any) {
+        if let car = carParts {
+            CarController.shared.removeCarFromGarage(car: car)
+            CarController.shared.selectedCar = nil
+            performSegue(withIdentifier: "toMainVC", sender: nil)
+        } else {
+            CarController.shared.selectedCar = nil
+            performSegue(withIdentifier: "toMainVC", sender: nil)
+        }
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "toCarNameVC" {
             if let destinationVC = segue.destination as? CarNameViewController {
                 destinationVC.carParts = carParts
             }
-            
         }
-     }
-     
+    }
     
     func odometerResults() -> Int {
         var placeholder: [Int] = []
@@ -88,8 +96,6 @@ extension OdometerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 50
     }
-    
-    
 }
 
 

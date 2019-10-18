@@ -53,7 +53,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEC-gE-Ehp" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="41.5" y="110.5" width="331" height="64"/>
+                                <rect key="frame" x="41.5" y="115.5" width="331" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="pfd-N8-pHT"/>
                                 </constraints>
@@ -101,7 +101,6 @@
                                         <rect key="frame" x="8" y="82.5" width="160" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="QeD-XZ-0Ld"/>
-                                            <constraint firstAttribute="width" constant="160" id="beT-G1-emV"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <connections>
@@ -117,6 +116,7 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="tfH-CA-zzU" firstAttribute="width" secondItem="We3-uJ-yoj" secondAttribute="width" id="8m4-tu-O6e"/>
                                     <constraint firstItem="tfH-CA-zzU" firstAttribute="centerY" secondItem="We3-uJ-yoj" secondAttribute="centerY" multiplier="2.6" id="FGO-Ox-kRe"/>
                                     <constraint firstAttribute="width" constant="320" id="JSD-1R-uzI"/>
                                     <constraint firstItem="yKI-UO-gC5" firstAttribute="width" secondItem="vmi-5G-HBi" secondAttribute="width" multiplier="0.4" id="LLM-Ko-cLf"/>
@@ -135,7 +135,7 @@
                         <constraints>
                             <constraint firstItem="4Dr-W4-UW1" firstAttribute="centerY" secondItem="wUW-Ky-hIS" secondAttribute="centerY" id="3Dg-l3-VQ4"/>
                             <constraint firstItem="4Dr-W4-UW1" firstAttribute="centerX" secondItem="wUW-Ky-hIS" secondAttribute="centerX" id="6br-yj-8nO"/>
-                            <constraint firstItem="xEC-gE-Ehp" firstAttribute="centerY" secondItem="wUW-Ky-hIS" secondAttribute="centerY" multiplier="0.3" id="8Rp-w5-4IV"/>
+                            <constraint firstItem="xEC-gE-Ehp" firstAttribute="centerY" secondItem="wUW-Ky-hIS" secondAttribute="centerY" multiplier="0.31" id="8Rp-w5-4IV"/>
                             <constraint firstItem="xEC-gE-Ehp" firstAttribute="width" secondItem="wUW-Ky-hIS" secondAttribute="width" multiplier="0.8" id="KLS-D7-VqI"/>
                             <constraint firstItem="EiN-3c-PCp" firstAttribute="width" secondItem="wUW-Ky-hIS" secondAttribute="width" id="LdC-ct-Aih"/>
                             <constraint firstItem="4Dr-W4-UW1" firstAttribute="height" secondItem="wUW-Ky-hIS" secondAttribute="height" id="Qhj-Qb-Kxb"/>

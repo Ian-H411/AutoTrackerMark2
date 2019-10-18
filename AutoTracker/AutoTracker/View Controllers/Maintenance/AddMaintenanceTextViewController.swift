@@ -44,9 +44,7 @@ class AddMaintenanceTextViewController: UIViewController {
     //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        toggleAuxillaryLabels()
-        additionalDetailsTextField.delegate = self
-        
+        initialSetUP()
         
     }
     
@@ -91,20 +89,37 @@ class AddMaintenanceTextViewController: UIViewController {
         SaveButton.isHidden = true
     }
     
-   
+    
     
     
     
     //MARK: -HELPER FUNCTIONS
+    func initialSetUP() {
+        maintenanceTypeButton.alpha = 1.0
+        dueDateLabel.alpha = 1.0
+        datePicker.alpha = 1.0
+        additionalDetailsLabel.alpha = 1.0
+        additionalDetailsTextField.alpha = 1.0
+        costAndReceipt.alpha = 1.0
+        answerTextField.isHidden = true
+        answerTextField.alpha = 0.0
+        SaveButton.isHidden = true
+        SaveButton.alpha = 0.0
+        additionalDetailsTextField.delegate = self
+    }
     
     func toggleAuxillaryLabels(){
-        
-        self.answerTextField.isHidden.toggle()
-        self.SaveButton.isHidden.toggle()
-        
+        UIView.animate(withDuration: 0.5) {
+            let alpha = !self.SaveButton.isHidden ? CGFloat(0.0) : CGFloat(1.0)
+            self.answerTextField.isHidden.toggle()
+            self.answerTextField.alpha = alpha
+            self.SaveButton.isHidden.toggle()
+            self.SaveButton.alpha = alpha
+        }
         
     }
-    func addReminderPrompt(){
+    
+    func addReminderPrompt() {
         let alertController = UIAlertController(title: "add a reminder?", message: "This is set to a future date would you like to add a notification?", preferredStyle: .alert)
         let okayButton = UIAlertAction(title: "Add Notification", style: .default) { (_) in
             self.notificationSetUP()
@@ -165,23 +180,40 @@ class AddMaintenanceTextViewController: UIViewController {
     
     
     func toggleMaintenanceLabels(){
+        let alpha = maintenanceTypeButton.isHidden ? CGFloat(1.0) : CGFloat(0.0)
+            UIView.animate(withDuration: 0.5) {
+                self.maintenanceTypeButton.isHidden.toggle()
+                self.maintenanceTypeButton.alpha = alpha
+                self.dueDateLabel.isHidden.toggle()
+                self.dueDateLabel.alpha = alpha
+                self.datePicker.isHidden.toggle()
+                self.datePicker.alpha = alpha
+                self.additionalDetailsLabel.isHidden.toggle()
+                self.additionalDetailsLabel.alpha = alpha
+                self.additionalDetailsTextField.isHidden.toggle()
+                self.additionalDetailsTextField.alpha = alpha
+                self.costAndReceipt.isHidden.toggle()
+                self.costAndReceipt.alpha = alpha
+            }
+            
+        }
         
-        self.maintenanceTypeButton.isHidden.toggle()
-        self.dueDateLabel.isHidden.toggle()
-        self.datePicker.isHidden.toggle()
-        self.additionalDetailsLabel.isHidden.toggle()
-        self.additionalDetailsTextField.isHidden.toggle()
-        self.costAndReceipt.isHidden.toggle()
         
         
-    }
+ 
     
     func toggleTextFieldLabels(){
-        self.maintenanceTypeButton.isHidden.toggle()
-        self.dueDateLabel.isHidden.toggle()
-        self.datePicker.isHidden.toggle()
-        self.costAndReceipt.isHidden.toggle()
-        
+        let alpha = maintenanceTypeButton.isHidden ? CGFloat(1.0) : CGFloat(0.0)
+        UIView.animate(withDuration: 0.5) {
+            self.maintenanceTypeButton.isHidden.toggle()
+            self.maintenanceTypeButton.alpha = alpha
+            self.dueDateLabel.isHidden.toggle()
+            self.dueDateLabel.alpha = alpha
+            self.datePicker.isHidden.toggle()
+            self.datePicker.alpha = alpha
+            self.costAndReceipt.isHidden.toggle()
+            self.costAndReceipt.alpha = alpha
+        }
         
     }
     

@@ -20,7 +20,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SDM-B1-ey9">
                                 <rect key="frame" x="31" y="350" width="352" height="155"/>
                                 <subviews>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SPh-cY-zZw">
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SPh-cY-zZw" customClass="AutoTrackerOdometer" customModule="AutoTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="352" height="103"/>
                                     </pickerView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="8ef-AD-X4J">
@@ -131,14 +131,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="jxt-4v-dO3">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
+                                <searchBar contentMode="redraw" placeholder="Search Through your Maintenance" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xgP-Wi-dTs">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="49.5"/>
+                                    <color key="backgroundColor" name="autoGray"/>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="barTintColor" name="autoGray"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aHJ-EB-Bgk">
-                                    <rect key="frame" x="103.5" y="24" width="207" height="45"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="EZd-F7-rdb"/>
-                                    </constraints>
+                                    <rect key="frame" x="20.5" y="49.5" width="373" height="50.5"/>
                                     <segments>
                                         <segment title="Upcoming"/>
                                         <segment title="History"/>
@@ -151,14 +155,19 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
-                                <constraint firstItem="aHJ-EB-Bgk" firstAttribute="width" secondItem="jxt-4v-dO3" secondAttribute="width" multiplier="0.5" id="1l1-6v-h9U"/>
-                                <constraint firstItem="aHJ-EB-Bgk" firstAttribute="centerY" secondItem="jxt-4v-dO3" secondAttribute="centerY" id="d9g-Z7-okQ"/>
-                                <constraint firstItem="aHJ-EB-Bgk" firstAttribute="centerX" secondItem="jxt-4v-dO3" secondAttribute="centerX" id="stO-xk-tLb"/>
+                                <constraint firstItem="aHJ-EB-Bgk" firstAttribute="height" secondItem="jxt-4v-dO3" secondAttribute="height" multiplier="0.5" id="0rw-1j-5aY"/>
+                                <constraint firstItem="aHJ-EB-Bgk" firstAttribute="width" secondItem="jxt-4v-dO3" secondAttribute="width" multiplier="0.9" id="8V8-cb-ihA"/>
+                                <constraint firstItem="xgP-Wi-dTs" firstAttribute="centerX" secondItem="jxt-4v-dO3" secondAttribute="centerX" id="FA9-2u-gWf"/>
+                                <constraint firstItem="aHJ-EB-Bgk" firstAttribute="centerX" secondItem="jxt-4v-dO3" secondAttribute="centerX" id="YRr-Xh-PDx"/>
+                                <constraint firstItem="aHJ-EB-Bgk" firstAttribute="centerY" secondItem="jxt-4v-dO3" secondAttribute="centerY" multiplier="1.5" id="YdC-AM-rRI"/>
+                                <constraint firstItem="xgP-Wi-dTs" firstAttribute="centerY" secondItem="jxt-4v-dO3" secondAttribute="centerY" multiplier="0.5" id="Yee-rY-fb2"/>
+                                <constraint firstItem="xgP-Wi-dTs" firstAttribute="width" secondItem="jxt-4v-dO3" secondAttribute="width" id="b0G-Cm-5g1"/>
+                                <constraint firstItem="xgP-Wi-dTs" firstAttribute="height" secondItem="jxt-4v-dO3" secondAttribute="height" multiplier="0.5" id="pDy-AF-l2H"/>
                             </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="detail" rowHeight="70" id="VBz-3l-GbM" customClass="MaintenanceTableViewCell" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="120" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="127" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VBz-3l-GbM" id="J0l-sg-QJ1">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
@@ -256,12 +265,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="historySegmentedControl" destination="aHJ-EB-Bgk" id="AC3-mU-4SA"/>
+                        <outlet property="maintenanceSearchBar" destination="xgP-Wi-dTs" id="6D7-30-cKs"/>
                         <segue destination="i10-sF-rrp" kind="show" identifier="updateodo" id="uQ8-X2-LaN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yub-wm-4nm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="558" y="807"/>
+            <point key="canvasLocation" x="557.97101449275362" y="806.91964285714278"/>
         </scene>
         <!--Edit Maintenane View Controller-->
         <scene sceneID="qhW-0A-8eX">
@@ -666,6 +676,9 @@
         <image name="car" width="112.5" height="112.5"/>
         <image name="maintenanceDeselected" width="32" height="32"/>
         <image name="photo.on.rectangle" catalog="system" width="64" height="48"/>
+        <namedColor name="autoGray">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="autoGreen">
             <color red="0.29800000786781311" green="0.85000002384185791" blue="0.38999998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

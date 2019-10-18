@@ -22,7 +22,8 @@ class VINViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         vinTextField.delegate = self
-        yearTextField.delegate = self
+        
+       
     }
     
     @IBAction func helpButtonTapped(_ sender: Any) {
@@ -48,20 +49,20 @@ class VINViewController: UIViewController {
         }
     }
     
+    @IBAction func tappedToDismissKeyboard(_ sender: Any) {
+        vinTextField.resignFirstResponder()
+    }
 }
+
 
 extension VINViewController: UITextFieldDelegate {
 
-//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-//        return true
-//    }
+    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 
-        if let vin = vinTextField.text,
-            let year = yearTextField.text {
-        carParts.year = year
-            CarController.shared.retrieveCarDetailsWith(vin: vin, year: year) { (CarJson, error) in
+        if let vin = vinTextField.text {
+            CarController.shared.retrieveCarDetailsWith(vin: vin, year: "") { (CarJson, error) in
                 DispatchQueue.main.async {
                     self.CarJson = CarJson
                     self.performSegue(withIdentifier: "toVINResultsVC", sender: nil)
@@ -71,6 +72,8 @@ extension VINViewController: UITextFieldDelegate {
 
         return true
     }
+    
+    
 }
 
 

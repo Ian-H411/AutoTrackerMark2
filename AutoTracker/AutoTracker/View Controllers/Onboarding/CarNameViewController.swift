@@ -14,8 +14,8 @@ class CarNameViewController: UIViewController {
     @IBOutlet weak var nameTextField: TextFieldStyle!
     @IBOutlet weak var takePictureButton: AutoTrackerButtonGreenBG!
     @IBOutlet weak var laterButton: AutoTrackerButtonWhiteBG!
-    
     @IBOutlet weak var ownerNameTextField: UITextField!
+    
     // MARK: - PROPERTIES
     var carParts: Car?
     
@@ -34,8 +34,9 @@ class CarNameViewController: UIViewController {
     }
     
     @IBAction func finishIntroButtonTapped(_ sender: Any) {
-        carParts?.name = nameTextField.text
-        guard let car = carParts else { return }
+        
+        carParts?.name = nameTextField.text ?? "No Owner"
+        guard let car = carParts else { return performSegue(withIdentifier: "toMainVC", sender: nil) }
         let name = car.name ?? "Default Name"
         let odometer = car.odometer
         let photoData = car.photoData
@@ -45,12 +46,24 @@ class CarNameViewController: UIViewController {
         CarController.shared.carupdate(name: name, make: car.make ?? "", model: car.model ?? "", year: car.year ?? "", engine: car.engine ?? "" , ownerName: ownerName, car: car)
         let defaults = UserDefaults.standard
         defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
-        
         performSegue(withIdentifier: "toMainVC", sender: nil)
-        
-        
-        
-        
+    }
+    
+    @IBAction func skipButtonTapped(_ sender: Any) {
+        if let car = carParts {
+            CarController.shared.removeCarFromGarage(car: car)
+            CarController.shared.selectedCar = nil
+            performSegue(withIdentifier: "toMainVC", sender: nil)
+        } else {
+            
+            CarController.shared.selectedCar = nil
+            performSegue(withIdentifier: "toMainVC", sender: nil)
+        }
+    }
+    
+    @IBAction func dismissKeyboardTapped(_ sender: Any) {
+        nameTextField.resignFirstResponder()
+        ownerNameTextField.resignFirstResponder()
     }
     
     // MARK: - HELPER FUNCTIONS
@@ -99,22 +112,18 @@ class CarNameViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(alertController, animated: true)
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-}
 
+    func noInfoAlert() {
+        let alertController = UIAlertController(title: "We need at least one field to add a car to your garage", message: "Please provide information", preferredStyle: .alert)
+        let accept = UIAlertAction(title: "Okay", style: .default)
+        alertController.addAction(accept)
+        present(alertController, animated: true)
+}
+}
 extension CarNameViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
+        ownerNameTextField.resignFirstResponder()
         return true
     }
 }

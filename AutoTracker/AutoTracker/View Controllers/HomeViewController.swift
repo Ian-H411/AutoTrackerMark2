@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
     // MARK: - OUTLETS
     
     @IBOutlet weak var carImageView: UIImageView!
-
+    
     @IBOutlet weak var averageMPGLabel: UILabel!
     @IBOutlet weak var lifetimeMilesLabel: UILabel!
     @IBOutlet weak var updateOdometerLabel: AutoTrackerGreenLabel!
@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var optionView: UIView!
     
+    @IBOutlet weak var infoButton: UIButton!
     
     // MARK: - PROPERTIES
     var myCar: Car? {
@@ -54,16 +55,23 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(true)
         
         self.myCar = CarController.shared.selectedCar
+        optionView.layer.shadowRadius = 10
+        optionView.layer.shadowOffset = .zero
+        optionView.layer.shadowColor = UIColor.black.cgColor
+        optionView.layer.shadowOpacity = 0.5
+        optionView.layer.masksToBounds = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if launchedBefore() {
-//            self.performSegue(withIdentifier: "toOnboardingVC", sender: nil)
-//        }
         scheduledMaintenanceTableView.delegate = self
         scheduledMaintenanceTableView.dataSource = self
         toggleOptions()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        view.removeBlur()
+        optionView.isHidden = true
     }
     
     // MARK: - ACTIONS
@@ -75,16 +83,7 @@ class HomeViewController: UIViewController {
         toggleOptions()
     }
     @IBAction func recordGasButtonTapped(_ sender: Any) {
-        
-////        if !(myCar?.odometer != nil) {
-//        let window = UIWindow(frame: UIScreen.main.bounds)
-//            let storyBoard = UIStoryboard(name: "Record", bundle: nil)
-//            let entryVC = storyBoard.instantiateViewController(identifier: "receiptEntryVC")
-//            window.rootViewController = entryVC
-//
-//            window.makeKeyAndVisible()
-//
-////        }
+        tabBarController?.selectedIndex = 1
     }
     
     
@@ -121,14 +120,29 @@ class HomeViewController: UIViewController {
     }
     
     func toggleOptions(){
+        if hideMenu{
+            view.blurView(style: .extraLight)
+            view.bringSubviewToFront(optionView)
+        }else {
+            UIView.animate(withDuration: 0.5) {
+                self.view.removeBlur()
+            }
+           
+        }
         hideMenu.toggle()
-        optionView.isHidden = hideMenu
-        updatePhotoButtton.isHidden = hideMenu
-        reviewIntroButton.isHidden = hideMenu
-        optionView.layer.shadowRadius = 10
-        optionView.layer.shadowOffset = .zero
-        optionView.layer.shadowColor = UIColor.black.cgColor
-        optionView.layer.shadowOpacity = 0.5
+        let alpha = hideMenu ? CGFloat(0.0) : CGFloat(1.0)
+        UIView.animate(withDuration: 0.5) {
+            self.infoButton.isHidden = self.hideMenu
+            self.infoButton.alpha = alpha
+            self.optionView.isHidden = self.hideMenu
+            self.optionView.alpha = alpha
+            self.updatePhotoButtton.alpha = alpha
+            self.reviewIntroButton.alpha = alpha
+            self.updatePhotoButtton.isHidden = self.hideMenu
+            self.reviewIntroButton.isHidden = self.hideMenu
+        }
+        
+        
         
     }
     func presentActionSheet(){
@@ -157,7 +171,7 @@ class HomeViewController: UIViewController {
     }
     
     func launchedBefore() -> Bool {
-    let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         return launchedBefore
     }
 }

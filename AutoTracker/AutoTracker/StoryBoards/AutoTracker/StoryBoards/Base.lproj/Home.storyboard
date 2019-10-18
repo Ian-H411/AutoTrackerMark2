@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="csq-6I-Yn9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="csq-6I-Yn9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="Orw-vb-yma">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultCar" translatesAutoresizingMaskIntoConstraints="NO" id="Orw-vb-yma">
                                 <rect key="frame" x="0.0" y="88" width="414" height="255.5"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
@@ -130,7 +130,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="recordGasButtonTapped:" destination="iU8-vQ-Uxl" eventType="touchUpInside" id="6jy-yt-ZS6"/>
-                                                    <segue destination="nF9-EV-yrR" kind="presentation" modalPresentationStyle="fullScreen" id="Nfj-18-FUx"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -141,25 +140,21 @@
                                 <rect key="frame" x="0.0" y="359.5" width="414" height="64"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ctr-RP-tV0">
-                                        <rect key="frame" x="20" y="-20" width="374" height="104"/>
+                                        <rect key="frame" x="104.5" y="-20" width="205" height="104"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="-4" id="jeh-6e-653">
-
-                                                <rect key="frame" x="0.0" y="33.5" width="7" height="37"/>
+                                                <rect key="frame" x="0.0" y="33.5" width="119.5" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lifetime miles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xp9-fH-7F8" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="7" height="20.5"/>
-
+                                                        <rect key="frame" x="7" y="0.0" width="105.5" height="20.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="buA-SC-BHn" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
-
-                                                        <rect key="frame" x="0.0" y="16.5" width="7" height="20.5"/>
-
+                                                        <rect key="frame" x="31.5" y="16.5" width="56.5" height="20.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -169,22 +164,18 @@
                                                 <viewLayoutGuide key="safeArea" id="VOl-kX-G2q"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="-4" id="DEK-Wk-Bgx">
-
-                                                <rect key="frame" x="15" y="33.5" width="7" height="37"/>
+                                                <rect key="frame" x="127.5" y="33.5" width="119" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average MPG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ivs-Mu-LtZ" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="7" height="20.5"/>
-
+                                                        <rect key="frame" x="7.5" y="0.0" width="104" height="20.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 MPG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3aT-Fk-VLO" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
-
-                                                        <rect key="frame" x="0.0" y="16.5" width="7" height="20.5"/>
-
+                                                        <rect key="frame" x="28.5" y="16.5" width="62" height="20.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -194,22 +185,18 @@
                                                 <viewLayoutGuide key="safeArea" id="JHm-QT-NTP"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="-4" id="rcf-S7-OIg">
-
-                                                <rect key="frame" x="30" y="33.5" width="7" height="37"/>
+                                                <rect key="frame" x="254.5" y="33.5" width="119.5" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Tank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Rl-bk-ffD" customClass="AutoTrackerSmallGrayLabel" customModule="AutoTracker" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="7" height="20.5"/>
-
+                                                        <rect key="frame" x="23.5" y="0.0" width="73" height="20.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="321 Left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="m9I-wn-UBz" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
-
-                                                        <rect key="frame" x="0.0" y="16.5" width="7" height="20.5"/>
-
+                                                        <rect key="frame" x="29" y="16.5" width="62" height="20.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -322,11 +309,11 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lx4-Jm-oGy">
-                                <rect key="frame" x="207" y="88" width="207" height="155"/>
+                                <rect key="frame" x="124" y="88" width="290" height="232"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugn-U5-flj">
-                                        <rect key="frame" x="0.0" y="0.0" width="207" height="77.5"/>
-                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
+                                        <rect key="frame" x="0.0" y="-3.5" width="290" height="76.5"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="22"/>
                                         <state key="normal" title="Update Photo">
                                             <color key="titleColor" name="autoGreen"/>
                                         </state>
@@ -335,8 +322,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j64-oT-IQH">
-                                        <rect key="frame" x="0.0" y="77.5" width="207" height="77.5"/>
-                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
+                                        <rect key="frame" x="0.0" y="66" width="290" height="77"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="22"/>
                                         <state key="normal" title="Review Intro">
                                             <color key="titleColor" name="autoGreen"/>
                                         </state>
@@ -344,17 +331,31 @@
                                             <segue destination="0su-ek-GNY" kind="presentation" modalPresentationStyle="fullScreen" id="r16-bW-qpg"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bew-rK-sUl">
+                                        <rect key="frame" x="0.0" y="147" width="290" height="77.5"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="22"/>
+                                        <state key="normal" title="Info">
+                                            <color key="titleColor" name="autoGreen"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="144-90-PYe" kind="show" id="vPs-OH-3uz"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="j64-oT-IQH" firstAttribute="centerX" secondItem="lx4-Jm-oGy" secondAttribute="centerX" id="2fG-A7-yXc"/>
-                                    <constraint firstItem="j64-oT-IQH" firstAttribute="centerY" secondItem="lx4-Jm-oGy" secondAttribute="centerY" multiplier="1.5" id="4Rc-tE-Hf3"/>
-                                    <constraint firstItem="Ugn-U5-flj" firstAttribute="centerY" secondItem="lx4-Jm-oGy" secondAttribute="centerY" multiplier="0.5" id="IMP-YY-JDB"/>
-                                    <constraint firstItem="Ugn-U5-flj" firstAttribute="height" secondItem="lx4-Jm-oGy" secondAttribute="height" multiplier="0.5" id="evK-nH-qgf"/>
-                                    <constraint firstItem="j64-oT-IQH" firstAttribute="height" secondItem="lx4-Jm-oGy" secondAttribute="height" multiplier="0.5" id="oUY-Rf-M7w"/>
+                                    <constraint firstItem="j64-oT-IQH" firstAttribute="centerY" secondItem="lx4-Jm-oGy" secondAttribute="centerY" multiplier="0.9" id="4Rc-tE-Hf3"/>
+                                    <constraint firstItem="Bew-rK-sUl" firstAttribute="width" secondItem="lx4-Jm-oGy" secondAttribute="width" id="9hm-0A-WeW"/>
+                                    <constraint firstItem="Bew-rK-sUl" firstAttribute="centerX" secondItem="lx4-Jm-oGy" secondAttribute="centerX" id="BzW-mt-ioc"/>
+                                    <constraint firstItem="Ugn-U5-flj" firstAttribute="centerY" secondItem="lx4-Jm-oGy" secondAttribute="centerY" multiplier="0.3" id="IMP-YY-JDB"/>
+                                    <constraint firstItem="Ugn-U5-flj" firstAttribute="height" secondItem="lx4-Jm-oGy" secondAttribute="height" multiplier="0.33" id="evK-nH-qgf"/>
+                                    <constraint firstItem="j64-oT-IQH" firstAttribute="height" secondItem="lx4-Jm-oGy" secondAttribute="height" multiplier="0.333" id="oUY-Rf-M7w"/>
                                     <constraint firstItem="Ugn-U5-flj" firstAttribute="centerX" secondItem="lx4-Jm-oGy" secondAttribute="centerX" id="ohJ-pR-bUn"/>
                                     <constraint firstItem="Ugn-U5-flj" firstAttribute="width" secondItem="lx4-Jm-oGy" secondAttribute="width" id="r8w-uM-riT"/>
                                     <constraint firstItem="j64-oT-IQH" firstAttribute="width" secondItem="lx4-Jm-oGy" secondAttribute="width" id="sBA-uu-heW"/>
+                                    <constraint firstItem="Bew-rK-sUl" firstAttribute="height" secondItem="lx4-Jm-oGy" secondAttribute="height" multiplier="0.333" id="tGe-YD-SvE"/>
+                                    <constraint firstItem="Bew-rK-sUl" firstAttribute="centerY" secondItem="lx4-Jm-oGy" secondAttribute="centerY" multiplier="1.6" id="zBl-Dp-x5V"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -377,13 +378,13 @@
                             <constraint firstItem="Sfv-gQ-ccB" firstAttribute="top" secondItem="3T3-Pu-xrA" secondAttribute="bottom" constant="63.5" id="bn6-Y2-Jer"/>
                             <constraint firstItem="Sfv-gQ-ccB" firstAttribute="trailing" secondItem="Cty-iL-ccR" secondAttribute="trailing" id="ct2-GV-1QD"/>
                             <constraint firstItem="Laj-G4-AnJ" firstAttribute="trailing" secondItem="Cty-iL-ccR" secondAttribute="trailing" constant="-20" id="dFf-yh-QYA"/>
-                            <constraint firstItem="lx4-Jm-oGy" firstAttribute="width" secondItem="Cty-iL-ccR" secondAttribute="width" multiplier="0.5" id="hvZ-lb-OoN"/>
+                            <constraint firstItem="lx4-Jm-oGy" firstAttribute="width" secondItem="Cty-iL-ccR" secondAttribute="width" multiplier="0.7" id="hvZ-lb-OoN"/>
                             <constraint firstItem="Cty-iL-ccR" firstAttribute="bottom" secondItem="Sfv-gQ-ccB" secondAttribute="bottom" priority="250" id="m5c-Os-mAz"/>
                             <constraint firstItem="YHy-4F-Buo" firstAttribute="centerX" secondItem="Cty-iL-ccR" secondAttribute="centerX" id="oW6-F3-qhR"/>
                             <constraint firstAttribute="trailing" secondItem="1WV-M6-5et" secondAttribute="trailing" id="p40-s6-nba"/>
                             <constraint firstItem="Orw-vb-yma" firstAttribute="top" secondItem="Cty-iL-ccR" secondAttribute="top" id="qCY-lT-Pyb"/>
                             <constraint firstItem="1WV-M6-5et" firstAttribute="height" secondItem="U3K-B8-nk9" secondAttribute="height" id="ua6-fN-7Ee"/>
-                            <constraint firstItem="lx4-Jm-oGy" firstAttribute="height" secondItem="Cty-iL-ccR" secondAttribute="height" multiplier="0.2" id="wAB-Vc-2ky"/>
+                            <constraint firstItem="lx4-Jm-oGy" firstAttribute="height" secondItem="Cty-iL-ccR" secondAttribute="height" multiplier="0.3" id="wAB-Vc-2ky"/>
                             <constraint firstItem="1WV-M6-5et" firstAttribute="centerX" secondItem="U3K-B8-nk9" secondAttribute="centerX" id="xjX-5u-pBU"/>
                             <constraint firstItem="Laj-G4-AnJ" firstAttribute="centerX" secondItem="Cty-iL-ccR" secondAttribute="centerX" id="y4m-Ja-dKD"/>
                             <constraint firstItem="ctr-RP-tV0" firstAttribute="width" secondItem="Laj-G4-AnJ" secondAttribute="width" id="yPX-lj-EJZ"/>
@@ -400,6 +401,7 @@
                     <connections>
                         <outlet property="averageMPGLabel" destination="3aT-Fk-VLO" id="caO-55-DyP"/>
                         <outlet property="carImageView" destination="Orw-vb-yma" id="XHs-mS-RBb"/>
+                        <outlet property="infoButton" destination="Bew-rK-sUl" id="ZOe-6X-dAM"/>
                         <outlet property="lifetimeMilesLabel" destination="Xp9-fH-7F8" id="6Hw-8f-xB3"/>
                         <outlet property="optionView" destination="lx4-Jm-oGy" id="EiF-pq-uIu"/>
                         <outlet property="reviewIntroButton" destination="j64-oT-IQH" id="Qf4-62-G7w"/>
@@ -407,11 +409,84 @@
                         <outlet property="thisTankLabel" destination="m9I-wn-UBz" id="HkN-Ld-UhA"/>
                         <outlet property="updateOdometerLabel" destination="buA-SC-BHn" id="utY-Pw-VuF"/>
                         <outlet property="updatePhotoButtton" destination="Ugn-U5-flj" id="zUC-dp-hp6"/>
+                        <segue destination="nF9-EV-yrR" kind="presentation" identifier="toRecordVC" modalPresentationStyle="fullScreen" id="T0s-16-CgX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pwi-tC-1zd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="679.71014492753625" y="116.51785714285714"/>
+        </scene>
+        <!--Legal View Controller-->
+        <scene sceneID="aTb-Xe-KsK">
+            <objects>
+                <viewController id="144-90-PYe" customClass="legalViewController" customModule="AutoTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fyT-Ed-Dxo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="40" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ETf-hd-QRR">
+                                <rect key="frame" x="0.0" y="274.5" width="414" height="401.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jQ-zs-znB" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="41.5" y="0.0" width="331" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="UfM-gm-Wsq"/>
+                                        </constraints>
+                                        <state key="normal" title="Link to Privacy Policy"/>
+                                        <connections>
+                                            <action selector="linkToPRivacyPolicyButtonTapped:" destination="144-90-PYe" eventType="touchUpInside" id="tke-I0-2g7"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vehicle Info provided by the National Highway Traffic Safety Administration" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4L-Ry-yx7" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="41.5" y="84.5" width="331" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="cRP-9k-7vu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All map information provided by Yelp " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Hu-lz-1ER" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="41.5" y="168" width="331" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="Rwo-YE-4Zb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d03-Z6-Hul" customClass="AutoTrackerGreenLabel" customModule="AutoTracker" customModuleProvider="target">
+                                        <rect key="frame" x="41.5" y="251.5" width="331" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="fhI-dQ-3v6"/>
+                                        </constraints>
+                                        <string key="text">Auto_Tracker is not responsible for any damages caused to the users vehicles in any way.  Gas mileage is an estimate based on information provided to the app and as a result will not be 100% accurate. </string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="F4L-Ry-yx7" firstAttribute="width" secondItem="0jQ-zs-znB" secondAttribute="width" id="3Vr-Ut-RRI"/>
+                                    <constraint firstItem="3Hu-lz-1ER" firstAttribute="width" secondItem="F4L-Ry-yx7" secondAttribute="width" id="Ggn-gS-SYQ"/>
+                                    <constraint firstItem="0jQ-zs-znB" firstAttribute="width" secondItem="ETf-hd-QRR" secondAttribute="width" multiplier="0.8" id="SRH-iM-Jv3"/>
+                                    <constraint firstItem="d03-Z6-Hul" firstAttribute="width" secondItem="3Hu-lz-1ER" secondAttribute="width" id="WS2-Cb-3gs"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ETf-hd-QRR" firstAttribute="width" secondItem="QZR-GH-Huy" secondAttribute="width" id="G1F-9I-Y5Y"/>
+                            <constraint firstItem="ETf-hd-QRR" firstAttribute="centerY" secondItem="QZR-GH-Huy" secondAttribute="centerY" id="hQi-Xc-trj"/>
+                            <constraint firstItem="ETf-hd-QRR" firstAttribute="centerX" secondItem="QZR-GH-Huy" secondAttribute="centerX" id="ip0-P6-DDH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QZR-GH-Huy"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="91t-X2-Ji4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8wa-P0-bgC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="679.71014492753625" y="813.61607142857144"/>
         </scene>
         <!--Onboarding-->
         <scene sceneID="osA-vW-fxw">
@@ -423,10 +498,12 @@
             </objects>
             <point key="canvasLocation" x="1346" y="-48"/>
         </scene>
-        <!--Record-->
+        <!--Main-->
         <scene sceneID="Pa0-6K-U9w">
             <objects>
-                <viewControllerPlaceholder storyboardName="Record" id="nF9-EV-yrR" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Main" id="nF9-EV-yrR" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="kLj-3k-55D"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iWU-ps-CgQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1346" y="140"/>
@@ -452,7 +529,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="car" width="112.5" height="112.5"/>
+        <image name="defaultCar" width="375" height="224"/>
         <image name="homeDeselected" width="64" height="64"/>
         <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
         <namedColor name="autoGreen">

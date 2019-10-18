@@ -14,10 +14,15 @@ class MaintanenceDetailTableViewController: UITableViewController {
     
     @IBOutlet weak var historySegmentedControl: UISegmentedControl!
     
+    @IBOutlet weak var maintenanceSearchBar: UISearchBar!
     
     //MARK: - VARIABLES
     
     var displayHistory = false
+    
+    var isinSearchMode = false
+    
+    var searchResults = [Maintanence]()
     
     var dataSource:[Maintanence]{
         let list = CarController.shared.organizeAndReturnMaintainenceList()
@@ -29,6 +34,9 @@ class MaintanenceDetailTableViewController: UITableViewController {
             } else {
                 listIncomplete.append(item)
             }
+        }
+        if isinSearchMode{
+            return searchResults
         }
         if displayHistory{
             return listHistory
@@ -43,6 +51,7 @@ class MaintanenceDetailTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         tableView.reloadData()
+        maintenanceSearchBar.delegate = self
     }
     
     // MARK: - Table view data source
@@ -120,6 +129,8 @@ class MaintanenceDetailTableViewController: UITableViewController {
     }
     
 }
+//MARK: - EXTENSIONS
+
 extension MaintanenceDetailTableViewController: MaintenanceTableViewCellDelegate{
     func buttonTapped(_ sender: MaintenanceTableViewCell) {
         guard let maintenance = sender.selectedMaintenance else {return}
@@ -132,5 +143,54 @@ extension MaintanenceDetailTableViewController: MaintenanceTableViewCellDelegate
         tableView.reloadData()
     }
     
+    
+}
+extension MaintanenceDetailTableViewController: UISearchBarDelegate{
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        guard let term = searchBar.text, !term.isEmpty else {return}
+        let searchTerm = term.lowercased()
+        for item in CarController.shared.organizeAndReturnMaintainenceList(){
+            if item.isReceipt{
+                continue
+            }
+            if let title = item.maintanenceRequired{
+                if title.lowercased().contains(searchTerm){
+                    searchResults.append(item)
+                    continue
+                }
+            }
+            if let details = item.details {
+                if details.lowercased().contains(searchTerm){
+                    searchResults.append(item)
+                }
+            }
+        }
+        
+        
+      
+        isinSearchMode = true
+        tableView.reloadData()
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        isinSearchMode = false
+        UIView.animate(withDuration: 0.5) {
+            self.historySegmentedControl.isHidden = false
+            self.historySegmentedControl.alpha = 1.0
+        }
+        
+        searchBar.text = ""
+        searchResults.removeAll()
+        tableView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        historySegmentedControl.alpha = 1.0
+        UIView.animate(withDuration: 0.5) {
+            self.historySegmentedControl.isHidden = true
+            self.historySegmentedControl.alpha = 0.0
+        }
+    }
     
 }

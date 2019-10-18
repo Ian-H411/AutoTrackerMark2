@@ -91,7 +91,14 @@ class CarController{
     ///use this so we dont have to constantly find the cars maintenance
     func organizeAndReturnMaintainenceList() -> [Maintanence] {
         guard let car = selectedCar else {return[]}
-        let maintenance = car.upcomingMaintanence?.allObjects as? [Maintanence] ?? []
+        let allMaintenance = car.upcomingMaintanence?.allObjects as? [Maintanence] ?? []
+        let maintenance = allMaintenance.filter { (main) -> Bool in
+            if !main.isReceipt{
+                return true
+            } else {
+                return false
+            }
+        }
         let sortedMaintenance = maintenance.sorted { (lhs, rhs) -> Bool in
             guard let leftDate = lhs.dueOn,
                 let rhsDate = rhs.dueOn
