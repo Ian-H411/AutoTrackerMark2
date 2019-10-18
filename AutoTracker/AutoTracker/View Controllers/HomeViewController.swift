@@ -82,16 +82,7 @@ class HomeViewController: UIViewController {
         toggleOptions()
     }
     @IBAction func recordGasButtonTapped(_ sender: Any) {
-        
-        ////        if !(myCar?.odometer != nil) {
-        //        let window = UIWindow(frame: UIScreen.main.bounds)
-        //            let storyBoard = UIStoryboard(name: "Record", bundle: nil)
-        //            let entryVC = storyBoard.instantiateViewController(identifier: "receiptEntryVC")
-        //            window.rootViewController = entryVC
-        //
-        //            window.makeKeyAndVisible()
-        //
-//        }
+        tabBarController?.selectedIndex = 1
     }
     
     
