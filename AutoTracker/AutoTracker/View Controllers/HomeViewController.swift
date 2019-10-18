@@ -17,7 +17,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var averageMPGLabel: UILabel!
     @IBOutlet weak var lifetimeMilesLabel: UILabel!
     @IBOutlet weak var updateOdometerLabel: AutoTrackerGreenLabel!
-    @IBOutlet weak var thisTankLabel: UILabel!
     
     @IBOutlet weak var scheduledMaintenanceTableView: UITableView!
     
@@ -97,7 +96,7 @@ class HomeViewController: UIViewController {
         updateOdometerLabel.text = String(describing: myCar.odometer)
         lifetimeMilesLabel.layer.cornerRadius = 8
         averageMPGLabel.layer.cornerRadius = 8
-        thisTankLabel.layer.cornerRadius = 8
+        
         scheduledMaintenanceTableView.reloadData()
     }
     
