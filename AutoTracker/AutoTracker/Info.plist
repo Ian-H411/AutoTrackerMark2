@@ -21,7 +21,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Auto_Tracker needs acsess to the camera to scan your vin and look up your vehicle</string>
+	<string>Auto_Tracker needs access to the camera to scan your vin and look up your vehicle</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Auto_Tracker needs your location to find nearby gas stations</string>
 	<key>UIAppFonts</key>
