@@ -257,8 +257,6 @@
 				25C056EA234CFBEC0000D848 /* Map */,
 				256810D8234C121000629AEA /* Maintenance */,
 				256810D7234C120200629AEA /* MyGarage */,
-				42A32330234B965800B130A0 /* HomeViewController.swift */,
-				250A0F79235A249700A2424F /* legalViewController.swift */,
 				4202233D234FAAC2006C60F6 /* CustomTabBarController.swift */,
 				42DFEDAA234DA121004C40D7 /* Record */,
 			);
@@ -361,6 +359,8 @@
 		42F7593B235A230200602238 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				42A32330234B965800B130A0 /* HomeViewController.swift */,
+				250A0F79235A249700A2424F /* legalViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
