@@ -724,13 +724,6 @@
                                                         <action selector="photoButtonTapped:" destination="eHD-99-4xB" eventType="touchUpInside" id="9Ad-Zn-dow"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbm-OJ-Npk">
-                                                    <rect key="frame" x="48" y="24" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="OLd-Fk-zDV" firstAttribute="centerY" secondItem="kEy-rs-t9U" secondAttribute="centerY" id="LuV-HL-zWI"/>
