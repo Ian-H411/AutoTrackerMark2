@@ -17,10 +17,15 @@ class AddCarTableViewController: UITableViewController {
     
     // MARK: - OUTLETS
     @IBOutlet weak var nameTextField: UITextField!
+   
     @IBOutlet weak var ownerTextField: UITextField!
+   
     @IBOutlet weak var makeTextField: UITextField!
+   
     @IBOutlet weak var modelTextField: UITextField!
+    
     @IBOutlet weak var engineTextField: UITextField!
+   
     @IBOutlet weak var yearTextField: UITextField!
     
     @IBOutlet weak var odometerPicker: UIPickerView!
@@ -42,7 +47,6 @@ class AddCarTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         yearTextField.delegate = self
         odometerPicker.delegate = self
         odometerPicker.dataSource = self
@@ -50,8 +54,6 @@ class AddCarTableViewController: UITableViewController {
         modelTextField.delegate = self
         nameTextField.delegate = self
         ownerTextField.delegate = self
-       
-        
         initialSetUp()
     }
     
@@ -71,13 +73,11 @@ class AddCarTableViewController: UITableViewController {
             let engine = engineTextField.text,
             !engine.isEmpty
             else { return }
-        
         if year.count != 4 {
             notAValidYear()
             yearTextField.text = ""
             return
         }
-        
         let odometer = odometerResults()
         if isInEditMode{
             guard let car = carToEdit else {return}

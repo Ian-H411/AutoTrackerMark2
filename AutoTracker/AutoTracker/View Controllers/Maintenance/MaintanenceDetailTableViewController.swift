@@ -24,7 +24,7 @@ class MaintanenceDetailTableViewController: UITableViewController {
     
     var searchResults = [Maintanence]()
     
-    var dataSource:[Maintanence]{
+    var dataSource:[Maintanence] {
         let list = CarController.shared.organizeAndReturnMaintainenceList()
         var listHistory:[Maintanence] = []
         var listIncomplete:[Maintanence] = []
@@ -94,7 +94,7 @@ class MaintanenceDetailTableViewController: UITableViewController {
     
     
     //MARK: - HELPERS
-    func presentUpdateOdometerAlert(){
+    func presentUpdateOdometerAlert() {
         guard let car = CarController.shared.selectedCar else {return}
         let alertcontroller = UIAlertController(title: "Would you like to update the odometer", message: "update the odometer for \(car.name ?? "")", preferredStyle: .alert)
         let yesButton = UIAlertAction(title: "Update Odometer", style: .default) { (_) in
@@ -105,12 +105,12 @@ class MaintanenceDetailTableViewController: UITableViewController {
         alertcontroller.addAction(noButton)
         self.present(alertcontroller, animated: true)
     }
-    func removeNotification(maintenance: Maintanence){
+    
+    func removeNotification(maintenance: Maintanence) {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [maintenance.uuid ?? ""])
     }
     
     // MARK: - Navigation
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "edit"{
             if let destinationVC = segue.destination as? EditMaintenaneViewController{
@@ -129,9 +129,9 @@ class MaintanenceDetailTableViewController: UITableViewController {
     }
     
 }
-//MARK: - EXTENSIONS
 
-extension MaintanenceDetailTableViewController: MaintenanceTableViewCellDelegate{
+//MARK: - EXTENSIONS
+extension MaintanenceDetailTableViewController: MaintenanceTableViewCellDelegate {
     func buttonTapped(_ sender: MaintenanceTableViewCell) {
         guard let maintenance = sender.selectedMaintenance else {return}
         CarController.shared.toggleMaintenanceReminder(maintenance: maintenance)
@@ -142,9 +142,8 @@ extension MaintanenceDetailTableViewController: MaintenanceTableViewCellDelegate
         }
         tableView.reloadData()
     }
-    
-    
 }
+
 extension MaintanenceDetailTableViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
@@ -166,12 +165,10 @@ extension MaintanenceDetailTableViewController: UISearchBarDelegate{
                 }
             }
         }
-        
-        
-      
         isinSearchMode = true
         tableView.reloadData()
     }
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         isinSearchMode = false
@@ -192,5 +189,4 @@ extension MaintanenceDetailTableViewController: UISearchBarDelegate{
             self.historySegmentedControl.alpha = 0.0
         }
     }
-    
 }

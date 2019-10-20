@@ -12,8 +12,8 @@ class MapController{
     
     static let shared = MapController()
     var results = [PlaceObject]()
-    
-    private func retrieveGasStationsNearby(location: CLLocationCoordinate2D, radius:Int, completion: @escaping (Places?) -> Void){
+    /// a private function that takes in a radius and a location and completes with an optional object of places
+    private func retrieveGasStationsNearby(location: CLLocationCoordinate2D, radius:Int, completion: @escaping (Places?) -> Void) {
         let apikey = retrieveValueFromPlist(key: "yelpKey", plistName: "APIKeys")
         guard let url = URL(string: "https://api.yelp.com/v3/businesses/search") else {return}
         let gasStations = URLQueryItem(name: "categories", value: "servicestations")
@@ -23,11 +23,8 @@ class MapController{
         var urlComponent = URLComponents(url: url, resolvingAgainstBaseURL: true)
         urlComponent?.queryItems = [gasStations,lattitude,longitude,radius]
         guard let finalUrl = urlComponent?.url else {return}
-        
         print(finalUrl.absoluteString)
-        
         var request = URLRequest(url: finalUrl)
-        
         request.setValue("Bearer \(apikey)", forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
         print(request.url?.absoluteString as Any)
@@ -48,11 +45,9 @@ class MapController{
                 completion(nil)
                 return
             }
-            
-            
         }.resume()
-        
     }
+    /// retrieves a value from the hidden plist file that way we can hide our api keys
     func retrieveValueFromPlist(key: String, plistName: String) -> String {
         guard let filepath = Bundle.main.path(forResource: plistName, ofType: "plist") else { return "error" }
         let propertyList = NSDictionary.init(contentsOfFile: filepath)
@@ -60,7 +55,8 @@ class MapController{
         return value
     }
 
-    func retrieveImage(urlString:String, completion: @escaping (UIImage?) -> Void){
+    ///retrieves a image for a gas station.  takes in a url provided by the place and completes with an optional photo
+    func retrieveImage(urlString:String, completion: @escaping (UIImage?) -> Void) {
         guard let url = URL(string: urlString) else {completion(nil);print("error url was nil");return}
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {
@@ -74,7 +70,8 @@ class MapController{
         }.resume()
     }
     
-    private func returnRatingStarImage(rating:Double) -> UIImage?{
+    /// a function to be called from the grabnearby gas stations and convert to the correct rating level
+    private func returnRatingStarImage(rating:Double) -> UIImage? {
         if rating == 0 {
             return UIImage(named:"0Stars")
         } else if rating == 1.0{
@@ -100,7 +97,7 @@ class MapController{
         }
     }
     
-    
+    /// recieves a location and a radius and then adds them to the results array source of truth provides a completion of a bool indicating success
     func grabNearbyGasStationsAndConvert(location: CLLocationCoordinate2D, radius:Int, completion: @escaping (Bool) -> Void){
         //grab the data from yelp
         results.removeAll()
