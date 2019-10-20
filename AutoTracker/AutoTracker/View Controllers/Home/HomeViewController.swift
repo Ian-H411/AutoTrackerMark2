@@ -15,7 +15,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var carImageView: UIImageView!
     
     @IBOutlet weak var averageMPGLabel: UILabel!
+    
     @IBOutlet weak var lifetimeMilesLabel: UILabel!
+    
     @IBOutlet weak var updateOdometerLabel: AutoTrackerGreenLabel!
     
     @IBOutlet weak var scheduledMaintenanceTableView: UITableView!
@@ -52,7 +54,6 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
         self.myCar = CarController.shared.selectedCar
         optionView.layer.shadowRadius = 10
         optionView.layer.shadowOffset = .zero
@@ -88,19 +89,19 @@ class HomeViewController: UIViewController {
     
     // MARK: - FUNCTIONS
     
+    ///called when the user needs to update the views and labels
     func updateViews() {
         guard let myCar = myCar else { return }
-        
         carImageView.image = myCar.photo ?? UIImage(named: "car")
         self.navigationItem.title = myCar.name ?? "Car Name"
         updateOdometerLabel.text = String(describing: myCar.odometer)
         lifetimeMilesLabel.layer.cornerRadius = 8
         averageMPGLabel.layer.cornerRadius = 8
-        
         scheduledMaintenanceTableView.reloadData()
     }
     
-    func camera(){
+    ///used for when the camera is called upon to add a photo
+    func camera() {
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             let myPickerController = UIImagePickerController()
             myPickerController.delegate = self
@@ -109,6 +110,7 @@ class HomeViewController: UIViewController {
         }
     }
     
+    ///used when the user wishes to use a photo from their library
     func photoLibrary() {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             let mypickerController = UIImagePickerController()
@@ -118,7 +120,8 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func toggleOptions(){
+    ///turns the menu on and off
+    func toggleOptions() {
         if hideMenu{
             view.blurView(style: .extraLight)
             view.bringSubviewToFront(optionView)
@@ -126,7 +129,6 @@ class HomeViewController: UIViewController {
             UIView.animate(withDuration: 0.5) {
                 self.view.removeBlur()
             }
-           
         }
         hideMenu.toggle()
         let alpha = hideMenu ? CGFloat(0.0) : CGFloat(1.0)
@@ -140,11 +142,10 @@ class HomeViewController: UIViewController {
             self.updatePhotoButtton.isHidden = self.hideMenu
             self.reviewIntroButton.isHidden = self.hideMenu
         }
-        
-        
-        
     }
-    func presentActionSheet(){
+    
+    ///presents the action sheet allowing the user to use their photo and photo library
+    func presentActionSheet() {
         let actionSheet = UIAlertController(title: "Import Receipt Photo", message: nil, preferredStyle: .alert)
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             let cameraButton = UIAlertAction(title: "Import With Camera", style: .default) { (_) in
@@ -163,18 +164,21 @@ class HomeViewController: UIViewController {
         self.present(actionSheet, animated: true, completion: nil)
     }
     
-    func presentInvalidFieldWarning(){
+    ///presented when the user has an empty field or is invalid
+    func presentInvalidFieldWarning() {
         let alertController = UIAlertController(title: "Invalid field", message: "it looks like your maintenance title may be empty go add something then try again", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(alertController, animated: true)
     }
     
+    //checks if the user has used the app before
     func launchedBefore() -> Bool {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         return launchedBefore
     }
 }
 
+//MARK: - EXTENSIONS
 extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -195,7 +199,7 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
         self.dismiss(animated: true, completion: nil)
     }
 }
-extension HomeViewController: UITextFieldDelegate{
+extension HomeViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         resignFirstResponder()
         return false
@@ -205,8 +209,6 @@ extension HomeViewController: UITextFieldDelegate{
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        //        guard let scheduledMaintenance = scheduledMaintenance else { return 0 }
         return scheduledMaintenance.count
     }
     
@@ -215,13 +217,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let main = scheduledMaintenance[indexPath.row]
         cell.delegate = self
         cell.update(maintenance: main)
-        
         return cell
     }
-    
-    
 }
-extension HomeViewController: MaintenanceTableViewCellDelegate{
+
+extension HomeViewController: MaintenanceTableViewCellDelegate {
     func buttonTapped(_ sender: MaintenanceTableViewCell) {
         guard let main = sender.selectedMaintenance else {return}
         CarController.shared.toggleMaintenanceReminder(maintenance: main)

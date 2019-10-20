@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2509E0A02358D98D004FFA9F /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2509E09F2358D98D004FFA9F /* APIKeys.plist */; };
 		250A0F7A235A249700A2424F /* legalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250A0F79235A249700A2424F /* legalViewController.swift */; };
-		2540E9B02350F89300CC3D83 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2540E9AF2350F89300CC3D83 /* DeviceInfo.swift */; };
 		2558F34D235508D300BDF2DC /* MaintenanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2558F34C235508D300BDF2DC /* MaintenanceTableViewCell.swift */; };
 		2558F34F2355265400BDF2DC /* UpdateOdometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2558F34E2355265400BDF2DC /* UpdateOdometerViewController.swift */; };
 		2558F3512356B02800BDF2DC /* AddMaintenanceTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2558F3502356B02800BDF2DC /* AddMaintenanceTextViewController.swift */; };
@@ -76,7 +75,6 @@
 /* Begin PBXFileReference section */
 		2509E09F2358D98D004FFA9F /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		250A0F79235A249700A2424F /* legalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = legalViewController.swift; sourceTree = "<group>"; };
-		2540E9AF2350F89300CC3D83 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		2558F34C235508D300BDF2DC /* MaintenanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceTableViewCell.swift; sourceTree = "<group>"; };
 		2558F34E2355265400BDF2DC /* UpdateOdometerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateOdometerViewController.swift; sourceTree = "<group>"; };
 		2558F3502356B02800BDF2DC /* AddMaintenanceTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenanceTextViewController.swift; sourceTree = "<group>"; };
@@ -273,7 +271,6 @@
 				256810902347A7A800629AEA /* SceneDelegate.swift */,
 				256810BC2347F1DA00629AEA /* LocationManager.swift */,
 				25BDF720234FCA01009DD2E2 /* Reachability.swift */,
-				2540E9AF2350F89300CC3D83 /* DeviceInfo.swift */,
 				2509E09F2358D98D004FFA9F /* APIKeys.plist */,
 			);
 			path = Resources;
@@ -460,7 +457,6 @@
 				42A3233B234BE48200B130A0 /* AutoTrackerTextField.swift in Sources */,
 				423925342347D75D00EABF16 /* AutoTrackerLabel.swift in Sources */,
 				256810B52347AAE100629AEA /* Car+Convenience.swift in Sources */,
-				2540E9B02350F89300CC3D83 /* DeviceInfo.swift in Sources */,
 				256810CC234BB63C00629AEA /* AutoTrackerButtonAsLabelStyle.swift in Sources */,
 				428F7CCB2354EE0D006531FC /* ReceiptEntryViewController.swift in Sources */,
 				256810B32347AAAE00629AEA /* Constants.swift in Sources */,

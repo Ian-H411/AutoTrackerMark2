@@ -30,7 +30,7 @@ class AddMaintenanceTableViewController: UITableViewController {
     
     var maintenanceToSend: Maintanence?
     
-    var isInEditMode:Bool{
+    var isInEditMode: Bool{
         if let _ = maintenance {
             return true
         } else {
@@ -49,7 +49,7 @@ class AddMaintenanceTableViewController: UITableViewController {
     
     // MARK: - Helpers
     
-    func initialSetup(){
+    func initialSetup() {
         additionalDetailsTextField.delegate = self
         maintenanceTextField.delegate = self
         maintenanceCostTextField.delegate = self
@@ -67,7 +67,7 @@ class AddMaintenanceTableViewController: UITableViewController {
         }
     }
     
-    func notificationSetUP(){
+    func notificationSetUP() {
         let options:UNAuthorizationOptions = [.alert,.sound]
         notificationCenter.requestAuthorization(options: options) { (didAllow, error) in
             if let error = error{
@@ -81,7 +81,7 @@ class AddMaintenanceTableViewController: UITableViewController {
     }
     
     
-    func createNotification(){
+    func createNotification() {
         self.useSave()
         DispatchQueue.main.async {
             let date = self.dueDatePicker.date
@@ -109,9 +109,8 @@ class AddMaintenanceTableViewController: UITableViewController {
             }
         }
     }
-    //brings up a camera that we can use to take a pic
     
-    func camera(){
+    func camera() {
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             let myPickerController = UIImagePickerController()
             myPickerController.delegate = self
@@ -129,7 +128,7 @@ class AddMaintenanceTableViewController: UITableViewController {
         }
     }
     
-    func presentActionSheet(){
+    func presentActionSheet() {
         let actionSheet = UIAlertController(title: "Import Receipt Photo", message: nil, preferredStyle: .actionSheet)
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             let cameraButton = UIAlertAction(title: "Import With Camera", style: .default) { (_) in
@@ -148,12 +147,12 @@ class AddMaintenanceTableViewController: UITableViewController {
         self.present(actionSheet, animated: true, completion: nil)
     }
     
-    func presentInvalidFieldWarning(){
+    func presentInvalidFieldWarning() {
         let alertController = UIAlertController(title: "Invalid field", message: "it looks like your maintenance title may be empty go add something then try again", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(alertController, animated: true)
     }
-    func addReminderPrompt(){
+    func addReminderPrompt() {
         let alertController = UIAlertController(title: "add a reminder?", message: "This is set to a future date would you like to add a notification?", preferredStyle: .alert)
         let okayButton = UIAlertAction(title: "Add Notification", style: .default) { (_) in
             self.notificationSetUP()
@@ -171,7 +170,7 @@ class AddMaintenanceTableViewController: UITableViewController {
         alertController.addAction(cancelButton)
         self.present(alertController,animated: true)
     }
-    func useSave(){
+    func useSave() {
         DispatchQueue.main.async {
             if self.isInEditMode{
                 guard let maintenance = self.maintenance else {return}
@@ -181,7 +180,7 @@ class AddMaintenanceTableViewController: UITableViewController {
                 let details = self.additionalDetailsTextField.text
                 let date = self.dueDatePicker.date
                 self.maintenanceToSend = maintenance
-                CarController.shared.modifyMaintenanceRemainder(maintenance:maintenance , date: date, newTitle: title, details: details, image: image)
+                CarController.shared.modifyMaintenance(maintenance:maintenance , date: date, newTitle: title, details: details, image: image)
                 self.navigationController?.popToRootViewController(animated: true)
             } else {
                 guard let title = self.maintenanceTextField.text, !title.isEmpty
@@ -191,12 +190,11 @@ class AddMaintenanceTableViewController: UITableViewController {
                 let details = self.additionalDetailsTextField.text
                 let date = self.dueDatePicker.date
                 
-                let main = CarController.shared.addMaintenanceReminder(car: car, message: details, maintanence: title, date: date, image: image, price: "")
+                let main = CarController.shared.addMaintenance(car: car, message: details, maintanence: title, date: date, image: image, price: "")
                 if self.dueDatePicker.date > Date(){
             CarController.shared.toggleMaintenanceReminder(maintenance: main)
                 }
                 self.maintenanceToSend = main
-//                self.performSegue(withIdentifier: "odometer", sender: nil)
             }
             
         }
@@ -231,6 +229,7 @@ class AddMaintenanceTableViewController: UITableViewController {
     
 }
 
+//MARK: - EXTENSIONS
 extension AddMaintenanceTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

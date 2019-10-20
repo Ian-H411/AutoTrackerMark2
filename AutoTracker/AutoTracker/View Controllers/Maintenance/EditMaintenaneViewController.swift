@@ -47,7 +47,8 @@ class EditMaintenaneViewController: UIViewController {
         priceTextField.delegate = self
         
     }
-    func presentActionSheet(){
+    
+    func presentActionSheet() {
         let actionSheet = UIAlertController(title: "Import Receipt Photo", message: nil, preferredStyle: .actionSheet)
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             let cameraButton = UIAlertAction(title: "Import With Camera", style: .default) { (_) in
@@ -66,7 +67,7 @@ class EditMaintenaneViewController: UIViewController {
         self.present(actionSheet, animated: true, completion: nil)
     }
     
-    func camera(){
+    func camera() {
           if UIImagePickerController.isSourceTypeAvailable(.camera){
               let myPickerController = UIImagePickerController()
               myPickerController.delegate = self
@@ -85,7 +86,6 @@ class EditMaintenaneViewController: UIViewController {
       }
     
     //MARK: - ACTIONS
-    
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let title = titleTextField.text,
             let detials = detailsTextField.text,
@@ -93,7 +93,7 @@ class EditMaintenaneViewController: UIViewController {
             let image = imageView.image,
             let main = selectedMaintenance
             else {return}
-        CarController.shared.modifyMaintenanceRemainder(maintenance: main, date: datePicker.date, newTitle: title, details: detials, image: image)
+        CarController.shared.modifyMaintenance(maintenance: main, date: datePicker.date, newTitle: title, details: detials, image: image)
         CarController.shared.modifyMaintenance(price: price, maintenance: main)
         navigationController?.popViewController(animated: true)
     }
@@ -101,13 +101,8 @@ class EditMaintenaneViewController: UIViewController {
     @IBAction func editPhotoButtonTapped(_ sender: Any) {
         presentActionSheet()
     }
-    
-    
-    
-   
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editphoto"{
             if let destination = segue.destination as? ImageDisplayViewController{
@@ -115,16 +110,15 @@ class EditMaintenaneViewController: UIViewController {
             }
         }
     }
-
-
 }
+//MARK: - EXTENSIONS
 extension EditMaintenaneViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-    
 }
+
 extension EditMaintenaneViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
              self.dismiss(animated: true, completion: nil)

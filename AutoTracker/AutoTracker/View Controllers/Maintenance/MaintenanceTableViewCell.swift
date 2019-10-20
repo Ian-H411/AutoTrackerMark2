@@ -42,7 +42,7 @@ class MaintenanceTableViewCell: UITableViewCell {
     
     //MARK: -HELPERS
     
-    func update(maintenance:Maintanence){
+    func update(maintenance:Maintanence) {
         selectedMaintenance = maintenance
         entryNameLabel.text = maintenance.maintanenceRequired
         entryTypeLabel.text = maintenance.details
