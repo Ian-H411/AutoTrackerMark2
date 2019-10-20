@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YKy-48-Puh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YKy-48-Puh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -467,26 +467,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ud8-il-qy8" customClass="AutoTrackerOdometer" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="41.5" y="415.5" width="331" height="75"/>
+                                <rect key="frame" x="41.5" y="437.5" width="331" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="mtq-bm-QlO"/>
                                 </constraints>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many miles are on your odometer?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOm-Yq-DfI" customClass="AutoTrackerLabelHeadline" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="18.5" y="180" width="377" height="20.5"/>
+                                <rect key="frame" x="18.5" y="189.5" width="377" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3V-nt-vcT">
-                                <rect key="frame" x="338.5" y="501" width="34" height="30"/>
+                                <rect key="frame" x="338.5" y="523" width="34" height="30"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" name="autoGreen"/>
                                 </state>
                                 <connections>
                                     <action selector="saveButtonTapped:" destination="iI4-1t-ros" eventType="touchUpInside" id="CaB-dX-fXg"/>
                                     <action selector="saveButtonTapped:" destination="vZZ-do-pbH" eventType="touchUpInside" id="pBn-SH-FjJ"/>
-                                    <segue destination="Eex-kh-iC9" kind="show" identifier="toCarNameVC" id="Vek-vk-pK1"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="TAS-b0-okj">
@@ -534,6 +533,7 @@
                     <connections>
                         <outlet property="odometerPicker" destination="Ud8-il-qy8" id="PbN-aK-LZV"/>
                         <segue destination="loX-XF-h0s" kind="presentation" identifier="toMainVC" modalPresentationStyle="fullScreen" id="3rs-5p-Itq"/>
+                        <segue destination="Eex-kh-iC9" kind="show" identifier="toCarNameVC" id="xdK-gQ-kp4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ulV-kA-BMI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -558,13 +558,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name your car and take a picture of it:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jlc-4y-Hvu" customClass="AutoTrackerLabelHeadline" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="61.5" y="180" width="291.5" height="20.5"/>
+                                <rect key="frame" x="61.5" y="189.5" width="291.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p6g-zR-hpe" customClass="TextFieldStyle" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="18.5" y="431" width="377" height="44"/>
+                                <rect key="frame" x="18.5" y="453" width="377" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -603,13 +603,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner's Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mi9-vF-52y" customClass="AutoTrackerLabelDetail" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="151" y="402.5" width="112.5" height="20.5"/>
+                                <rect key="frame" x="151" y="424.5" width="112.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ym7-ee-Y0u" customClass="TextFieldStyle" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="18.5" y="332" width="377" height="44"/>
+                                <rect key="frame" x="18.5" y="354" width="377" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="eAd-eh-fZR"/>
                                 </constraints>
@@ -617,7 +617,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car's Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TyD-GG-DFV" customClass="AutoTrackerLabelDetail" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="162.5" y="303.5" width="89" height="20.5"/>
+                                <rect key="frame" x="162.5" y="325.5" width="89" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -707,9 +707,9 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vek-vk-pK1"/>
+        <segue reference="xdK-gQ-kp4"/>
         <segue reference="3rs-5p-Itq"/>
-        <segue reference="91R-0F-VUl"/>
+        <segue reference="8UE-yJ-Jjo"/>
         <segue reference="IRd-qq-xP0"/>
     </inferredMetricsTieBreakers>
 </document>
