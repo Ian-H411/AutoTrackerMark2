@@ -43,10 +43,11 @@
                                     <constraint firstItem="P2x-te-KEZ" firstAttribute="height" secondItem="FJc-tS-UVZ" secondAttribute="height" id="xvJ-hy-5da"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="KOj-Ul-n58">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="KOj-Ul-n58">
                                 <rect key="frame" x="10" y="649" width="393" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="car" rowHeight="70" id="l4e-Rc-cQg" customClass="MyGarageTableViewCell" customModule="AutoTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="393" height="70"/>
@@ -75,6 +76,7 @@
                                                 <constraint firstItem="irJ-3A-RJs" firstAttribute="height" secondItem="t7e-Uc-ti3" secondAttribute="height" multiplier="0.9" id="thZ-Go-Z4H"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="carButton" destination="irJ-3A-RJs" id="Awy-R3-ZEm"/>
                                         </connections>
