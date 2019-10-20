@@ -30,7 +30,7 @@ class ReceiptEntryViewController: UIViewController {
     var miles: Double = 0
     var gallons: Double = 0
     
-    
+    var imageOfReveipt: UIImage?
     
     
     // MARK: - LIFECYCLE
@@ -128,6 +128,28 @@ class ReceiptEntryViewController: UIViewController {
         resetTappedTally()
     }
     
+    @IBAction func cameraButtonTapped(_ sender: Any) {
+        func presentActionSheet(){
+            let actionSheet = UIAlertController(title: "Import Receipt Photo", message: nil, preferredStyle: .alert)
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                let cameraButton = UIAlertAction(title: "Import With Camera", style: .default) { (_) in
+                    self.camera()
+                }
+                actionSheet.addAction(cameraButton)
+            }
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+                let photoLibrary = UIAlertAction(title: "Import From Photo Library", style: .default) { (_) in
+                    self.photoLibrary()
+                }
+                actionSheet.addAction(photoLibrary)
+            }
+            let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+            actionSheet.addAction(cancelButton)
+            self.present(actionSheet, animated: true, completion: nil)
+        }
+    }
+    
+    
     
     @IBAction func saveFillUpButtonTapped(_ sender: Any) {
         
@@ -142,7 +164,7 @@ class ReceiptEntryViewController: UIViewController {
             
         } else {
             
-            CarController.shared.addReceipt(car: car, miles: miles, gallons: gallons, cost: cost)
+            CarController.shared.addReceipt(car: car, miles: miles, gallons: gallons, cost: cost, image: imageOfReveipt)
             
             CarController.shared.updateOdometer(car: car, odometer: miles) { (_) in
                 
@@ -176,6 +198,25 @@ class ReceiptEntryViewController: UIViewController {
     }
     
     // MARK: - FUNCTIONS
+    
+    func camera(){
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            let myPickerController = UIImagePickerController()
+            myPickerController.delegate = self
+            myPickerController.sourceType = .camera
+            self.present(myPickerController, animated: true , completion: nil)
+        }
+    }
+    
+    func photoLibrary() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            let mypickerController = UIImagePickerController()
+            mypickerController.delegate = self
+            mypickerController.sourceType = .photoLibrary
+            self.present(mypickerController, animated: true, completion: nil)
+        }
+    }
+    
     func entryFieldsAppear() {
         updateButton.alpha = 1.0
         reusableTextField.alpha = 1.0
@@ -218,5 +259,22 @@ extension ReceiptEntryViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension ReceiptEntryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[.originalImage] as? UIImage{
+        imageOfReveipt = image
+            
+        } else {
+            print("Something went wrong")
+        }
+        self.dismiss(animated: true, completion: nil)
     }
 }

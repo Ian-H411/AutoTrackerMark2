@@ -142,11 +142,12 @@ class CarController{
         return newMain
     }
     
-    func addReceipt(car: Car, miles: Double, gallons: String, cost: String) {
+    func addReceipt(car: Car, miles: Double, gallons: String, cost: String, image: UIImage?) {
         
         let miles = Double(miles)
         
         let receipt = Maintanence(car: car, price: cost, odometerStamp: miles, details: gallons, isReceipt: true)
+        receipt.photo = image
         car.upcomingMaintanence?.adding(receipt)
         saveChangesToPersistentStoreOnly()
     }
