@@ -247,11 +247,11 @@ class MyGarageViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let car = CarController.shared.selectedCar else {return}
-        if odometerPicker.isUserInteractionEnabled == true {
+        if odometerPicker.isUserInteractionEnabled {
             CarController.shared.updateOdometer(car: car, odometer: Double(odometerResults())) { (_) in
             }
         }
-        odometerPicker.isUserInteractionEnabled.toggle()
+    odometerPicker.isUserInteractionEnabled.toggle()
         setTextFields()
     }
     
