@@ -75,7 +75,7 @@
 
 /* Begin PBXFileReference section */
 		2509E09F2358D98D004FFA9F /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
-		250A0F79235A249700A2424F /* legalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = legalViewController.swift; sourceTree = "<group>"; };
+		250A0F79235A249700A2424F /* legalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = legalViewController.swift; path = Home/legalViewController.swift; sourceTree = "<group>"; };
 		2558F34C235508D300BDF2DC /* MaintenanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceTableViewCell.swift; sourceTree = "<group>"; };
 		2558F34E2355265400BDF2DC /* UpdateOdometerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateOdometerViewController.swift; sourceTree = "<group>"; };
 		2558F3502356B02800BDF2DC /* AddMaintenanceTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenanceTextViewController.swift; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 		25C056EB234D16860000D848 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		25C056ED234D1C690000D848 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		25C056F1234D38A40000D848 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
-		4202233D234FAAC2006C60F6 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		4202233D234FAAC2006C60F6 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomTabBarController.swift; path = Main/CustomTabBarController.swift; sourceTree = "<group>"; };
 		4202233F234FC48D006C60F6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		42022342234FDC66006C60F6 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		423925232347B02F00EABF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AutoTracker/StoryBoards/Base.lproj/FindGas.storyboard; sourceTree = "<group>"; };
@@ -258,11 +258,8 @@
 				25C056EA234CFBEC0000D848 /* Map */,
 				256810D8234C121000629AEA /* Maintenance */,
 				256810D7234C120200629AEA /* MyGarage */,
-
 				250A0F79235A249700A2424F /* legalViewController.swift */,
-
 				4202233D234FAAC2006C60F6 /* CustomTabBarController.swift */,
-
 				42DFEDAA234DA121004C40D7 /* Record */,
 			);
 			path = "View Controllers";
@@ -364,9 +361,6 @@
 			isa = PBXGroup;
 			children = (
 				42A32330234B965800B130A0 /* HomeViewController.swift */,
-
-				250A0F79235A249700A2424F /* legalViewController.swift */,
-
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -374,7 +368,6 @@
 		42F7593C235A230800602238 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				4202233D234FAAC2006C60F6 /* CustomTabBarController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";

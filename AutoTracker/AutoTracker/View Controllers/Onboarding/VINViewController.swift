@@ -59,9 +59,8 @@ class VINViewController: UIViewController {
 extension VINViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let vin = vinTextField.text {
-            let centerX = animationView.frame.width / 2
-            let centerY = animationView.frame.height / 2
-            let tireAnimation = TireAnimation(frame: CGRect(x: centerX, y: centerY, width: 50, height: 50), image: #imageLiteral(resourceName: "loadingIcon"))
+            let offset = (animationView.frame.width - 50) / 2
+            let tireAnimation = TireAnimation(frame: CGRect(x: offset, y: offset, width: 50, height: 50), image: #imageLiteral(resourceName: "loadingIcon"))
             
             self.animationView.addSubview(tireAnimation)
             
