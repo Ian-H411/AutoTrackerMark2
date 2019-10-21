@@ -13,17 +13,18 @@ class VINViewController: UIViewController {
     // MARK: - OUTLETS
     @IBOutlet weak var vinTextField: UITextField!
     @IBOutlet weak var yearTextField: UITextField!
+    @IBOutlet weak var animationView: UIView!
+    @IBOutlet weak var imageAnimationView: UIImageView!
     
     // MARK: - PROPERTIES
     var vin: String?
     var carParts: Car = Car(context: CoreDataStack.context)
     var CarJson: CarJson?
     
+    // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         vinTextField.delegate = self
-        
-       
     }
     
     @IBAction func helpButtonTapped(_ sender: Any) {
@@ -32,6 +33,7 @@ class VINViewController: UIViewController {
     
     
     // MARK: - FUNCTIONS
+    //////UIAlertCotroller to inform a user what a VIN should look like
     func presentVINAlert() {
         let alertController = UIAlertController(title: "VIN", message: "- A VIN is used to identify basic information about your vehicle \n- It is usually 17 characters long \n-It can be found by opening the driver's door and looking at the door post (where the door latches when it is closed)", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Enter VIN", style: .default)
@@ -54,28 +56,32 @@ class VINViewController: UIViewController {
     }
 }
 
-
 extension VINViewController: UITextFieldDelegate {
-
-    
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-
         if let vin = vinTextField.text {
+            let centerX = animationView.frame.width / 2
+            let centerY = animationView.frame.height / 2
+            let tireAnimation = TireAnimation(frame: CGRect(x: centerX, y: centerY, width: 50, height: 50), image: #imageLiteral(resourceName: "loadingIcon"))
+            
+            self.animationView.addSubview(tireAnimation)
+            
+            tireAnimation.startAnimating()
             CarController.shared.retrieveCarDetailsWith(vin: vin, year: "") { (CarJson, error) in
                 DispatchQueue.main.async {
                     self.CarJson = CarJson
                     self.performSegue(withIdentifier: "toVINResultsVC", sender: nil)
+                    tireAnimation.removeFromSuperview()
                 }
             }
         }
-
         return true
     }
-    
-    
 }
 
-
+extension CGRect {
+    var center: CGPoint {
+        return CGPoint(x: midX, y: midY)
+    }
+}
 
 
