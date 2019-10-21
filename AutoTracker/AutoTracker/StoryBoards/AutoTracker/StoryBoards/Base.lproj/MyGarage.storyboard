@@ -104,8 +104,15 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="taC-Rp-XCS">
                                         <rect key="frame" x="0.0" y="135" width="373" height="44"/>
                                         <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GHH-2i-Lsj" customClass="AutoTrackerButtonWhiteBG" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="44"/>
+                                                <state key="normal" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancelButtonTapped:" destination="snd-le-aTe" eventType="touchUpInside" id="fJS-YE-ykq"/>
+                                                </connections>
+                                            </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="38d-yH-VqL">
-                                                <rect key="frame" x="0.0" y="0.0" width="279.5" height="44"/>
+                                                <rect key="frame" x="93.5" y="0.0" width="186" height="44"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgG-2f-8pD" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
@@ -120,6 +127,7 @@
                                             </button>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="GHH-2i-Lsj" firstAttribute="width" secondItem="WgG-2f-8pD" secondAttribute="width" id="75u-xw-yd8"/>
                                             <constraint firstItem="WgG-2f-8pD" firstAttribute="width" secondItem="taC-Rp-XCS" secondAttribute="width" multiplier="0.25" id="iMq-hQ-SJa"/>
                                         </constraints>
                                     </stackView>
@@ -213,6 +221,7 @@
                     <connections>
                         <outlet property="addCarByTextButton" destination="cEf-TS-oqd" id="Dth-zy-Xk2"/>
                         <outlet property="addCarByVinButton" destination="Awj-D9-64u" id="B1r-58-qGs"/>
+                        <outlet property="cancelButton" destination="GHH-2i-Lsj" id="19k-a2-Wcy"/>
                         <outlet property="carSelectionTableView" destination="KOj-Ul-n58" id="PnL-kF-0y8"/>
                         <outlet property="currentCarButton" destination="P2x-te-KEZ" id="no2-wa-GPf"/>
                         <outlet property="editCurrentCarButton" destination="xq8-hY-9Ba" id="cez-qZ-v8T"/>
@@ -750,6 +759,32 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="sDP-Wa-YYe">
+                                        <rect key="frame" x="0.0" y="705" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sDP-Wa-YYe" id="DAE-IG-qMf">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGy-H5-9dQ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                                    <state key="normal" title="Delete Car?">
+                                                        <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deleteCarButtonTapped:" destination="eHD-99-4xB" eventType="touchUpInside" id="aTT-DZ-HNm"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="PGy-H5-9dQ" firstAttribute="centerY" secondItem="DAE-IG-qMf" secondAttribute="centerY" id="Bra-JW-sZF"/>
+                                                <constraint firstItem="PGy-H5-9dQ" firstAttribute="height" secondItem="DAE-IG-qMf" secondAttribute="height" id="Kga-op-NV1"/>
+                                                <constraint firstItem="PGy-H5-9dQ" firstAttribute="centerX" secondItem="DAE-IG-qMf" secondAttribute="centerX" id="NAh-Di-vAk"/>
+                                                <constraint firstItem="PGy-H5-9dQ" firstAttribute="width" secondItem="DAE-IG-qMf" secondAttribute="width" id="T17-RH-z6d"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -767,6 +802,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="carImage" destination="OLd-Fk-zDV" id="XU3-67-bCc"/>
+                        <outlet property="deleteCarButton" destination="PGy-H5-9dQ" id="4FF-HN-PAE"/>
                         <outlet property="engineTextField" destination="tev-OH-5eG" id="slF-eV-GC2"/>
                         <outlet property="makeTextField" destination="c0O-1s-BWo" id="GgB-FS-qEU"/>
                         <outlet property="modelTextField" destination="nbd-lp-flU" id="w6G-rc-7B9"/>

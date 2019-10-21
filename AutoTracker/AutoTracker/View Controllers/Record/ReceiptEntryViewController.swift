@@ -26,12 +26,13 @@ class ReceiptEntryViewController: UIViewController {
     var costTapped = 0
     var miles: Double = 0
     var gallons: Double = 0
+
     var currentOdometer: Double?
 
     var imageOfReveipt: UIImage?
     
     
-
+    
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,9 +43,16 @@ class ReceiptEntryViewController: UIViewController {
         resultsLabel.alpha = 0.0
         resultsButton.isHidden = true
         resultsButton.alpha = 0.0
+
         currentOdometer = CarController.shared.selectedCar?.odometer
+
+        
     }
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        reusableTextField.resignFirstResponder()
+
+    }
     // MARK: - ACTIONS
     @IBAction func milesButtonTapped(_ sender: Any) {
         
@@ -131,7 +139,7 @@ class ReceiptEntryViewController: UIViewController {
     
     
     @IBAction func saveFillUpButtonTapped(_ sender: Any) {
-        
+        reusableTextField.resignFirstResponder()
         guard let car = CarController.shared.selectedCar,
             
             let gallons = gallonsButton.titleLabel?.text,
@@ -176,9 +184,22 @@ class ReceiptEntryViewController: UIViewController {
     }
     
     // MARK: - FUNCTIONS
-
+    func addDoneButtonOnKeyboard(textField: UITextField){
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolbar.barStyle = .default
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
+        let items = [flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        textField.inputAccessoryView = doneToolbar
+    }
+    @objc func doneButtonAction(){
+        reusableTextField.resignFirstResponder()
+    }
+    
     ///Animation to bring a textfield and button on screen
-
+    
     func presentActionSheet(){
         let actionSheet = UIAlertController(title: "Import Receipt Photo", message: nil, preferredStyle: .alert)
         if UIImagePickerController.isSourceTypeAvailable(.camera){
@@ -216,7 +237,7 @@ class ReceiptEntryViewController: UIViewController {
         }
     }
     
-
+    
     func entryFieldsAppear() {
         updateButton.alpha = 1.0
         reusableTextField.alpha = 1.0
@@ -274,7 +295,7 @@ extension ReceiptEntryViewController: UIImagePickerControllerDelegate, UINavigat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let image = info[.originalImage] as? UIImage{
-        imageOfReveipt = image
+            imageOfReveipt = image
             
         } else {
             print("Something went wrong")

@@ -34,6 +34,7 @@ class AddCarTableViewController: UITableViewController {
     
     @IBOutlet weak var carImage: UIImageView!
     
+    @IBOutlet weak var deleteCarButton: UIButton!
     
     // MARK: - PROPERTIES
     var odometer = ["0","1","2","3","4","5","6","7","8","9"]
@@ -103,10 +104,14 @@ class AddCarTableViewController: UITableViewController {
         
     }
     
+    
     @IBAction func photoButtonTapped(_ sender: Any) {
         presentActionSheet()
     }
     
+    @IBAction func deleteCarButtonTapped(_ sender: Any) {
+        deleteCarAlert()
+    }
     
     
     
@@ -150,6 +155,10 @@ class AddCarTableViewController: UITableViewController {
     }
     
     func initialSetUp() {
+        deleteCarButton.isHidden = true
+        if let _ = carToEdit{
+            deleteCarButton.isHidden = false
+        }
         addDoneButtonOnKeyboard(textField: yearTextField)
         if let car = carToEdit {
             nameTextField.text = car.name
@@ -196,9 +205,6 @@ class AddCarTableViewController: UITableViewController {
 
         textField.inputAccessoryView = doneToolbar
     }
-
-    
-
     @objc func doneButtonAction(){
         yearTextField.resignFirstResponder()
         if let text = yearTextField.text, !text.isNumeric {
@@ -262,7 +268,18 @@ class AddCarTableViewController: UITableViewController {
         self.present(actionSheet, animated: true, completion: nil)
     }
     
-    
+    func deleteCarAlert() {
+        let alertController = UIAlertController(title: "Are you sure?", message: "This car will be permanently removed.  This cannot be undone.", preferredStyle: .alert)
+        let deleteButton = UIAlertAction(title: "DELETE", style: .destructive) { (_) in
+            guard let car = self.carToEdit else {return}
+            CarController.shared.removeCarFromGarage(car: car)
+            self.navigationController?.popViewController(animated: true)
+        }
+        let noButton = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alertController.addAction(noButton)
+        alertController.addAction(deleteButton)
+        self.present(alertController, animated: true)
+    }
     
 }
 

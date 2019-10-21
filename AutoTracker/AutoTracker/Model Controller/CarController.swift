@@ -16,9 +16,7 @@ class CarController {
     
     //singleton
     static let shared = CarController()
-    
-    
-    
+
     // source of Truth
     var garage: [Car]?
     
@@ -111,6 +109,12 @@ class CarController {
     func removeCarFromGarage(car:Car){
         if let moc = car.managedObjectContext{
             moc.delete(car)
+            guard var garage = garage else {return}
+            for i in 0...garage.count - 1{
+                if garage[i].recordID ?? "" == car.recordID ?? ""{
+                    garage.remove(at: i)
+                }
+            }
             saveChangesToPersistentStoreOnly()
         }
     }
