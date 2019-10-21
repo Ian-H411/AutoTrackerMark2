@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0pw-oB-O4G">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0pw-oB-O4G">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -274,7 +274,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AnO-AN-hwS"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wY7-DH-dFY"/>
+                    <navigationItem key="navigationItem" id="wY7-DH-dFY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="cu2-jt-gI9">
+                            <connections>
+                                <action selector="cameraButtonTapped:" destination="zh6-M5-qE9" id="Wyj-7n-OQw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="costButton" destination="O26-Be-hP5" id="U1x-pG-r1U"/>
                         <outlet property="gallonsButton" destination="maL-Ny-8aA" id="oRs-IH-X2T"/>

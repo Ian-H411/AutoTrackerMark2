@@ -12,7 +12,6 @@ class MyGarageViewController: UIViewController {
     
     //MARK: - OUTLETS
     
-    
     @IBOutlet weak var currentCarButton: AutoTrackerButtonGreenBG!
     
     @IBOutlet weak var odometerPicker: UIPickerView!
@@ -26,7 +25,6 @@ class MyGarageViewController: UIViewController {
     @IBOutlet weak var carSelectionTableView: UITableView!
     
     @IBOutlet weak var savebutton: AutoTrackerButtonGreenBG!
-    
     
     @IBOutlet weak var editCurrentCarButton: AutoTrackerButtonWhiteBG!
     
@@ -88,7 +86,7 @@ class MyGarageViewController: UIViewController {
     }
     //MARK: - HELPER FUNCTIONS
     
-    func viewWillAppearSetUP(){
+    func viewWillAppearSetUP() {
         carSelectionTableView.reloadData()
            setPickerViewToCarValue()
            menuCard.isHidden = true
@@ -107,7 +105,7 @@ class MyGarageViewController: UIViewController {
            menuCard.layer.cornerRadius = 10
     }
     
-    func toggleMenu(){
+    func toggleMenu() {
       
         UIView.animate(withDuration: 0.5) {
             let alpha = !self.menuCard.isHidden ? CGFloat(0.0) : CGFloat(1.0)
@@ -123,7 +121,7 @@ class MyGarageViewController: UIViewController {
         
     }
     
-    func setPickerViewToCarValue(){
+    func setPickerViewToCarValue() {
         guard let car = CarController.shared.selectedCar else {return}
         var odomenterAsStringArray = Array("\(Int(car.odometer))")
         print(odomenterAsStringArray)
@@ -142,7 +140,8 @@ class MyGarageViewController: UIViewController {
         }
         
     }
-    func initialSetUP(){
+    
+    func initialSetUP() {
         odometerPicker.delegate = self
         odometerPicker.dataSource = self
         odometerPicker.isUserInteractionEnabled = false
@@ -157,7 +156,7 @@ class MyGarageViewController: UIViewController {
         self.carSelectionTableView.tableFooterView = UIView()
     }
     
-    func updateTableViewFrame(){
+    func updateTableViewFrame() {
         if isInCarSelectionMode{
             view.blurView(style: .extraLight)
             view.bringSubviewToFront(carSelectionTableView)
@@ -177,7 +176,7 @@ class MyGarageViewController: UIViewController {
         }
     }
     
-    func setTextFields(){
+    func setTextFields() {
         guard let selectedCar = currentCarSelected else {return}
         ownerLabel.text = selectedCar.ownerName
         makeLabel.text = selectedCar.make
@@ -187,31 +186,6 @@ class MyGarageViewController: UIViewController {
             savebutton.setTitle("Edit", for: .normal)
         }
     }
-    
-    //    func presentOptions(){
-    //        let alertController = UIAlertController(title: "Add a car", message: "How would you like to add your vehicle?", preferredStyle: .actionSheet)
-    //        let button1 = UIAlertAction(title: "Manual Key in", style: .default) { (_) in
-    //            self.performSegue(withIdentifier: "manual", sender: nil)
-    //        }
-    //        let button2 = UIAlertAction(title: "Look up by Vin", style: .default) { (_) in
-    //            self.performSegue(withIdentifier: "auto", sender: nil)
-    //        }
-    //        let button3 = UIAlertAction(title: "Edit current car", style: .default) { (_) in
-    //            DispatchQueue.main.async {
-    //                self.performSegue(withIdentifier: "manuelEdit", sender: nil)
-    //            }
-    //        }
-    //        let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
-    //        }
-    //        alertController.addAction(button1)
-    //        alertController.addAction(button2)
-    //        if let _ = CarController.shared.selectedCar{
-    //            alertController.addAction(button3)
-    //        }
-    //
-    //        alertController.addAction(cancel)
-    //        self.present(alertController, animated: true)
-    //    }
     
     func odometerResults() -> Int {
         var placeholder: [Int] = []
@@ -247,27 +221,23 @@ class MyGarageViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let car = CarController.shared.selectedCar else {return}
-        if odometerPicker.isUserInteractionEnabled == true {
+        if odometerPicker.isUserInteractionEnabled {
             CarController.shared.updateOdometer(car: car, odometer: Double(odometerResults())) { (_) in
             }
         }
-        odometerPicker.isUserInteractionEnabled.toggle()
+    odometerPicker.isUserInteractionEnabled.toggle()
         setTextFields()
     }
-    
     
     @IBAction func addCarByVinTapped(_ sender: Any) {
         toggleMenu()
         self.performSegue(withIdentifier: "auto", sender: nil)
     }
     
-    
     @IBAction func addCarByTextTapped(_ sender: Any) {
         toggleMenu()
         self.performSegue(withIdentifier: "manual", sender: nil)
-        
     }
-    
     
     @IBAction func editCarButtonTapped(_ sender: Any) {
         toggleMenu()
@@ -280,12 +250,8 @@ class MyGarageViewController: UIViewController {
             view.removeBlur()
         }
     }
-    
-    
-    
+
     //MARK: - NAVIGATION
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "manuelEdit"{
             if let destination = segue.destination as? AddCarTableViewController{
@@ -294,12 +260,10 @@ class MyGarageViewController: UIViewController {
             }
         }
     }
-    
-    
 }
 //MARK: - EXTENSIONS
-
-extension MyGarageViewController: UITableViewDelegate, UITableViewDataSource{
+extension MyGarageViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let garage = CarController.shared.garage else {return 1}
         return garage.count
@@ -319,14 +283,16 @@ extension MyGarageViewController: UITableViewDelegate, UITableViewDataSource{
         
         return makeLabel.frame.height * 1.3
     }
+    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
     }
 }
-extension MyGarageViewController: MyGarageTableViewCellDelegate{
+extension MyGarageViewController: MyGarageTableViewCellDelegate {
     func carSelectionButtonTapped(_ sender: MyGarageTableViewCell) {
         isInCarSelectionMode.toggle()
         updateTableViewFrame()
@@ -343,7 +309,7 @@ extension MyGarageViewController: MyGarageTableViewCellDelegate{
         currentCarButton.setTitle(car.name, for: .normal)
     }
 }
-extension MyGarageViewController: UIPickerViewDataSource, UIPickerViewDelegate{
+extension MyGarageViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 7

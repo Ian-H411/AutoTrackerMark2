@@ -10,10 +10,7 @@
 import UIKit
 
 class FinalCheckForVinViewController: UIViewController {
-    
-    
-    
-    
+
     //MARK: - OUTLETS
     
     @IBOutlet weak var addCarToGarageButton: AutoTrackerButtonAsLabel!
@@ -56,7 +53,7 @@ class FinalCheckForVinViewController: UIViewController {
     
     //MARK: - HELPERS
     
-    func initialUISetUP(){
+    func initialUISetUP() {
         guard let car = car else {return}
         guard let vin = vin else {return}
         let text = "Make: \(car.make)  |  Model: \(car.model) \n Year: \(car.year) | Engine: \(car.engine) \n Vin:\(vin)"
@@ -64,20 +61,20 @@ class FinalCheckForVinViewController: UIViewController {
     }
     
     
-    func presentFinalCheckAlert(){
+    func presentFinalCheckAlert() {
         let alert = UIAlertController(title: "Everything look alright", message: "just checking", preferredStyle: .alert)
         let cancelButton = UIAlertAction(title: "cancel", style: .destructive, handler: nil)
         let looksGoodButton = UIAlertAction(title: "Looks Good", style: .default) { (_) in
             DispatchQueue.main.async {
                 self.popViewAndSaveCar()
             }
-            
         }
         alert.addAction(cancelButton)
         alert.addAction(looksGoodButton)
         self.present(alert, animated: true)
     }
-    func popViewAndSaveCar(){
+    
+    func popViewAndSaveCar() {
         guard let carJson = car
             else {return}
         guard let name = nicknameTextField.text,
@@ -92,7 +89,7 @@ class FinalCheckForVinViewController: UIViewController {
         navigationController?.popToRootViewController(animated: true)
     }
     
-    func presentEmptyNameAlert(){
+    func presentEmptyNameAlert() {
         let alert = UIAlertController(title: "Missing Fields", message: "Looks like you may have forgotten something check and try again", preferredStyle: .alert)
         let okayBUtton = UIAlertAction(title: "Okay", style: .default, handler: nil)
         alert.addAction(okayBUtton)
@@ -121,10 +118,8 @@ class FinalCheckForVinViewController: UIViewController {
         }
         presentFinalCheckAlert()
     }
-    
-    
-    
 }
+//MARK: - EXTENSIONS
 extension FinalCheckForVinViewController: UIPickerViewDataSource, UIPickerViewDelegate{
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
