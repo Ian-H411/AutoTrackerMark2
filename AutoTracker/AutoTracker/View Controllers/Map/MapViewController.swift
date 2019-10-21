@@ -93,7 +93,7 @@ class MapViewController: UIViewController {
     
     
     //MARK: - HELPERS
-    func toggleLocationCard(){
+    func toggleLocationCard() {
         hideLocationCard.toggle()
         cardView.layer.shadowRadius = 10
         cardView.layer.shadowOffset = .zero
@@ -121,11 +121,10 @@ class MapViewController: UIViewController {
             totalReviewsLabel.text = "Based on \(place.numberOfReviews) reviews!"
             locationTitleLabel.text = place.title ?? "No Name Provided"
             addressButton.setTitle(place.address, for: .normal)
-            
         }
     }
     func searchArea() {
-        if !Reachability.isConnectedToNetwork(){
+        if !Reachability.isConnectedToNetwork() {
             presentNoInternetAlert()
             return
         }
@@ -140,8 +139,6 @@ class MapViewController: UIViewController {
                     self.results = MapController.shared.results
                     self.setUpMarkers()
                 }
-                
-                
             }
         }
     }
@@ -164,7 +161,7 @@ class MapViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    func goToYelpPage(){
+    func goToYelpPage() {
         if !Reachability.isConnectedToNetwork(){
             presentNoInternetAlert()
             return
@@ -181,8 +178,8 @@ class MapViewController: UIViewController {
         self.present(alertController, animated: true)
     }
     
-    func getDirectionsInAppleMaps(){
-        if !Reachability.isConnectedToNetwork(){
+    func getDirectionsInAppleMaps() {
+        if !Reachability.isConnectedToNetwork() {
             presentNoInternetAlert()
             return
         }
@@ -200,32 +197,34 @@ class MapViewController: UIViewController {
         alertController.addAction(cancelButton)
         self.present(alertController, animated: true)
     }
-    func centerMapOnLocation(location:CLLocation,regionRadius:CLLocationDistance){
+    func centerMapOnLocation(location:CLLocation,regionRadius:CLLocationDistance) {
         
         let region:MKCoordinateRegion = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         locationsMapView.setRegion(region, animated: false)
         searchArea()
         
     }
-    func setUpMarkers(){
+    func setUpMarkers() {
         locationsMapView.addAnnotations(results)
     }
     
 }
-extension MapViewController: CLLocationManagerDelegate{
+
+//MARK: - EXTENSIONS
+extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         for location in locations{
             guard let _ = currentLocation else {
                 centerMapOnLocation(location: location, regionRadius: 12000)
                 currentLocation = location
                 continue
-                
             }
             currentLocation = location
         }
     }
 }
-extension MapViewController: MKMapViewDelegate{
+
+extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let annotation = annotation as? PlaceObject else {return nil}
         let identifier = "marker"

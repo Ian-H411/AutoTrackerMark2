@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import CloudKit
-class CarController{
+class CarController {
     
     //MARK: - VARIABLES AND INITIALIZERS
     
@@ -23,7 +23,7 @@ class CarController{
     var garage: [Car]?
     
     //secondary source of truth
-    var selectedCar:Car?
+    var selectedCar: Car?
 
     
     //database location
@@ -45,49 +45,40 @@ class CarController{
     
     //MARK: -CRUD
     
-    //Create a car
-    func addACar(name:String, make:String, model:String, year:String, engine:String, ownerName:String,odometer:Double) -> Car{
+    ///Creates a car and adds it to the garage, saves any changes to the context and then returns the car as well
+    func addACar(name:String, make:String, model:String, year:String, engine:String, ownerName:String,odometer:Double) -> Car {
         let newCar = Car(name: name, make: make, model: model, year: year, engine: engine, ownerName: ownerName, odometer: odometer, photoData: nil)
         garage?.append(newCar)
         saveChangesToPersistentStoreOnly()
         return newCar
     }
     
-    func onboardACar(name: String, odometer: Double, photoData: Data?) {
-       let newCar = Car(name: name, odometer: odometer, photoData: photoData)
-        garage?.append(newCar)
-        selectedCar = newCar
-        saveChangesToPersistentStoreOnly()
-    }
     
-    //update car
-    func carupdate(name:String, make:String, model:String, year:String, engine:String, ownerName:String, car:Car){
-        
-        //update details
+    ///Updates an existing car with new details then performs a save
+    func carupdate(name:String, make:String, model:String, year:String, engine:String, ownerName:String, car:Car) {
         car.name = name
         car.make = make
         car.model = model
         car.year = year
         car.engine = engine
         car.ownerName = ownerName
-        
         saveChangesToPersistentStoreOnly()
-       
     }
     
+    ///Updates the cars odometer in a simpler form then carUpdate
     func updateOdometer(car: Car, odometer: Double, completion: @escaping (Bool) -> Void) {
-        
         car.odometer = odometer
         completion(true)
         saveChangesToPersistentStoreOnly()
     }
     
+    ///Updates a cars photo
     func updatePhoto(car: Car, photo: UIImage, completion: @escaping (Bool) -> Void) {
-        
         car.photo = photo
         completion(true)
         saveChangesToPersistentStoreOnly()
     }
+    
     ///use this so we dont have to constantly find the cars maintenance
     func organizeAndReturnMaintainenceList() -> [Maintanence] {
         guard let car = selectedCar else {return[]}
@@ -108,6 +99,7 @@ class CarController{
         return sortedMaintenance
     }
     
+    /// pulls the currently selected cars gas receipts and then returns them
     func organizeAndReturnReceipts() -> [Maintanence] {
         guard let car = selectedCar else { return [] }
         let maintenance = car.upcomingMaintanence?.allObjects as? [Maintanence] ?? []
@@ -115,26 +107,16 @@ class CarController{
         return receipts
     }
     
-    //delete a car
+    /// removes the car and also removes it from the persistent store
     func removeCarFromGarage(car:Car){
         if let moc = car.managedObjectContext{
-            
-            //delete locally first
             moc.delete(car)
             saveChangesToPersistentStoreOnly()
-            //
-            //            //delete in cloud
-            //            guard let recordIDAsString = car.recordID else {return}
-            //            let recordIdToDelete = CKRecord.ID(recordName: recordIDAsString)
-            //            let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [recordIdToDelete])
-            //            privateDB.add(operation)
         }
-        
     }
     
-    //add a maintenance reminder
-    func addMaintenanceReminder(car:Car, message:String?, maintanence:String ,date: Date, image: UIImage?, price: String) -> Maintanence{
-        //TODO: - SET UP ABILITY TO ADD NOTIFICATION
+    ///adds a maintenance history reminder to the currently selected car
+    func addMaintenance(car:Car, message:String?, maintanence:String ,date: Date, image: UIImage?, price: String) -> Maintanence{
         let newMain = Maintanence(duedate: date, maintanenceRequiered: maintanence, details: message ?? "", car: car, price:price)
         newMain.photo = image
         car.upcomingMaintanence?.adding(newMain)
@@ -142,47 +124,58 @@ class CarController{
         return newMain
     }
     
-    func addReceipt(car: Car, miles: Double, gallons: String, cost: String) {
-        
+    ///Adds a gas receipt to the currently selected car
+    func addReceipt(car: Car, miles: Double, gallons: String, cost: String, image: UIImage?) {
         let miles = Double(miles)
-        
         let receipt = Maintanence(car: car, price: cost, odometerStamp: miles, details: gallons, isReceipt: true)
+        receipt.photo = image
         car.upcomingMaintanence?.adding(receipt)
         saveChangesToPersistentStoreOnly()
     }
     
-    func modifyMaintenanceRemainder(maintenance:Maintanence, date:Date, newTitle:String, details:String?, image: UIImage?){
+    /// modifies a maintenance entry
+    func modifyMaintenance(maintenance:Maintanence, date:Date, newTitle:String, details:String?, image: UIImage?) {
         maintenance.dueOn = date
         maintenance.maintanenceRequired = newTitle
         maintenance.details = details
         maintenance.photo = image
         saveChangesToPersistentStoreOnly()
     }
-    func toggleMaintenanceReminder(maintenance: Maintanence){
+    
+    ///Toggles whether or not the maintenance reminder is complete and then saves
+    func toggleMaintenanceReminder(maintenance: Maintanence) {
         maintenance.isComplete.toggle()
         saveChangesToPersistentStoreOnly()
     }
-    func deleteMaintenance(maintenance:Maintanence){
+
+    ///Deletes the inputted maintenance
+    func deleteMaintenance(maintenance:Maintanence) {
         if let moc = maintenance.managedObjectContext{
             moc.delete(maintenance)
             saveChangesToPersistentStoreOnly()
         }
     }
-    func modifyMaintenance(odometer:Double, maintenance: Maintanence){
+    
+    ///modify the maintenance odometer
+    func modifyMaintenance(odometer:Double, maintenance: Maintanence) {
         maintenance.odometerStamp = odometer
         saveChangesToPersistentStoreOnly()
     }
-    func modifyMaintenance(price:String, maintenance: Maintanence){
+    
+    /// modify the maintenance price
+    func modifyMaintenance(price:String, maintenance: Maintanence) {
         maintenance.price = price
         saveChangesToPersistentStoreOnly()
     }
-    func modifyMaintenance(photo:UIImage, maintenance: Maintanence){
+    
+    ///modify the maintenance photo
+    func modifyMaintenance(photo:UIImage, maintenance: Maintanence) {
         maintenance.photo = photo
         saveChangesToPersistentStoreOnly()
     }
     
-    //retrieve a car from the api
-    func retrieveCarDetailsWith(vin:String, year:String, completion: @escaping (CarJson?, Error?) -> Void){
+    ///retrieve a car from the api if no year is provided simpley pass in a empty string
+    func retrieveCarDetailsWith(vin:String, year:String, completion: @escaping (CarJson?, Error?) -> Void) {
         //base url
         guard var baseURL = URL(string: "https://vpic.nhtsa.dot.gov/api/vehicles/decodevinvalues/") else {completion(nil, nil);return}
         
@@ -221,51 +214,12 @@ class CarController{
             
         }.resume()
     }
-    
-    //retrievecarsfromcloud
-    //    func retrieveOnlineGarageAndSave(completion: @escaping (Bool) -> Void){
-    //
-    //        //retrieve all records from the users private
-    //        let predicate = NSPredicate(value: true)
-    //        let query = CKQuery(recordType: CarConstants.CarTypeKey, predicate: predicate)
-    //        privateDB.perform(query, inZoneWith: nil) { (recordsOptional, error) in
-    //            if let error = error{
-    //                print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
-    //                completion(false)
-    //                return
-    //            }
-    //            guard let carRecords = recordsOptional else {completion(false);return}
-    //            for record in carRecords {
-    //                guard let _ = Car(record: record) else {completion(false);return}
-    //            }
-    //
-    //            self.saveChangesToPersistentStoreOnly()
-    //            completion(true)
-    //            return
-    //        }
-    //    }
+   
     
     //MARK: -SAVE
-    //    private func saveCarToPersistentStoreAndCloud(car: Car){
-    //        //save locally first
-    //        let moc = CoreDataStack.context
-    //        do {
-    //            try moc.save()
-    //        } catch  {
-    //            print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
-    //        }
-    //        //create record and push to cloud
-    //        guard let record = CKRecord(car: car) else {return}
-    //        privateDB.save(record) { (record, error) in
-    //            if let error = error{
-    //                print("there was an error in \(#function) :\(error) : \(error.localizedDescription)")
-    //                return
-    //            }
-    //
-    //        }
-    //    }
+
     
-    //save function that only performs locally
+    ///save function that only performs locally
     private func saveChangesToPersistentStoreOnly(){
         if CoreDataStack.context.hasChanges{
             try? CoreDataStack.context.save()

@@ -13,52 +13,20 @@ import CoreLocation
 
 extension Car {
     
-    convenience init(name:String,
-                     
-                     make:String,
-                     
-                     model:String,
-                     
-                     year:String,
-                     
-                     engine:String,
-                     
-                     ownerName:String,
-                     
-                     odometer: Double,
-                     
-                     photoData: Data?,
-                     
-                     context: NSManagedObjectContext = CoreDataStack.context){
-        
+    convenience init(name:String, make:String, model:String, year:String, engine:String, ownerName:String, odometer: Double, photoData: Data?, context: NSManagedObjectContext = CoreDataStack.context) {
         self.init(context:context)
-        
         self.name = name
-        
         self.make = make
-        
         self.model = model
-        
         self.year = year
-        
         self.engine = engine
-        
         self.ownerName = ownerName
-        
-        //below data will be initialized to 0 until the user sets a location
-        
         self.altitude = 0
-        
         self.lattitude = 0
-        
         self.longitude = 0
-        
         self.recordID = UUID().uuidString
-        
         self.odometer = odometer
-        
         self.photoData = photoData
-        
     }
     
     convenience init(name: String, odometer: Double, photoData: Data?, context: NSManagedObjectContext = CoreDataStack.context) {
@@ -67,14 +35,8 @@ extension Car {
         self.odometer = odometer
         self.photoData = photoData
     }
-    
- 
 }
-
-
-
 extension Car {
-    
     var photo: UIImage? {
         get {
             guard let photoData = photoData else { return nil }

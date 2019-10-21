@@ -26,10 +26,7 @@ class AddMaintenancePicAndPriceViewController: UIViewController {
     
     //MARK: - VARIABLES
     
-    
     var incomingMaintenance: Maintanence?
-    
-    
     
     //MARK: - LIFECYCLE
     override func viewDidLoad() {
@@ -43,14 +40,11 @@ class AddMaintenancePicAndPriceViewController: UIViewController {
         receiptImage.layer.borderWidth = 5
     }
     
-    
-    
     //MARK: - ACTIONS
     
     @IBAction func takePictureButtonTapped(_ sender: Any) {
         presentActionSheet()
     }
-    
     
     @IBAction func enterCostButtonTapped(_ sender: Any) {
         UIView.animate(withDuration: 0.5) {
@@ -65,7 +59,6 @@ class AddMaintenancePicAndPriceViewController: UIViewController {
             self.goBackButton.isHidden = true
             self.goBackButton.alpha = 0.0
         }
-        
     }
     
     @IBAction func updateCarsOdometerButtonTapped(_ sender: Any) {
@@ -82,9 +75,7 @@ class AddMaintenancePicAndPriceViewController: UIViewController {
     }
     
     //MARK: - HELPERS
-    
-    
-    func presentActionSheet(){
+    func presentActionSheet() {
         let actionSheet = UIAlertController(title: "Import Receipt Photo", message: nil, preferredStyle: .actionSheet)
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             let cameraButton = UIAlertAction(title: "Import With Camera", style: .default) { (_) in
@@ -103,7 +94,7 @@ class AddMaintenancePicAndPriceViewController: UIViewController {
         self.present(actionSheet, animated: true, completion: nil)
     }
     
-    func camera(){
+    func camera() {
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             let myPickerController = UIImagePickerController()
             myPickerController.delegate = self
@@ -121,14 +112,7 @@ class AddMaintenancePicAndPriceViewController: UIViewController {
         }
     }
     
-    
-    
-    
-    
-    
     // MARK: - Navigation
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "newMainOdo"{
             if let destination = segue.destination as? UpdateOdometerViewController{
@@ -142,10 +126,9 @@ class AddMaintenancePicAndPriceViewController: UIViewController {
             }
         }
     }
-    
-    
 }
-extension AddMaintenancePicAndPriceViewController: UITextFieldDelegate{
+//MARK: - EXTENSIONS
+extension AddMaintenancePicAndPriceViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         takePictureOfReceiptButton.isHidden = false
@@ -159,16 +142,15 @@ extension AddMaintenancePicAndPriceViewController: UITextFieldDelegate{
             self.updateOdometerButton.alpha = 1.0
             self.goBackButton.isHidden = false
             self.goBackButton.alpha = 1.0
-            
         }
-     
         guard let price = textField.text else {return true}
         enterCostButton.setTitle(price, for: .normal)
         CarController.shared.modifyMaintenance(price: price, maintenance: main)
         return true
     }
 }
-extension AddMaintenancePicAndPriceViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
+
+extension AddMaintenancePicAndPriceViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
     }

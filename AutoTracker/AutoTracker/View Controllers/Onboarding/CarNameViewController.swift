@@ -42,6 +42,7 @@ class CarNameViewController: UIViewController {
         car.photoData = photoData
         let ownerName = ownerNameTextField.text ?? ""
         CarController.shared.carupdate(name: name, make: car.make ?? "", model: car.model ?? "", year: car.year ?? "", engine: car.engine ?? "" , ownerName: ownerName, car: car)
+        CarController.shared.selectedCar = carParts
         let defaults = UserDefaults.standard
         defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
         performSegue(withIdentifier: "toMainVC", sender: nil)

@@ -29,9 +29,10 @@ class OdometerViewController: UIViewController {
         let odometer = odometerResults()
         if let _ = carParts {
             carParts?.odometer = Double(odometer)
+            self.performSegue(withIdentifier: "toCarNameVC", sender: nil)
         } else {
-            carParts = Car(context: CoreDataStack.context)
-            carParts?.odometer = Double(odometer)
+            carParts = CarController.shared.addACar(name: "", make: "", model: "", year: "", engine: "", ownerName: "", odometer: Double(odometer))
+            self.performSegue(withIdentifier: "toCarNameVC", sender: nil)
         }
     }
     
