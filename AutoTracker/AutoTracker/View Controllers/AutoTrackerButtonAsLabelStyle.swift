@@ -16,7 +16,7 @@ class AutoTrackerButtonAsLabel: UIButton {
         addCornerRadius()
         addTextStyle(color: .black, font: UIFont(name: FontNames.nunitoRegular, size: 18)!)
     }
-
+    
     func addBorder(color: UIColor, width: CGFloat, bg: UIColor) {
         self.layer.borderColor = color.cgColor
         self.layer.borderWidth = width
@@ -34,7 +34,7 @@ class AutoTrackerButtonAsLabel: UIButton {
 }
 
 class AutoTrackerButtonGrayBG: AutoTrackerButtonAsLabel {
-
+    
     override func addBorder(color: UIColor, width: CGFloat, bg: UIColor) {
         self.layer.borderColor = color.cgColor
         self.layer.borderWidth = width

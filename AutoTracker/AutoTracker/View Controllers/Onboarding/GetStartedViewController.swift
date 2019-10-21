@@ -9,8 +9,8 @@
 import UIKit
 
 class GetStartedViewController: UIViewController {
-
-   // MARK: - OUTLETS
+    
+    // MARK: - OUTLETS
     
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
@@ -29,42 +29,34 @@ class GetStartedViewController: UIViewController {
         if isAppAlreadyLaunchedOnce() {
             self.presentingViewController?.dismiss(animated: true)
         } else {
-            
             self.performSegue(withIdentifier: "toMainVC", sender: nil)
         }
     }
     
     
     // MARK: - FUNCTIONS
+    ///UIAlertCotroller to inform a user what a VIN should look like
     func presentVINAlert() {
         let alertController = UIAlertController(title: "VIN", message: "- A VIN is used to identify basic information about your vehicle \n- It is usually 17 characters long \n-It can be found by opening the driver's door and looking at the door post (where the door latches when it is closed)", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Enter VIN", style: .default)
         alertController.addAction(okAction)
         present(alertController, animated: true)
     }
-    
-     func isAppAlreadyLaunchedOnce()->Bool{
-            let defaults = UserDefaults.standard
-            if let _ = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
-    //            print("App already launched")
-                return true
-            }else{
-                defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
-    //            print("App launched first time")
-                return false
-            }
+    ///Sets a Bool letting AT know if the app has been launched before, and skip the Onboarding entirely.
+    func isAppAlreadyLaunchedOnce()->Bool{
+        let defaults = UserDefaults.standard
+        if let _ = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
+            return true
+        }else{
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            return false
         }
-
-    
-    // MARK: - NAVIGATION
-    
+    }
 }
 
 extension GetStartedViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        guard let vin = vinEntryTextField.text else { return }
         performSegue(withIdentifier: "toOdometerVC", sender: nil)
         return true
     }
-    
 }

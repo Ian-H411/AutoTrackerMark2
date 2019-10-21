@@ -20,18 +20,12 @@ class ReceiptEntryViewController: UIViewController {
     @IBOutlet weak var resultsLabel: AutoTrackerLabelGreenBG!
     @IBOutlet weak var resultsButton: UIButton!
     
-    
-    
     // MARK: - PROPERTIES
-    
     var milesTapped = 0
     var gallonsTapped = 0
     var costTapped = 0
     var miles: Double = 0
     var gallons: Double = 0
-    
-    
-    
     
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
@@ -43,11 +37,9 @@ class ReceiptEntryViewController: UIViewController {
         resultsLabel.alpha = 0.0
         resultsButton.isHidden = true
         resultsButton.alpha = 0.0
-        
     }
     
     // MARK: - ACTIONS
-    
     @IBAction func milesButtonTapped(_ sender: Any) {
         
         UIView.animate(withDuration: 0.5) {
@@ -58,16 +50,14 @@ class ReceiptEntryViewController: UIViewController {
             self.saveFillUpButton.isHidden = true
             self.saveFillUpButton.alpha = 0.0
             self.costButton.isHidden = true
-            
         }
         
         UIView.animate(withDuration: 0.5) {
             self.entryFieldsAppear()
-            
         }
         milesTapped += 1
-        
     }
+    
     @IBAction func gallonsButtonTapped(_ sender: Any) {
         
         UIView.animate(withDuration: 0.5) {
@@ -84,8 +74,8 @@ class ReceiptEntryViewController: UIViewController {
             self.entryFieldsAppear()
         }
         gallonsTapped += 1
-        
     }
+    
     @IBAction func costButtonTapped(_ sender: Any) {
         
         UIView.animate(withDuration: 0.5) {
@@ -96,7 +86,6 @@ class ReceiptEntryViewController: UIViewController {
             self.costButton.isHidden = true
             self.saveFillUpButton.alpha = 0.0
             self.saveFillUpButton.isHidden = true
-            
         }
         
         UIView.animate(withDuration: 0.5) {
@@ -105,13 +94,14 @@ class ReceiptEntryViewController: UIViewController {
         costTapped += 1
         
     }
+    
     @IBAction func updateButtonTapped(_ sender: Any) {
         
         UIView.animate(withDuration: 1) {
             self.entryFieldsFadeAway()
             self.backToNormal()
-            
         }
+        
         guard let entryText = reusableTextField.text, !entryText.isEmpty else { return }
         if milesTapped > 0 {
             miles = Double(entryText) ?? 0
@@ -160,8 +150,6 @@ class ReceiptEntryViewController: UIViewController {
                 self.resultsLabel.alpha = 1.0
                 self.resultsLabel.isHidden = false
                 self.saveFillUpButton.alpha = 0.0
-                //        self.saveFillUpButton.isHidden = true
-                //            self.updateButton.isHidden = true
                 self.saveFillUpButton.isEnabled = false
                 self.reusableTextField.isHidden = true
                 self.resultsButton.isHidden = false
@@ -176,16 +164,19 @@ class ReceiptEntryViewController: UIViewController {
     }
     
     // MARK: - FUNCTIONS
+    ///Animation to bring a textfield and button on screen
     func entryFieldsAppear() {
         updateButton.alpha = 1.0
         reusableTextField.alpha = 1.0
     }
     
+    ///Animation to fade the textfield and button off screen
     func entryFieldsFadeAway() {
         updateButton.alpha = 0.0
         reusableTextField.alpha = 0.0
     }
     
+    ///Animation that brings the screen back to its orginal state
     func backToNormal() {
         milesButton.alpha = 1.0
         milesButton.isHidden = false
@@ -197,6 +188,7 @@ class ReceiptEntryViewController: UIViewController {
         saveFillUpButton.isHidden = false
     }
     
+    ///Keeps a tally on which buttons are tapped for animating them
     func resetTappedTally() {
         milesTapped = 0
         gallonsTapped = 0
@@ -214,6 +206,7 @@ class ReceiptEntryViewController: UIViewController {
         present(alertController, animated: true)
     }
 }
+
 extension ReceiptEntryViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

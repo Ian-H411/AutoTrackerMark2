@@ -30,7 +30,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="enterGasButtonTapped:" destination="gPO-je-hId" eventType="touchUpInside" id="C5n-Mw-Otl"/>
                                     <segue destination="zh6-M5-qE9" kind="show" id="FKy-AZ-cwu"/>
                                 </connections>
                             </button>

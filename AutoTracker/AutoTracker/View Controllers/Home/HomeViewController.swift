@@ -13,19 +13,13 @@ class HomeViewController: UIViewController {
     // MARK: - OUTLETS
     
     @IBOutlet weak var carImageView: UIImageView!
-    
     @IBOutlet weak var averageMPGLabel: UILabel!
     @IBOutlet weak var lifetimeMilesLabel: UILabel!
     @IBOutlet weak var updateOdometerLabel: AutoTrackerGreenLabel!
-    
     @IBOutlet weak var scheduledMaintenanceTableView: UITableView!
-    
     @IBOutlet weak var updatePhotoButtton: UIButton!
-    
     @IBOutlet weak var reviewIntroButton: UIButton!
-    
     @IBOutlet weak var optionView: UIView!
-    
     @IBOutlet weak var infoButton: UIButton!
     
     // MARK: - PROPERTIES
@@ -126,7 +120,7 @@ class HomeViewController: UIViewController {
             UIView.animate(withDuration: 0.5) {
                 self.view.removeBlur()
             }
-           
+            
         }
         hideMenu.toggle()
         let alpha = hideMenu ? CGFloat(0.0) : CGFloat(1.0)
@@ -140,10 +134,8 @@ class HomeViewController: UIViewController {
             self.updatePhotoButtton.isHidden = self.hideMenu
             self.reviewIntroButton.isHidden = self.hideMenu
         }
-        
-        
-        
     }
+    
     func presentActionSheet(){
         let actionSheet = UIAlertController(title: "Import Receipt Photo", message: nil, preferredStyle: .alert)
         if UIImagePickerController.isSourceTypeAvailable(.camera){
@@ -205,28 +197,32 @@ extension HomeViewController: UITextFieldDelegate{
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        //        guard let scheduledMaintenance = scheduledMaintenance else { return 0 }
         return scheduledMaintenance.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "maintenanceCell", for: indexPath) as? MaintenanceTableViewCell else {return UITableViewCell()}
+        
+        if self.scheduledMaintenance.count == 0 {
+            let dummyText = "No Maintenance Items"
+            cell.updateDummyText(dummyText: dummyText)
+            return cell
+        } else {
+        
         let main = scheduledMaintenance[indexPath.row]
         cell.delegate = self
         cell.update(maintenance: main)
         
         return cell
+        }
     }
     
-    
 }
+
 extension HomeViewController: MaintenanceTableViewCellDelegate{
     func buttonTapped(_ sender: MaintenanceTableViewCell) {
         guard let main = sender.selectedMaintenance else {return}
         CarController.shared.toggleMaintenanceReminder(maintenance: main)
         scheduledMaintenanceTableView.reloadData()
     }
-    
-    
 }

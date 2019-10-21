@@ -13,26 +13,20 @@ class OdometerViewController: UIViewController {
     // MARK: - OUTLETS
     @IBOutlet weak var odometerPicker: UIPickerView!
     
-    
-    
     // MARK: - PROPERTIES
     var odometer = ["0","1","2","3","4","5","6","7","8","9"]
     var carParts: Car?
     
     // MARK: - LIFECYCLE
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         odometerPicker.delegate = self
         odometerPicker.dataSource = self
     }
     
     // MARK: - ACTIONS
-    
     @IBAction func saveButtonTapped(_ sender: Any) {
         let odometer = odometerResults()
-        
         if let _ = carParts {
             carParts?.odometer = Double(odometer)
         } else {
@@ -52,18 +46,7 @@ class OdometerViewController: UIViewController {
         }
     }
     
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "toCarNameVC" {
-            if let destinationVC = segue.destination as? CarNameViewController {
-                destinationVC.carParts = carParts
-            }
-        }
-    }
-    
+    // MARK: - HELPER FUNCTIONS
     func odometerResults() -> Int {
         var placeholder: [Int] = []
         for component in 0..<odometerPicker.numberOfComponents {
@@ -72,6 +55,16 @@ class OdometerViewController: UIViewController {
         }
         let odometer = placeholder.reduce(0, {$0*10 + $1})
         return odometer
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toCarNameVC" {
+            if let destinationVC = segue.destination as? CarNameViewController {
+                destinationVC.carParts = carParts
+            }
+        }
     }
 }
 

@@ -66,5 +66,9 @@ class MaintenanceTableViewCell: UITableViewCell {
         }
     }
     
+    func updateDummyText(dummyText: String) {
+        entryNameLabel.text = dummyText
+    }
+    
     
 }
