@@ -25,9 +25,10 @@ extension Maintanence {
         self.uuid = UUID().uuidString
     }
     // Receipt Initializer
-    convenience init(car: Car, price: String, odometerStamp: Double, details: String, isReceipt: Bool, context: NSManagedObjectContext = CoreDataStack.context) {
+    convenience init(car: Car, price: String, maintenanceRequired: String, odometerStamp: Double, details: String, isReceipt: Bool, context: NSManagedObjectContext = CoreDataStack.context) {
         self.init(context: context)
         
+        self.maintanenceRequired = maintenanceRequired
         self.car = car
         self.price = price
         self.odometerStamp = odometerStamp

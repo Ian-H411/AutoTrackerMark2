@@ -10,18 +10,25 @@ import UIKit
 
 class RecordViewController: UIViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         if CarController.shared.selectedCar == nil {
             enterCarAlert()
         }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        
+    }
 
     // MARK: - FUNCTIONS
     func enterCarAlert() {
-        let alertController = UIAlertController(title: "No vehicle in My Garage, fill up won't be saved.", message: nil, preferredStyle:  .alert)
-        let action = UIAlertAction(title: "Okay", style: .default)
+        let alertController = UIAlertController(title: "No vehicle in My Garage. Please add a car to your Garage.", message: nil, preferredStyle:  .alert)
+        let action = UIAlertAction(title: "Okay", style: .default, handler: { (_) in
+            self.tabBarController?.selectedIndex = 2
+        })
         alertController.addAction(action)
         present(alertController, animated: true)
     }
