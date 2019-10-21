@@ -129,6 +129,7 @@ class CarController {
         let miles = Double(miles)
         let receipt = Maintanence(car: car, price: cost, odometerStamp: miles, details: gallons, isReceipt: true)
         receipt.photo = image
+        receipt.isComplete.toggle()
         car.upcomingMaintanence?.adding(receipt)
         saveChangesToPersistentStoreOnly()
     }

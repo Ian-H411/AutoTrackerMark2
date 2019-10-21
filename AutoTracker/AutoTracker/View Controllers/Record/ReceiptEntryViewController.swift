@@ -124,24 +124,7 @@ class ReceiptEntryViewController: UIViewController {
     }
     
     @IBAction func cameraButtonTapped(_ sender: Any) {
-        func presentActionSheet(){
-            let actionSheet = UIAlertController(title: "Import Receipt Photo", message: nil, preferredStyle: .alert)
-            if UIImagePickerController.isSourceTypeAvailable(.camera){
-                let cameraButton = UIAlertAction(title: "Import With Camera", style: .default) { (_) in
-                    self.camera()
-                }
-                actionSheet.addAction(cameraButton)
-            }
-            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-                let photoLibrary = UIAlertAction(title: "Import From Photo Library", style: .default) { (_) in
-                    self.photoLibrary()
-                }
-                actionSheet.addAction(photoLibrary)
-            }
-            let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-            actionSheet.addAction(cancelButton)
-            self.present(actionSheet, animated: true, completion: nil)
-        }
+        presentActionSheet()
     }
     
     
@@ -194,6 +177,24 @@ class ReceiptEntryViewController: UIViewController {
 
     ///Animation to bring a textfield and button on screen
 
+    func presentActionSheet(){
+        let actionSheet = UIAlertController(title: "Import Receipt Photo", message: nil, preferredStyle: .alert)
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            let cameraButton = UIAlertAction(title: "Import With Camera", style: .default) { (_) in
+                self.camera()
+            }
+            actionSheet.addAction(cameraButton)
+        }
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            let photoLibrary = UIAlertAction(title: "Import From Photo Library", style: .default) { (_) in
+                self.photoLibrary()
+            }
+            actionSheet.addAction(photoLibrary)
+        }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        actionSheet.addAction(cancelButton)
+        self.present(actionSheet, animated: true, completion: nil)
+    }
     
     func camera(){
         if UIImagePickerController.isSourceTypeAvailable(.camera){

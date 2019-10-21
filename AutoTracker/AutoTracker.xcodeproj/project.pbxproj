@@ -36,6 +36,7 @@
 		256810D0234BDF0800629AEA /* MaintanenceDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810CF234BDF0800629AEA /* MaintanenceDetailTableViewController.swift */; };
 		256810D4234BE77800629AEA /* TextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810D3234BE77800629AEA /* TextFieldStyle.swift */; };
 		256810D6234BED2800629AEA /* AddMaintenanceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256810D5234BED2800629AEA /* AddMaintenanceTableViewController.swift */; };
+		2586C0FE235E110D005C8297 /* ReceiptPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586C0FD235E110D005C8297 /* ReceiptPhotoViewController.swift */; };
 		25BDF71D234EC8BB009DD2E2 /* AddCarByVinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BDF71C234EC8BB009DD2E2 /* AddCarByVinViewController.swift */; };
 		25BDF71F234FB9DB009DD2E2 /* FinalCheckForVinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BDF71E234FB9DB009DD2E2 /* FinalCheckForVinViewController.swift */; };
 		25BDF721234FCA01009DD2E2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BDF720234FCA01009DD2E2 /* Reachability.swift */; };
@@ -106,6 +107,7 @@
 		256810CF234BDF0800629AEA /* MaintanenceDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintanenceDetailTableViewController.swift; sourceTree = "<group>"; };
 		256810D3234BE77800629AEA /* TextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextFieldStyle.swift; path = "AutoTracker/View Controllers/TextFieldStyle.swift"; sourceTree = SOURCE_ROOT; };
 		256810D5234BED2800629AEA /* AddMaintenanceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenanceTableViewController.swift; sourceTree = "<group>"; };
+		2586C0FD235E110D005C8297 /* ReceiptPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptPhotoViewController.swift; sourceTree = "<group>"; };
 		25BDF71C234EC8BB009DD2E2 /* AddCarByVinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarByVinViewController.swift; sourceTree = "<group>"; };
 		25BDF71E234FB9DB009DD2E2 /* FinalCheckForVinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalCheckForVinViewController.swift; sourceTree = "<group>"; };
 		25BDF720234FCA01009DD2E2 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 				428F7CCA2354EE0D006531FC /* ReceiptEntryViewController.swift */,
 				42F75939235A14F700602238 /* ReceiptTableViewController.swift */,
 				42E0E981234D04EB00A2ADD5 /* AddReceiptTableViewController.swift */,
+				2586C0FD235E110D005C8297 /* ReceiptPhotoViewController.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				42A32337234BB7FF00B130A0 /* OdometerViewController.swift in Sources */,
 				256810992347A7A800629AEA /* AutoTracker.xcdatamodeld in Sources */,
 				42A32331234B965800B130A0 /* HomeViewController.swift in Sources */,
+				2586C0FE235E110D005C8297 /* ReceiptPhotoViewController.swift in Sources */,
 				4293B3592359EEFF0081698E /* AutoTrackerImage.swift in Sources */,
 				4293B3572359EBCD0081698E /* AutoTrackerOdometer.swift in Sources */,
 				25C056F2234D38A40000D848 /* MapController.swift in Sources */,
