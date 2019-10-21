@@ -92,7 +92,11 @@ class HomeViewController: UIViewController {
         }
         
         let averageMPG = mpgArray.reduce(0, +)
+        if mpgArray.count == 0 {
+            return 0
+        } else {
         return (Int(averageMPG) / mpgArray.count)
+        }
     }
     
     ///called when the user needs to update the views and labels
@@ -102,7 +106,11 @@ class HomeViewController: UIViewController {
         carImageView.image = myCar.photo ?? UIImage(named: "car")
         self.navigationItem.title = myCar.name ?? "Car Name"
         updateOdometerLabel.text = String(describing: myCar.odometer)
-        lifetimeMilesLabel.text = String(averageMPG())
+        if averageMPG() == 0 {
+            averageMPGLabel.text = "- -"
+        } else {
+        averageMPGLabel.text = "\(averageMPG())"
+        }
         lifetimeMilesLabel.layer.cornerRadius = 8
         averageMPGLabel.layer.cornerRadius = 8
 
