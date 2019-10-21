@@ -87,7 +87,7 @@ class AddCarTableViewController: UITableViewController {
                 }
             }
             DispatchQueue.main.async {
-                self.navigationController?.popViewController(animated: true)
+                self.presentSavedMessage()
             }
             return
         }
@@ -172,6 +172,16 @@ class AddCarTableViewController: UITableViewController {
         }
         
     }
+    
+    func presentSavedMessage(){
+        let alertController = UIAlertController(title: "Saved!!", message: "This car has been saved", preferredStyle: .alert)
+        let okayButton = UIAlertAction(title: "Okay", style: .default) { (_) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alertController.addAction(okayButton)
+        self.present(alertController, animated: true)
+    }
+    
     func addDoneButtonOnKeyboard(textField: UITextField){
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         doneToolbar.barStyle = .default
