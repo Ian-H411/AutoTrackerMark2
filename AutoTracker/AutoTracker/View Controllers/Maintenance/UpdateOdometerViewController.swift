@@ -92,10 +92,19 @@ class UpdateOdometerViewController: UIViewController {
          return odometer
      }
     
+    func saveNotification() {
+        let alertcontroller = UIAlertController(title: "Saved", message: "Changes have been saved and updated", preferredStyle: .alert)
+        let okaybutton = UIAlertAction(title: "Okay", style: .default) { (_) in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        alertcontroller.addAction(okaybutton)
+        self.present(alertcontroller, animated: true)
+    }
     //MARK: - Actions
     
     @IBAction func skipButtonTapped(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
+        saveNotification()
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
