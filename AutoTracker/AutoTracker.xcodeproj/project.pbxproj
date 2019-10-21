@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2509E0A02358D98D004FFA9F /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2509E09F2358D98D004FFA9F /* APIKeys.plist */; };
 		250A0F7A235A249700A2424F /* legalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250A0F79235A249700A2424F /* legalViewController.swift */; };
-		251F8E44235E061F005BC7EA /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 251F8E43235E061F005BC7EA /* APIKeys.plist */; };
+		251F8E44235E061F005BC7EA /* (null) in Resources */ = {isa = PBXBuildFile; };
 		2558F34D235508D300BDF2DC /* MaintenanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2558F34C235508D300BDF2DC /* MaintenanceTableViewCell.swift */; };
 		2558F34F2355265400BDF2DC /* UpdateOdometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2558F34E2355265400BDF2DC /* UpdateOdometerViewController.swift */; };
 		2558F3512356B02800BDF2DC /* AddMaintenanceTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2558F3502356B02800BDF2DC /* AddMaintenanceTextViewController.swift */; };
@@ -270,7 +270,6 @@
 			isa = PBXGroup;
 			children = (
 				2568108E2347A7A800629AEA /* AppDelegate.swift */,
-				251F8E43235E061F005BC7EA /* APIKeys.plist */,
 				2568109A2347A7A900629AEA /* Assets.xcassets */,
 				4202233F234FC48D006C60F6 /* Colors.xcassets */,
 				42022341234FDC56006C60F6 /* Fonts */,
@@ -441,7 +440,7 @@
 				423925292347B04B00EABF16 /* Home.storyboard in Resources */,
 				42CD62E42350D75A001A4B12 /* Nunito-Bold.ttf in Resources */,
 				2509E0A02358D98D004FFA9F /* APIKeys.plist in Resources */,
-				251F8E44235E061F005BC7EA /* APIKeys.plist in Resources */,
+				251F8E44235E061F005BC7EA /* (null) in Resources */,
 				4239252B2347B05700EABF16 /* Maintain.storyboard in Resources */,
 				256810962347A7A800629AEA /* Main.storyboard in Resources */,
 				423925262347B03D00EABF16 /* Record.storyboard in Resources */,
@@ -676,14 +675,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AutoTracker/AutoTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UR48EZC8Y4;
+				DEVELOPMENT_TEAM = 38AN8KZ7HW;
 				INFOPLIST_FILE = AutoTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.DjangoEarnhardt.AutoTracker2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.IanH411.AutoTracker2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -696,14 +695,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AutoTracker/AutoTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UR48EZC8Y4;
+				DEVELOPMENT_TEAM = 38AN8KZ7HW;
 				INFOPLIST_FILE = AutoTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.DjangoEarnhardt.AutoTracker2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.IanH411.AutoTracker2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
