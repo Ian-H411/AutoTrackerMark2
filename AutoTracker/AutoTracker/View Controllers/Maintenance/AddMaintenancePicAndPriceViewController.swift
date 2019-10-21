@@ -71,7 +71,7 @@ class AddMaintenancePicAndPriceViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        navigationController?.popToRootViewController(animated: true)
+        saveMessage()
     }
     
     //MARK: - HELPERS
@@ -110,6 +110,15 @@ class AddMaintenancePicAndPriceViewController: UIViewController {
             mypickerController.sourceType = .photoLibrary
             self.present(mypickerController, animated: true, completion: nil)
         }
+    }
+    
+    func saveMessage() {
+        let alertcontroller = UIAlertController(title: "Saved", message: "This maintenance has been saved", preferredStyle: .alert)
+        let okaybutton = UIAlertAction(title: "Okay", style: .default) { (_) in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        alertcontroller.addAction(okaybutton)
+        self.present(alertcontroller, animated: true)
     }
     
     // MARK: - Navigation

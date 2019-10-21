@@ -55,17 +55,7 @@ class AddMaintenanceTextViewController: UIViewController {
     
     
     @IBAction func costAndReceiptButtonTapped(_ sender: Any) {
-        guard let title = titleString else {return}
-        let date = datePicker.date
-        guard let car = CarController.shared.selectedCar else {return}
-        let main = CarController.shared.addMaintenance(car: car, message: details ?? "" , maintanence: title, date: date, image: nil, price: "")
-        maintenanceToSend = main
-        if date > Date(){
-            CarController.shared.toggleMaintenanceReminder(maintenance: main)
-            addReminderPrompt()
-        } else {
-            self.performSegue(withIdentifier: "nextStep", sender: nil)
-        }
+        saveMessage()
     }
     
     
@@ -166,7 +156,26 @@ class AddMaintenanceTextViewController: UIViewController {
         }
     }
     
-    
+    func saveMessage() {
+        let alertController = UIAlertController(title: "Saved", message: "This infor has been saved", preferredStyle: .alert)
+        let okayButton = UIAlertAction(title: "Okay", style: .default) { (_) in
+            guard let title = self.titleString else {return}
+            let date = self.datePicker.date
+            guard let car = CarController.shared.selectedCar else {return}
+            let main = CarController.shared.addMaintenance(car: car, message: self.details ?? "" , maintanence: title, date: date, image: nil, price: "")
+            self.maintenanceToSend = main
+            DispatchQueue.main.async {
+                if date > Date(){
+                    CarController.shared.toggleMaintenanceReminder(maintenance: main)
+                    self.addReminderPrompt()
+                } else {
+                    self.performSegue(withIdentifier: "nextStep", sender: nil)
+                }
+            }
+        }
+        alertController.addAction(okayButton)
+        self.present(alertController, animated: true)
+    }
     
     func toggleMaintenanceLabels() {
         let alpha = maintenanceTypeButton.isHidden ? CGFloat(1.0) : CGFloat(0.0)
