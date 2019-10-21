@@ -244,6 +244,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aap-PL-T2G">
+                                <rect key="frame" x="165.5" y="94" width="83" height="83"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aap-PL-T2G" secondAttribute="height" multiplier="1:1" id="5id-lK-idW"/>
+                                </constraints>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Atd-8N-yhd">
                                 <rect key="frame" x="20.5" y="187" width="373" height="527"/>
                                 <subviews>
@@ -369,14 +376,18 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="aap-PL-T2G" firstAttribute="centerX" secondItem="RtI-4U-tsp" secondAttribute="centerX" id="0Ez-C1-5h9"/>
                             <constraint firstItem="Atd-8N-yhd" firstAttribute="centerX" secondItem="RtI-4U-tsp" secondAttribute="centerX" id="1ZQ-m7-bHI"/>
+                            <constraint firstItem="aap-PL-T2G" firstAttribute="width" secondItem="RtI-4U-tsp" secondAttribute="width" multiplier="0.2" id="DVa-Tg-5nw"/>
                             <constraint firstItem="Atd-8N-yhd" firstAttribute="width" secondItem="RtI-4U-tsp" secondAttribute="width" multiplier="0.9" id="JoR-Yl-PY7"/>
                             <constraint firstItem="Atd-8N-yhd" firstAttribute="centerY" secondItem="RtI-4U-tsp" secondAttribute="centerY" id="agC-K1-15I"/>
+                            <constraint firstItem="aBS-Oc-hKQ" firstAttribute="top" secondItem="aap-PL-T2G" secondAttribute="bottom" constant="10" id="hF7-gz-mF0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RtI-4U-tsp"/>
                     </view>
                     <navigationItem key="navigationItem" id="gYU-nB-SF8"/>
                     <connections>
+                        <outlet property="animationView" destination="aap-PL-T2G" id="SAB-s6-mlb"/>
                         <outlet property="engineLabel" destination="v7Z-ul-6fr" id="bix-NE-xU4"/>
                         <outlet property="engineTextField" destination="Rb0-AW-Dxm" id="dlA-Rz-PLS"/>
                         <outlet property="goButton" destination="kYC-nO-WUQ" id="fWN-jQ-sWO"/>
@@ -394,7 +405,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Nt-27-Wh6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="628" y="1457"/>
+            <point key="canvasLocation" x="627.536231884058" y="1456.4732142857142"/>
         </scene>
         <!--Final Check For Vin View Controller-->
         <scene sceneID="aR6-Sp-y0T">
