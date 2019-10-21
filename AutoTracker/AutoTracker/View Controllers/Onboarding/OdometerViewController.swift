@@ -17,11 +17,27 @@ class OdometerViewController: UIViewController {
     var odometer = ["0","1","2","3","4","5","6","7","8","9"]
     var carParts: Car?
     
+    var randomOdometer: [Int] = [9,8,7,6,7,8,9]
+       
+    
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         odometerPicker.delegate = self
         odometerPicker.dataSource = self
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setPickerViewToCarValue(intArray: randomOdometer)
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        UIView.animate(withDuration: 1) {
+            self.setPickerViewToCarValue(intArray: [0,0,0,0,0,0,0])
+        }
+       
     }
     
     // MARK: - ACTIONS
@@ -58,6 +74,19 @@ class OdometerViewController: UIViewController {
         return odometer
     }
     
+    
+    func setPickerViewToCarValue(intArray: [Int]) {
+        UIView.animate(withDuration: 2) {
+            self.odometerPicker.selectRow(intArray[0], inComponent: 0, animated: true)
+            self.odometerPicker.selectRow(intArray[1], inComponent: 1, animated:  true)
+            self.odometerPicker.selectRow(intArray[2], inComponent: 2, animated: true)
+            self.odometerPicker.selectRow(intArray[3], inComponent: 3, animated: true)
+            self.odometerPicker.selectRow(intArray[4], inComponent: 4, animated: true)
+            self.odometerPicker.selectRow(intArray[5], inComponent: 5, animated: true)
+            self.odometerPicker.selectRow(intArray[6], inComponent: 6, animated: true)
+        }
+        
+    }
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

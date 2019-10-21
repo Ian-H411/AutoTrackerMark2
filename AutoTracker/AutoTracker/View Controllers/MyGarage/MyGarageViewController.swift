@@ -72,11 +72,11 @@ class MyGarageViewController: UIViewController {
     //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialSetUP()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        initialSetUP()
         viewWillAppearSetUP()
     }
     
