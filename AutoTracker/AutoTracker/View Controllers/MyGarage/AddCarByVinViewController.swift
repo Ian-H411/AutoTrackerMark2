@@ -36,6 +36,8 @@ class AddCarByVinViewController: UIViewController {
     
     @IBOutlet weak var goButton: AutoTrackerButtonAsLabel!
     
+    @IBOutlet weak var animationView: UIView!
+    
     //MARK: - VAIABLES
     
     var car: CarJson?
@@ -123,6 +125,7 @@ class AddCarByVinViewController: UIViewController {
             guard let car = carJson else {return}
             DispatchQueue.main.async {
                 self.dataRecievedBeginSetup(carJson:car)
+                self.animationView.removeFromSuperview()
                 self.headerLabel.isHidden = true
             }
             
@@ -209,6 +212,12 @@ extension AddCarByVinViewController:UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if textField.tag == 1{
+            let offset = (animationView.frame.width - 50) / 2
+            let tireAnimation = TireAnimation(frame: CGRect(x: offset, y: offset, width: 50, height: 50), image: #imageLiteral(resourceName: "loadingIcon"))
+            
+            self.animationView.addSubview(tireAnimation)
+            
+            tireAnimation.startAnimating()
             beginDataFetchByCarVin()
         }
         
