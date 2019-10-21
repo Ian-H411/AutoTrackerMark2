@@ -84,7 +84,17 @@ class HomeViewController: UIViewController {
     
     // MARK: - FUNCTIONS
     
-
+    func averageMPG() -> Int {
+        let receipts = CarController.shared.organizeAndReturnReceipts()
+        var mpgArray: [Double] = []
+        for mpg in receipts {
+            mpgArray.append(mpg.odometerStamp)
+        }
+        
+        let averageMPG = mpgArray.reduce(0, +)
+        return (Int(averageMPG) / mpgArray.count)
+    }
+    
     ///called when the user needs to update the views and labels
     func updateViews() {
         guard let myCar = myCar else { return }
@@ -92,6 +102,7 @@ class HomeViewController: UIViewController {
         carImageView.image = myCar.photo ?? UIImage(named: "car")
         self.navigationItem.title = myCar.name ?? "Car Name"
         updateOdometerLabel.text = String(describing: myCar.odometer)
+        lifetimeMilesLabel.text = String(averageMPG())
         lifetimeMilesLabel.layer.cornerRadius = 8
         averageMPGLabel.layer.cornerRadius = 8
 
