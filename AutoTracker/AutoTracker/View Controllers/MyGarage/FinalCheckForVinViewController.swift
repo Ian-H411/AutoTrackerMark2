@@ -64,7 +64,7 @@ class FinalCheckForVinViewController: UIViewController {
     func presentFinalCheckAlert() {
         let alert = UIAlertController(title: "Everything look alright", message: "just checking", preferredStyle: .alert)
         let cancelButton = UIAlertAction(title: "cancel", style: .destructive, handler: nil)
-        let looksGoodButton = UIAlertAction(title: "Looks Good", style: .default) { (_) in
+        let looksGoodButton = UIAlertAction(title: "Save", style: .default) { (_) in
             DispatchQueue.main.async {
                 self.popViewAndSaveCar()
             }
