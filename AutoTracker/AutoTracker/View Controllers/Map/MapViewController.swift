@@ -17,7 +17,7 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var locationsMapView: MKMapView!
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var animationView: UIView!
     
     @IBOutlet weak var locationTitleLabel: UILabel!
     
@@ -48,13 +48,19 @@ class MapViewController: UIViewController {
     
     var hideLocationCard:Bool = false
     
+    var animation: TireAnimation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         locationsMapView.delegate = self
-        activityIndicator.stopAnimating()
+        animationView.isHidden = true
+        let offset = (animationView.frame.width - 50) / 2
+        let tireAnimation = TireAnimation(frame: CGRect(x: offset, y: offset, width: 50, height: 50), image: #imageLiteral(resourceName: "loadingIcon"))
+        animationView.addSubview(tireAnimation)
+        animation = tireAnimation
         toggleLocationCard()
         view.sendSubviewToBack(locationsMapView)
         searchAreaButton.layer.shadowRadius = 10
@@ -129,13 +135,15 @@ class MapViewController: UIViewController {
             return
         }
         locationsMapView.removeAnnotations(locationsMapView.annotations)
-        activityIndicator.startAnimating()
+        animationView.isHidden = false
+        animation?.startAnimating()
         let center = locationsMapView.centerCoordinate
         let radius = Int(locationsMapView.region.span.longitudeDelta)
         MapController.shared.grabNearbyGasStationsAndConvert(location: center, radius: radius) { (success) in
             if success{
                 DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
+                    self.animationView.isHidden = true
+                    self.animation?.stopAnimating()
                     self.results = MapController.shared.results
                     self.setUpMarkers()
                 }

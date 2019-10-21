@@ -46,9 +46,6 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="V6k-Wh-XJ2">
-                                <rect key="frame" x="197" y="465" width="20" height="20"/>
-                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEC-gE-Ehp" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
                                 <rect key="frame" x="41.5" y="115.5" width="331" height="64"/>
                                 <constraints>
@@ -59,6 +56,13 @@
                                     <action selector="searchAreaButtonTapped:" destination="7Uz-8R-jIB" eventType="touchUpInside" id="Gie-Wq-XaD"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1YY-yc-oHC">
+                                <rect key="frame" x="165.5" y="433.5" width="83" height="83"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1YY-yc-oHC" secondAttribute="height" multiplier="1:1" id="cci-bU-aKa"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vmi-5G-HBi">
                                 <rect key="frame" x="47" y="387" width="320" height="176"/>
                                 <subviews>
@@ -140,15 +144,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="4Dr-W4-UW1" firstAttribute="centerY" secondItem="wUW-Ky-hIS" secondAttribute="centerY" id="3Dg-l3-VQ4"/>
-                            <constraint firstItem="V6k-Wh-XJ2" firstAttribute="centerX" secondItem="4Dr-W4-UW1" secondAttribute="centerX" id="3Gz-fD-Vp2"/>
-                            <constraint firstItem="V6k-Wh-XJ2" firstAttribute="centerY" secondItem="4Dr-W4-UW1" secondAttribute="centerY" id="5V1-r5-rul"/>
                             <constraint firstItem="4Dr-W4-UW1" firstAttribute="centerX" secondItem="wUW-Ky-hIS" secondAttribute="centerX" id="6br-yj-8nO"/>
                             <constraint firstItem="xEC-gE-Ehp" firstAttribute="centerY" secondItem="wUW-Ky-hIS" secondAttribute="centerY" multiplier="0.31" id="8Rp-w5-4IV"/>
+                            <constraint firstItem="1YY-yc-oHC" firstAttribute="centerY" secondItem="4Dr-W4-UW1" secondAttribute="centerY" id="HHT-gi-GGL"/>
+                            <constraint firstItem="1YY-yc-oHC" firstAttribute="centerX" secondItem="4Dr-W4-UW1" secondAttribute="centerX" id="IYF-8V-cCA"/>
                             <constraint firstItem="xEC-gE-Ehp" firstAttribute="width" secondItem="wUW-Ky-hIS" secondAttribute="width" multiplier="0.8" id="KLS-D7-VqI"/>
                             <constraint firstItem="EiN-3c-PCp" firstAttribute="width" secondItem="wUW-Ky-hIS" secondAttribute="width" id="LdC-ct-Aih"/>
                             <constraint firstItem="4Dr-W4-UW1" firstAttribute="height" secondItem="wUW-Ky-hIS" secondAttribute="height" id="Qhj-Qb-Kxb"/>
                             <constraint firstItem="vmi-5G-HBi" firstAttribute="centerY" secondItem="wUW-Ky-hIS" secondAttribute="centerY" id="WMl-jq-qhV"/>
                             <constraint firstItem="xEC-gE-Ehp" firstAttribute="centerX" secondItem="wUW-Ky-hIS" secondAttribute="centerX" id="a1B-Ay-zmX"/>
+                            <constraint firstItem="1YY-yc-oHC" firstAttribute="width" secondItem="4Dr-W4-UW1" secondAttribute="width" multiplier="0.2" id="a2r-oe-KHx"/>
                             <constraint firstItem="vmi-5G-HBi" firstAttribute="centerX" secondItem="wUW-Ky-hIS" secondAttribute="centerX" id="ib4-4y-z5W"/>
                             <constraint firstItem="4Dr-W4-UW1" firstAttribute="width" secondItem="wUW-Ky-hIS" secondAttribute="width" id="vWr-Fj-Pdl"/>
                             <constraint firstItem="EiN-3c-PCp" firstAttribute="centerX" secondItem="wUW-Ky-hIS" secondAttribute="centerX" id="wi6-IX-xfA"/>
@@ -158,8 +163,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="0eX-0b-JVx"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="V6k-Wh-XJ2" id="bFc-yn-TUE"/>
                         <outlet property="addressButton" destination="tfH-CA-zzU" id="RHD-eS-ZaJ"/>
+                        <outlet property="animationView" destination="1YY-yc-oHC" id="uUq-xI-gd6"/>
                         <outlet property="cardView" destination="vmi-5G-HBi" id="ED2-y4-HNQ"/>
                         <outlet property="locationImage" destination="yKI-UO-gC5" id="Yd6-cY-GmT"/>
                         <outlet property="locationTitleLabel" destination="YJ0-iz-yfz" id="D1J-rY-SpU"/>

@@ -103,6 +103,7 @@ class MyGarageViewController: UIViewController {
            menuCard.layer.shadowOpacity = 0.5
            menuCard.layer.masksToBounds = true
            menuCard.layer.cornerRadius = 10
+            carSelectionTableView.reloadData()
     }
     
     func toggleMenu() {
@@ -212,7 +213,7 @@ class MyGarageViewController: UIViewController {
     }
     
     @IBAction func presentCarsButtonTapped(_ sender: Any) {
-        if CarController.shared.garage?.count ?? 0 >= 2{
+        if CarController.shared.garage?.count ?? 0 >= 1{
         carSelectionTableView.isHidden = false
         isInCarSelectionMode.toggle()
         updateTableViewFrame()
