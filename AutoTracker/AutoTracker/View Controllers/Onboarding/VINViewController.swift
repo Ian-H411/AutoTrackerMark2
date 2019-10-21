@@ -27,6 +27,8 @@ class VINViewController: UIViewController {
         vinTextField.delegate = self
     }
     
+    var lockOutEnabled: Bool = false
+    
     @IBAction func helpButtonTapped(_ sender: Any) {
         presentVINAlert()
     }
@@ -63,13 +65,16 @@ extension VINViewController: UITextFieldDelegate {
             let tireAnimation = TireAnimation(frame: CGRect(x: offset, y: offset, width: 50, height: 50), image: #imageLiteral(resourceName: "loadingIcon"))
             
             self.animationView.addSubview(tireAnimation)
-            
+            if lockOutEnabled{
+            lockOutEnabled = true
+        
             tireAnimation.startAnimating()
             CarController.shared.retrieveCarDetailsWith(vin: vin, year: "") { (CarJson, error) in
                 DispatchQueue.main.async {
                     self.CarJson = CarJson
                     self.performSegue(withIdentifier: "toVINResultsVC", sender: nil)
                     tireAnimation.removeFromSuperview()
+                }
                 }
             }
         }
