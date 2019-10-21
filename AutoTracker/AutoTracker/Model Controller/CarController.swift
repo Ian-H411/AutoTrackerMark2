@@ -127,7 +127,9 @@ class CarController {
     ///Adds a gas receipt to the currently selected car
     func addReceipt(car: Car, miles: Double, gallons: String, cost: String, image: UIImage?) {
         let miles = Double(miles)
-        let receipt = Maintanence(car: car, price: cost, odometerStamp: miles, details: gallons, isReceipt: true)
+        let milesAsInt = Int(miles)
+        let milesAsString = "\(milesAsInt)"
+        let receipt = Maintanence(car: car, price: cost, maintenanceRequired: milesAsString, odometerStamp: miles, details: gallons, isReceipt: true)
         receipt.photo = image
         receipt.isComplete.toggle()
         car.upcomingMaintanence?.adding(receipt)

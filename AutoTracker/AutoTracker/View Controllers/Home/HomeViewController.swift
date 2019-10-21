@@ -84,20 +84,25 @@ class HomeViewController: UIViewController {
     
     // MARK: - FUNCTIONS
     
-    func averageMPG() -> Int {
+    func averageMPG() -> Double {
         let receipts = CarController.shared.organizeAndReturnReceipts()
-        var mpgArray: [Double] = []
+        var totalMilesArray: [Double] = []
+        var totalGallonsArray: [Double] = []
         for mpg in receipts {
-            mpgArray.append(mpg.odometerStamp)
+            if let miles = mpg.details {
+            let milesStripped = miles.components(separatedBy: " ")[0]
+                guard let milesDouble = Double(milesStripped) else { return 0}
+            totalMilesArray.append(mpg.odometerStamp)
+                totalGallonsArray.append(milesDouble)
+            }
         }
         
-        let averageMPG = mpgArray.reduce(0, +)
-        if mpgArray.count == 0 {
-            return 0
-        } else {
-        return (Int(averageMPG) / mpgArray.count)
+        let totalMiles = totalMilesArray.reduce(0, +)
+        let totalGallons = totalGallonsArray.reduce(0, +)
+        let averageMPG = (totalMiles / totalGallons)
+        return averageMPG
         }
-    }
+    
     
     ///called when the user needs to update the views and labels
     func updateViews() {
@@ -109,7 +114,7 @@ class HomeViewController: UIViewController {
         if averageMPG() == 0 {
             averageMPGLabel.text = "- -"
         } else {
-        averageMPGLabel.text = "\(averageMPG())"
+            averageMPGLabel.text = String(format: "%.1f", (averageMPG()))
         }
         lifetimeMilesLabel.layer.cornerRadius = 8
         averageMPGLabel.layer.cornerRadius = 8
