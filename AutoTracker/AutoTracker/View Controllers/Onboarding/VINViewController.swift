@@ -13,6 +13,8 @@ class VINViewController: UIViewController {
     // MARK: - OUTLETS
     @IBOutlet weak var vinTextField: UITextField!
     @IBOutlet weak var yearTextField: UITextField!
+    @IBOutlet weak var animationView: UIView!
+    @IBOutlet weak var imageAnimationView: UIImageView!
     
     // MARK: - PROPERTIES
     var vin: String?
@@ -39,13 +41,6 @@ class VINViewController: UIViewController {
         present(alertController, animated: true)
     }
     
-//    func carTireAnimation() {
-//
-//        let tireAnimation = TireAnimation(frame: CGRect(x: 0, y: 0, width: 100, height: 100), image: #imageLiteral(resourceName: "loadingIcon"))
-//        view.addSubview(TireAnimation)
-//
-//    }
-    
     // MARK: - NAVIGATION
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toVINResultsVC" {
@@ -64,14 +59,18 @@ class VINViewController: UIViewController {
 extension VINViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let vin = vinTextField.text {
+            let centerX = animationView.frame.width / 2
+            let centerY = animationView.frame.height / 2
+            let tireAnimation = TireAnimation(frame: CGRect(x: centerX, y: centerY, width: 50, height: 50), image: #imageLiteral(resourceName: "loadingIcon"))
+            
+            self.animationView.addSubview(tireAnimation)
+            
+            tireAnimation.startAnimating()
             CarController.shared.retrieveCarDetailsWith(vin: vin, year: "") { (CarJson, error) in
                 DispatchQueue.main.async {
                     self.CarJson = CarJson
-                    let tireAnimation = TireAnimation(frame: CGRect(x: 0, y: 0, width: 500, height: 500), image: #imageLiteral(resourceName: "loadingIcon"))
-                    
-                    self.view.addSubview(tireAnimation)
-                    tireAnimation.startAnimating()
                     self.performSegue(withIdentifier: "toVINResultsVC", sender: nil)
+                    tireAnimation.removeFromSuperview()
                 }
             }
         }
@@ -79,6 +78,10 @@ extension VINViewController: UITextFieldDelegate {
     }
 }
 
-
+extension CGRect {
+    var center: CGPoint {
+        return CGPoint(x: midX, y: midY)
+    }
+}
 
 
