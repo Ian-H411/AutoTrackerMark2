@@ -196,9 +196,6 @@ class AddCarTableViewController: UITableViewController {
 
         textField.inputAccessoryView = doneToolbar
     }
-
-    
-
     @objc func doneButtonAction(){
         yearTextField.resignFirstResponder()
         if let text = yearTextField.text, !text.isNumeric {
