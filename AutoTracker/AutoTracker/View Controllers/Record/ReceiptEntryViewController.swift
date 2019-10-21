@@ -26,8 +26,9 @@ class ReceiptEntryViewController: UIViewController {
     var costTapped = 0
     var miles: Double = 0
     var gallons: Double = 0
-    
-    
+
+    var currentOdometer: Double?
+
     var imageOfReveipt: UIImage?
     
     
@@ -42,11 +43,15 @@ class ReceiptEntryViewController: UIViewController {
         resultsLabel.alpha = 0.0
         resultsButton.isHidden = true
         resultsButton.alpha = 0.0
+
+        currentOdometer = CarController.shared.selectedCar?.odometer
+
         
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
         reusableTextField.resignFirstResponder()
+
     }
     // MARK: - ACTIONS
     @IBAction func milesButtonTapped(_ sender: Any) {
@@ -147,8 +152,9 @@ class ReceiptEntryViewController: UIViewController {
         } else {
             
             CarController.shared.addReceipt(car: car, miles: miles, gallons: gallons, cost: cost, image: imageOfReveipt)
-            
-            CarController.shared.updateOdometer(car: car, odometer: miles) { (_) in
+            guard let currentOdometer = self.currentOdometer else { return }
+            let updatedOdometer = currentOdometer + miles
+            CarController.shared.updateOdometer(car: car, odometer: updatedOdometer) { (_) in
                 
             }
             let mpg = milesPerGallon(miles: self.miles, gallon: self.gallons)
