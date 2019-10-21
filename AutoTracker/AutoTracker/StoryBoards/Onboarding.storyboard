@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YKy-48-Puh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YKy-48-Puh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -259,7 +259,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIN Entry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQN-am-qhK" customClass="AutoTrackerLabelDetail" customModule="AutoTracker" customModuleProvider="target">
-                                <rect key="frame" x="171" y="323" width="72" height="21"/>
+                                <rect key="frame" x="171" y="323.5" width="72" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -281,11 +281,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xml-d8-vds">
+                                <rect key="frame" x="165.5" y="230" width="83" height="83"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Xml-d8-vds" secondAttribute="height" multiplier="1:1" id="0aN-fC-ypt"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="9fb-HN-oeg" firstAttribute="centerX" secondItem="eaj-4g-x9S" secondAttribute="centerX" id="0QN-mH-BJg"/>
+                            <constraint firstItem="Xml-d8-vds" firstAttribute="centerX" secondItem="eaj-4g-x9S" secondAttribute="centerX" id="BjV-4c-0BG"/>
                             <constraint firstItem="3qT-Jc-ok3" firstAttribute="width" secondItem="eaj-4g-x9S" secondAttribute="width" multiplier="0.91" id="ISg-JL-wPG"/>
                             <constraint firstItem="3qT-Jc-ok3" firstAttribute="top" secondItem="iQN-am-qhK" secondAttribute="bottom" constant="28" id="QCA-cV-Jda"/>
                             <constraint firstItem="d0h-cJ-bnX" firstAttribute="top" secondItem="3qT-Jc-ok3" secondAttribute="bottom" constant="50" id="ikJ-Lm-9wG"/>
@@ -294,6 +301,8 @@
                             <constraint firstItem="3qT-Jc-ok3" firstAttribute="centerX" secondItem="eaj-4g-x9S" secondAttribute="centerX" id="lGM-hT-vJc"/>
                             <constraint firstItem="d0h-cJ-bnX" firstAttribute="centerX" secondItem="eaj-4g-x9S" secondAttribute="centerX" id="mxC-WD-2kx"/>
                             <constraint firstItem="9fb-HN-oeg" firstAttribute="centerY" secondItem="eaj-4g-x9S" secondAttribute="centerY" multiplier="0.42" id="nU1-h6-gyn"/>
+                            <constraint firstItem="Xml-d8-vds" firstAttribute="top" secondItem="9fb-HN-oeg" secondAttribute="bottom" constant="10" id="vuq-Ax-K7N"/>
+                            <constraint firstItem="Xml-d8-vds" firstAttribute="width" secondItem="eaj-4g-x9S" secondAttribute="width" multiplier="0.2" id="yw5-9U-mC2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eaj-4g-x9S"/>
                         <connections>
@@ -302,6 +311,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="uJM-J2-5G9"/>
                     <connections>
+                        <outlet property="animationView" destination="Xml-d8-vds" id="UV5-KB-KMZ"/>
                         <outlet property="vinTextField" destination="3qT-Jc-ok3" id="aPy-vc-9nd"/>
                         <segue destination="5ft-GX-oJ2" kind="show" identifier="toVINResultsVC" id="6Pa-aU-fOZ"/>
                     </connections>

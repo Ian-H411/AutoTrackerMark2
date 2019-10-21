@@ -30,16 +30,17 @@ class VINResultsViewController: UIViewController {
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
-        
         buildCarParts()
         performSegue(withIdentifier: "toOdometerVC", sender: nil)
     }
+    
     @IBAction func skipButtonTapped(_ sender: Any) {
         guard let car = carParts else { return }
         CarController.shared.removeCarFromGarage(car: car)
         CarController.shared.selectedCar = nil
         performSegue(withIdentifier: "toMainVC", sender: nil)
     }
+    
     @IBAction func dismissKeyboardTapped(_ sender: Any) {
         makeTextField.resignFirstResponder()
         modelTextField.resignFirstResponder()
@@ -48,9 +49,8 @@ class VINResultsViewController: UIViewController {
     }
     
     // MARK: - FUNCTIONS
-    
+    ///Update the screen to represent the results from the fetched VIN
     func updateTextFields() {
-        
         guard let CarJson = CarJson else { return }
         makeTextField.text = CarJson.make
         modelTextField.text = CarJson.model
@@ -58,17 +58,16 @@ class VINResultsViewController: UIViewController {
         engineTextField.text = CarJson.engine
     }
     
+    ///Applies carJson Struct properties to carParts Car Model
     func buildCarParts() {
         carParts?.make = makeTextField.text
         carParts?.model = modelTextField.text
         carParts?.year = yearTextField.text
         carParts?.engine = engineTextField.text
     }
-    // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "toOdometerVC" {
             if let destinationVC = segue.destination as? OdometerViewController {
                 destinationVC.carParts = carParts
@@ -76,6 +75,7 @@ class VINResultsViewController: UIViewController {
         }
     }
 }
+
 extension VINResultsViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

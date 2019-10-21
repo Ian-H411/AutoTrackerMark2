@@ -13,6 +13,7 @@ class AutoTrackerTextField: UITextField {
         super.awakeFromNib()
         addBorderAndBG()
     }
+    
     func addBorderAndBG() {
         self.layer.borderWidth = 2
         self.layer.cornerRadius = 10
