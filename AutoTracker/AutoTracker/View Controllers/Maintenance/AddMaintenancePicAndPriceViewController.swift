@@ -38,6 +38,7 @@ class AddMaintenancePicAndPriceViewController: UIViewController {
         receiptImage.layer.masksToBounds = true
         receiptImage.layer.cornerRadius = 10
         receiptImage.layer.borderWidth = 5
+        addDoneButtonOnKeyboard(textField: answertextField)
     }
     
     //MARK: - ACTIONS
@@ -58,6 +59,7 @@ class AddMaintenancePicAndPriceViewController: UIViewController {
             self.updateOdometerButton.alpha = 0.0
             self.goBackButton.isHidden = true
             self.goBackButton.alpha = 0.0
+            
         }
     }
     
@@ -120,7 +122,36 @@ class AddMaintenancePicAndPriceViewController: UIViewController {
         alertcontroller.addAction(okaybutton)
         self.present(alertcontroller, animated: true)
     }
-    
+    func addDoneButtonOnKeyboard(textField: UITextField){
+            let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+            doneToolbar.barStyle = .default
+            let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+            let done: UIBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(self.doneButtonAction))
+            let items = [flexSpace, done]
+            doneToolbar.items = items
+            doneToolbar.sizeToFit()
+            textField.inputAccessoryView = doneToolbar
+        }
+
+        @objc func doneButtonAction(){
+            answertextField.resignFirstResponder()
+                   takePictureOfReceiptButton.isHidden = false
+                   guard let main = incomingMaintenance else {return}
+                   UIView.animate(withDuration: 0.5) {
+                       self.enterCostButton.isHidden = false
+                       self.enterCostButton.alpha = 1.0
+                       self.answertextField.isHidden = true
+                       self.answertextField.alpha = 0.0
+                       self.updateOdometerButton.isHidden = false
+                       self.updateOdometerButton.alpha = 1.0
+                       self.goBackButton.isHidden = false
+                       self.goBackButton.alpha = 1.0
+                   }
+                   guard let price = answertextField.text else {return}
+                   enterCostButton.setTitle("$\(price)", for: .normal)
+                   CarController.shared.modifyMaintenance(price: "$\(price)", maintenance: main)
+        }
+
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "newMainOdo"{

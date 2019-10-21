@@ -42,6 +42,7 @@ class ReceiptEntryViewController: UIViewController {
         resultsLabel.alpha = 0.0
         resultsButton.isHidden = true
         resultsButton.alpha = 0.0
+        addDoneButtonOnKeyboard(textField: reusableTextField)
         
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -106,23 +107,10 @@ class ReceiptEntryViewController: UIViewController {
     
     @IBAction func updateButtonTapped(_ sender: Any) {
         
+        reusableTextField.resignFirstResponder()
         UIView.animate(withDuration: 1) {
             self.entryFieldsFadeAway()
             self.backToNormal()
-        }
-        
-        guard let entryText = reusableTextField.text, !entryText.isEmpty else { return }
-        if milesTapped > 0 {
-            miles = Double(entryText) ?? 0
-            milesButton.setTitle("\(entryText) miles", for: .normal)
-            reusableTextField.text = ""
-        } else if gallonsTapped > 0 {
-            gallons = Double(entryText) ?? 0
-            gallonsButton.setTitle("\(entryText) gallons", for: .normal)
-            reusableTextField.text = ""
-        } else if costTapped > 0 {
-            costButton.setTitle("$\(entryText)", for: .normal)
-            reusableTextField.text = ""
         }
         resetTappedTally()
     }
@@ -182,7 +170,7 @@ class ReceiptEntryViewController: UIViewController {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         doneToolbar.barStyle = .default
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(self.doneButtonAction))
         let items = [flexSpace, done]
         doneToolbar.items = items
         doneToolbar.sizeToFit()
@@ -190,6 +178,26 @@ class ReceiptEntryViewController: UIViewController {
     }
     @objc func doneButtonAction(){
         reusableTextField.resignFirstResponder()
+        
+        UIView.animate(withDuration: 1) {
+            self.entryFieldsFadeAway()
+            self.backToNormal()
+        }
+        
+        guard let entryText = reusableTextField.text, !entryText.isEmpty else { return }
+        if milesTapped > 0 {
+            miles = Double(entryText) ?? 0
+            milesButton.setTitle("\(entryText) miles", for: .normal)
+            reusableTextField.text = ""
+        } else if gallonsTapped > 0 {
+            gallons = Double(entryText) ?? 0
+            gallonsButton.setTitle("\(entryText) gallons", for: .normal)
+            reusableTextField.text = ""
+        } else if costTapped > 0 {
+            costButton.setTitle("$\(entryText)", for: .normal)
+            reusableTextField.text = ""
+        }
+        resetTappedTally()
     }
     
     ///Animation to bring a textfield and button on screen

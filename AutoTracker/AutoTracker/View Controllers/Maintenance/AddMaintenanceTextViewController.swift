@@ -157,7 +157,7 @@ class AddMaintenanceTextViewController: UIViewController {
     }
     
     func saveMessage() {
-        let alertController = UIAlertController(title: "Saved", message: "This infor has been saved", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Saved", message: "This information has been saved", preferredStyle: .alert)
         let okayButton = UIAlertAction(title: "Okay", style: .default) { (_) in
             guard let title = self.titleString else {return}
             let date = self.datePicker.date

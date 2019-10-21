@@ -134,7 +134,7 @@ class MapViewController: UIViewController {
             presentNoInternetAlert()
             return
         }
-        locationsMapView.removeAnnotations(locationsMapView.annotations)
+        
         animationView.isHidden = false
         animation?.startAnimating()
         let center = locationsMapView.centerCoordinate
@@ -142,6 +142,7 @@ class MapViewController: UIViewController {
         MapController.shared.grabNearbyGasStationsAndConvert(location: center, radius: radius) { (success) in
             if success{
                 DispatchQueue.main.async {
+                    self.locationsMapView.removeAnnotations(self.locationsMapView.annotations)
                     self.animationView.isHidden = true
                     self.animation?.stopAnimating()
                     self.results = MapController.shared.results
