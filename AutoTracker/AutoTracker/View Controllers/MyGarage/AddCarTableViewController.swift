@@ -104,6 +104,7 @@ class AddCarTableViewController: UITableViewController {
         
     }
     
+    
     @IBAction func photoButtonTapped(_ sender: Any) {
         presentActionSheet()
     }
@@ -268,10 +269,11 @@ class AddCarTableViewController: UITableViewController {
     }
     
     func deleteCarAlert() {
-        let alertController = UIAlertController(title: "Are you sure?", message: "This car will be premenantely removed.  This cannot be undone.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Are you sure?", message: "This car will be permanently removed.  This cannot be undone.", preferredStyle: .alert)
         let deleteButton = UIAlertAction(title: "DELETE", style: .destructive) { (_) in
             guard let car = self.carToEdit else {return}
             CarController.shared.removeCarFromGarage(car: car)
+            self.navigationController?.popViewController(animated: true)
         }
         let noButton = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         alertController.addAction(noButton)
