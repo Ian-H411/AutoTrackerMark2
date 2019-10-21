@@ -111,7 +111,7 @@ class HomeViewController: UIViewController {
         carImageView.image = myCar.photo ?? UIImage(named: "car")
         self.navigationItem.title = myCar.name ?? "Car Name"
         updateOdometerLabel.text = String(describing: myCar.odometer)
-        if averageMPG() == 0 {
+        if averageMPG() == 0 || String(format: "%.1f", (averageMPG())) == "nan" {
             averageMPGLabel.text = "- -"
         } else {
             averageMPGLabel.text = String(format: "%.1f", (averageMPG()))

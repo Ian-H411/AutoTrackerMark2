@@ -34,6 +34,9 @@ class MyGarageViewController: UIViewController {
     
     @IBOutlet weak var menuCard: UIView!
     
+    @IBOutlet weak var cancelButton: UIButton!
+    
+    
     
     //MARK: - Needed Variables
     
@@ -76,17 +79,23 @@ class MyGarageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        initialSetUP()
-        viewWillAppearSetUP()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         view.removeBlur()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        initialSetUP()
+        viewWillAppearSetUP()
+        carSelectionTableView.reloadData()
+    }
     //MARK: - HELPER FUNCTIONS
     
     func viewWillAppearSetUP() {
+        cancelButton.isHidden = true
         carSelectionTableView.reloadData()
            setPickerViewToCarValue()
            menuCard.isHidden = true
@@ -212,6 +221,14 @@ class MyGarageViewController: UIViewController {
       
     }
     
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+    odometerPicker.isUserInteractionEnabled.toggle()
+    setTextFields()
+        setPickerViewToCarValue()
+        cancelButton.isHidden = true
+    }
+    
+    
     @IBAction func presentCarsButtonTapped(_ sender: Any) {
         if CarController.shared.garage?.count ?? 0 >= 1{
         carSelectionTableView.isHidden = false
@@ -221,6 +238,7 @@ class MyGarageViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
+        cancelButton.isHidden.toggle()
         guard let car = CarController.shared.selectedCar else {return}
         if odometerPicker.isUserInteractionEnabled {
             CarController.shared.updateOdometer(car: car, odometer: Double(odometerResults())) { (_) in
@@ -250,6 +268,7 @@ class MyGarageViewController: UIViewController {
             toggleMenu()
             view.removeBlur()
         }
+        
     }
 
     //MARK: - NAVIGATION
@@ -266,7 +285,7 @@ class MyGarageViewController: UIViewController {
 extension MyGarageViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let garage = CarController.shared.garage else {return 1}
+        guard let garage = CarController.shared.garage else {return 0}
         return garage.count
     }
     
@@ -296,6 +315,9 @@ extension MyGarageViewController: UITableViewDelegate, UITableViewDataSource {
 extension MyGarageViewController: MyGarageTableViewCellDelegate {
     func carSelectionButtonTapped(_ sender: MyGarageTableViewCell) {
         isInCarSelectionMode.toggle()
+        if !isInCarSelectionMode{
+            view.removeBlur()
+        }
         updateTableViewFrame()
         guard let car = sender.carInCell else {return}
         guard let indexPath = sender.carIndex else {return}
