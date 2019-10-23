@@ -561,7 +561,7 @@
                                             <constraint firstAttribute="height" constant="44" id="R4E-y5-Ts2"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32n-G5-BcU" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="60" width="352" height="64"/>
@@ -684,7 +684,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MuI-WI-GPq"/>
-        <segue reference="uQ8-X2-LaN"/>
+        <segue reference="pIX-Gd-dXy"/>
+        <segue reference="4da-Uz-x65"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -36,6 +36,8 @@ class AddCarByVinViewController: UIViewController {
     
     @IBOutlet weak var goButton: AutoTrackerButtonAsLabel!
     
+    @IBOutlet weak var animationView: UIView!
+    
     //MARK: - VAIABLES
     
     var car: CarJson?
@@ -58,7 +60,7 @@ class AddCarByVinViewController: UIViewController {
     
     //MARK: - HELPERS
     
-    func setUpUI(){
+    func setUpUI() {
         goButton.isHidden = true
         self.yearLabel.alpha = 0.0
         self.makeLabel.alpha = 0.0
@@ -79,7 +81,7 @@ class AddCarByVinViewController: UIViewController {
         }
     }
     
-    func dataRecievedBeginSetup(carJson:CarJson){
+    func dataRecievedBeginSetup(carJson:CarJson) {
         UIView.animate(withDuration: 2) {
             self.makeLabel.isHidden = false
             self.makeTextField.isHidden = false
@@ -103,11 +105,10 @@ class AddCarByVinViewController: UIViewController {
             self.makeTextField.text = carJson.make == "" ? "Car Make not found" : carJson.make
             self.modelTextField.text = carJson.model == "" ? "Car model not found" : carJson.model
             self.engineTextField.text = carJson.engine == "" ? "Engine not found" : "\(carJson.engine) Cylinder"
-            
         }
     }
     
-    func beginDataFetchByCarVin(){
+    func beginDataFetchByCarVin() {
         guard let vin = vinTextField.text?.uppercased(), !vin.isEmpty
             else {return}
         if !Reachability.isConnectedToNetwork(){
@@ -123,19 +124,21 @@ class AddCarByVinViewController: UIViewController {
             guard let car = carJson else {return}
             DispatchQueue.main.async {
                 self.dataRecievedBeginSetup(carJson:car)
+                self.animationView.removeFromSuperview()
                 self.headerLabel.isHidden = true
             }
             
         }
         
     }
-    func displayYearTextField(){
+    
+    func displayYearTextField() {
         yearTextField.isHidden = false
         yearLabel.isHidden = false
         headerLabel.text = "Whats the cars model year?"
     }
     
-    func presentAreYouSureAlert(){
+    func presentAreYouSureAlert() {
         let alert = UIAlertController(title: "Everything look alright??", message: "", preferredStyle: .alert)
         let yesbutton = UIAlertAction(title: "Yes, it looks great", style: .default) { (_) in
             guard let make = self.makeTextField.text, !make.isEmpty,
@@ -155,39 +158,29 @@ class AddCarByVinViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    func presentNoInternetAlert(){
+    func presentNoInternetAlert() {
         let alert = UIAlertController(title: "No Internet", message: "Sorry but this function requires an internet connection.  check your connection and try again", preferredStyle: .alert)
         let okayButton = UIAlertAction(title: "okay", style: .default, handler: nil)
         alert.addAction(okayButton)
         self.present(alert, animated: true)
     }
     
-    func addDoneButtonOnKeyboard(textField: UITextField){
+    func addDoneButtonOnKeyboard(textField: UITextField) {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         doneToolbar.barStyle = .default
-
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-
         let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
-
         let items = [flexSpace, done]
         doneToolbar.items = items
         doneToolbar.sizeToFit()
-
         textField.inputAccessoryView = doneToolbar
     }
-
     
-
     @objc func doneButtonAction(){
-    
         yearTextField.resignFirstResponder()
-        
-
     }
     
     //MARK: - ACTIONS
-    
     @IBAction func looksGoodButtonTapped(_ sender: Any) {
         presentAreYouSureAlert()
         
@@ -200,19 +193,22 @@ class AddCarByVinViewController: UIViewController {
             }
         }
     }
-    
-    
-    //MARK: - EXTENSIONS
-    
 }
+//MARK: - EXTENSIONS
 extension AddCarByVinViewController:UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if textField.tag == 1{
+            let offset = (animationView.frame.width - 50) / 2
+            let tireAnimation = TireAnimation(frame: CGRect(x: offset, y: offset, width: 50, height: 50), image: #imageLiteral(resourceName: "loadingIcon"))
+            
+            self.animationView.addSubview(tireAnimation)
+            
+            tireAnimation.startAnimating()
             beginDataFetchByCarVin()
         }
         
         return true
     }
-
+    
 }

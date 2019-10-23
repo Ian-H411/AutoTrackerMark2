@@ -33,7 +33,7 @@ class UpdateOdometerViewController: UIViewController {
     }
     
     //MARK: - Helpers
-    func setPickerViewToCarValue(){
+    func setPickerViewToCarValue() {
         guard let car = CarController.shared.selectedCar else {return}
         var odomenterAsStringArray = Array("\(Int(car.odometer))")
         print(odomenterAsStringArray)
@@ -52,7 +52,7 @@ class UpdateOdometerViewController: UIViewController {
         }
         
     }
-    func warnUsersOfChange(){
+    func warnUsersOfChange() {
         guard let car = CarController.shared.selectedCar else {return}
         let alertController = UIAlertController(title: "Change \(car.name ?? "") miles?", message: "This will update the odometer on the car are you sure?", preferredStyle: .alert)
         let okayButton = UIAlertAction(title: "Update", style: .default) { (_) in
@@ -74,7 +74,7 @@ class UpdateOdometerViewController: UIViewController {
         self.present(alertController,animated: true)
     }
     
-    func initialSetUP(){
+    func initialSetUP() {
         guard let car = CarController.shared.selectedCar else {return}
         carNameLabel.text = "update \(car.name ?? "")'s odometer"
         savedLabel.isHidden = true
@@ -92,21 +92,28 @@ class UpdateOdometerViewController: UIViewController {
          return odometer
      }
     
+    func saveNotification() {
+        let alertcontroller = UIAlertController(title: "Saved", message: "Changes have been saved and updated", preferredStyle: .alert)
+        let okaybutton = UIAlertAction(title: "Okay", style: .default) { (_) in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        alertcontroller.addAction(okaybutton)
+        self.present(alertcontroller, animated: true)
+    }
     //MARK: - Actions
     
     @IBAction func skipButtonTapped(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
+        saveNotification()
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
        warnUsersOfChange()
     }
-    
-    
-    
-    
 }
-extension UpdateOdometerViewController: UIPickerViewDataSource, UIPickerViewDelegate{
+
+//MARK: - EXTENSIONS
+extension UpdateOdometerViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 7

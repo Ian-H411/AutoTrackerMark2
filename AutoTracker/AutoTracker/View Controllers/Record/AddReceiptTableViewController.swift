@@ -9,7 +9,7 @@
 import UIKit
 
 class AddReceiptTableViewController: UITableViewController {
-
+    
     // MARK: - OUTLETS
     @IBOutlet weak var receiptTextField: UITextField!
     @IBOutlet weak var addPhotoButton: UIButton!
@@ -17,13 +17,13 @@ class AddReceiptTableViewController: UITableViewController {
     @IBOutlet weak var transactionDatePicker: UIDatePicker!
     @IBOutlet weak var totalTextField: UITextField!
     @IBOutlet weak var ppgTextField: UITextField!
-
+    
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         addPhotoButton.setTitle("Tap to add a photo", for: .normal)
     }
-
+    
     // MARK: - ACTIONS
     @IBAction func receiptPhotoButtonTapped(_ sender: Any) {
         presentActionSheet()
@@ -37,12 +37,10 @@ class AddReceiptTableViewController: UITableViewController {
             else { return }
         let transactionDate = transactionDatePicker.date
         ReceiptController.shared.addReceiptWith(name: name, timestamp: transactionDate, photo: image, total: total, ppg: ppg)
-            self.navigationController?.popViewController(animated: true)
-        }
+        self.navigationController?.popViewController(animated: true)
+    }
     
-    
-  // MARK: - HELPER FUNCTIONS
-    
+    // MARK: - HELPER FUNCTIONS
     func camera(){
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             let myPickerController = UIImagePickerController()
@@ -85,17 +83,6 @@ class AddReceiptTableViewController: UITableViewController {
         alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(alertController, animated: true)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension AddReceiptTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -113,6 +100,7 @@ extension AddReceiptTableViewController: UIImagePickerControllerDelegate, UINavi
         self.dismiss(animated: true, completion: nil)
     }
 }
+
 extension AddReceiptTableViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         resignFirstResponder()

@@ -13,31 +13,42 @@ class OdometerViewController: UIViewController {
     // MARK: - OUTLETS
     @IBOutlet weak var odometerPicker: UIPickerView!
     
-    
-    
     // MARK: - PROPERTIES
     var odometer = ["0","1","2","3","4","5","6","7","8","9"]
     var carParts: Car?
     
-    // MARK: - LIFECYCLE
+    var randomOdometer: [Int] = [9,8,7,6,7,8,9]
+       
     
+    // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         odometerPicker.delegate = self
         odometerPicker.dataSource = self
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setPickerViewToCarValue(intArray: randomOdometer)
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        UIView.animate(withDuration: 1) {
+            self.setPickerViewToCarValue(intArray: [0,0,0,0,0,0,0])
+        }
+       
+    }
     
     // MARK: - ACTIONS
-    
     @IBAction func saveButtonTapped(_ sender: Any) {
         let odometer = odometerResults()
-        
         if let _ = carParts {
             carParts?.odometer = Double(odometer)
+            self.performSegue(withIdentifier: "toCarNameVC", sender: nil)
         } else {
-            carParts = Car(context: CoreDataStack.context)
-            carParts?.odometer = Double(odometer)
+            carParts = CarController.shared.addACar(name: "", make: "", model: "", year: "", engine: "", ownerName: "", odometer: Double(odometer))
+            self.performSegue(withIdentifier: "toCarNameVC", sender: nil)
         }
     }
     
@@ -52,18 +63,7 @@ class OdometerViewController: UIViewController {
         }
     }
     
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "toCarNameVC" {
-            if let destinationVC = segue.destination as? CarNameViewController {
-                destinationVC.carParts = carParts
-            }
-        }
-    }
-    
+    // MARK: - HELPER FUNCTIONS
     func odometerResults() -> Int {
         var placeholder: [Int] = []
         for component in 0..<odometerPicker.numberOfComponents {
@@ -72,6 +72,29 @@ class OdometerViewController: UIViewController {
         }
         let odometer = placeholder.reduce(0, {$0*10 + $1})
         return odometer
+    }
+    
+    
+    func setPickerViewToCarValue(intArray: [Int]) {
+        UIView.animate(withDuration: 2) {
+            self.odometerPicker.selectRow(intArray[0], inComponent: 0, animated: true)
+            self.odometerPicker.selectRow(intArray[1], inComponent: 1, animated:  true)
+            self.odometerPicker.selectRow(intArray[2], inComponent: 2, animated: true)
+            self.odometerPicker.selectRow(intArray[3], inComponent: 3, animated: true)
+            self.odometerPicker.selectRow(intArray[4], inComponent: 4, animated: true)
+            self.odometerPicker.selectRow(intArray[5], inComponent: 5, animated: true)
+            self.odometerPicker.selectRow(intArray[6], inComponent: 6, animated: true)
+        }
+        
+    }
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toCarNameVC" {
+            if let destinationVC = segue.destination as? CarNameViewController {
+                destinationVC.carParts = carParts
+            }
+        }
     }
 }
 

@@ -13,21 +13,13 @@ struct Places:Decodable{
 }
 
 struct Place:Decodable{
-    
     let name: String
-    
     let coordinates:Coordinates
-    
     let imageURL:String?
-    
     let rating: Double
-    
     let address:Address
-    
     let reviewCount:Int
-    
     let url:String
-    
     private enum CodingKeys:String, CodingKey{
         case imageURL = "image_url"
         case name
@@ -51,11 +43,8 @@ struct Address:Decodable{
 }
 
 class PlaceObject: NSObject, MKAnnotation{
-    
     let title:String?
-    
     let coordinate: CLLocationCoordinate2D
-    
     let image: UIImage?
     let rating: Double
     let ratingImage: UIImage

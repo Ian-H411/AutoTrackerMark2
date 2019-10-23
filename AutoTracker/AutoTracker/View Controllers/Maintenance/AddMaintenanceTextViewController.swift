@@ -14,9 +14,7 @@ class AddMaintenanceTextViewController: UIViewController {
     
     @IBOutlet weak var answerTextField: UITextField!
     
-    
     @IBOutlet weak var maintenanceTypeButton: AutoTrackerButtonGreenBG!
-    
     
     @IBOutlet weak var costAndReceipt: AutoTrackerButtonGreenBG!
     
@@ -33,21 +31,19 @@ class AddMaintenanceTextViewController: UIViewController {
     //MARK: - Variables
     
     
-    var titleString:String?
+    var titleString: String?
     
-    var details:String?
+    var details: String?
     
     let notificationCenter = UNUserNotificationCenter.current()
     
-    var maintenanceToSend:Maintanence?
+    var maintenanceToSend: Maintanence?
     
     //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetUP()
-        
     }
-    
     
     //MARK: - ACTIONS
     
@@ -59,23 +55,11 @@ class AddMaintenanceTextViewController: UIViewController {
     
     
     @IBAction func costAndReceiptButtonTapped(_ sender: Any) {
-        guard let title = titleString else {return}
-        let date = datePicker.date
-        guard let car = CarController.shared.selectedCar else {return}
-        let main = CarController.shared.addMaintenanceReminder(car: car, message: details ?? "" , maintanence: title, date: date, image: nil, price: "")
-        maintenanceToSend = main
-        if date > Date(){
-            CarController.shared.toggleMaintenanceReminder(maintenance: main)
-            addReminderPrompt()
-        } else {
-            self.performSegue(withIdentifier: "nextStep", sender: nil)
-        }
-        
+        saveMessage()
     }
     
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        
         if additionalDetailsLabel.isHidden{
             guard let titleText = answerTextField.text else {return}
             titleString = titleText
@@ -88,10 +72,6 @@ class AddMaintenanceTextViewController: UIViewController {
         }
         SaveButton.isHidden = true
     }
-    
-    
-    
-    
     
     //MARK: -HELPER FUNCTIONS
     func initialSetUP() {
@@ -108,7 +88,7 @@ class AddMaintenanceTextViewController: UIViewController {
         additionalDetailsTextField.delegate = self
     }
     
-    func toggleAuxillaryLabels(){
+    func toggleAuxillaryLabels() {
         UIView.animate(withDuration: 0.5) {
             let alpha = !self.SaveButton.isHidden ? CGFloat(0.0) : CGFloat(1.0)
             self.answerTextField.isHidden.toggle()
@@ -116,14 +96,12 @@ class AddMaintenanceTextViewController: UIViewController {
             self.SaveButton.isHidden.toggle()
             self.SaveButton.alpha = alpha
         }
-        
     }
     
     func addReminderPrompt() {
         let alertController = UIAlertController(title: "add a reminder?", message: "This is set to a future date would you like to add a notification?", preferredStyle: .alert)
         let okayButton = UIAlertAction(title: "Add Notification", style: .default) { (_) in
             self.notificationSetUP()
-            
         }
         let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
         let okayButNoNotification = UIAlertAction(title: "Just add the mainteinance", style: .default) { (_) in
@@ -137,7 +115,7 @@ class AddMaintenanceTextViewController: UIViewController {
         self.present(alertController,animated: true)
     }
     
-    func notificationSetUP(){
+    func notificationSetUP() {
         let options:UNAuthorizationOptions = [.alert,.sound]
         notificationCenter.requestAuthorization(options: options) { (didAllow, error) in
             if let error = error{
@@ -149,7 +127,8 @@ class AddMaintenanceTextViewController: UIViewController {
             }
         }
     }
-    func createNotification(){
+    
+    func createNotification() {
         DispatchQueue.main.async {
             let date = self.datePicker.date
             guard let bodyText = self.answerTextField.text else {return}
@@ -177,32 +156,47 @@ class AddMaintenanceTextViewController: UIViewController {
         }
     }
     
-    
-    
-    func toggleMaintenanceLabels(){
-        let alpha = maintenanceTypeButton.isHidden ? CGFloat(1.0) : CGFloat(0.0)
-            UIView.animate(withDuration: 0.5) {
-                self.maintenanceTypeButton.isHidden.toggle()
-                self.maintenanceTypeButton.alpha = alpha
-                self.dueDateLabel.isHidden.toggle()
-                self.dueDateLabel.alpha = alpha
-                self.datePicker.isHidden.toggle()
-                self.datePicker.alpha = alpha
-                self.additionalDetailsLabel.isHidden.toggle()
-                self.additionalDetailsLabel.alpha = alpha
-                self.additionalDetailsTextField.isHidden.toggle()
-                self.additionalDetailsTextField.alpha = alpha
-                self.costAndReceipt.isHidden.toggle()
-                self.costAndReceipt.alpha = alpha
+    func saveMessage() {
+        let alertController = UIAlertController(title: "Saved", message: "This information has been saved", preferredStyle: .alert)
+        let okayButton = UIAlertAction(title: "Okay", style: .default) { (_) in
+            guard let title = self.titleString else {return}
+            let date = self.datePicker.date
+            guard let car = CarController.shared.selectedCar else {return}
+            let main = CarController.shared.addMaintenance(car: car, message: self.details ?? "" , maintanence: title, date: date, image: nil, price: "")
+            self.maintenanceToSend = main
+            DispatchQueue.main.async {
+                if date > Date(){
+                    CarController.shared.toggleMaintenanceReminder(maintenance: main)
+                    self.addReminderPrompt()
+                } else {
+                    self.performSegue(withIdentifier: "nextStep", sender: nil)
+                }
             }
-            
+        }
+        alertController.addAction(okayButton)
+        self.present(alertController, animated: true)
+    }
+    
+    func toggleMaintenanceLabels() {
+        let alpha = maintenanceTypeButton.isHidden ? CGFloat(1.0) : CGFloat(0.0)
+        UIView.animate(withDuration: 0.5) {
+            self.maintenanceTypeButton.isHidden.toggle()
+            self.maintenanceTypeButton.alpha = alpha
+            self.dueDateLabel.isHidden.toggle()
+            self.dueDateLabel.alpha = alpha
+            self.datePicker.isHidden.toggle()
+            self.datePicker.alpha = alpha
+            self.additionalDetailsLabel.isHidden.toggle()
+            self.additionalDetailsLabel.alpha = alpha
+            self.additionalDetailsTextField.isHidden.toggle()
+            self.additionalDetailsTextField.alpha = alpha
+            self.costAndReceipt.isHidden.toggle()
+            self.costAndReceipt.alpha = alpha
         }
         
-        
-        
- 
+    }
     
-    func toggleTextFieldLabels(){
+    func toggleTextFieldLabels() {
         let alpha = maintenanceTypeButton.isHidden ? CGFloat(1.0) : CGFloat(0.0)
         UIView.animate(withDuration: 0.5) {
             self.maintenanceTypeButton.isHidden.toggle()
@@ -214,11 +208,9 @@ class AddMaintenanceTextViewController: UIViewController {
             self.costAndReceipt.isHidden.toggle()
             self.costAndReceipt.alpha = alpha
         }
-        
     }
     
     //MARK: - NAVIGATION
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "nextStep"{
             if let destination = segue.destination as? AddMaintenancePicAndPriceViewController{
@@ -227,13 +219,9 @@ class AddMaintenanceTextViewController: UIViewController {
         }
     }
     
-    
-    
-    //MARK: - EXTENSIONS
-    
-    
 }
-extension AddMaintenanceTextViewController: UITextFieldDelegate{
+//MARK: - EXTENSIONS
+extension AddMaintenanceTextViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         toggleTextFieldLabels()
     }

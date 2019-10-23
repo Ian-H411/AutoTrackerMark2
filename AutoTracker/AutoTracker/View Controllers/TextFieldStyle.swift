@@ -9,6 +9,7 @@
 import UIKit
 
 class TextFieldStyle: UITextField {
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         addBorder(color: .black, width: 2, bg: .lightGray)

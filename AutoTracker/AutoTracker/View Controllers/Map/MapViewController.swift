@@ -17,7 +17,7 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var locationsMapView: MKMapView!
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var animationView: UIView!
     
     @IBOutlet weak var locationTitleLabel: UILabel!
     
@@ -48,13 +48,19 @@ class MapViewController: UIViewController {
     
     var hideLocationCard:Bool = false
     
+    var animation: TireAnimation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         locationsMapView.delegate = self
-        activityIndicator.stopAnimating()
+        animationView.isHidden = true
+        let offset = (animationView.frame.width - 50) / 2
+        let tireAnimation = TireAnimation(frame: CGRect(x: offset, y: offset, width: 50, height: 50), image: #imageLiteral(resourceName: "loadingIcon"))
+        animationView.addSubview(tireAnimation)
+        animation = tireAnimation
         toggleLocationCard()
         view.sendSubviewToBack(locationsMapView)
         searchAreaButton.layer.shadowRadius = 10
@@ -93,7 +99,7 @@ class MapViewController: UIViewController {
     
     
     //MARK: - HELPERS
-    func toggleLocationCard(){
+    func toggleLocationCard() {
         hideLocationCard.toggle()
         cardView.layer.shadowRadius = 10
         cardView.layer.shadowOffset = .zero
@@ -121,29 +127,31 @@ class MapViewController: UIViewController {
             totalReviewsLabel.text = "Based on \(place.numberOfReviews) reviews!"
             locationTitleLabel.text = place.title ?? "No Name Provided"
             addressButton.setTitle(place.address, for: .normal)
-            
         }
     }
-    func searchArea(){
-        if !Reachability.isConnectedToNetwork(){
+    func searchArea() {
+        if !Reachability.isConnectedToNetwork() {
             presentNoInternetAlert()
             return
         }
-        locationsMapView.removeAnnotations(locationsMapView.annotations)
-        activityIndicator.startAnimating()
+        
+        animationView.isHidden = false
+        animation?.startAnimating()
         let center = locationsMapView.centerCoordinate
         let radius = Int(locationsMapView.region.span.longitudeDelta)
         MapController.shared.grabNearbyGasStationsAndConvert(location: center, radius: radius) { (success) in
             if success{
                 DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
+                    self.locationsMapView.removeAnnotations(self.locationsMapView.annotations)
+                    self.animationView.isHidden = true
+                    self.animation?.stopAnimating()
+                    self.results = MapController.shared.results
+                    self.setUpMarkers()
                 }
-                self.results = MapController.shared.results
-                self.setUpMarkers()
             }
         }
     }
-    func retrieveAndSetImage(place: PlaceObject){
+    func retrieveAndSetImage(place: PlaceObject) {
         guard let image = place.imageURL else {return}
         MapController.shared.retrieveImage(urlString: image) { (imageOptional) in
             guard let imageUnwrapped = imageOptional else {return}
@@ -155,14 +163,14 @@ class MapViewController: UIViewController {
         
     }
     
-    func presentNoInternetAlert(){
+    func presentNoInternetAlert() {
         let alert = UIAlertController(title: "No Internet", message: "Sorry but this function requires an internet connection.  check your connection and try again", preferredStyle: .alert)
         let okayButton = UIAlertAction(title: "okay", style: .default, handler: nil)
         alert.addAction(okayButton)
         self.present(alert, animated: true)
     }
     
-    func goToYelpPage(){
+    func goToYelpPage() {
         if !Reachability.isConnectedToNetwork(){
             presentNoInternetAlert()
             return
@@ -177,11 +185,10 @@ class MapViewController: UIViewController {
         alertController.addAction(okayButton)
         alertController.addAction(cancelButton)
         self.present(alertController, animated: true)
-        
     }
     
-    func getDirectionsInAppleMaps(){
-        if !Reachability.isConnectedToNetwork(){
+    func getDirectionsInAppleMaps() {
+        if !Reachability.isConnectedToNetwork() {
             presentNoInternetAlert()
             return
         }
@@ -199,32 +206,34 @@ class MapViewController: UIViewController {
         alertController.addAction(cancelButton)
         self.present(alertController, animated: true)
     }
-    func centerMapOnLocation(location:CLLocation,regionRadius:CLLocationDistance){
+    func centerMapOnLocation(location:CLLocation,regionRadius:CLLocationDistance) {
         
         let region:MKCoordinateRegion = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         locationsMapView.setRegion(region, animated: false)
         searchArea()
         
     }
-    func setUpMarkers(){
+    func setUpMarkers() {
         locationsMapView.addAnnotations(results)
     }
     
 }
-extension MapViewController: CLLocationManagerDelegate{
+
+//MARK: - EXTENSIONS
+extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         for location in locations{
             guard let _ = currentLocation else {
                 centerMapOnLocation(location: location, regionRadius: 12000)
                 currentLocation = location
                 continue
-                
             }
             currentLocation = location
         }
     }
 }
-extension MapViewController: MKMapViewDelegate{
+
+extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let annotation = annotation as? PlaceObject else {return nil}
         let identifier = "marker"
@@ -240,6 +249,7 @@ extension MapViewController: MKMapViewDelegate{
         }
         return view
     }
+    
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let place = view.annotation as! PlaceObject

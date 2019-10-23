@@ -43,10 +43,11 @@
                                     <constraint firstItem="P2x-te-KEZ" firstAttribute="height" secondItem="FJc-tS-UVZ" secondAttribute="height" id="xvJ-hy-5da"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="KOj-Ul-n58">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="KOj-Ul-n58">
                                 <rect key="frame" x="10" y="649" width="393" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="car" rowHeight="70" id="l4e-Rc-cQg" customClass="MyGarageTableViewCell" customModule="AutoTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="393" height="70"/>
@@ -75,6 +76,7 @@
                                                 <constraint firstItem="irJ-3A-RJs" firstAttribute="height" secondItem="t7e-Uc-ti3" secondAttribute="height" multiplier="0.9" id="thZ-Go-Z4H"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="carButton" destination="irJ-3A-RJs" id="Awy-R3-ZEm"/>
                                         </connections>
@@ -102,8 +104,15 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="taC-Rp-XCS">
                                         <rect key="frame" x="0.0" y="135" width="373" height="44"/>
                                         <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GHH-2i-Lsj" customClass="AutoTrackerButtonWhiteBG" customModule="AutoTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="44"/>
+                                                <state key="normal" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancelButtonTapped:" destination="snd-le-aTe" eventType="touchUpInside" id="fJS-YE-ykq"/>
+                                                </connections>
+                                            </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="38d-yH-VqL">
-                                                <rect key="frame" x="0.0" y="0.0" width="279.5" height="44"/>
+                                                <rect key="frame" x="93.5" y="0.0" width="186" height="44"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgG-2f-8pD" customClass="AutoTrackerButtonGreenBG" customModule="AutoTracker" customModuleProvider="target">
@@ -118,6 +127,7 @@
                                             </button>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="GHH-2i-Lsj" firstAttribute="width" secondItem="WgG-2f-8pD" secondAttribute="width" id="75u-xw-yd8"/>
                                             <constraint firstItem="WgG-2f-8pD" firstAttribute="width" secondItem="taC-Rp-XCS" secondAttribute="width" multiplier="0.25" id="iMq-hQ-SJa"/>
                                         </constraints>
                                     </stackView>
@@ -182,6 +192,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Ibs-Ba-998" firstAttribute="trailing" secondItem="bpK-ry-9mR" secondAttribute="trailing" constant="10.5" id="26G-0A-WX4"/>
                             <constraint firstItem="bpK-ry-9mR" firstAttribute="centerX" secondItem="Ibs-Ba-998" secondAttribute="centerX" id="7yP-fk-K4t"/>
@@ -196,9 +207,12 @@
                             <constraint firstItem="Ibs-Ba-998" firstAttribute="trailing" secondItem="ssK-28-RC0" secondAttribute="trailing" id="wrd-YJ-kNx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ibs-Ba-998"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Ee7-eu-zgE" appends="YES" id="FyH-Lo-OrO"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="JQu-eN-dYr">
-                        <barButtonItem key="rightBarButtonItem" image="line.horizontal.3" catalog="system" id="KSN-od-GQm">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KSN-od-GQm">
                             <connections>
                                 <action selector="AddACarButtonTapped:" destination="snd-le-aTe" id="c3x-bg-Xjp"/>
                             </connections>
@@ -207,6 +221,7 @@
                     <connections>
                         <outlet property="addCarByTextButton" destination="cEf-TS-oqd" id="Dth-zy-Xk2"/>
                         <outlet property="addCarByVinButton" destination="Awj-D9-64u" id="B1r-58-qGs"/>
+                        <outlet property="cancelButton" destination="GHH-2i-Lsj" id="19k-a2-Wcy"/>
                         <outlet property="carSelectionTableView" destination="KOj-Ul-n58" id="PnL-kF-0y8"/>
                         <outlet property="currentCarButton" destination="P2x-te-KEZ" id="no2-wa-GPf"/>
                         <outlet property="editCurrentCarButton" destination="xq8-hY-9Ba" id="cez-qZ-v8T"/>
@@ -222,6 +237,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z5L-gd-m7Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Ee7-eu-zgE">
+                    <connections>
+                        <action selector="screenTapped:" destination="snd-le-aTe" id="ps9-Vf-vk8"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="676.81159420289862" y="739.95535714285711"/>
         </scene>
@@ -233,6 +253,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aap-PL-T2G">
+                                <rect key="frame" x="165.5" y="94" width="83" height="83"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aap-PL-T2G" secondAttribute="height" multiplier="1:1" id="5id-lK-idW"/>
+                                </constraints>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Atd-8N-yhd">
                                 <rect key="frame" x="20.5" y="187" width="373" height="527"/>
                                 <subviews>
@@ -358,14 +385,18 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="aap-PL-T2G" firstAttribute="centerX" secondItem="RtI-4U-tsp" secondAttribute="centerX" id="0Ez-C1-5h9"/>
                             <constraint firstItem="Atd-8N-yhd" firstAttribute="centerX" secondItem="RtI-4U-tsp" secondAttribute="centerX" id="1ZQ-m7-bHI"/>
+                            <constraint firstItem="aap-PL-T2G" firstAttribute="width" secondItem="RtI-4U-tsp" secondAttribute="width" multiplier="0.2" id="DVa-Tg-5nw"/>
                             <constraint firstItem="Atd-8N-yhd" firstAttribute="width" secondItem="RtI-4U-tsp" secondAttribute="width" multiplier="0.9" id="JoR-Yl-PY7"/>
                             <constraint firstItem="Atd-8N-yhd" firstAttribute="centerY" secondItem="RtI-4U-tsp" secondAttribute="centerY" id="agC-K1-15I"/>
+                            <constraint firstItem="aBS-Oc-hKQ" firstAttribute="top" secondItem="aap-PL-T2G" secondAttribute="bottom" constant="10" id="hF7-gz-mF0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RtI-4U-tsp"/>
                     </view>
                     <navigationItem key="navigationItem" id="gYU-nB-SF8"/>
                     <connections>
+                        <outlet property="animationView" destination="aap-PL-T2G" id="SAB-s6-mlb"/>
                         <outlet property="engineLabel" destination="v7Z-ul-6fr" id="bix-NE-xU4"/>
                         <outlet property="engineTextField" destination="Rb0-AW-Dxm" id="dlA-Rz-PLS"/>
                         <outlet property="goButton" destination="kYC-nO-WUQ" id="fWN-jQ-sWO"/>
@@ -383,7 +414,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Nt-27-Wh6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="628" y="1457"/>
+            <point key="canvasLocation" x="627.536231884058" y="1456.4732142857142"/>
         </scene>
         <!--Final Check For Vin View Controller-->
         <scene sceneID="aR6-Sp-y0T">
@@ -514,32 +545,8 @@
                         <sections>
                             <tableViewSection id="X1J-Bg-3OP">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="59" id="MVg-7H-BBB">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="59"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MVg-7H-BBB" id="eic-7T-6ni">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Car Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ThY-cE-WRM" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
-                                                    <rect key="frame" x="20.5" y="7.5" width="373" height="44"/>
-                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="6KM-E8-153"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="ThY-cE-WRM" firstAttribute="width" secondItem="eic-7T-6ni" secondAttribute="width" multiplier="0.9" id="DKz-zU-axV"/>
-                                                <constraint firstItem="ThY-cE-WRM" firstAttribute="centerY" secondItem="eic-7T-6ni" secondAttribute="centerY" id="TVZ-NF-9Cs"/>
-                                                <constraint firstItem="ThY-cE-WRM" firstAttribute="centerX" secondItem="eic-7T-6ni" secondAttribute="centerX" id="dJn-AP-xNn"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="59" id="bmo-8Z-cp6">
-                                        <rect key="frame" x="0.0" y="87" width="414" height="59"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bmo-8Z-cp6" id="36p-ph-WU7">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
@@ -562,8 +569,80 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="61" id="08t-ZF-0gT">
+                                        <rect key="frame" x="0.0" y="87" width="414" height="61"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="08t-ZF-0gT" id="tIn-tQ-3dU">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="61"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nbd-lp-flU" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                    <rect key="frame" x="20.5" y="8.5" width="373" height="44"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="kQf-b2-J3v"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="nbd-lp-flU" firstAttribute="width" secondItem="tIn-tQ-3dU" secondAttribute="width" multiplier="0.9" id="Gyd-7b-Ppx"/>
+                                                <constraint firstItem="nbd-lp-flU" firstAttribute="centerY" secondItem="tIn-tQ-3dU" secondAttribute="centerY" id="fiE-4W-DmY"/>
+                                                <constraint firstItem="nbd-lp-flU" firstAttribute="centerX" secondItem="tIn-tQ-3dU" secondAttribute="centerX" id="uEn-aE-xJR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="carCell" rowHeight="59" id="nbP-U3-XHm">
+                                        <rect key="frame" x="0.0" y="148" width="414" height="59"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nbP-U3-XHm" id="2tc-nD-bAe">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dDQ-zx-BuD" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                    <rect key="frame" x="20.5" y="7.5" width="373" height="44"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="onX-8v-DZV"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dDQ-zx-BuD" firstAttribute="centerY" secondItem="2tc-nD-bAe" secondAttribute="centerY" id="hpz-Hy-Pb2"/>
+                                                <constraint firstItem="dDQ-zx-BuD" firstAttribute="centerX" secondItem="2tc-nD-bAe" secondAttribute="centerX" id="srr-Gc-YaA"/>
+                                                <constraint firstItem="dDQ-zx-BuD" firstAttribute="width" secondItem="2tc-nD-bAe" secondAttribute="width" multiplier="0.9" id="xBR-4u-XCU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="59" id="MPL-rg-K5i">
+                                        <rect key="frame" x="0.0" y="207" width="414" height="59"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MPL-rg-K5i" id="ZxZ-N8-Ibp">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Engine Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tev-OH-5eG" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                    <rect key="frame" x="20.5" y="7.5" width="373" height="44"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="Asd-FM-r4z"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tev-OH-5eG" firstAttribute="width" secondItem="ZxZ-N8-Ibp" secondAttribute="width" multiplier="0.9" id="8CC-su-paQ"/>
+                                                <constraint firstItem="tev-OH-5eG" firstAttribute="centerY" secondItem="ZxZ-N8-Ibp" secondAttribute="centerY" id="ULz-PE-osu"/>
+                                                <constraint firstItem="tev-OH-5eG" firstAttribute="centerX" secondItem="ZxZ-N8-Ibp" secondAttribute="centerX" id="Wet-Z7-4zF"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="59" id="59a-yF-dNr">
-                                        <rect key="frame" x="0.0" y="146" width="414" height="59"/>
+                                        <rect key="frame" x="0.0" y="266" width="414" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="59a-yF-dNr" id="FFz-z6-3hg">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
@@ -588,80 +667,68 @@
                                             <constraint firstItem="DnG-6X-ZV9" firstAttribute="width" secondItem="59a-yF-dNr" secondAttribute="width" multiplier="0.9" id="qSA-gH-Mdr"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="61" id="08t-ZF-0gT">
-                                        <rect key="frame" x="0.0" y="205" width="414" height="61"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="08t-ZF-0gT" id="tIn-tQ-3dU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="61"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nbd-lp-flU" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
-                                                    <rect key="frame" x="20.5" y="8.5" width="373" height="44"/>
-                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="kQf-b2-J3v"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="nbd-lp-flU" firstAttribute="width" secondItem="tIn-tQ-3dU" secondAttribute="width" multiplier="0.9" id="Gyd-7b-Ppx"/>
-                                                <constraint firstItem="nbd-lp-flU" firstAttribute="centerY" secondItem="tIn-tQ-3dU" secondAttribute="centerY" id="fiE-4W-DmY"/>
-                                                <constraint firstItem="nbd-lp-flU" firstAttribute="centerX" secondItem="tIn-tQ-3dU" secondAttribute="centerX" id="uEn-aE-xJR"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="59" id="MPL-rg-K5i">
-                                        <rect key="frame" x="0.0" y="266" width="414" height="59"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MPL-rg-K5i" id="ZxZ-N8-Ibp">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Engine Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tev-OH-5eG" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
-                                                    <rect key="frame" x="20.5" y="7.5" width="373" height="44"/>
-                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="Asd-FM-r4z"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="tev-OH-5eG" firstAttribute="width" secondItem="ZxZ-N8-Ibp" secondAttribute="width" multiplier="0.9" id="8CC-su-paQ"/>
-                                                <constraint firstItem="tev-OH-5eG" firstAttribute="centerY" secondItem="ZxZ-N8-Ibp" secondAttribute="centerY" id="ULz-PE-osu"/>
-                                                <constraint firstItem="tev-OH-5eG" firstAttribute="centerX" secondItem="ZxZ-N8-Ibp" secondAttribute="centerX" id="Wet-Z7-4zF"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="carCell" rowHeight="59" id="nbP-U3-XHm">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="59" id="MVg-7H-BBB">
                                         <rect key="frame" x="0.0" y="325" width="414" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nbP-U3-XHm" id="2tc-nD-bAe">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MVg-7H-BBB" id="eic-7T-6ni">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dDQ-zx-BuD" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Car Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ThY-cE-WRM" customClass="AutoTrackerTextField" customModule="AutoTracker" customModuleProvider="target">
                                                     <rect key="frame" x="20.5" y="7.5" width="373" height="44"/>
                                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="onX-8v-DZV"/>
+                                                        <constraint firstAttribute="height" constant="44" id="6KM-E8-153"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="dDQ-zx-BuD" firstAttribute="centerY" secondItem="2tc-nD-bAe" secondAttribute="centerY" id="hpz-Hy-Pb2"/>
-                                                <constraint firstItem="dDQ-zx-BuD" firstAttribute="centerX" secondItem="2tc-nD-bAe" secondAttribute="centerX" id="srr-Gc-YaA"/>
-                                                <constraint firstItem="dDQ-zx-BuD" firstAttribute="width" secondItem="2tc-nD-bAe" secondAttribute="width" multiplier="0.9" id="xBR-4u-XCU"/>
+                                                <constraint firstItem="ThY-cE-WRM" firstAttribute="width" secondItem="eic-7T-6ni" secondAttribute="width" multiplier="0.9" id="DKz-zU-axV"/>
+                                                <constraint firstItem="ThY-cE-WRM" firstAttribute="centerY" secondItem="eic-7T-6ni" secondAttribute="centerY" id="TVZ-NF-9Cs"/>
+                                                <constraint firstItem="ThY-cE-WRM" firstAttribute="centerX" secondItem="eic-7T-6ni" secondAttribute="centerX" id="dJn-AP-xNn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="104" id="dP2-Un-lb4">
+                                        <rect key="frame" x="0.0" y="384" width="414" height="104"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dP2-Un-lb4" id="Wpp-Se-juR">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="104"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="smg-lh-9Mw">
+                                                    <rect key="frame" x="20.5" y="0.0" width="373" height="104"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lifetime Miles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnQ-nD-DmY">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100.5" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" name="autoGreen"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4PV-D3-yYE" customClass="AutoTrackerOdometer" customModule="AutoTracker" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="29" width="373" height="75"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="75" id="H3v-yT-L07"/>
+                                                            </constraints>
+                                                        </pickerView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="4PV-D3-yYE" firstAttribute="width" secondItem="smg-lh-9Mw" secondAttribute="width" id="ZMm-sS-wiC"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="smg-lh-9Mw" firstAttribute="width" secondItem="Wpp-Se-juR" secondAttribute="width" multiplier="0.9" id="LoH-IO-pcp"/>
+                                                <constraint firstItem="smg-lh-9Mw" firstAttribute="centerY" secondItem="Wpp-Se-juR" secondAttribute="centerY" id="WRM-K9-znQ"/>
+                                                <constraint firstItem="smg-lh-9Mw" firstAttribute="centerX" secondItem="Wpp-Se-juR" secondAttribute="centerX" id="cru-j7-eXN"/>
+                                                <constraint firstItem="smg-lh-9Mw" firstAttribute="height" secondItem="Wpp-Se-juR" secondAttribute="height" id="mM2-XX-7ZG"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="217" id="bKB-pb-2vT">
-                                        <rect key="frame" x="0.0" y="384" width="414" height="217"/>
+                                        <rect key="frame" x="0.0" y="488" width="414" height="217"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bKB-pb-2vT" id="kEy-rs-t9U">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="217"/>
@@ -692,24 +759,29 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="121" id="dP2-Un-lb4">
-                                        <rect key="frame" x="0.0" y="601" width="414" height="121"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="sDP-Wa-YYe">
+                                        <rect key="frame" x="0.0" y="705" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dP2-Un-lb4" id="Wpp-Se-juR">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="121"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sDP-Wa-YYe" id="DAE-IG-qMf">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4PV-D3-yYE" customClass="AutoTrackerOdometer" customModule="AutoTracker" customModuleProvider="target">
-                                                    <rect key="frame" x="20.5" y="23" width="373" height="75"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="75" id="H3v-yT-L07"/>
-                                                    </constraints>
-                                                </pickerView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGy-H5-9dQ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                                    <state key="normal" title="Delete Car?">
+                                                        <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deleteCarButtonTapped:" destination="eHD-99-4xB" eventType="touchUpInside" id="aTT-DZ-HNm"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="4PV-D3-yYE" firstAttribute="centerX" secondItem="Wpp-Se-juR" secondAttribute="centerX" id="RLD-RM-yLl"/>
-                                                <constraint firstItem="4PV-D3-yYE" firstAttribute="width" secondItem="Wpp-Se-juR" secondAttribute="width" multiplier="0.9" id="swx-t5-8aF"/>
-                                                <constraint firstItem="4PV-D3-yYE" firstAttribute="centerY" secondItem="Wpp-Se-juR" secondAttribute="centerY" id="ymM-yb-08v"/>
+                                                <constraint firstItem="PGy-H5-9dQ" firstAttribute="centerY" secondItem="DAE-IG-qMf" secondAttribute="centerY" id="Bra-JW-sZF"/>
+                                                <constraint firstItem="PGy-H5-9dQ" firstAttribute="height" secondItem="DAE-IG-qMf" secondAttribute="height" id="Kga-op-NV1"/>
+                                                <constraint firstItem="PGy-H5-9dQ" firstAttribute="centerX" secondItem="DAE-IG-qMf" secondAttribute="centerX" id="NAh-Di-vAk"/>
+                                                <constraint firstItem="PGy-H5-9dQ" firstAttribute="width" secondItem="DAE-IG-qMf" secondAttribute="width" id="T17-RH-z6d"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -730,6 +802,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="carImage" destination="OLd-Fk-zDV" id="XU3-67-bCc"/>
+                        <outlet property="deleteCarButton" destination="PGy-H5-9dQ" id="4FF-HN-PAE"/>
                         <outlet property="engineTextField" destination="tev-OH-5eG" id="slF-eV-GC2"/>
                         <outlet property="makeTextField" destination="c0O-1s-BWo" id="GgB-FS-qEU"/>
                         <outlet property="modelTextField" destination="nbd-lp-flU" id="w6G-rc-7B9"/>
@@ -766,7 +839,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
         <image name="myGarageDeselected" width="28" height="28"/>
         <namedColor name="autoGreen">
             <color red="0.29800000786781311" green="0.85000002384185791" blue="0.38999998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

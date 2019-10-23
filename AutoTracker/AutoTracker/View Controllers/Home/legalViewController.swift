@@ -12,9 +12,7 @@ class legalViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-    
 
     @IBAction func linkToPRivacyPolicyButtonTapped(_ sender: Any) {
         if !Reachability.isConnectedToNetwork(){
@@ -25,7 +23,7 @@ class legalViewController: UIViewController {
         UIApplication.shared.open(url)
     }
     
-    func presentNoInternetAlert(){
+    func presentNoInternetAlert() {
            let alert = UIAlertController(title: "No Internet", message: "Sorry but this function requires an internet connection.  check your connection and try again", preferredStyle: .alert)
            let okayButton = UIAlertAction(title: "okay", style: .default, handler: nil)
            alert.addAction(okayButton)

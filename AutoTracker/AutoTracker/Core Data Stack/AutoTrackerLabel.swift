@@ -18,7 +18,6 @@ class AutoTrackerLabel: UILabel {
     }
     
     func chooseFont(to fontName: String) {
-//        let size = font.pointSize
         self.font = UIFont(name: fontName, size: 18)
     }
     
@@ -50,7 +49,7 @@ class AutoTrackerLabelDetail: UILabel {
 }
 
 class AutoTrackerGreenLabel: UILabel {
-        
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.font = UIFont(name: FontNames.nunitoRegular, size: 18)

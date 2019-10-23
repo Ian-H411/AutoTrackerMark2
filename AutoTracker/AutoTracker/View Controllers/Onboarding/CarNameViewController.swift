@@ -24,8 +24,6 @@ class CarNameViewController: UIViewController {
         super.viewDidLoad()
         nameTextField.delegate = self
         ownerNameTextField.delegate = self
-        
-        
     }
     
     // MARK: - ACTIONS
@@ -44,6 +42,7 @@ class CarNameViewController: UIViewController {
         car.photoData = photoData
         let ownerName = ownerNameTextField.text ?? ""
         CarController.shared.carupdate(name: name, make: car.make ?? "", model: car.model ?? "", year: car.year ?? "", engine: car.engine ?? "" , ownerName: ownerName, car: car)
+        CarController.shared.selectedCar = carParts
         let defaults = UserDefaults.standard
         defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
         performSegue(withIdentifier: "toMainVC", sender: nil)
@@ -55,7 +54,6 @@ class CarNameViewController: UIViewController {
             CarController.shared.selectedCar = nil
             performSegue(withIdentifier: "toMainVC", sender: nil)
         } else {
-            
             CarController.shared.selectedCar = nil
             performSegue(withIdentifier: "toMainVC", sender: nil)
         }
@@ -112,14 +110,15 @@ class CarNameViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(alertController, animated: true)
     }
-
+    
     func noInfoAlert() {
         let alertController = UIAlertController(title: "We need at least one field to add a car to your garage", message: "Please provide information", preferredStyle: .alert)
         let accept = UIAlertAction(title: "Okay", style: .default)
         alertController.addAction(accept)
         present(alertController, animated: true)
+    }
 }
-}
+
 extension CarNameViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()

@@ -42,7 +42,7 @@ class MaintenanceTableViewCell: UITableViewCell {
     
     //MARK: -HELPERS
     
-    func update(maintenance:Maintanence){
+    func update(maintenance:Maintanence) {
         selectedMaintenance = maintenance
         entryNameLabel.text = maintenance.maintanenceRequired
         entryTypeLabel.text = maintenance.details
@@ -64,6 +64,10 @@ class MaintenanceTableViewCell: UITableViewCell {
             imageView?.image = UIImage(named: "notCheck")
             imageView?.layer.borderWidth = 0
         }
+    }
+    
+    func updateDummyText(dummyText: String) {
+        entryNameLabel.text = dummyText
     }
     
     
